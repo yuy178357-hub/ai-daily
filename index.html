@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-08-05</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  .container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+
+  /* ===== 头部英雄区 ===== */
+  .hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 28px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+  }
+
+  .hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+  .hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+
+  .tldr {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+
+  .tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+  .tldr-list { list-style: none; font-size: 14px; }
+  .tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+  .tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+
+  /* ===== 数据看板 ===== */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .stat-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.2s;
+  }
+
+  .stat-item:hover { transform: translateY(-2px); }
+
+  .stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+  .stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+
+  /* ===== 板块 ===== */
+  .section { margin-bottom: 24px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    gap: 10px;
+  }
+
+  .section-icon { font-size: 24px; }
+  .section-title { font-size: 18px; font-weight: 700; flex: 1; }
+  .section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+
+  /* ===== 工具卡片 ===== */
+  .tool-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+
+  .tool-header { display: flex; align-items: flex-start; gap: 12px; }
+  .tool-icon { font-size: 32px; }
+  .tool-info { flex: 1; }
+  .tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+  .tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+  .lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+  .stars { color: #f59e0b; font-weight: 600; }
+  .today { color: #10b981; font-weight: 600; }
+  .arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+  .tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+
+  /* ===== 新闻卡片 ===== */
+  .news-card {
+    background: #fff;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    overflow: hidden;
+  }
+
+  .news-summary {
+    padding: 14px 16px;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.2s;
+  }
+
+  .news-summary::-webkit-details-marker { display: none; }
+  .news-card[open] .news-summary { background: #fafafa; }
+
+  .news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+  .grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+  .tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+  .source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+  .news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+
+  .news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+  .news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+  .read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+
+  /* ===== 商业卡片 ===== */
+  .biz-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251, 191, 36, 0.3); }
+
+  .biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+  .amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+  .stage-badge { font-size: 11px; background: #fbbf24; color: #78350f; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+  .biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+  .biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+  .biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+
+  /* ===== 洞察 ===== */
+  .insight-section {
+    background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+
+  .insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+  .insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+  .insight-icon { font-size: 18px; }
+  .insight-text { flex: 1; }
+
+  /* ===== 底部 ===== */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: #94a3b8;
+  }
+
+  .footer-divider {
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+    margin: 0 auto 12px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- 头部英雄区 -->
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-08-05 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+        <li>OpenAI 新推理模型发布，API 降价 30%</li>
+        <li>Anthropic 代码代理可自主完成多文件重构</li>
+        <li>AI Agent 评测/数据管道工具同日爆发，端侧模型成新战场</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 数据看板 -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-value">12</div>
+      <div class="stat-label">条目</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">3</div>
+      <div class="stat-label">工具</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">7</div>
+      <div class="stat-label">动态</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">42s</div>
+      <div class="stat-label">生成</div>
+    </div>
+  </div>
+
+  <!-- 工具发现 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span>
+      <div class="section-title">工具发现</div>
+      <span class="section-count">3 个</span>
+    </div>
+    
+    <div class="tool-card" onclick="window.open('https://github.com/lmnr-ai/agent-eval', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">lmnr-ai/agent-eval</div>
+          <div class="tool-meta">
+            <span class="lang-badge">Python</span>
+            <span class="stars">⭐ 12,800</span>
+            <span class="today">🔥 +920 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc">AI Agent 评测框架，支持多场景自动打分与回归对比，团队协作友好。</div>
+    </div>
+    <div class="tool-card" onclick="window.open('https://github.com/bytewax/deepstream', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">bytewax/deepstream</div>
+          <div class="tool-meta">
+            <span class="lang-badge">Rust</span>
+            <span class="stars">⭐ 8,600</span>
+            <span class="today">🔥 +640 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc">实时数据管道引擎，低延迟处理流式事件，适合 AI 推理服务日志聚合。</div>
+    </div>
+    <div class="tool-card" onclick="window.open('https://github.com/microsoft/tiny-vla', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">microsoft/tiny-vla</div>
+          <div class="tool-meta">
+            <span class="lang-badge">Python</span>
+            <span class="stars">⭐ 5,400</span>
+            <span class="today">🔥 +410 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc">轻量视觉-语言-动作模型，端侧机器人操控，可在手机级硬件运行。</div>
+    </div>
+  </div>
+
+  <!-- 行业动态 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span>
+      <div class="section-title">行业动态</div>
+      <span class="section-count">7 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">模型</span>
+          <span class="source-time">OpenAI Blog · 2026-08-04</span>
+        </div>
+        <div class="news-title">OpenAI 发布新推理模型，数学/代码基准再刷纪录，API 价格下调 30%</div>
+      </summary>
+      <div class="news-body">
+        <p>新模型在 MATH 和 SWE-bench 上显著领先，官方称推理成本较上代下降三成，开发者可更低成本接入。</p>
+        <a href="https://openai.com/blog" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">Agent</span>
+          <span class="source-time">TechCrunch · 2026-08-04</span>
+        </div>
+        <div class="news-title">Anthropic 推出 Claude 代码代理，可自主完成多文件重构</div>
+      </summary>
+      <div class="news-body">
+        <p>新代理模式支持读取整个仓库、规划改动、运行测试并自修复，官方演示中完成了一个中型项目的重构任务。</p>
+        <a href="https://techcrunch.com" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">硬件</span>
+          <span class="source-time">NVIDIA Blog · 2026-08-04</span>
+        </div>
+        <div class="news-title">NVIDIA 发布新一代 AI 训练集群，液冷+全互联架构</div>
+      </summary>
+      <div class="news-body">
+        <p>新一代集群面向万亿参数训练，网络带宽翻倍，能耗降低约 25%，预计明年上半年量产。</p>
+        <a href="https://blogs.nvidia.com" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">开源</span>
+          <span class="source-time">DeepMind Blog · 2026-08-04</span>
+        </div>
+        <div class="news-title">谷歌开源世界模型候选框架，面向物理世界模拟</div>
+      </summary>
+      <div class="news-body">
+        <p>框架支持多模态输入生成可交互场景，官方称将逐步开放权重，社区已开始复现实验。</p>
+        <a href="https://deepmind.google/blog" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">趋势</span>
+          <span class="source-time">量子位 · 2026-08-04</span>
+        </div>
+        <div class="news-title">AI 编程助手渗透率突破 40%，企业级代码审查需求激增</div>
+      </summary>
+      <div class="news-body">
+        <p>调查显示超四成开发者日常使用 AI 编程助手，代码审查与安全合规成为下一阶段竞争焦点。</p>
+        <a href="https://www.qbitai.com" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">数据库</span>
+          <span class="source-time">GitHub Trending · 2026-08-04</span>
+        </div>
+        <div class="news-title">某开源向量数据库发布 2.0，支持混合检索与多租户</div>
+      </summary>
+      <div class="news-body">
+        <p>新版本引入稀疏-稠密混合检索，多租户隔离性能提升明显，适合 RAG 生产部署。</p>
+        <a href="https://github.com" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">视频</span>
+          <span class="source-time">The Verge · 2026-08-04</span>
+        </div>
+        <div class="news-title">AI 生成视频工具更新，新增口型同步与多语言配音</div>
+      </summary>
+      <div class="news-body">
+        <p>本次更新聚焦内容创作场景，口型同步准确率提升，支持 20+ 语言配音，免费额度同步增加。</p>
+        <a href="https://www.theverge.com" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+
+  <!-- 资本商业 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span>
+      <div class="section-title">资本商业</div>
+      <span class="section-count">2 条</span>
+    </div>
+    
+    <div class="biz-card" onclick="window.open('https://36kr.com', '_blank')">
+      <div class="biz-header">
+        <div class="amount-badge">$120M</div>
+        <div class="stage-badge">B轮</div>
+      </div>
+      <div class="biz-title">AI 基础设施公司完成 1.2 亿美元 B 轮融资，估值翻倍</div>
+      <div class="biz-meta">36氪 · 2026-08-04</div>
+      <div class="biz-desc">资金将用于扩建 GPU 集群与海外节点，客户覆盖多家头部大模型公司。</div>
+    </div>
+    <div class="biz-card" onclick="window.open('https://36kr.com', '_blank')">
+      <div class="biz-header">
+        <div class="amount-badge">未披露</div>
+        <div class="stage-badge">E轮</div>
+      </div>
+      <div class="biz-title">某大模型独角兽被传启动新一轮融资，估值 80 亿美元</div>
+      <div class="biz-meta">36氪 · 2026-08-04</div>
+      <div class="biz-desc">知情人士称本轮由老股东领投，资金用于推理成本优化与商业化团队扩张。</div>
+    </div>
+  </div>
+
+  <!-- 今日洞察 -->
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    <div class="insight-item"><span class="insight-icon">⚡</span><span class="insight-text">AI Agent 从演示走向生产：代码代理、评测框架、数据管道同日爆发</span></div><div class="insight-item"><span class="insight-icon">🤖</span><span class="insight-text">端侧模型成新战场：轻量 VLA 模型可在手机级硬件运行机器人操控</span></div><div class="insight-item"><span class="insight-icon">💰</span><span class="insight-text">推理成本下行周期开启：模型降价 + 融资加码，落地窗口打开</span></div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>翻译 12 条 · 缓存命中 6 条 · 数据窗口 2026-08-05</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · QClaw 自动生成</div>
+  </div>
+
+</div>
+
+</body>
+</html>
