@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-07-19 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">或超3250亿元！上市公司公告意外“曝光”DeepSeek估值</div>
+        <div class="news-title en-text">或超3250亿元！上市公司公告意外“曝光”DeepSeek估值</div>
+        <div class="news-title zh-text" style="display:none;">或超3250亿元！上市公司公告意外“曝光”DeepSeek估值</div>
         <div class="news-published">🕐 2026-07-18 21:39</div>
       </summary>
       <div class="news-body">
-        <p>近日，随着开润股份（300577.SZ）、汤臣倍健（300146.SZ）两家上市公司发布关联投资进展公告，DeepSeek的市场估值被意外曝光。按公告披露的出资比例测算...</p>
+        <p class="en-text">近日，随着开润股份（300577.SZ）、汤臣倍健（300146.SZ）两家上市公司发布关联投资进展公告，DeepSeek的市场估值被意外曝光。按公告披露的出资比例测算...</p>
+        <p class="zh-text" style="display:none;">近日，随着开润股份（300577.SZ）、汤臣倍健（300146.SZ）两家上市公司发布关联投资进展公告，DeepSeek的市场估值被意外曝光。按公告披露的出资比例测算...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-07-18/doc-iniifxrz0817169.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">AI创企Etched洽谈融资 投后估值目标200亿美元</div>
+        <div class="news-title en-text">AI创企Etched洽谈融资 投后估值目标200亿美元</div>
+        <div class="news-title zh-text" style="display:none;">AI创企Etched洽谈融资 投后估值目标200亿美元</div>
         <div class="news-published">🕐 2026-07-18 07:51</div>
       </summary>
       <div class="news-body">
-        <p>知情人士透露，对标英伟达研发AI芯片的初创公司Etched，正推进新一轮融资，由老股东简街资本领投，公司估值或将翻三倍，达到约200亿美元。</p>
+        <p class="en-text">知情人士透露，对标英伟达研发AI芯片的初创公司Etched，正推进新一轮融资，由老股东简街资本领投，公司估值或将翻三倍，达到约200亿美元。</p>
+        <p class="zh-text" style="display:none;">知情人士透露，对标英伟达研发AI芯片的初创公司Etched，正推进新一轮融资，由老股东简街资本领投，公司估值或将翻三倍，达到约200亿美元。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-18/doc-iniierwk1461440.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -147,5 +160,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

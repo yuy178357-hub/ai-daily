@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-05-25 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年5月8日科技突破新闻：AI创新、太空竞赛和行业变革 - Coaio</div>
+        <div class="news-title en-text">2026年5月8日科技突破新闻：AI创新、太空竞赛和行业变革 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">2026年5月8日科技突破新闻：AI创新、太空竞赛和行业变革 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>科技界正因2026年5月8日的最新头条而沸腾。这些头条涵盖了重塑工作方式的AI进步、太空探索里程碑以及监管争端，突显出一个快速演变的景观。本文汇总了来自Anthropic、SpaceX和Google等主要玩家的关键故事，提供见解，探讨这些创新如何影响企业和日常生活。## AI和机器学习突破人工智能继续主导新闻头条，多家公司推出更新，以提升效率和自动化。例如，Anthropic推出了Claude托管</p>
+        <p class="en-text">科技界正因2026年5月8日的最新头条而沸腾。这些头条涵盖了重塑工作方式的AI进步、太空探索里程碑以及监管争端，突显出一个快速演变的景观。本文汇总了来自Anthropic、SpaceX和Google等主要玩家的关键故事，提供见解，探讨这些创新如何影响企业和日常生活。## AI和机器学习突破人工智能继续主导新闻头条，多家公司推出更新，以提升效率和自动化。例如，Anthropic推出了Claude托管</p>
+        <p class="zh-text" style="display:none;">科技界正因2026年5月8日的最新头条而沸腾。这些头条涵盖了重塑工作方式的AI进步、太空探索里程碑以及监管争端，突显出一个快速演变的景观。本文汇总了来自Anthropic、SpaceX和Google等主要玩家的关键故事，提供见解，探讨这些创新如何影响企业和日常生活。## AI和机器学习突破人工智能继续主导新闻头条，多家公司推出更新，以提升效率和自动化。例如，Anthropic推出了Claude托管</p>
         <a href="https://coaio.com/zh/news/2026/05/breaking-tech-news-on-may-8-2026-ai-innovations-space-races-and-2pcc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">本周人工智能科技简报（2026年5月12日</div>
+        <div class="news-title en-text">本周人工智能科技简报（2026年5月12日</div>
+        <div class="news-title zh-text" style="display:none;">本周人工智能科技简报（2026年5月12日</div>
         
       </summary>
       <div class="news-body">
-        <p>A nthropic 推出“小型企业版 Claude Cowork” 内容简介 5 月 13 日 Anthropic 在其 Cowork 平台新增“小型企业版”开关，集成 QuickBooks、PayPal、HubSpot、Canva、Docusign、Google Workspace 与 Microsoft 365 等应用，并提供涵盖财务、运营、销售、营销、人力和客服的 15 个工作流程 。所有</p>
+        <p class="en-text">A nthropic 推出“小型企业版 Claude Cowork” 内容简介 5 月 13 日 Anthropic 在其 Cowork 平台新增“小型企业版”开关，集成 QuickBooks、PayPal、HubSpot、Canva、Docusign、Google Workspace 与 Microsoft 365 等应用，并提供涵盖财务、运营、销售、营销、人力和客服的 15 个工作流程 。所有</p>
+        <p class="zh-text" style="display:none;">A nthropic 推出“小型企业版 Claude Cowork” 内容简介 5 月 13 日 Anthropic 在其 Cowork 平台新增“小型企业版”开关，集成 QuickBooks、PayPal、HubSpot、Canva、Docusign、Google Workspace 与 Microsoft 365 等应用，并提供涵盖财务、运营、销售、营销、人力和客服的 15 个工作流程 。所有</p>
         <a href="https://cloud.tencent.com/developer/article/2671641" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">每日AIGC 早报：2026.5.22|openai|代码 - 网易</div>
+        <div class="news-title en-text">每日AIGC 早报：2026.5.22|openai|代码 - 网易</div>
+        <div class="news-title zh-text" style="display:none;">每日AIGC 早报：2026.5.22|openai|代码 - 网易</div>
         
       </summary>
       <div class="news-body">
-        <p>- OpenAI推Guaranteed Capacity，允许客户包年1-3年确保访问其计算资源 - OpenAI为AI图像增加谷歌SynthID水印支持，将允许用户验证某张图是否由自家工具生成 - 34家领先AI公司目前年化收入约800亿美元，较半年前增112%；其中Anthropic和OpenAI占89%收入 - Cursor发布基于KimiK2.5构建的Composer2.5，称其长期任务持</p>
+        <p class="en-text">- OpenAI推Guaranteed Capacity，允许客户包年1-3年确保访问其计算资源 - OpenAI为AI图像增加谷歌SynthID水印支持，将允许用户验证某张图是否由自家工具生成 - 34家领先AI公司目前年化收入约800亿美元，较半年前增112%；其中Anthropic和OpenAI占89%收入 - Cursor发布基于KimiK2.5构建的Composer2.5，称其长期任务持</p>
+        <p class="zh-text" style="display:none;">- OpenAI推Guaranteed Capacity，允许客户包年1-3年确保访问其计算资源 - OpenAI为AI图像增加谷歌SynthID水印支持，将允许用户验证某张图是否由自家工具生成 - 34家领先AI公司目前年化收入约800亿美元，较半年前增112%；其中Anthropic和OpenAI占89%收入 - Cursor发布基于KimiK2.5构建的Composer2.5，称其长期任务持</p>
         <a href="https://www.163.com/dy/article/KTHB75RK05118BEE.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能和技术创新的爆炸式发展主导2026年5月14日头条新闻 - Coaio</div>
+        <div class="news-title en-text">人工智能和技术创新的爆炸式发展主导2026年5月14日头条新闻 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">人工智能和技术创新的爆炸式发展主导2026年5月14日头条新闻 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>Amazon也加入人工智能竞赛，推出由Alexa+驱动的新购物助手。正如TechCrunch报道，此工具提供个性化推荐并跨平台自动化购物，简化消费者体验。同时，在Amazon，员工面临采用人工智能工具的压力，这种现象被称为“tokenmaxxing”，正如Ars Technica报道。这种内部转变突显了人工智能如何改变工作场所，可能为更具创造性的任务解放人力资源。 在企业领域，Notion已将其平</p>
+        <p class="en-text">Amazon也加入人工智能竞赛，推出由Alexa+驱动的新购物助手。正如TechCrunch报道，此工具提供个性化推荐并跨平台自动化购物，简化消费者体验。同时，在Amazon，员工面临采用人工智能工具的压力，这种现象被称为“tokenmaxxing”，正如Ars Technica报道。这种内部转变突显了人工智能如何改变工作场所，可能为更具创造性的任务解放人力资源。 在企业领域，Notion已将其平</p>
+        <p class="zh-text" style="display:none;">Amazon也加入人工智能竞赛，推出由Alexa+驱动的新购物助手。正如TechCrunch报道，此工具提供个性化推荐并跨平台自动化购物，简化消费者体验。同时，在Amazon，员工面临采用人工智能工具的压力，这种现象被称为“tokenmaxxing”，正如Ars Technica报道。这种内部转变突显了人工智能如何改变工作场所，可能为更具创造性的任务解放人力资源。 在企业领域，Notion已将其平</p>
         <a href="https://coaio.com/zh/news/2026/05/explosive-ai-and-tech-innovations-dominate-may-14-2026-headlines-from-2q0c" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -166,11 +183,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Google I/O 2026 Recap, OpenAI Nearing $1 Trillion IPO, Anthropic ...</div>
+        <div class="news-title en-text">Google I/O 2026 Recap, OpenAI Nearing $1 Trillion IPO, Anthropic ...</div>
+        <div class="news-title zh-text" style="display:none;">Google I/O 2026 Recap, OpenAI Nearing $1 Trillion IPO, Anthropic ...</div>
         
       </summary>
       <div class="news-body">
-        <p>▼いけとも尾原 DeepなAIニュース ▼あなたのAI偏差値は？生成AIビジネス活用力サーベイ ## Google I/O 2026まとめ ・Gemini 3.5 Flash　爆速のエージェントモデル ・Google Antigravity 2.0　ClaudeCodeライクなエージェントアプリ ・Google AI Studio　Google Workspace連携、Androidアプリ ・Ge</p>
+        <p class="en-text">▼いけとも尾原 DeepなAIニュース ▼あなたのAI偏差値は？生成AIビジネス活用力サーベイ ## Google I/O 2026まとめ ・Gemini 3.5 Flash　爆速のエージェントモデル ・Google Antigravity 2.0　ClaudeCodeライクなエージェントアプリ ・Google AI Studio　Google Workspace連携、Androidアプリ ・Ge</p>
+        <p class="zh-text" style="display:none;">▼いけとも尾原 DeepなAIニュース ▼あなたのAI偏差値は？生成AIビジネス活用力サーベイ ## Google I/O 2026まとめ ・Gemini 3.5 Flash　爆速のエージェントモデル ・Google Antigravity 2.0　ClaudeCodeライクなエージェントアプリ ・Google AI Studio　Google Workspace連携、Androidアプリ ・Ge</p>
         <a href="https://www.youtube.com/watch?v=atPp33t59SU" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -181,11 +200,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">谷歌發布一系列新AI工具挑戰OpenAI和Anthropic - Yahoo 財經</div>
+        <div class="news-title en-text">谷歌發布一系列新AI工具挑戰OpenAI和Anthropic - Yahoo 財經</div>
+        <div class="news-title zh-text" style="display:none;">谷歌發布一系列新AI工具挑戰OpenAI和Anthropic - Yahoo 財經</div>
         
       </summary>
       <div class="news-body">
-        <p>### 足球 NBA 網球 本地體壇 ### Yahoo自家製 新聞 財經 娛樂 生活 美食 旅遊 ### 天氣 Yahoo國際 App下載 © 2026 All rights reserved. # 雅虎香港財經 雅虎香港財經 Mail 登入 Bloomberg # 谷歌發布一系列新AI工具 挑戰OpenAI和Anthropic Julia Love GOOGL -2.34% 【彭博】-- 科技</p>
+        <p class="en-text">### 足球 NBA 網球 本地體壇 ### Yahoo自家製 新聞 財經 娛樂 生活 美食 旅遊 ### 天氣 Yahoo國際 App下載 © 2026 All rights reserved. # 雅虎香港財經 雅虎香港財經 Mail 登入 Bloomberg # 谷歌發布一系列新AI工具 挑戰OpenAI和Anthropic Julia Love GOOGL -2.34% 【彭博】-- 科技</p>
+        <p class="zh-text" style="display:none;">### 足球 NBA 網球 本地體壇 ### Yahoo自家製 新聞 財經 娛樂 生活 美食 旅遊 ### 天氣 Yahoo國際 App下載 © 2026 All rights reserved. # 雅虎香港財經 雅虎香港財經 Mail 登入 Bloomberg # 谷歌發布一系列新AI工具 挑戰OpenAI和Anthropic Julia Love GOOGL -2.34% 【彭博】-- 科技</p>
         <a href="https://hk.finance.yahoo.com/news/%E8%B0%B7%E6%AD%8C%E7%99%BC%E5%B8%83-%E7%B3%BB%E5%88%97%E6%96%B0ai%E5%B7%A5%E5%85%B7-%E6%8C%91%E6%88%B0openai%E5%92%8Canthropic-125028623.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -196,11 +217,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic</div>
+        <div class="news-title en-text">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic</div>
+        <div class="news-title zh-text" style="display:none;">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic</div>
         
       </summary>
       <div class="news-body">
-        <p>2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic、Meta與xAI，各自走出不同技術與商業路線，這場競爭已經從單純比模型性能，轉向比誰能建立</p>
+        <p class="en-text">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic、Meta與xAI，各自走出不同技術與商業路線，這場競爭已經從單純比模型性能，轉向比誰能建立</p>
+        <p class="zh-text" style="display:none;">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic、Meta與xAI，各自走出不同技術與商業路線，這場競爭已經從單純比模型性能，轉向比誰能建立</p>
         <a href="https://www.threads.com/@jackieyutw/post/DVdj7PqkmTU/2026%E7%94%9F%E6%88%90%E5%BC%8Fai%E7%AB%B6%E7%88%AD%E7%99%BD%E7%86%B1%E5%8C%96%E4%BA%94%E5%AE%B6%E5%85%AC%E5%8F%B8openaigoogleanthropicmeta%E8%88%87xai%E5%90%84%E8%87%AA%E8%B5%B0%E5%87%BA%E4%B8%8D%E5%90%8C%E6%8A%80%E8%A1%93%E8%88%87%E5%95%86%E6%A5%AD%E8%B7%AF%E7%B7%9A%E9%80%99%E5%A0%B4%E7%AB%B6%E7%88%AD%E5%B7%B2%E7%B6%93%E5%BE%9E%E5%96%AE%E7%B4%94%E6%AF%94%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E8%BD%89%E5%90%91%E6%AF%94%E8%AA%B0%E8%83%BD%E5%BB%BA" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -211,11 +234,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic ...</div>
+        <div class="news-title en-text">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic ...</div>
+        <div class="news-title zh-text" style="display:none;">2026生成式AI競爭白熱化，五家公司OpenAI、Google、Anthropic ...</div>
         
       </summary>
       <div class="news-body">
-        <p>2026生成式AI競爭白熱化，五家公司OpenAI、Google 、Anthropic、Meta與xAI，各自走出不同技術與商業路 線，這場競爭已經從單純比模型性能，轉向比誰能建立</p>
+        <p class="en-text">2026生成式AI競爭白熱化，五家公司OpenAI、Google 、Anthropic、Meta與xAI，各自走出不同技術與商業路 線，這場競爭已經從單純比模型性能，轉向比誰能建立</p>
+        <p class="zh-text" style="display:none;">2026生成式AI競爭白熱化，五家公司OpenAI、Google 、Anthropic、Meta與xAI，各自走出不同技術與商業路 線，這場競爭已經從單純比模型性能，轉向比誰能建立</p>
         <a href="https://www.facebook.com/yutinghaosfinance/posts/2026%E7%94%9F%E6%88%90%E5%BC%8Fai%E7%AB%B6%E7%88%AD%E7%99%BD%E7%86%B1%E5%8C%96%E4%BA%94%E5%AE%B6%E5%85%AC%E5%8F%B8openaigoogleanthropicmeta%E8%88%87xai%E5%90%84%E8%87%AA%E8%B5%B0%E5%87%BA%E4%B8%8D%E5%90%8C%E6%8A%80%E8%A1%93%E8%88%87%E5%95%86%E6%A5%AD%E8%B7%AF%E7%B7%9A%E9%80%99%E5%A0%B4%E7%AB%B6%E7%88%AD%E5%B7%B2%E7%B6%93%E5%BE%9E%E5%96%AE%E7%B4%94%E6%AF%94%E6%A8%A1%E5%9E%8B%E6%80%A7%E8%83%BD%E8%BD%89%E5%90%91%E6%AF%94%E8%AA%B0%E8%83%BD%E5%BB%BA/972598905331463" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -226,11 +251,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">全球AI模型发布时间线(持续更新) - 知乎专栏</div>
+        <div class="news-title en-text">全球AI模型发布时间线(持续更新) - 知乎专栏</div>
+        <div class="news-title zh-text" style="display:none;">全球AI模型发布时间线(持续更新) - 知乎专栏</div>
         
       </summary>
       <div class="news-body">
-        <p>2026年2月5日，OpenAI 发布通用语言模型GPT-5.3-Codex。编程速度提升25%，参与自身开发过程中的调试与部署等任务。发布AI平台Frontier，可部署具备权限管理的AI</p>
+        <p class="en-text">2026年2月5日，OpenAI 发布通用语言模型GPT-5.3-Codex。编程速度提升25%，参与自身开发过程中的调试与部署等任务。发布AI平台Frontier，可部署具备权限管理的AI</p>
+        <p class="zh-text" style="display:none;">2026年2月5日，OpenAI 发布通用语言模型GPT-5.3-Codex。编程速度提升25%，参与自身开发过程中的调试与部署等任务。发布AI平台Frontier，可部署具备权限管理的AI</p>
         <a href="https://zhuanlan.zhihu.com/p/14903006525" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -241,11 +268,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Apple最新AI突破！語音、購物、健康全面革新  【 2026.5.10 AI News ...</div>
+        <div class="news-title en-text">Apple最新AI突破！語音、購物、健康全面革新  【 2026.5.10 AI News ...</div>
+        <div class="news-title zh-text" style="display:none;">Apple最新AI突破！語音、購物、健康全面革新  【 2026.5.10 AI News ...</div>
         
       </summary>
       <div class="news-body">
-        <p>每日AI速報| OpenAI、Google、Amazon、Apple最新AI突破！語音 ... Google 2026發布會這頭「怪獸」問世，OpenAI和蘋果徹底被埋葬！ . 獨特</p>
+        <p class="en-text">每日AI速報| OpenAI、Google、Amazon、Apple最新AI突破！語音 ... Google 2026發布會這頭「怪獸」問世，OpenAI和蘋果徹底被埋葬！ . 獨特</p>
+        <p class="zh-text" style="display:none;">每日AI速報| OpenAI、Google、Amazon、Apple最新AI突破！語音 ... Google 2026發布會這頭「怪獸」問世，OpenAI和蘋果徹底被埋葬！ . 獨特</p>
         <a href="https://www.youtube.com/watch?v=MxgbiXv-5fE" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -256,11 +285,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能日报每日AI新闻（2026年5月13日）</div>
+        <div class="news-title en-text">人工智能日报每日AI新闻（2026年5月13日）</div>
+        <div class="news-title zh-text" style="display:none;">人工智能日报每日AI新闻（2026年5月13日）</div>
         
       </summary>
       <div class="news-body">
-        <p># logo AtomGit AI 社区 ## 登录社区云 ### AtomGit AI 社区 邀请您加入社区 欢迎加入社区 欢迎加入社区 AtomGit AI 社区   人工智能日报 每日AI新闻（2026年5月13日） # 人工智能日报 每日AI新闻（2026年5月13日） 大家早上好，今天这期 AI 日报我挑了 4 条还比较新的动态，尽量覆盖模型平台、移动端产品、行业风险提示和社交平台体验几</p>
+        <p class="en-text"># logo AtomGit AI 社区 ## 登录社区云 ### AtomGit AI 社区 邀请您加入社区 欢迎加入社区 欢迎加入社区 AtomGit AI 社区   人工智能日报 每日AI新闻（2026年5月13日） # 人工智能日报 每日AI新闻（2026年5月13日） 大家早上好，今天这期 AI 日报我挑了 4 条还比较新的动态，尽量覆盖模型平台、移动端产品、行业风险提示和社交平台体验几</p>
+        <p class="zh-text" style="display:none;"># logo AtomGit AI 社区 ## 登录社区云 ### AtomGit AI 社区 邀请您加入社区 欢迎加入社区 欢迎加入社区 AtomGit AI 社区   人工智能日报 每日AI新闻（2026年5月13日） # 人工智能日报 每日AI新闻（2026年5月13日） 大家早上好，今天这期 AI 日报我挑了 4 条还比较新的动态，尽量覆盖模型平台、移动端产品、行业风险提示和社交平台体验几</p>
         <a href="https://tianqi.csdn.net/6a03c8f70a2f6a37c5a9a33e.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -271,11 +302,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">AI 早报2026-05-07 - 知乎专栏</div>
+        <div class="news-title en-text">AI 早报2026-05-07 - 知乎专栏</div>
+        <div class="news-title zh-text" style="display:none;">AI 早报2026-05-07 - 知乎专栏</div>
         
       </summary>
       <div class="news-body">
-        <p>Anthropic 近期宣布与SpaceX 达成一项算力合作，该合作使其获得SpaceX 旗下 Colossus 1 数据中心全部超过300 兆瓦（逾22 万张 NVIDIA GPU）的算力，并计划于本</p>
+        <p class="en-text">Anthropic 近期宣布与SpaceX 达成一项算力合作，该合作使其获得SpaceX 旗下 Colossus 1 数据中心全部超过300 兆瓦（逾22 万张 NVIDIA GPU）的算力，并计划于本</p>
+        <p class="zh-text" style="display:none;">Anthropic 近期宣布与SpaceX 达成一项算力合作，该合作使其获得SpaceX 旗下 Colossus 1 数据中心全部超过300 兆瓦（逾22 万张 NVIDIA GPU）的算力，并计划于本</p>
         <a href="https://zhuanlan.zhihu.com/p/2035655317694985299" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -286,11 +319,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年全球AI十强字节、智谱、阿里3中企上榜| 世界新闻网</div>
+        <div class="news-title en-text">2026年全球AI十强字节、智谱、阿里3中企上榜| 世界新闻网</div>
+        <div class="news-title zh-text" style="display:none;">2026年全球AI十强字节、智谱、阿里3中企上榜| 世界新闻网</div>
         
       </summary>
       <div class="news-body">
-        <p>udn custom-logo title wj ### 我的频道 ## 12种好市多冷冻早餐大评比 这款被指不健康 ## 迪士尼就在附近...南加危险化学槽恐爆炸 4万人紧急撤离 # 2026年全球AI十强 字节、智谱、阿里3中企上榜 打开微信，点击底部的「发现」，使用「扫一扫」即可将网页分享至好友 「智谱AI」。(取自东方财富网) 美国《时代》杂志公布「2026年最具影响力十家人工智能公司」名</p>
+        <p class="en-text">udn custom-logo title wj ### 我的频道 ## 12种好市多冷冻早餐大评比 这款被指不健康 ## 迪士尼就在附近...南加危险化学槽恐爆炸 4万人紧急撤离 # 2026年全球AI十强 字节、智谱、阿里3中企上榜 打开微信，点击底部的「发现」，使用「扫一扫」即可将网页分享至好友 「智谱AI」。(取自东方财富网) 美国《时代》杂志公布「2026年最具影响力十家人工智能公司」名</p>
+        <p class="zh-text" style="display:none;">udn custom-logo title wj ### 我的频道 ## 12种好市多冷冻早餐大评比 这款被指不健康 ## 迪士尼就在附近...南加危险化学槽恐爆炸 4万人紧急撤离 # 2026年全球AI十强 字节、智谱、阿里3中企上榜 打开微信，点击底部的「发现」，使用「扫一扫」即可将网页分享至好友 「智谱AI」。(取自东方财富网) 美国《时代》杂志公布「2026年最具影响力十家人工智能公司」名</p>
         <a href="https://www.worldjournal.com/wj/story/121347/9470465?from=wj_catelistnews&amp;zh-cn=" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -301,11 +336,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">時代雜誌公布AI 十強三陸企上榜</div>
+        <div class="news-title en-text">時代雜誌公布AI 十強三陸企上榜</div>
+        <div class="news-title zh-text" style="display:none;">時代雜誌公布AI 十強三陸企上榜</div>
         
       </summary>
       <div class="news-body">
-        <p>udn-logo ### 全產品速覽 #### 新聞評論 #### 服務 #### 股市理財 #### 生活娛樂 #### 運動 #### 閱讀創作 #### 文創購物 #### 更多產品 ### 我的頻道 ## 上看38度先熱爆再變天！周五起全台雨區擴大 颱風預計周末生成 19:19 ## 台北看守所一天2受刑人送醫 1人昨身體不適「今全身抽搐」不治身亡 19:07 ## 烏龍！豐原醫院急診室外</p>
+        <p class="en-text">udn-logo ### 全產品速覽 #### 新聞評論 #### 服務 #### 股市理財 #### 生活娛樂 #### 運動 #### 閱讀創作 #### 文創購物 #### 更多產品 ### 我的頻道 ## 上看38度先熱爆再變天！周五起全台雨區擴大 颱風預計周末生成 19:19 ## 台北看守所一天2受刑人送醫 1人昨身體不適「今全身抽搐」不治身亡 19:07 ## 烏龍！豐原醫院急診室外</p>
+        <p class="zh-text" style="display:none;">udn-logo ### 全產品速覽 #### 新聞評論 #### 服務 #### 股市理財 #### 生活娛樂 #### 運動 #### 閱讀創作 #### 文創購物 #### 更多產品 ### 我的頻道 ## 上看38度先熱爆再變天！周五起全台雨區擴大 颱風預計周末生成 19:19 ## 台北看守所一天2受刑人送醫 1人昨身體不適「今全身抽搐」不治身亡 19:07 ## 烏龍！豐原醫院急診室外</p>
         <a href="https://udn.com/news/story/7333/9470465" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -316,11 +353,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 AI Business Predictions</div>
+        <div class="news-title en-text">2026 AI Business Predictions</div>
+        <div class="news-title zh-text" style="display:none;">2026 AI Business Predictions</div>
         
       </summary>
       <div class="news-body">
-        <p>Menu Technology Alliances and ecosystems AdobeAmazon Web ServicesAnthropicGoogle CloudGuidewireMicrosoftOpenAIOracleSalesforceSAPWorkday Menu Technology Delivery platforms ConcourseSightline Menu Tech</p>
+        <p class="en-text">Menu Technology Alliances and ecosystems AdobeAmazon Web ServicesAnthropicGoogle CloudGuidewireMicrosoftOpenAIOracleSalesforceSAPWorkday Menu Technology Delivery platforms ConcourseSightline Menu Tech</p>
+        <p class="zh-text" style="display:none;">Menu Technology Alliances and ecosystems AdobeAmazon Web ServicesAnthropicGoogle CloudGuidewireMicrosoftOpenAIOracleSalesforceSAPWorkday Menu Technology Delivery platforms ConcourseSightline Menu Tech</p>
         <a href="https://www.pwc.com/us/en/tech-effect/ai-analytics/ai-predictions.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -331,11 +370,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">10 Data + AI Predictions for 2026</div>
+        <div class="news-title en-text">10 Data + AI Predictions for 2026</div>
+        <div class="news-title zh-text" style="display:none;">10 Data + AI Predictions for 2026</div>
         
       </summary>
       <div class="news-body">
-        <p>Databricks wins with tight integration between model training, deployment, and data processing. Teams can fine-tune models on the same platform where their data lives, eliminating the complexity of mo</p>
+        <p class="en-text">Databricks wins with tight integration between model training, deployment, and data processing. Teams can fine-tune models on the same platform where their data lives, eliminating the complexity of mo</p>
+        <p class="zh-text" style="display:none;">Databricks wins with tight integration between model training, deployment, and data processing. Teams can fine-tune models on the same platform where their data lives, eliminating the complexity of mo</p>
         <a href="https://barrmoses.medium.com/10-data-ai-predictions-for-2026-adf2750cccba" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -346,11 +387,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Seven Big Predictions For Tech &amp; AI in 2026 - LinkedIn</div>
+        <div class="news-title en-text">Seven Big Predictions For Tech &amp; AI in 2026 - LinkedIn</div>
+        <div class="news-title zh-text" style="display:none;">Seven Big Predictions For Tech &amp; AI in 2026 - LinkedIn</div>
         
       </summary>
       <div class="news-body">
-        <p>... Meta Ray Bans and OpenAI will not release a hardware product in 2026. Other buzzy startups like friend.com will fold and the world will ask</p>
+        <p class="en-text">... Meta Ray Bans and OpenAI will not release a hardware product in 2026. Other buzzy startups like friend.com will fold and the world will ask</p>
+        <p class="zh-text" style="display:none;">... Meta Ray Bans and OpenAI will not release a hardware product in 2026. Other buzzy startups like friend.com will fold and the world will ask</p>
         <a href="https://www.linkedin.com/pulse/seven-big-predictions-tech-ai-2026-alex-kantrowitz-cvlwe" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -361,11 +404,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">《時代》雜誌公布2026年十大最具影響力AI公司榜單字節跳動</div>
+        <div class="news-title en-text">《時代》雜誌公布2026年十大最具影響力AI公司榜單字節跳動</div>
+        <div class="news-title zh-text" style="display:none;">《時代》雜誌公布2026年十大最具影響力AI公司榜單字節跳動</div>
         
       </summary>
       <div class="news-body">
-        <p>|  |  |  | --- |  | 分享內容 |  | 《時代》雜誌公布2026年十大最具影響力人工智能公司榜單，字節跳動、智譜(02513.HK) +272.000 (+26.931%)) 沽空 $1.27億; 比率 3.501%) 及阿里-W(09988.HK) +1.000 (+0.794%)) 沽空 $9.61億; 比率 11.256%) 入選。 《時代》雜誌指出，字節跳動旗下AI助理</p>
+        <p class="en-text">|  |  |  | --- |  | 分享內容 |  | 《時代》雜誌公布2026年十大最具影響力人工智能公司榜單，字節跳動、智譜(02513.HK) +272.000 (+26.931%)) 沽空 $1.27億; 比率 3.501%) 及阿里-W(09988.HK) +1.000 (+0.794%)) 沽空 $9.61億; 比率 11.256%) 入選。 《時代》雜誌指出，字節跳動旗下AI助理</p>
+        <p class="zh-text" style="display:none;">|  |  |  | --- |  | 分享內容 |  | 《時代》雜誌公布2026年十大最具影響力人工智能公司榜單，字節跳動、智譜(02513.HK) +272.000 (+26.931%)) 沽空 $1.27億; 比率 3.501%) 及阿里-W(09988.HK) +1.000 (+0.794%)) 沽空 $9.61億; 比率 11.256%) 入選。 《時代》雜誌指出，字節跳動旗下AI助理</p>
         <a href="http://www.aastocks.com/tc/stocks/news/AAFN-news/NOW.1521217/1" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -376,11 +421,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">The trends that will shape AI and tech in 2026 - IBM</div>
+        <div class="news-title en-text">The trends that will shape AI and tech in 2026 - IBM</div>
+        <div class="news-title zh-text" style="display:none;">The trends that will shape AI and tech in 2026 - IBM</div>
         
       </summary>
       <div class="news-body">
-        <p>“2026 is when these patterns are going to come out of the lab and into real life,” said Blair, who leads IBM’s BeeAI and Agent Stack initiatives. Both projects were contributed to the Linux Foundation</p>
+        <p class="en-text">“2026 is when these patterns are going to come out of the lab and into real life,” said Blair, who leads IBM’s BeeAI and Agent Stack initiatives. Both projects were contributed to the Linux Foundation</p>
+        <p class="zh-text" style="display:none;">“2026 is when these patterns are going to come out of the lab and into real life,” said Blair, who leads IBM’s BeeAI and Agent Stack initiatives. Both projects were contributed to the Linux Foundation</p>
         <a href="https://www.ibm.com/think/news/ai-tech-trends-predictions-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -391,11 +438,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 AI 決戰：四大巨擘對決 - YouTube</div>
+        <div class="news-title en-text">2026 AI 決戰：四大巨擘對決 - YouTube</div>
+        <div class="news-title zh-text" style="display:none;">2026 AI 決戰：四大巨擘對決 - YouTube</div>
         
       </summary>
       <div class="news-body">
-        <p>2026年主流AI模型綜合評估比較表這份文件詳盡對比了2026 年2 月四大頂尖人工智慧模型，包含Grok、ChatGPT、Claude 與Gemini 的各項關鍵指標。</p>
+        <p class="en-text">2026年主流AI模型綜合評估比較表這份文件詳盡對比了2026 年2 月四大頂尖人工智慧模型，包含Grok、ChatGPT、Claude 與Gemini 的各項關鍵指標。</p>
+        <p class="zh-text" style="display:none;">2026年主流AI模型綜合評估比較表這份文件詳盡對比了2026 年2 月四大頂尖人工智慧模型，包含Grok、ChatGPT、Claude 與Gemini 的各項關鍵指標。</p>
         <a href="https://www.youtube.com/watch?v=QPAZhUl7774" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -417,5 +466,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

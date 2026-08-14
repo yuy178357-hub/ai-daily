@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-05-24 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">海峡航运暗中恢复 印度时隔数月再度接收海湾液化天然气</div>
+        <div class="news-title en-text">海峡航运暗中恢复 印度时隔数月再度接收海湾液化天然气</div>
+        <div class="news-title zh-text" style="display:none;">海峡航运暗中恢复 印度时隔数月再度接收海湾液化天然气</div>
         <div class="news-published">🕐 2026-05-24 09:25</div>
       </summary>
       <div class="news-body">
-        <p>一艘驶往印度的液化天然气油轮已驶出霍尔木兹海峡。自数月前伊朗战事爆发以来，这是印度首次从波斯湾接收此类货运，区域出口方正隐秘地向主要客户供货。</p>
+        <p class="en-text">一艘驶往印度的液化天然气油轮已驶出霍尔木兹海峡。自数月前伊朗战事爆发以来，这是印度首次从波斯湾接收此类货运，区域出口方正隐秘地向主要客户供货。</p>
+        <p class="zh-text" style="display:none;">一艘驶往印度的液化天然气油轮已驶出霍尔木兹海峡。自数月前伊朗战事爆发以来，这是印度首次从波斯湾接收此类货运，区域出口方正隐秘地向主要客户供货。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyyaqu4643968.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">长鑫科技“上会决战”！古有孔融让梨今有一明让股，市值3万亿场景下朱一明财富797亿员工人均454万！</div>
+        <div class="news-title en-text">长鑫科技“上会决战”！古有孔融让梨今有一明让股，市值3万亿场景下朱一明财富797亿员工人均454万！</div>
+        <div class="news-title zh-text" style="display:none;">长鑫科技“上会决战”！古有孔融让梨今有一明让股，市值3万亿场景下朱一明财富797亿员工人均454万！</div>
         <div class="news-published">🕐 2026-05-24 09:10</div>
       </summary>
       <div class="news-body">
-        <p>来源：国际投行研究报告 A股·港股·美股 第21周| 2026年5月19日（周一）—5月24日（周日） 本报告汇总2026年5月19日—5月24日，中国企业在A股、港股...</p>
+        <p class="en-text">来源：国际投行研究报告 A股·港股·美股 第21周| 2026年5月19日（周一）—5月24日（周日） 本报告汇总2026年5月19日—5月24日，中国企业在A股、港股...</p>
+        <p class="zh-text" style="display:none;">来源：国际投行研究报告 A股·港股·美股 第21周| 2026年5月19日（周一）—5月24日（周日） 本报告汇总2026年5月19日—5月24日，中国企业在A股、港股...</p>
         <a href="https://finance.sina.com.cn/stock/companyt/2026-05-24/doc-inhyyaqu4643793.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">美国官员：特朗普宣布的协议中，伊朗同意交出浓缩铀储备</div>
+        <div class="news-title en-text">美国官员：特朗普宣布的协议中，伊朗同意交出浓缩铀储备</div>
+        <div class="news-title zh-text" style="display:none;">美国官员：特朗普宣布的协议中，伊朗同意交出浓缩铀储备</div>
         <div class="news-published">🕐 2026-05-24 09:08</div>
       </summary>
       <div class="news-body">
-        <p>两名美国官员透露，美伊拟议协议的一项核心内容是，伊朗方面承诺交出高浓缩铀库存。 白宫相关人员暂未回应置评请求。特朗普总统周六表示，美国即将与伊朗达成停战协议...</p>
+        <p class="en-text">两名美国官员透露，美伊拟议协议的一项核心内容是，伊朗方面承诺交出高浓缩铀库存。 白宫相关人员暂未回应置评请求。特朗普总统周六表示，美国即将与伊朗达成停战协议...</p>
+        <p class="zh-text" style="display:none;">两名美国官员透露，美伊拟议协议的一项核心内容是，伊朗方面承诺交出高浓缩铀库存。 白宫相关人员暂未回应置评请求。特朗普总统周六表示，美国即将与伊朗达成停战协议...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyyaqs3654679.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">美参议员克鲁兹对美伊拟协议相关消息表达担忧 特朗普顾问：“没人问你意见”</div>
+        <div class="news-title en-text">美参议员克鲁兹对美伊拟协议相关消息表达担忧 特朗普顾问：“没人问你意见”</div>
+        <div class="news-title zh-text" style="display:none;">美参议员克鲁兹对美伊拟协议相关消息表达担忧 特朗普顾问：“没人问你意见”</div>
         <div class="news-published">🕐 2026-05-24 08:44</div>
       </summary>
       <div class="news-body">
-        <p>美国共和党参议员特德・克鲁兹周六在社交平台发文，对美伊拟达成协议的相关消息表达担忧。 他警示，协议或将让伊朗获得大额资金，继续开展铀浓缩活动...</p>
+        <p class="en-text">美国共和党参议员特德・克鲁兹周六在社交平台发文，对美伊拟达成协议的相关消息表达担忧。 他警示，协议或将让伊朗获得大额资金，继续开展铀浓缩活动...</p>
+        <p class="zh-text" style="display:none;">美国共和党参议员特德・克鲁兹周六在社交平台发文，对美伊拟达成协议的相关消息表达担忧。 他警示，协议或将让伊朗获得大额资金，继续开展铀浓缩活动...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyyaqq6868283.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -166,11 +183,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">三星海力士杠杆ETF即将上市 韩国千万散户需求旺盛 分析师预警波动风险</div>
+        <div class="news-title en-text">三星海力士杠杆ETF即将上市 韩国千万散户需求旺盛 分析师预警波动风险</div>
+        <div class="news-title zh-text" style="display:none;">三星海力士杠杆ETF即将上市 韩国千万散户需求旺盛 分析师预警波动风险</div>
         <div class="news-published">🕐 2026-05-24 08:31</div>
       </summary>
       <div class="news-body">
-        <p>本周，全球表现亮眼但波动剧烈的韩国股市，即将迎来首批个股杠杆交易所交易基金。这类金融工具会同步放大投资收益与亏损。</p>
+        <p class="en-text">本周，全球表现亮眼但波动剧烈的韩国股市，即将迎来首批个股杠杆交易所交易基金。这类金融工具会同步放大投资收益与亏损。</p>
+        <p class="zh-text" style="display:none;">本周，全球表现亮眼但波动剧烈的韩国股市，即将迎来首批个股杠杆交易所交易基金。这类金融工具会同步放大投资收益与亏损。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyyaqs3640559.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -181,11 +200,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">ST如意累计虚增利润7.81亿，公司及主要责任人被罚，实控人邱亚夫终身禁入证券市场</div>
+        <div class="news-title en-text">ST如意累计虚增利润7.81亿，公司及主要责任人被罚，实控人邱亚夫终身禁入证券市场</div>
+        <div class="news-title zh-text" style="display:none;">ST如意累计虚增利润7.81亿，公司及主要责任人被罚，实控人邱亚夫终身禁入证券市场</div>
         <div class="news-published">🕐 2026-05-24 08:30</div>
       </summary>
       <div class="news-body">
-        <p>5月22日，ST如意（002193.SZ）公告披露，公司及相关当事人收到证监会山东监管局《行政处罚决定书》。经核查，公司2022年年报虚增利润总额6.77亿元...</p>
+        <p class="en-text">5月22日，ST如意（002193.SZ）公告披露，公司及相关当事人收到证监会山东监管局《行政处罚决定书》。经核查，公司2022年年报虚增利润总额6.77亿元...</p>
+        <p class="zh-text" style="display:none;">5月22日，ST如意（002193.SZ）公告披露，公司及相关当事人收到证监会山东监管局《行政处罚决定书》。经核查，公司2022年年报虚增利润总额6.77亿元...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyyaqu4624166.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -196,11 +217,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">荣耀IPO进展：多名员工表示将退股</div>
+        <div class="news-title en-text">荣耀IPO进展：多名员工表示将退股</div>
+        <div class="news-title zh-text" style="display:none;">荣耀IPO进展：多名员工表示将退股</div>
         <div class="news-published">🕐 2026-05-24 08:27</div>
       </summary>
       <div class="news-body">
-        <p>来源：粤股8 5月22日，界面新闻独家获悉，荣耀遵照股改后一年没有上市约定，开放员工减持退出通道，选择退股员工将获得分红补偿，正式退股方案将于三个月内完成。</p>
+        <p class="en-text">来源：粤股8 5月22日，界面新闻独家获悉，荣耀遵照股改后一年没有上市约定，开放员工减持退出通道，选择退股员工将获得分红补偿，正式退股方案将于三个月内完成。</p>
+        <p class="zh-text" style="display:none;">来源：粤股8 5月22日，界面新闻独家获悉，荣耀遵照股改后一年没有上市约定，开放员工减持退出通道，选择退股员工将获得分红补偿，正式退股方案将于三个月内完成。</p>
         <a href="https://finance.sina.com.cn/stock/companyt/2026-05-24/doc-inhyyaqu4623874.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -211,11 +234,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">多项信披及财务违规，国光电器及前董事长陆宏达等四名高管被监管警示</div>
+        <div class="news-title en-text">多项信披及财务违规，国光电器及前董事长陆宏达等四名高管被监管警示</div>
+        <div class="news-title zh-text" style="display:none;">多项信披及财务违规，国光电器及前董事长陆宏达等四名高管被监管警示</div>
         <div class="news-published">🕐 2026-05-24 08:23</div>
       </summary>
       <div class="news-body">
-        <p>5月22日，国光电器股份有限公司（002045.SZ）发布公告称，公司及前董事长陆宏达、总裁何伟成、高管肖庆、王婕四名核心管理人员，收到广东证监局出具的行政监管警示函。</p>
+        <p class="en-text">5月22日，国光电器股份有限公司（002045.SZ）发布公告称，公司及前董事长陆宏达、总裁何伟成、高管肖庆、王婕四名核心管理人员，收到广东证监局出具的行政监管警示函。</p>
+        <p class="zh-text" style="display:none;">5月22日，国光电器股份有限公司（002045.SZ）发布公告称，公司及前董事长陆宏达、总裁何伟成、高管肖庆、王婕四名核心管理人员，收到广东证监局出具的行政监管警示函。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyyaqt6154825.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -226,11 +251,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">近一周机构调研个股超1150只 澜起科技等个股均有100家以上机构评级</div>
+        <div class="news-title en-text">近一周机构调研个股超1150只 澜起科技等个股均有100家以上机构评级</div>
+        <div class="news-title zh-text" style="display:none;">近一周机构调研个股超1150只 澜起科技等个股均有100家以上机构评级</div>
         <div class="news-published">🕐 2026-05-24 08:22</div>
       </summary>
       <div class="news-body">
-        <p>人民财讯5月24日电，近一周（5月15日至21日）机构调研个股超1150只，厦门钨业调研机构数最多。厦门钨业有232家机构调研，包括55家基金公司、37家证券公司、22家私募...</p>
+        <p class="en-text">人民财讯5月24日电，近一周（5月15日至21日）机构调研个股超1150只，厦门钨业调研机构数最多。厦门钨业有232家机构调研，包括55家基金公司、37家证券公司、22家私募...</p>
+        <p class="zh-text" style="display:none;">人民财讯5月24日电，近一周（5月15日至21日）机构调研个股超1150只，厦门钨业调研机构数最多。厦门钨业有232家机构调研，包括55家基金公司、37家证券公司、22家私募...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyyaqu4621610.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -241,11 +268,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">3万亿时代：量化私募由竞速进入淘汰赛</div>
+        <div class="news-title en-text">3万亿时代：量化私募由竞速进入淘汰赛</div>
+        <div class="news-title zh-text" style="display:none;">3万亿时代：量化私募由竞速进入淘汰赛</div>
         <div class="news-published">🕐 2026-05-24 08:10</div>
       </summary>
       <div class="news-body">
-        <p>量化私募的规模已经越过一个关键节点。测算显示，2025年末量化基金规模达到3.22万亿元，在私募证券投资基金中的占比超过43%；2020年这一规模还只有0.76万亿元。</p>
+        <p class="en-text">量化私募的规模已经越过一个关键节点。测算显示，2025年末量化基金规模达到3.22万亿元，在私募证券投资基金中的占比超过43%；2020年这一规模还只有0.76万亿元。</p>
+        <p class="zh-text" style="display:none;">量化私募的规模已经越过一个关键节点。测算显示，2025年末量化基金规模达到3.22万亿元，在私募证券投资基金中的占比超过43%；2020年这一规模还只有0.76万亿元。</p>
         <a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-05-24/doc-inhyyaqt6151947.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -256,11 +285,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">002916，十倍潜力股！PCB板块，大利好</div>
+        <div class="news-title en-text">002916，十倍潜力股！PCB板块，大利好</div>
+        <div class="news-title zh-text" style="display:none;">002916，十倍潜力股！PCB板块，大利好</div>
         <div class="news-published">🕐 2026-05-24 08:06</div>
       </summary>
       <div class="news-body">
-        <p>近一周（5月15日至21日）机构调研个股超1150只，厦门钨业调研机构数最多。 部分百家机构调研股近期股价创历史新高 厦门钨业有232家机构调研，包括55家基金公司...</p>
+        <p class="en-text">近一周（5月15日至21日）机构调研个股超1150只，厦门钨业调研机构数最多。 部分百家机构调研股近期股价创历史新高 厦门钨业有232家机构调研，包括55家基金公司...</p>
+        <p class="zh-text" style="display:none;">近一周（5月15日至21日）机构调研个股超1150只，厦门钨业调研机构数最多。 部分百家机构调研股近期股价创历史新高 厦门钨业有232家机构调研，包括55家基金公司...</p>
         <a href="https://finance.sina.com.cn/wm/2026-05-24/doc-inhyyaqt6149374.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -271,11 +302,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">股价冲高，自家人先跑了：员工持股计划成造富机器 水晶光电人均暴赚700万</div>
+        <div class="news-title en-text">股价冲高，自家人先跑了：员工持股计划成造富机器 水晶光电人均暴赚700万</div>
+        <div class="news-title zh-text" style="display:none;">股价冲高，自家人先跑了：员工持股计划成造富机器 水晶光电人均暴赚700万</div>
         <div class="news-published">🕐 2026-05-24 08:00</div>
       </summary>
       <div class="news-body">
-        <p>来源丨腾讯财经 文 | 王立广 编辑 | 刘鹏 进入5月份，A股主要指数大幅震荡，上证指数一度站上4200点，再创十年来新高，但随后又震荡回落。</p>
+        <p class="en-text">来源丨腾讯财经 文 | 王立广 编辑 | 刘鹏 进入5月份，A股主要指数大幅震荡，上证指数一度站上4200点，再创十年来新高，但随后又震荡回落。</p>
+        <p class="zh-text" style="display:none;">来源丨腾讯财经 文 | 王立广 编辑 | 刘鹏 进入5月份，A股主要指数大幅震荡，上证指数一度站上4200点，再创十年来新高，但随后又震荡回落。</p>
         <a href="https://finance.sina.com.cn/stock/companyt/2026-05-24/doc-inhyyaqu4615536.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -286,11 +319,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">连续亏损、现金流恶化，普邦股份三大业务全线承压</div>
+        <div class="news-title en-text">连续亏损、现金流恶化，普邦股份三大业务全线承压</div>
+        <div class="news-title zh-text" style="display:none;">连续亏损、现金流恶化，普邦股份三大业务全线承压</div>
         <div class="news-published">🕐 2026-05-24 08:00</div>
       </summary>
       <div class="news-body">
-        <p>过去几年，传统园林工程行业经历了一场 “大洗牌”。华南地区老牌园林龙头、曾被誉为 “岭南园林标杆” 的普邦股份（002663.SZ）也未能幸免，陷入连续亏损之中。</p>
+        <p class="en-text">过去几年，传统园林工程行业经历了一场 “大洗牌”。华南地区老牌园林龙头、曾被誉为 “岭南园林标杆” 的普邦股份（002663.SZ）也未能幸免，陷入连续亏损之中。</p>
+        <p class="zh-text" style="display:none;">过去几年，传统园林工程行业经历了一场 “大洗牌”。华南地区老牌园林龙头、曾被誉为 “岭南园林标杆” 的普邦股份（002663.SZ）也未能幸免，陷入连续亏损之中。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxwhw4744215.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -301,11 +336,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">ST三木：9000万元债务逾期，主要账户冻结被叠加实施其他风险警示</div>
+        <div class="news-title en-text">ST三木：9000万元债务逾期，主要账户冻结被叠加实施其他风险警示</div>
+        <div class="news-title zh-text" style="display:none;">ST三木：9000万元债务逾期，主要账户冻结被叠加实施其他风险警示</div>
         <div class="news-published">🕐 2026-05-24 08:00</div>
       </summary>
       <div class="news-body">
-        <p>5月22日晚间，老牌上市国企ST三木（000632.SZ）发布风险警示公告，因公司主要银行账号被冻结，触及深交所上市规则相关条款，公司股票自2026年5月25日起叠加实施其他风险警...</p>
+        <p class="en-text">5月22日晚间，老牌上市国企ST三木（000632.SZ）发布风险警示公告，因公司主要银行账号被冻结，触及深交所上市规则相关条款，公司股票自2026年5月25日起叠加实施其他风险警...</p>
+        <p class="zh-text" style="display:none;">5月22日晚间，老牌上市国企ST三木（000632.SZ）发布风险警示公告，因公司主要银行账号被冻结，触及深交所上市规则相关条款，公司股票自2026年5月25日起叠加实施其他风险警...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxwhw4743868.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -316,11 +353,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">金价陷入拉锯战，能“上车”吗？机构最新研判</div>
+        <div class="news-title en-text">金价陷入拉锯战，能“上车”吗？机构最新研判</div>
+        <div class="news-title zh-text" style="display:none;">金价陷入拉锯战，能“上车”吗？机构最新研判</div>
         <div class="news-published">🕐 2026-05-24 07:45</div>
       </summary>
       <div class="news-body">
-        <p>5月以来，国际金价在4500美元/盎司关口展开多空博弈。Wind数据显示，截至最新收盘，伦敦金现下跌0.75%，报4508.930美元/盎司；COMEX黄金下跌0.70%，报4510.5美元/盎司。</p>
+        <p class="en-text">5月以来，国际金价在4500美元/盎司关口展开多空博弈。Wind数据显示，截至最新收盘，伦敦金现下跌0.75%，报4508.930美元/盎司；COMEX黄金下跌0.70%，报4510.5美元/盎司。</p>
+        <p class="zh-text" style="display:none;">5月以来，国际金价在4500美元/盎司关口展开多空博弈。Wind数据显示，截至最新收盘，伦敦金现下跌0.75%，报4508.930美元/盎司；COMEX黄金下跌0.70%，报4510.5美元/盎司。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxwhw4741773.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -331,11 +370,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普称美伊终战协议框架接近定稿 霍尔木兹海峡将重启通航 核议题仍存重大分歧</div>
+        <div class="news-title en-text">特朗普称美伊终战协议框架接近定稿 霍尔木兹海峡将重启通航 核议题仍存重大分歧</div>
+        <div class="news-title zh-text" style="display:none;">特朗普称美伊终战协议框架接近定稿 霍尔木兹海峡将重启通航 核议题仍存重大分歧</div>
         <div class="news-published">🕐 2026-05-24 07:44</div>
       </summary>
       <div class="news-body">
-        <p>美国总统特朗普表示，一份用于敲定与伊朗终战谈判、重新开放霍尔木兹海峡的框架草案已接近“最终定稿”。 特朗普周六称，一份规划未来美伊终战谈判...</p>
+        <p class="en-text">美国总统特朗普表示，一份用于敲定与伊朗终战谈判、重新开放霍尔木兹海峡的框架草案已接近“最终定稿”。 特朗普周六称，一份规划未来美伊终战谈判...</p>
+        <p class="zh-text" style="display:none;">美国总统特朗普表示，一份用于敲定与伊朗终战谈判、重新开放霍尔木兹海峡的框架草案已接近“最终定稿”。 特朗普周六称，一份规划未来美伊终战谈判...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyxwhs6978694.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -346,11 +387,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">牛弹琴：感觉就差临门一脚了</div>
+        <div class="news-title en-text">牛弹琴：感觉就差临门一脚了</div>
+        <div class="news-title zh-text" style="display:none;">牛弹琴：感觉就差临门一脚了</div>
         <div class="news-published">🕐 2026-05-24 07:33</div>
       </summary>
       <div class="news-body">
-        <p>（一） 世间所有博弈，终有疲惫收尾的时刻。 从乐观角度看，2026年的美以伊战争，离真正结束可能就差临门一脚了。 北京时间5月24日凌晨，特朗普宣布了一个大消息： 1...</p>
+        <p class="en-text">（一） 世间所有博弈，终有疲惫收尾的时刻。 从乐观角度看，2026年的美以伊战争，离真正结束可能就差临门一脚了。 北京时间5月24日凌晨，特朗普宣布了一个大消息： 1...</p>
+        <p class="zh-text" style="display:none;">（一） 世间所有博弈，终有疲惫收尾的时刻。 从乐观角度看，2026年的美以伊战争，离真正结束可能就差临门一脚了。 北京时间5月24日凌晨，特朗普宣布了一个大消息： 1...</p>
         <a href="https://finance.sina.com.cn/wm/2026-05-24/doc-inhyxwhw4736943.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -361,11 +404,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">涉及霍尔木兹海峡开放，特朗普称美伊协议基本谈成</div>
+        <div class="news-title en-text">涉及霍尔木兹海峡开放，特朗普称美伊协议基本谈成</div>
+        <div class="news-title zh-text" style="display:none;">涉及霍尔木兹海峡开放，特朗普称美伊协议基本谈成</div>
         <div class="news-published">🕐 2026-05-24 07:31</div>
       </summary>
       <div class="news-body">
-        <p>美伊似乎再一次迎来了和解的曙光。 据央视新闻报道，美国总统特朗普于美东时间5月23日下午宣称，美伊已基本谈成一份协议，最终细节将很快公布，霍尔木兹海峡将随之开放。</p>
+        <p class="en-text">美伊似乎再一次迎来了和解的曙光。 据央视新闻报道，美国总统特朗普于美东时间5月23日下午宣称，美伊已基本谈成一份协议，最终细节将很快公布，霍尔木兹海峡将随之开放。</p>
+        <p class="zh-text" style="display:none;">美伊似乎再一次迎来了和解的曙光。 据央视新闻报道，美国总统特朗普于美东时间5月23日下午宣称，美伊已基本谈成一份协议，最终细节将很快公布，霍尔木兹海峡将随之开放。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxwhv6267658.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -376,11 +421,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">上任不到一年，上市大医企佰泽医疗副总裁辞职！</div>
+        <div class="news-title en-text">上任不到一年，上市大医企佰泽医疗副总裁辞职！</div>
+        <div class="news-title zh-text" style="display:none;">上任不到一年，上市大医企佰泽医疗副总裁辞职！</div>
         <div class="news-published">🕐 2026-05-24 07:30</div>
       </summary>
       <div class="news-body">
-        <p>来源：医药之梯 原标题：《上任不到一年，上市大医企副总裁辞职！》 5月22日，佰泽医疗（02609）发布公告，刘燕女士已辞任公司副总裁一职...</p>
+        <p class="en-text">来源：医药之梯 原标题：《上任不到一年，上市大医企副总裁辞职！》 5月22日，佰泽医疗（02609）发布公告，刘燕女士已辞任公司副总裁一职...</p>
+        <p class="zh-text" style="display:none;">来源：医药之梯 原标题：《上任不到一年，上市大医企副总裁辞职！》 5月22日，佰泽医疗（02609）发布公告，刘燕女士已辞任公司副总裁一职...</p>
         <a href="https://finance.sina.com.cn/wm/2026-05-24/doc-inhyxwhw4734772.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -391,11 +438,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">港股出台开户新规 对市场影响几何？核心要点有这些</div>
+        <div class="news-title en-text">港股出台开户新规 对市场影响几何？核心要点有这些</div>
+        <div class="news-title zh-text" style="display:none;">港股出台开户新规 对市场影响几何？核心要点有这些</div>
         <div class="news-published">🕐 2026-05-24 07:26</div>
       </summary>
       <div class="news-body">
-        <p>5月22日，香港证监会出台开户新规，进一步收紧开户审核标准。相较于政策条文本身，市场更加关注的是：港股开户新规将如何重塑跨境投资的底层逻辑？</p>
+        <p class="en-text">5月22日，香港证监会出台开户新规，进一步收紧开户审核标准。相较于政策条文本身，市场更加关注的是：港股开户新规将如何重塑跨境投资的底层逻辑？</p>
+        <p class="zh-text" style="display:none;">5月22日，香港证监会出台开户新规，进一步收紧开户审核标准。相较于政策条文本身，市场更加关注的是：港股开户新规将如何重塑跨境投资的底层逻辑？</p>
         <a href="https://finance.sina.com.cn/stock/hkstock/hkstocknews/2026-05-24/doc-inhyxwhw4733923.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -406,11 +455,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普称与伊朗的和平协议已“基本谈妥” 将很快宣布</div>
+        <div class="news-title en-text">特朗普称与伊朗的和平协议已“基本谈妥” 将很快宣布</div>
+        <div class="news-title zh-text" style="display:none;">特朗普称与伊朗的和平协议已“基本谈妥” 将很快宣布</div>
         <div class="news-published">🕐 2026-05-24 06:51</div>
       </summary>
       <div class="news-body">
-        <p>美国总统特朗普表示，与伊朗的和平协议已“基本谈妥”，他计划很快宣布该协议。 “除协议中的许多其他内容外，霍尔木兹海峡将开放，”特朗普在社交媒体发文称。</p>
+        <p class="en-text">美国总统特朗普表示，与伊朗的和平协议已“基本谈妥”，他计划很快宣布该协议。 “除协议中的许多其他内容外，霍尔木兹海峡将开放，”特朗普在社交媒体发文称。</p>
+        <p class="zh-text" style="display:none;">美国总统特朗普表示，与伊朗的和平协议已“基本谈妥”，他计划很快宣布该协议。 “除协议中的许多其他内容外，霍尔木兹海峡将开放，”特朗普在社交媒体发文称。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyxwhu3739785.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -421,11 +472,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">有待最终敲定 特朗普称美伊协议基本谈成 细节将于近期公布</div>
+        <div class="news-title en-text">有待最终敲定 特朗普称美伊协议基本谈成 细节将于近期公布</div>
+        <div class="news-title zh-text" style="display:none;">有待最终敲定 特朗普称美伊协议基本谈成 细节将于近期公布</div>
         <div class="news-published">🕐 2026-05-24 06:27</div>
       </summary>
       <div class="news-body">
-        <p>美国总统特朗普23日宣称，美伊已“基本谈成”一份协议，最终细节将很快公布，并透露霍尔木兹海峡将随之开放。美国国务卿鲁比奥同日确认谈判“正在取得进展”。</p>
+        <p class="en-text">美国总统特朗普23日宣称，美伊已“基本谈成”一份协议，最终细节将很快公布，并透露霍尔木兹海峡将随之开放。美国国务卿鲁比奥同日确认谈判“正在取得进展”。</p>
+        <p class="zh-text" style="display:none;">美国总统特朗普23日宣称，美伊已“基本谈成”一份协议，最终细节将很快公布，并透露霍尔木兹海峡将随之开放。美国国务卿鲁比奥同日确认谈判“正在取得进展”。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxwhv6251180.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -436,11 +489,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普称美伊协议基本谈成 内容包括开放霍尔木兹海峡</div>
+        <div class="news-title en-text">特朗普称美伊协议基本谈成 内容包括开放霍尔木兹海峡</div>
+        <div class="news-title zh-text" style="display:none;">特朗普称美伊协议基本谈成 内容包括开放霍尔木兹海峡</div>
         <div class="news-published">🕐 2026-05-24 05:41</div>
       </summary>
       <div class="news-body">
-        <p>美东时间23日下午，美国总统特朗普在社交媒体发文，称美国与伊朗已经基本谈成一份协议。 特朗普表示，他刚刚与沙特、阿联酋、卡塔尔、土耳其、埃及、约旦...</p>
+        <p class="en-text">美东时间23日下午，美国总统特朗普在社交媒体发文，称美国与伊朗已经基本谈成一份协议。 特朗普表示，他刚刚与沙特、阿联酋、卡塔尔、土耳其、埃及、约旦...</p>
+        <p class="zh-text" style="display:none;">美东时间23日下午，美国总统特朗普在社交媒体发文，称美国与伊朗已经基本谈成一份协议。 特朗普表示，他刚刚与沙特、阿联酋、卡塔尔、土耳其、埃及、约旦...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxwhw4709243.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -451,11 +506,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普：与伊朗的协议已基本谈妥</div>
+        <div class="news-title en-text">特朗普：与伊朗的协议已基本谈妥</div>
+        <div class="news-title zh-text" style="display:none;">特朗普：与伊朗的协议已基本谈妥</div>
         <div class="news-published">🕐 2026-05-24 04:37</div>
       </summary>
       <div class="news-body">
-        <p>特朗普在社交媒体发文称，与沙特、阿联酋、卡塔尔、巴基斯坦、土耳其、埃及、约旦、巴林等多国领导人，就伊朗及与和平相关的谅解备忘录事宜进行了非常顺利的通话。</p>
+        <p class="en-text">特朗普在社交媒体发文称，与沙特、阿联酋、卡塔尔、巴基斯坦、土耳其、埃及、约旦、巴林等多国领导人，就伊朗及与和平相关的谅解备忘录事宜进行了非常顺利的通话。</p>
+        <p class="zh-text" style="display:none;">特朗普在社交媒体发文称，与沙特、阿联酋、卡塔尔、巴基斯坦、土耳其、埃及、约旦、巴林等多国领导人，就伊朗及与和平相关的谅解备忘录事宜进行了非常顺利的通话。</p>
         <a href="https://finance.sina.com.cn/7x24/2026-05-24/doc-inhyxryu7063287.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -466,11 +523,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普称美伊协议基本谈成</div>
+        <div class="news-title en-text">特朗普称美伊协议基本谈成</div>
+        <div class="news-title zh-text" style="display:none;">特朗普称美伊协议基本谈成</div>
         <div class="news-published">🕐 2026-05-24 04:33</div>
       </summary>
       <div class="news-body">
-        <p>美东时间23日下午，美国总统特朗普在社交媒体发文，称美国与伊朗已经基本谈成一份协议。 特朗普表示，协议的最终方面和细节目前正在讨论中，并将很快公布。</p>
+        <p class="en-text">美东时间23日下午，美国总统特朗普在社交媒体发文，称美国与伊朗已经基本谈成一份协议。 特朗普表示，协议的最终方面和细节目前正在讨论中，并将很快公布。</p>
+        <p class="zh-text" style="display:none;">美东时间23日下午，美国总统特朗普在社交媒体发文，称美国与伊朗已经基本谈成一份协议。 特朗普表示，协议的最终方面和细节目前正在讨论中，并将很快公布。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxryy4829982.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -481,11 +540,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">美官员：美伊协议接近达成 分歧仅在关键条款“措辞”</div>
+        <div class="news-title en-text">美官员：美伊协议接近达成 分歧仅在关键条款“措辞”</div>
+        <div class="news-title zh-text" style="display:none;">美官员：美伊协议接近达成 分歧仅在关键条款“措辞”</div>
         <div class="news-published">🕐 2026-05-24 04:27</div>
       </summary>
       <div class="news-body">
-        <p>据美国方面23日消息，一名美方知情官员说，美国与伊朗正接近达成一份旨在结束战事的协议，双方剩余分歧主要集中在几个关键条款的“措辞”上。</p>
+        <p class="en-text">据美国方面23日消息，一名美方知情官员说，美国与伊朗正接近达成一份旨在结束战事的协议，双方剩余分歧主要集中在几个关键条款的“措辞”上。</p>
+        <p class="zh-text" style="display:none;">据美国方面23日消息，一名美方知情官员说，美国与伊朗正接近达成一份旨在结束战事的协议，双方剩余分歧主要集中在几个关键条款的“措辞”上。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxryy4832405.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -496,11 +557,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普的3711笔股票交易引发审视：自动化调仓、税损收割还是另有玄机</div>
+        <div class="news-title en-text">特朗普的3711笔股票交易引发审视：自动化调仓、税损收割还是另有玄机</div>
+        <div class="news-title zh-text" style="display:none;">特朗普的3711笔股票交易引发审视：自动化调仓、税损收割还是另有玄机</div>
         <div class="news-published">🕐 2026-05-24 03:08</div>
       </summary>
       <div class="news-body">
-        <p>美国总统特朗普最新财务披露文件因其中惊人的交易规模而受到审视：共计3711笔交易，几乎全部为美国公司的股票，其中许多公司的命运会受联邦政策影响。</p>
+        <p class="en-text">美国总统特朗普最新财务披露文件因其中惊人的交易规模而受到审视：共计3711笔交易，几乎全部为美国公司的股票，其中许多公司的命运会受联邦政策影响。</p>
+        <p class="zh-text" style="display:none;">美国总统特朗普最新财务披露文件因其中惊人的交易规模而受到审视：共计3711笔交易，几乎全部为美国公司的股票，其中许多公司的命运会受联邦政策影响。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-24/doc-inhyxmsy3955565.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -511,11 +574,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">担忧美伊协议对以“非常不利” 内塔尼亚胡紧急开会</div>
+        <div class="news-title en-text">担忧美伊协议对以“非常不利” 内塔尼亚胡紧急开会</div>
+        <div class="news-title zh-text" style="display:none;">担忧美伊协议对以“非常不利” 内塔尼亚胡紧急开会</div>
         <div class="news-published">🕐 2026-05-24 02:57</div>
       </summary>
       <div class="news-body">
-        <p>当地时间23日，据以色列方面消息，以总理内塔尼亚胡当晚召集执政联盟各党派领导人以及安全部门负责人开会，讨论美国与伊朗正在协商中的协议。</p>
+        <p class="en-text">当地时间23日，据以色列方面消息，以总理内塔尼亚胡当晚召集执政联盟各党派领导人以及安全部门负责人开会，讨论美国与伊朗正在协商中的协议。</p>
+        <p class="zh-text" style="display:none;">当地时间23日，据以色列方面消息，以总理内塔尼亚胡当晚召集执政联盟各党派领导人以及安全部门负责人开会，讨论美国与伊朗正在协商中的协议。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxryy4824974.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -526,11 +591,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">巴基斯坦消息人士：美伊接近达成临时协议</div>
+        <div class="news-title en-text">巴基斯坦消息人士：美伊接近达成临时协议</div>
+        <div class="news-title zh-text" style="display:none;">巴基斯坦消息人士：美伊接近达成临时协议</div>
         <div class="news-published">🕐 2026-05-24 02:28</div>
       </summary>
       <div class="news-body">
-        <p>当地时间23日，总台记者获悉，据两名知悉谈判情况的巴基斯坦消息人士透露，伊朗和巴基斯坦已向美国提交了一份修订后的提案，预计美方将于24日前对最新提案作出回应。</p>
+        <p class="en-text">当地时间23日，总台记者获悉，据两名知悉谈判情况的巴基斯坦消息人士透露，伊朗和巴基斯坦已向美国提交了一份修订后的提案，预计美方将于24日前对最新提案作出回应。</p>
+        <p class="zh-text" style="display:none;">当地时间23日，总台记者获悉，据两名知悉谈判情况的巴基斯坦消息人士透露，伊朗和巴基斯坦已向美国提交了一份修订后的提案，预计美方将于24日前对最新提案作出回应。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxmsz6480068.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -541,11 +608,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特朗普称美伊“越来越接近”达成协议</div>
+        <div class="news-title en-text">特朗普称美伊“越来越接近”达成协议</div>
+        <div class="news-title zh-text" style="display:none;">特朗普称美伊“越来越接近”达成协议</div>
         <div class="news-published">🕐 2026-05-24 00:02</div>
       </summary>
       <div class="news-body">
-        <p>美国总统特朗普23日说，美国与伊朗的谈判“越来越接近”达成协议。 特朗普是在接受美国哥伦比亚广播公司记者电话采访时作出上述发言，但他拒绝透露协议具体细节...</p>
+        <p class="en-text">美国总统特朗普23日说，美国与伊朗的谈判“越来越接近”达成协议。 特朗普是在接受美国哥伦比亚广播公司记者电话采访时作出上述发言，但他拒绝透露协议具体细节...</p>
+        <p class="zh-text" style="display:none;">美国总统特朗普23日说，美国与伊朗的谈判“越来越接近”达成协议。 特朗普是在接受美国哥伦比亚广播公司记者电话采访时作出上述发言，但他拒绝透露协议具体细节...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-24/doc-inhyxmsy3934960.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -556,11 +625,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">美国称对伊朗港口实施封锁的六周期间已使100艘商船改道</div>
+        <div class="news-title en-text">美国称对伊朗港口实施封锁的六周期间已使100艘商船改道</div>
+        <div class="news-title zh-text" style="display:none;">美国称对伊朗港口实施封锁的六周期间已使100艘商船改道</div>
         <div class="news-published">🕐 2026-05-23 22:46</div>
       </summary>
       <div class="news-body">
-        <p>美国中央司令部表示，在对伊朗港口实施六周封锁期间，美军已使100艘商业船只改道。 美国中央司令部周六在社交媒体上发文称，这项行动在4月13日启动...</p>
+        <p class="en-text">美国中央司令部表示，在对伊朗港口实施六周封锁期间，美军已使100艘商业船只改道。 美国中央司令部周六在社交媒体上发文称，这项行动在4月13日启动...</p>
+        <p class="zh-text" style="display:none;">美国中央司令部表示，在对伊朗港口实施六周封锁期间，美军已使100艘商业船只改道。 美国中央司令部周六在社交媒体上发文称，这项行动在4月13日启动...</p>
         <a href="https://finance.sina.com.cn/7x24/2026-05-23/doc-inhywzce4161999.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -571,11 +642,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">调停人士：美伊即将达成停火延长60天的协议</div>
+        <div class="news-title en-text">调停人士：美伊即将达成停火延长60天的协议</div>
+        <div class="news-title zh-text" style="display:none;">调停人士：美伊即将达成停火延长60天的协议</div>
         <div class="news-published">🕐 2026-05-23 22:38</div>
       </summary>
       <div class="news-body">
-        <p>调停人士称，美国与伊朗即将达成停火延长60天的协议，美伊停火协议将包括逐步重新开放霍尔木兹海峡。 消息人士表示，美国若与伊朗达成协议，将放松对伊朗港口的封锁。</p>
+        <p class="en-text">调停人士称，美国与伊朗即将达成停火延长60天的协议，美伊停火协议将包括逐步重新开放霍尔木兹海峡。 消息人士表示，美国若与伊朗达成协议，将放松对伊朗港口的封锁。</p>
+        <p class="zh-text" style="display:none;">调停人士称，美国与伊朗即将达成停火延长60天的协议，美伊停火协议将包括逐步重新开放霍尔木兹海峡。 消息人士表示，美国若与伊朗达成协议，将放松对伊朗港口的封锁。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-23/doc-inhywzce4160281.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -586,11 +659,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">山西留神峪煤矿瓦斯爆炸事故发布会：事故已致82人遇难 2人失联</div>
+        <div class="news-title en-text">山西留神峪煤矿瓦斯爆炸事故发布会：事故已致82人遇难 2人失联</div>
+        <div class="news-title zh-text" style="display:none;">山西留神峪煤矿瓦斯爆炸事故发布会：事故已致82人遇难 2人失联</div>
         <div class="news-published">🕐 2026-05-23 22:34</div>
       </summary>
       <div class="news-body">
-        <p>今天（5月23日），山西省长治市召开新闻发布会，介绍山西通洲集团留神峪煤矿瓦斯爆炸事故有关情况。 会上介绍，截至目前，煤矿瓦斯爆炸事故已致82人遇难，2人失联...</p>
+        <p class="en-text">今天（5月23日），山西省长治市召开新闻发布会，介绍山西通洲集团留神峪煤矿瓦斯爆炸事故有关情况。 会上介绍，截至目前，煤矿瓦斯爆炸事故已致82人遇难，2人失联...</p>
+        <p class="zh-text" style="display:none;">今天（5月23日），山西省长治市召开新闻发布会，介绍山西通洲集团留神峪煤矿瓦斯爆炸事故有关情况。 会上介绍，截至目前，煤矿瓦斯爆炸事故已致82人遇难，2人失联...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-23/doc-inhywzca7383807.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -601,11 +676,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">美国务卿称美伊谈判取得“些许进展”</div>
+        <div class="news-title en-text">美国务卿称美伊谈判取得“些许进展”</div>
+        <div class="news-title zh-text" style="display:none;">美国务卿称美伊谈判取得“些许进展”</div>
         <div class="news-published">🕐 2026-05-23 21:58</div>
       </summary>
       <div class="news-body">
-        <p>当地时间5月23日，美国国务卿鲁比奥在瑞典赫尔辛堡举行的北约外长会议前表示，美国与伊朗的谈判取得“些许进展”。与此同时，巴基斯坦陆军参谋长前往德黑兰...</p>
+        <p class="en-text">当地时间5月23日，美国国务卿鲁比奥在瑞典赫尔辛堡举行的北约外长会议前表示，美国与伊朗的谈判取得“些许进展”。与此同时，巴基斯坦陆军参谋长前往德黑兰...</p>
+        <p class="zh-text" style="display:none;">当地时间5月23日，美国国务卿鲁比奥在瑞典赫尔辛堡举行的北约外长会议前表示，美国与伊朗的谈判取得“些许进展”。与此同时，巴基斯坦陆军参谋长前往德黑兰...</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-23/doc-inhywzch5151370.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -616,11 +693,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">伊朗说伊美正处于谅解备忘录最终敲定阶段</div>
+        <div class="news-title en-text">伊朗说伊美正处于谅解备忘录最终敲定阶段</div>
+        <div class="news-title zh-text" style="display:none;">伊朗说伊美正处于谅解备忘录最终敲定阶段</div>
         <div class="news-published">🕐 2026-05-23 21:51</div>
       </summary>
       <div class="news-body">
-        <p>伊朗外交部发言人巴加埃23日表示，经过数周的对话，“伊美双方的观点正朝着更加一致的方向发展”，双方目前正处于一份谅解备忘录的最终敲定阶段。</p>
+        <p class="en-text">伊朗外交部发言人巴加埃23日表示，经过数周的对话，“伊美双方的观点正朝着更加一致的方向发展”，双方目前正处于一份谅解备忘录的最终敲定阶段。</p>
+        <p class="zh-text" style="display:none;">伊朗外交部发言人巴加埃23日表示，经过数周的对话，“伊美双方的观点正朝着更加一致的方向发展”，双方目前正处于一份谅解备忘录的最终敲定阶段。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-05-23/doc-inhywzch5147055.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -642,5 +721,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

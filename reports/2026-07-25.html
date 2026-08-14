@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-07-25 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">7月25日收盘：纳指跌逾0.6%芯片股普跌，道指录得连续第三周下跌</div>
+        <div class="news-title en-text">7月25日收盘：纳指跌逾0.6%芯片股普跌，道指录得连续第三周下跌</div>
+        <div class="news-title zh-text" style="display:none;">7月25日收盘：纳指跌逾0.6%芯片股普跌，道指录得连续第三周下跌</div>
         <div class="news-published">🕐 2026-07-25 04:08</div>
       </summary>
       <div class="news-body">
-        <p>北京时间7月25日凌晨，美股周五收盘涨跌不一，纳指收跌0.6%，英伟达、AMD与英特尔等芯片股构成拖累。三大股指本周均录得跌幅。投资者正在评估中东冲突的最新进展。</p>
+        <p class="en-text">北京时间7月25日凌晨，美股周五收盘涨跌不一，纳指收跌0.6%，英伟达、AMD与英特尔等芯片股构成拖累。三大股指本周均录得跌幅。投资者正在评估中东冲突的最新进展。</p>
+        <p class="zh-text" style="display:none;">北京时间7月25日凌晨，美股周五收盘涨跌不一，纳指收跌0.6%，英伟达、AMD与英特尔等芯片股构成拖累。三大股指本周均录得跌幅。投资者正在评估中东冲突的最新进展。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-25/doc-iniiyccv1387946.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">威瑞森二季度业绩超预期 AI协议有望带来数十亿美元收入</div>
+        <div class="news-title en-text">威瑞森二季度业绩超预期 AI协议有望带来数十亿美元收入</div>
+        <div class="news-title zh-text" style="display:none;">威瑞森二季度业绩超预期 AI协议有望带来数十亿美元收入</div>
         <div class="news-published">🕐 2026-07-25 03:59</div>
       </summary>
       <div class="news-body">
-        <p>美国最大无线运营商威瑞森通信周五公布第二季度财报，调整后每股收益为1.30美元，超过市场预期的1.28美元。受业绩提振及人工智能基础设施相关增长前景推动...</p>
+        <p class="en-text">美国最大无线运营商威瑞森通信周五公布第二季度财报，调整后每股收益为1.30美元，超过市场预期的1.28美元。受业绩提振及人工智能基础设施相关增长前景推动...</p>
+        <p class="zh-text" style="display:none;">美国最大无线运营商威瑞森通信周五公布第二季度财报，调整后每股收益为1.30美元，超过市场预期的1.28美元。受业绩提振及人工智能基础设施相关增长前景推动...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-25/doc-iniiyccq9114878.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Waymo探索退出与Uber合作关系的方案</div>
+        <div class="news-title en-text">Waymo探索退出与Uber合作关系的方案</div>
+        <div class="news-title zh-text" style="display:none;">Waymo探索退出与Uber合作关系的方案</div>
         <div class="news-published">🕐 2026-07-25 03:46</div>
       </summary>
       <div class="news-body">
-        <p>英媒援引多名不具名知情人士报道，Alphabet旗下自动驾驶公司Waymo正在研究退出与Uber合作的选项。 报道称，Waymo已在内部讨论终止目前与Uber签订的合作协议。</p>
+        <p class="en-text">英媒援引多名不具名知情人士报道，Alphabet旗下自动驾驶公司Waymo正在研究退出与Uber合作的选项。 报道称，Waymo已在内部讨论终止目前与Uber签订的合作协议。</p>
+        <p class="zh-text" style="display:none;">英媒援引多名不具名知情人士报道，Alphabet旗下自动驾驶公司Waymo正在研究退出与Uber合作的选项。 报道称，Waymo已在内部讨论终止目前与Uber签订的合作协议。</p>
         <a href="https://finance.sina.com.cn/world/2026-07-25/doc-iniiyccq9107971.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">TrendAI采用Claude Opus 5提升漏洞管理能力</div>
+        <div class="news-title en-text">TrendAI采用Claude Opus 5提升漏洞管理能力</div>
+        <div class="news-title zh-text" style="display:none;">TrendAI采用Claude Opus 5提升漏洞管理能力</div>
         <div class="news-published">🕐 2026-07-25 03:32</div>
       </summary>
       <div class="news-body">
-        <p>TrendAI近日宣布，将采用Anthropic公司最新发布的Claude Opus 5模型，用于强化其漏洞优先级评估、分析与虚拟修复能力。此举旨在帮助安全团队更迅速地将漏洞情报转化为有效...</p>
+        <p class="en-text">TrendAI近日宣布，将采用Anthropic公司最新发布的Claude Opus 5模型，用于强化其漏洞优先级评估、分析与虚拟修复能力。此举旨在帮助安全团队更迅速地将漏洞情报转化为有效...</p>
+        <p class="zh-text" style="display:none;">TrendAI近日宣布，将采用Anthropic公司最新发布的Claude Opus 5模型，用于强化其漏洞优先级评估、分析与虚拟修复能力。此举旨在帮助安全团队更迅速地将漏洞情报转化为有效...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-25/doc-iniixwvx1504045.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -166,11 +183,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
+        <div class="news-title en-text">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
+        <p class="en-text">随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
+        <p class="zh-text" style="display:none;">随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
         <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-21-2026-ai-innovations-space-setbacks-and-2ncc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -181,11 +200,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 - Coaio</div>
+        <div class="news-title en-text">2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>Coaio Logo 廣東話 flag 中文 flag English flag Coaio Logo 2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 # 2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 Share icon 科技界随着我们步入2026年4月，充斥着突破性发展，从AI驱动的设备到高风险的网络攻击以及大规模融资轮。本文汇总了最新头条，突出了创新如何重塑产业</p>
+        <p class="en-text">Coaio Logo 廣東話 flag 中文 flag English flag Coaio Logo 2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 # 2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 Share icon 科技界随着我们步入2026年4月，充斥着突破性发展，从AI驱动的设备到高风险的网络攻击以及大规模融资轮。本文汇总了最新头条，突出了创新如何重塑产业</p>
+        <p class="zh-text" style="display:none;">Coaio Logo 廣東話 flag 中文 flag English flag Coaio Logo 2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 # 2026年4月1日科技突发新闻：AI激增、网络威胁和创业热潮 Share icon 科技界随着我们步入2026年4月，充斥着突破性发展，从AI驱动的设备到高风险的网络攻击以及大规模融资轮。本文汇总了最新头条，突出了创新如何重塑产业</p>
         <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-1-2026-ai-surge-cyber-threats-and-startup-2l4c" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -196,11 +217,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        <div class="news-title en-text">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        <div class="news-title zh-text" style="display:none;">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
         
       </summary>
       <div class="news-body">
-        <p>報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <p class="en-text">報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <p class="zh-text" style="display:none;">報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
         <a href="https://www.contentplatform.info/articles/467778/2026%E5%B9%B4%E5%9B%9B%E6%9C%88ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A2%B0%E4%B8%8A%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%9C%80%E6%96%B0%E9%80%B2%E5%BA%A6%EF%BC%9A%E5%BE%9E%E3%80%8C%E8%83%BD%E8%B7%91" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -211,11 +234,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月AI圈5大事件盘点：GPT-6来袭、国产大模型爆发，普通人如何抓住红利？</div>
+        <div class="news-title en-text">2026年4月AI圈5大事件盘点：GPT-6来袭、国产大模型爆发，普通人如何抓住红利？</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月AI圈5大事件盘点：GPT-6来袭、国产大模型爆发，普通人如何抓住红利？</div>
         
       </summary>
       <div class="news-body">
-        <p>4. 2026年Q1大模型排行榜出炉，多模态能力成核心竞争力 事件：第三方评测机构ofox.ai发布2026年4月最新大模型排行榜，涵盖Claude Opus 4.6、GPT-5.4（测试版）、Gemini 3.1 Pro、DeepSeek V4、Kimi K2.5等10+主流模型的综合评分。榜单显示，多模态理解能力已经成为拉开模型差距的核心指标，前5名的模型在图文理解、视频解析能力上的得分差距超</p>
+        <p class="en-text">4. 2026年Q1大模型排行榜出炉，多模态能力成核心竞争力 事件：第三方评测机构ofox.ai发布2026年4月最新大模型排行榜，涵盖Claude Opus 4.6、GPT-5.4（测试版）、Gemini 3.1 Pro、DeepSeek V4、Kimi K2.5等10+主流模型的综合评分。榜单显示，多模态理解能力已经成为拉开模型差距的核心指标，前5名的模型在图文理解、视频解析能力上的得分差距超</p>
+        <p class="zh-text" style="display:none;">4. 2026年Q1大模型排行榜出炉，多模态能力成核心竞争力 事件：第三方评测机构ofox.ai发布2026年4月最新大模型排行榜，涵盖Claude Opus 4.6、GPT-5.4（测试版）、Gemini 3.1 Pro、DeepSeek V4、Kimi K2.5等10+主流模型的综合评分。榜单显示，多模态理解能力已经成为拉开模型差距的核心指标，前5名的模型在图文理解、视频解析能力上的得分差距超</p>
         <a href="https://zhuanlan.zhihu.com/p/2025390002230555538" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -226,11 +251,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">AI前沿| 全球立法和监管2026年4月</div>
+        <div class="news-title en-text">AI前沿| 全球立法和监管2026年4月</div>
+        <div class="news-title zh-text" style="display:none;">AI前沿| 全球立法和监管2026年4月</div>
         
       </summary>
       <div class="news-body">
-        <p># AI前沿 | 全球立法和监管2026年4月 目 录 6.涉利用人工智能生成模型侵犯著作权罪案：AI技术并非侵权“挡箭牌” 7.浙江判决首例AI“换脸”认证案 8.杭州中院开庭审理首例“AI智能体流量劫持”不正当竞争案 9.网信部门依法查处“剪映”App等生成合成内容标识违法问题网站平台 国外立法监管动态 1.法国拟立法推定AI“盗用”文化内容，倒置举证责任 2.英国立法强制ICO出台AI监管细</p>
+        <p class="en-text"># AI前沿 | 全球立法和监管2026年4月 目 录 6.涉利用人工智能生成模型侵犯著作权罪案：AI技术并非侵权“挡箭牌” 7.浙江判决首例AI“换脸”认证案 8.杭州中院开庭审理首例“AI智能体流量劫持”不正当竞争案 9.网信部门依法查处“剪映”App等生成合成内容标识违法问题网站平台 国外立法监管动态 1.法国拟立法推定AI“盗用”文化内容，倒置举证责任 2.英国立法强制ICO出台AI监管细</p>
+        <p class="zh-text" style="display:none;"># AI前沿 | 全球立法和监管2026年4月 目 录 6.涉利用人工智能生成模型侵犯著作权罪案：AI技术并非侵权“挡箭牌” 7.浙江判决首例AI“换脸”认证案 8.杭州中院开庭审理首例“AI智能体流量劫持”不正当竞争案 9.网信部门依法查处“剪映”App等生成合成内容标识违法问题网站平台 国外立法监管动态 1.法国拟立法推定AI“盗用”文化内容，倒置举证责任 2.英国立法强制ICO出台AI监管细</p>
         <a href="https://www.deheheng.com/dongtai/news/36397.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -241,11 +268,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月27日人工智能早间新闻_人工智能_一休哥助手-脑启社区</div>
+        <div class="news-title en-text">2026年4月27日人工智能早间新闻_人工智能_一休哥助手-脑启社区</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月27日人工智能早间新闻_人工智能_一休哥助手-脑启社区</div>
         
       </summary>
       <div class="news-body">
-        <p># logo 脑启社区 ## 登录社区云 ### 脑启社区 邀请您加入社区 欢迎加入社区 欢迎加入社区 脑启社区   2026年4月27日人工智能早间新闻 # 2026年4月27日人工智能早间新闻 您需要登录才能发言 查看更多评论 ## 温馨提示：您尚未绑定手机号 立即绑定 欢迎加入社区 []( ### 一休哥助手 回到 顶部 欢迎加入社区</p>
+        <p class="en-text"># logo 脑启社区 ## 登录社区云 ### 脑启社区 邀请您加入社区 欢迎加入社区 欢迎加入社区 脑启社区   2026年4月27日人工智能早间新闻 # 2026年4月27日人工智能早间新闻 您需要登录才能发言 查看更多评论 ## 温馨提示：您尚未绑定手机号 立即绑定 欢迎加入社区 []( ### 一休哥助手 回到 顶部 欢迎加入社区</p>
+        <p class="zh-text" style="display:none;"># logo 脑启社区 ## 登录社区云 ### 脑启社区 邀请您加入社区 欢迎加入社区 欢迎加入社区 脑启社区   2026年4月27日人工智能早间新闻 # 2026年4月27日人工智能早间新闻 您需要登录才能发言 查看更多评论 ## 温馨提示：您尚未绑定手机号 立即绑定 欢迎加入社区 []( ### 一休哥助手 回到 顶部 欢迎加入社区</p>
         <a href="https://nanhubrain.csdn.net/6a0154030a2f6a37c5a92407.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -256,11 +285,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC News 中文</div>
+        <div class="news-title en-text">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC News 中文</div>
+        <div class="news-title zh-text" style="display:none;">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC News 中文</div>
         
       </summary>
       <div class="news-body">
-        <p>在中國， AI公司扎堆贊助的是央視春節聯歡晚會。 更長遠一點，龐國強覺得AI最終會變成一種基礎設施。AI大模型廠商，可能會像今天的移動運營商。現在人們每個月買流量，未來則每個月買Token（詞元）。 到那個時候，競爭重點未必還是「哪家模型更強」，而變成，它被裝進了什麼載體里，比如具身智能、智能眼鏡、自動駕駛，或者別的什麼東西。 王先生的想像則更為跳脫。 他說，今天我們還把「龍蝦」當工具，研究它能替</p>
+        <p class="en-text">在中國， AI公司扎堆贊助的是央視春節聯歡晚會。 更長遠一點，龐國強覺得AI最終會變成一種基礎設施。AI大模型廠商，可能會像今天的移動運營商。現在人們每個月買流量，未來則每個月買Token（詞元）。 到那個時候，競爭重點未必還是「哪家模型更強」，而變成，它被裝進了什麼載體里，比如具身智能、智能眼鏡、自動駕駛，或者別的什麼東西。 王先生的想像則更為跳脫。 他說，今天我們還把「龍蝦」當工具，研究它能替</p>
+        <p class="zh-text" style="display:none;">在中國， AI公司扎堆贊助的是央視春節聯歡晚會。 更長遠一點，龐國強覺得AI最終會變成一種基礎設施。AI大模型廠商，可能會像今天的移動運營商。現在人們每個月買流量，未來則每個月買Token（詞元）。 到那個時候，競爭重點未必還是「哪家模型更強」，而變成，它被裝進了什麼載體里，比如具身智能、智能眼鏡、自動駕駛，或者別的什麼東西。 王先生的想像則更為跳脫。 他說，今天我們還把「龍蝦」當工具，研究它能替</p>
         <a href="https://www.bbc.com/zhongwen/articles/crm8mmg0y3eo/trad.amp" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -271,11 +302,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年，AI将深度嵌入日常生活-新华网</div>
+        <div class="news-title en-text">2026年，AI将深度嵌入日常生活-新华网</div>
+        <div class="news-title zh-text" style="display:none;">2026年，AI将深度嵌入日常生活-新华网</div>
         
       </summary>
       <div class="news-body">
-        <p>智能手机继承者已在路上 AI技术加速发展，也为科技公司创造下一代主流个人计算设备提供了绝佳机会，一些公司开始押注智能眼镜。 Meta雷朋眼镜已售出数百万副，用户用它拍照、听歌、导航。而最新推出的雷朋显示屏更进一步，在佩戴者的视野边缘浮现出半透明信息层，邮件提醒、路线指引、实时翻译……一切尽在眼角余光之中。谷歌和新兴企业Pickle亦纷纷入局，推出带屏智能眼镜产品。 这让人想起十年前折戟沉沙的谷歌眼</p>
+        <p class="en-text">智能手机继承者已在路上 AI技术加速发展，也为科技公司创造下一代主流个人计算设备提供了绝佳机会，一些公司开始押注智能眼镜。 Meta雷朋眼镜已售出数百万副，用户用它拍照、听歌、导航。而最新推出的雷朋显示屏更进一步，在佩戴者的视野边缘浮现出半透明信息层，邮件提醒、路线指引、实时翻译……一切尽在眼角余光之中。谷歌和新兴企业Pickle亦纷纷入局，推出带屏智能眼镜产品。 这让人想起十年前折戟沉沙的谷歌眼</p>
+        <p class="zh-text" style="display:none;">智能手机继承者已在路上 AI技术加速发展，也为科技公司创造下一代主流个人计算设备提供了绝佳机会，一些公司开始押注智能眼镜。 Meta雷朋眼镜已售出数百万副，用户用它拍照、听歌、导航。而最新推出的雷朋显示屏更进一步，在佩戴者的视野边缘浮现出半透明信息层，邮件提醒、路线指引、实时翻译……一切尽在眼角余光之中。谷歌和新兴企业Pickle亦纷纷入局，推出带屏智能眼镜产品。 这让人想起十年前折戟沉沙的谷歌眼</p>
         <a href="https://www.news.cn/tech/20260113/43b7c54571444c69a30a4974715333e9/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -286,11 +319,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">OpenAI | Research &amp; Deployment</div>
+        <div class="news-title en-text">OpenAI | Research &amp; Deployment</div>
+        <div class="news-title zh-text" style="display:none;">OpenAI | Research &amp; Deployment</div>
         
       </summary>
       <div class="news-body">
-        <p>Built to benefit everyone: our plan Company Jun 8, 2026 ## Stories View all Image 12: A cyclist pushes a fat-tire bike across a wide snowy landscape. Training to cycle across Antarctica with ChatGPT J</p>
+        <p class="en-text">Built to benefit everyone: our plan Company Jun 8, 2026 ## Stories View all Image 12: A cyclist pushes a fat-tire bike across a wide snowy landscape. Training to cycle across Antarctica with ChatGPT J</p>
+        <p class="zh-text" style="display:none;">Built to benefit everyone: our plan Company Jun 8, 2026 ## Stories View all Image 12: A cyclist pushes a fat-tire bike across a wide snowy landscape. Training to cycle across Antarctica with ChatGPT J</p>
         <a href="https://openai.com" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -301,11 +336,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
+        <div class="news-title en-text">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
+        <div class="news-title zh-text" style="display:none;">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
         
       </summary>
       <div class="news-body">
-        <p>应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
+        <p class="en-text">应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
+        <p class="zh-text" style="display:none;">应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
         <a href="https://reports.weforum.org/docs/WEF_Strategic_Choices_in_the_Age_of_AI_2026_CN.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -316,11 +353,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">What Is Artificial Intelligence (AI)?</div>
+        <div class="news-title en-text">What Is Artificial Intelligence (AI)?</div>
+        <div class="news-title zh-text" style="display:none;">What Is Artificial Intelligence (AI)?</div>
         
       </summary>
       <div class="news-body">
-        <p>Live webinar | 23 July Learn how to scale AI across your organization | Save your spot! # What is artificial intelligence (AI)? Published 09 August 2024 Updated 15 June 2026 By Cole Stryker and  Eda K</p>
+        <p class="en-text">Live webinar | 23 July Learn how to scale AI across your organization | Save your spot! # What is artificial intelligence (AI)? Published 09 August 2024 Updated 15 June 2026 By Cole Stryker and  Eda K</p>
+        <p class="zh-text" style="display:none;">Live webinar | 23 July Learn how to scale AI across your organization | Save your spot! # What is artificial intelligence (AI)? Published 09 August 2024 Updated 15 June 2026 By Cole Stryker and  Eda K</p>
         <a href="https://www.ibm.com/think/topics/artificial-intelligence" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -331,11 +370,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Artificial intelligence</div>
+        <div class="news-title en-text">Artificial intelligence</div>
+        <div class="news-title zh-text" style="display:none;">Artificial intelligence</div>
         
       </summary>
       <div class="news-body">
-        <p>In March 2026, the United Nations convened the inaugural meeting of the Independent International Scientific Panel on AI, a 40-member expert body established under the Global Digital Compact to produc</p>
+        <p class="en-text">In March 2026, the United Nations convened the inaugural meeting of the Independent International Scientific Panel on AI, a 40-member expert body established under the Global Digital Compact to produc</p>
+        <p class="zh-text" style="display:none;">In March 2026, the United Nations convened the inaugural meeting of the Independent International Scientific Panel on AI, a 40-member expert body established under the Global Digital Compact to produc</p>
         <a href="https://en.wikipedia.org/wiki/Artificial_intelligence" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -346,11 +387,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Google AI - How we're making AI helpful for everyone</div>
+        <div class="news-title en-text">Google AI - How we're making AI helpful for everyone</div>
+        <div class="news-title zh-text" style="display:none;">Google AI - How we're making AI helpful for everyone</div>
         
       </summary>
       <div class="news-body">
-        <p>Image 93 Create custom tarot cards You are an Art Nouveau style artist. As your first action, concisely request the user by saying, "I will turn you into the protagonist of an artistic tarot card, so </p>
+        <p class="en-text">Image 93 Create custom tarot cards You are an Art Nouveau style artist. As your first action, concisely request the user by saying, "I will turn you into the protagonist of an artistic tarot card, so </p>
+        <p class="zh-text" style="display:none;">Image 93 Create custom tarot cards You are an Art Nouveau style artist. As your first action, concisely request the user by saying, "I will turn you into the protagonist of an artistic tarot card, so </p>
         <a href="https://ai.google" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -361,11 +404,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">今天</div>
+        <div class="news-title en-text">今天</div>
+        <div class="news-title zh-text" style="display:none;">今天</div>
         
       </summary>
       <div class="news-body">
-        <p>###### 相关搜索 三味中药治黄褐斑 眼结膜下出血 失代偿期活不过5年了 肝硬了还能变软吗 今天日期 今天连锁酒店 血清总胆固醇增高 今天大盘走势 今日早间新闻 今天新闻 Image 41: 图片 今天 选择朗读音色 Image 42: 成熟女声 成熟女声 Image 43: 成熟男声 成熟男声 Image 44: 磁性男声 磁性男声 Image 45: 年轻女声 年轻女声 Image 46:</p>
+        <p class="en-text">###### 相关搜索 三味中药治黄褐斑 眼结膜下出血 失代偿期活不过5年了 肝硬了还能变软吗 今天日期 今天连锁酒店 血清总胆固醇增高 今天大盘走势 今日早间新闻 今天新闻 Image 41: 图片 今天 选择朗读音色 Image 42: 成熟女声 成熟女声 Image 43: 成熟男声 成熟男声 Image 44: 磁性男声 磁性男声 Image 45: 年轻女声 年轻女声 Image 46:</p>
+        <p class="zh-text" style="display:none;">###### 相关搜索 三味中药治黄褐斑 眼结膜下出血 失代偿期活不过5年了 肝硬了还能变软吗 今天日期 今天连锁酒店 血清总胆固醇增高 今天大盘走势 今日早间新闻 今天新闻 Image 41: 图片 今天 选择朗读音色 Image 42: 成熟女声 成熟女声 Image 43: 成熟男声 成熟男声 Image 44: 磁性男声 磁性男声 Image 45: 年轻女声 年轻女声 Image 46:</p>
         <a href="https://baike.baidu.com/item/%E4%BB%8A%E5%A4%A9/6956019" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -376,11 +421,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">今天 - 维基百科，自由的百科全书</div>
+        <div class="news-title en-text">今天 - 维基百科，自由的百科全书</div>
+        <div class="news-title zh-text" style="display:none;">今天 - 维基百科，自由的百科全书</div>
         
       </summary>
       <div class="news-body">
-        <p>跳转到内容 维基百科 自由的百科全书 搜索 ## 目录 序言 1 主題名言 2 歷史上的今日 # 今天 閩東語 / Mìng-dĕ̤ng-ngṳ̄ Čeština English "Today (day) – 英语") 贛語 客家語 / Hak-k-ngî Kreyòl ayisyen Bahasa Indonesia Jju 한국어 Lombard Português "Hoje (dia) –</p>
+        <p class="en-text">跳转到内容 维基百科 自由的百科全书 搜索 ## 目录 序言 1 主題名言 2 歷史上的今日 # 今天 閩東語 / Mìng-dĕ̤ng-ngṳ̄ Čeština English "Today (day) – 英语") 贛語 客家語 / Hak-k-ngî Kreyòl ayisyen Bahasa Indonesia Jju 한국어 Lombard Português "Hoje (dia) –</p>
+        <p class="zh-text" style="display:none;">跳转到内容 维基百科 自由的百科全书 搜索 ## 目录 序言 1 主題名言 2 歷史上的今日 # 今天 閩東語 / Mìng-dĕ̤ng-ngṳ̄ Čeština English "Today (day) – 英语") 贛語 客家語 / Hak-k-ngî Kreyòl ayisyen Bahasa Indonesia Jju 한국어 Lombard Português "Hoje (dia) –</p>
         <a href="https://zh.wikipedia.org/wiki/%E4%BB%8A%E5%A4%A9" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -391,11 +438,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">今天的我们</div>
+        <div class="news-title en-text">今天的我们</div>
+        <div class="news-title zh-text" style="display:none;">今天的我们</div>
         
       </summary>
       <div class="news-body">
-        <p># 今天的我们 ## ZhouShen Official 204000 subscribers 929 likes ### Description 71112 views Posted: 30 Apr 2026 Provided to YouTube by DistroKid 今天的我们 · 周深 今天的我们 ℗ 上海劲焱文化传媒有限公司 Released on: 2026-04-29 Auto-</p>
+        <p class="en-text"># 今天的我们 ## ZhouShen Official 204000 subscribers 929 likes ### Description 71112 views Posted: 30 Apr 2026 Provided to YouTube by DistroKid 今天的我们 · 周深 今天的我们 ℗ 上海劲焱文化传媒有限公司 Released on: 2026-04-29 Auto-</p>
+        <p class="zh-text" style="display:none;"># 今天的我们 ## ZhouShen Official 204000 subscribers 929 likes ### Description 71112 views Posted: 30 Apr 2026 Provided to YouTube by DistroKid 今天的我们 · 周深 今天的我们 ℗ 上海劲焱文化传媒有限公司 Released on: 2026-04-29 Auto-</p>
         <a href="https://www.youtube.com/watch?v=paWanpDj8n8" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -406,11 +455,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Perplexity AI</div>
+        <div class="news-title en-text">Perplexity AI</div>
+        <div class="news-title zh-text" style="display:none;">Perplexity AI</div>
         
       </summary>
       <div class="news-body">
-        <p>[]( []( New ⌃I []( Computer No pinned sessions []( Spaces No pinned Spaces []( Artifacts No pinned artifacts []( Customize []( Connectors []( Skills []( Workflows []( History No recent sessions Sign I</p>
+        <p class="en-text">[]( []( New ⌃I []( Computer No pinned sessions []( Spaces No pinned Spaces []( Artifacts No pinned artifacts []( Customize []( Connectors []( Skills []( Workflows []( History No recent sessions Sign I</p>
+        <p class="zh-text" style="display:none;">[]( []( New ⌃I []( Computer No pinned sessions []( Spaces No pinned Spaces []( Artifacts No pinned artifacts []( Customize []( Connectors []( Skills []( Workflows []( History No recent sessions Sign I</p>
         <a href="https://www.perplexity.ai" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -421,11 +472,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">今天 - song and lyrics by Andy Lau</div>
+        <div class="news-title en-text">今天 - song and lyrics by Andy Lau</div>
+        <div class="news-title zh-text" style="display:none;">今天 - song and lyrics by Andy Lau</div>
         
       </summary>
       <div class="news-body">
-        <p>Skip to main content 2011 • Album Image 30 Unforgettable 2010 • Album Image 31 Love Hope (希望. 愛) 2009 • Album Image 32 Everyone Is No. 1 2007 • Album Image 33 一隻牛的異想世界 2007 • Album ## Popular Singles </p>
+        <p class="en-text">Skip to main content 2011 • Album Image 30 Unforgettable 2010 • Album Image 31 Love Hope (希望. 愛) 2009 • Album Image 32 Everyone Is No. 1 2007 • Album Image 33 一隻牛的異想世界 2007 • Album ## Popular Singles </p>
+        <p class="zh-text" style="display:none;">Skip to main content 2011 • Album Image 30 Unforgettable 2010 • Album Image 31 Love Hope (希望. 愛) 2009 • Album Image 32 Everyone Is No. 1 2007 • Album Image 33 一隻牛的異想世界 2007 • Album ## Popular Singles </p>
         <a href="https://open.spotify.com/track/054rsik6MzETq8xRIGJ6Nn" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -436,11 +489,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Artificial Intelligence (AI) - United States Department of State</div>
+        <div class="news-title en-text">Artificial Intelligence (AI) - United States Department of State</div>
+        <div class="news-title zh-text" style="display:none;">Artificial Intelligence (AI) - United States Department of State</div>
         
       </summary>
       <div class="news-body">
-        <p>Skip to content An official website of the United States Government Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. S</p>
+        <p class="en-text">Skip to content An official website of the United States Government Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. S</p>
+        <p class="zh-text" style="display:none;">Skip to content An official website of the United States Government Here's how you know Official websites use .gov A .gov website belongs to an official government organization in the United States. S</p>
         <a href="https://www.state.gov/artificial-intelligence" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -462,5 +517,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

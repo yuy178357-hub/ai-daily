@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-07-17 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">7月17日美股成交额前20：谷歌推迟发布Gemini旗舰模型</div>
+        <div class="news-title en-text">7月17日美股成交额前20：谷歌推迟发布Gemini旗舰模型</div>
+        <div class="news-title zh-text" style="display:none;">7月17日美股成交额前20：谷歌推迟发布Gemini旗舰模型</div>
         <div class="news-published">🕐 2026-07-17 04:50</div>
       </summary>
       <div class="news-body">
-        <p>周四美股成交额第1名美光科技收跌5.65%，成交391.2亿美元。周四美股存储股下挫，美光市值跌破1万亿美元。 第2名英伟达收跌2.4%，成交250.58亿美元。</p>
+        <p class="en-text">周四美股成交额第1名美光科技收跌5.65%，成交391.2亿美元。周四美股存储股下挫，美光市值跌破1万亿美元。 第2名英伟达收跌2.4%，成交250.58亿美元。</p>
+        <p class="zh-text" style="display:none;">周四美股成交额第1名美光科技收跌5.65%，成交391.2亿美元。周四美股存储股下挫，美光市值跌破1万亿美元。 第2名英伟达收跌2.4%，成交250.58亿美元。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-iniiaaik7424382.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">7月17日收盘：美股收跌科技股领跌，芯片股再遭抛售</div>
+        <div class="news-title en-text">7月17日收盘：美股收跌科技股领跌，芯片股再遭抛售</div>
+        <div class="news-title zh-text" style="display:none;">7月17日收盘：美股收跌科技股领跌，芯片股再遭抛售</div>
         <div class="news-published">🕐 2026-07-17 04:08</div>
       </summary>
       <div class="news-body">
-        <p>北京时间7月17日凌晨，美股周四收跌，纳指下跌超过380点。芯片股的大规模抛售盖过了一连串稳健的财报利好。 道指跌105.67点，跌幅为0.20%，报52552.97点；纳指跌387.28点...</p>
+        <p class="en-text">北京时间7月17日凌晨，美股周四收跌，纳指下跌超过380点。芯片股的大规模抛售盖过了一连串稳健的财报利好。 道指跌105.67点，跌幅为0.20%，报52552.97点；纳指跌387.28点...</p>
+        <p class="zh-text" style="display:none;">北京时间7月17日凌晨，美股周四收跌，纳指下跌超过380点。芯片股的大规模抛售盖过了一连串稳健的财报利好。 道指跌105.67点，跌幅为0.20%，报52552.97点；纳指跌387.28点...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-inihzvzt8152115.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">据传Gemini 3.5 Pro AI模型延迟 Alphabet股价下跌4.7%</div>
+        <div class="news-title en-text">据传Gemini 3.5 Pro AI模型延迟 Alphabet股价下跌4.7%</div>
+        <div class="news-title zh-text" style="display:none;">据传Gemini 3.5 Pro AI模型延迟 Alphabet股价下跌4.7%</div>
         <div class="news-published">🕐 2026-07-17 03:49</div>
       </summary>
       <div class="news-body">
-        <p>Alphabet股价因一则报道称公司推迟发布其旗舰人工智能模型Gemini 3.5 Pro而下跌。 该股最新下跌4.7%。Alphabet的下跌拖累了主要股指，使其在周四下午跌至日内低点。</p>
+        <p class="en-text">Alphabet股价因一则报道称公司推迟发布其旗舰人工智能模型Gemini 3.5 Pro而下跌。 该股最新下跌4.7%。Alphabet的下跌拖累了主要股指，使其在周四下午跌至日内低点。</p>
+        <p class="zh-text" style="display:none;">Alphabet股价因一则报道称公司推迟发布其旗舰人工智能模型Gemini 3.5 Pro而下跌。 该股最新下跌4.7%。Alphabet的下跌拖累了主要股指，使其在周四下午跌至日内低点。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-inihzvzs1360539.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">谷歌据悉推迟发布Gemini 3.5 Pro 因持续提升模型编程能力</div>
+        <div class="news-title en-text">谷歌据悉推迟发布Gemini 3.5 Pro 因持续提升模型编程能力</div>
+        <div class="news-title zh-text" style="display:none;">谷歌据悉推迟发布Gemini 3.5 Pro 因持续提升模型编程能力</div>
         <div class="news-published">🕐 2026-07-17 03:31</div>
       </summary>
       <div class="news-body">
-        <p>知情人士透露，谷歌最强旗舰AI模型Gemini 3.5 Pro的发布时间已较原计划推迟数月，因为该公司投入了更多时间提升模型能力，尤其是编程能力。</p>
+        <p class="en-text">知情人士透露，谷歌最强旗舰AI模型Gemini 3.5 Pro的发布时间已较原计划推迟数月，因为该公司投入了更多时间提升模型能力，尤其是编程能力。</p>
+        <p class="zh-text" style="display:none;">知情人士透露，谷歌最强旗舰AI模型Gemini 3.5 Pro的发布时间已较原计划推迟数月，因为该公司投入了更多时间提升模型能力，尤其是编程能力。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-17/doc-inihzvzs1344436.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -166,11 +183,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增</div>
+        <div class="news-title en-text">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增</div>
         
       </summary>
       <div class="news-body">
-        <p>OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <p class="en-text">OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <p class="zh-text" style="display:none;">OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
         <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-15-2026-ai-innovations-security-scares-2moc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -181,11 +200,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月AI大事件 汇总</div>
+        <div class="news-title en-text">2026年4月AI大事件 汇总</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月AI大事件 汇总</div>
         
       </summary>
       <div class="news-body">
-        <p>Image 1: CSDN首页 博客 下载 社区 Image 2AtomGit 更多会议学习Image 3InsCode 搜索 AI 搜索 登录 登录后您可以： 复制代码和一键运行 与博主大V深度互动 解锁海量精选资源 获取前沿技术资讯 立即登录 会员·新人礼包 Image 4 消息 创作中心 创作 Image 5Image 6Image 7 # 2026年4月AI大事件 汇总 最新推荐文章于 2</p>
+        <p class="en-text">Image 1: CSDN首页 博客 下载 社区 Image 2AtomGit 更多会议学习Image 3InsCode 搜索 AI 搜索 登录 登录后您可以： 复制代码和一键运行 与博主大V深度互动 解锁海量精选资源 获取前沿技术资讯 立即登录 会员·新人礼包 Image 4 消息 创作中心 创作 Image 5Image 6Image 7 # 2026年4月AI大事件 汇总 最新推荐文章于 2</p>
+        <p class="zh-text" style="display:none;">Image 1: CSDN首页 博客 下载 社区 Image 2AtomGit 更多会议学习Image 3InsCode 搜索 AI 搜索 登录 登录后您可以： 复制代码和一键运行 与博主大V深度互动 解锁海量精选资源 获取前沿技术资讯 立即登录 会员·新人礼包 Image 4 消息 创作中心 创作 Image 5Image 6Image 7 # 2026年4月AI大事件 汇总 最新推荐文章于 2</p>
         <a href="https://blog.csdn.net/qq_67069922/article/details/160656342" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -196,11 +217,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 蕃新聞</div>
+        <div class="news-title en-text">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 蕃新聞</div>
+        <div class="news-title zh-text" style="display:none;">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 蕃新聞</div>
         
       </summary>
       <div class="news-body">
-        <p>### 2026年5月25日全球AI人工智能五大焦點頭條：從「天花板突破」到「底層翻車」 報新聞 20 小時前 ### 2025五月天，當人工智能與機器人在兩岸三地掀起智慧新浪潮 報新聞 7 小時前 ### AI 人工智能在2026夏季的商機：從技術紅利到消費革命的引爆點 報新聞 19 小時前 ### AI人工智能多媒體補習班滿天飛，如何不被當「韭菜」割？ 報新聞 3 天前 ### 從 Share</p>
+        <p class="en-text">### 2026年5月25日全球AI人工智能五大焦點頭條：從「天花板突破」到「底層翻車」 報新聞 20 小時前 ### 2025五月天，當人工智能與機器人在兩岸三地掀起智慧新浪潮 報新聞 7 小時前 ### AI 人工智能在2026夏季的商機：從技術紅利到消費革命的引爆點 報新聞 19 小時前 ### AI人工智能多媒體補習班滿天飛，如何不被當「韭菜」割？ 報新聞 3 天前 ### 從 Share</p>
+        <p class="zh-text" style="display:none;">### 2026年5月25日全球AI人工智能五大焦點頭條：從「天花板突破」到「底層翻車」 報新聞 20 小時前 ### 2025五月天，當人工智能與機器人在兩岸三地掀起智慧新浪潮 報新聞 7 小時前 ### AI 人工智能在2026夏季的商機：從技術紅利到消費革命的引爆點 報新聞 19 小時前 ### AI人工智能多媒體補習班滿天飛，如何不被當「韭菜」割？ 報新聞 3 天前 ### 從 Share</p>
         <a href="https://n.yam.com/Article/20260518383615" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -211,11 +234,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        <div class="news-title en-text">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        <div class="news-title zh-text" style="display:none;">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
         
       </summary>
       <div class="news-body">
-        <p>報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <p class="en-text">報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <p class="zh-text" style="display:none;">報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
         <a href="https://www.contentplatform.info/articles/467778/2026%E5%B9%B4%E5%9B%9B%E6%9C%88ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A2%B0%E4%B8%8A%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%9C%80%E6%96%B0%E9%80%B2%E5%BA%A6%EF%BC%9A%E5%BE%9E%E3%80%8C%E8%83%BD%E8%B7%91" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -226,11 +251,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能发展下一站：人工智能+｜金融与科技|人工智能_新浪财经_新浪网</div>
+        <div class="news-title en-text">人工智能发展下一站：人工智能+｜金融与科技|人工智能_新浪财经_新浪网</div>
+        <div class="news-title zh-text" style="display:none;">人工智能发展下一站：人工智能+｜金融与科技|人工智能_新浪财经_新浪网</div>
         
       </summary>
       <div class="news-body">
-        <p>新浪首页 新闻 体育 财经 娱乐 科技 博客 图片 专栏 更多 汽车 教育 时尚 女性 星座 健康 房产历史视频收藏育儿读书 佛学游戏旅游邮箱导航 新浪微博 新浪新闻 新浪财经 新浪体育 新浪众测 新浪博客 新浪视频 新浪游戏 天气通 []( 自媒体热点 &gt; 正文 # 人工智能发展下一站：人工智能+｜金融与科技 人工智能发展下一站：人工智能+｜金融与科技 2026年04月21日 17:06 清华金</p>
+        <p class="en-text">新浪首页 新闻 体育 财经 娱乐 科技 博客 图片 专栏 更多 汽车 教育 时尚 女性 星座 健康 房产历史视频收藏育儿读书 佛学游戏旅游邮箱导航 新浪微博 新浪新闻 新浪财经 新浪体育 新浪众测 新浪博客 新浪视频 新浪游戏 天气通 []( 自媒体热点 &gt; 正文 # 人工智能发展下一站：人工智能+｜金融与科技 人工智能发展下一站：人工智能+｜金融与科技 2026年04月21日 17:06 清华金</p>
+        <p class="zh-text" style="display:none;">新浪首页 新闻 体育 财经 娱乐 科技 博客 图片 专栏 更多 汽车 教育 时尚 女性 星座 健康 房产历史视频收藏育儿读书 佛学游戏旅游邮箱导航 新浪微博 新浪新闻 新浪财经 新浪体育 新浪众测 新浪博客 新浪视频 新浪游戏 天气通 []( 自媒体热点 &gt; 正文 # 人工智能发展下一站：人工智能+｜金融与科技 人工智能发展下一站：人工智能+｜金融与科技 2026年04月21日 17:06 清华金</p>
         <a href="https://finance.sina.com.cn/wm/2026-04-21/doc-inhvheyy6154656.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -241,11 +268,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月人工智能大会：所有活动、日期、费用及演讲嘉宾</div>
+        <div class="news-title en-text">2026年4月人工智能大会：所有活动、日期、费用及演讲嘉宾</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月人工智能大会：所有活动、日期、费用及演讲嘉宾</div>
         
       </summary>
       <div class="news-body">
-        <p>第34届欧洲人工神经网络、计算智能和机器学习研讨会（ESANN）将于4月22日至24日在比利时布鲁日举行，并提供线上参会选项。ESANN是欧洲历史最悠久的人工智能学术会议之一，出版经同行评审的会议论文集，内容涵盖神经网络理论、深度学习架构、无监督学习、强化学习和计算智能方法等领域的最新进展。 2026 年 ESANN 的议程涵盖图神经网络应用、多核架构中的延迟和功耗预测，以及跨工程领域的机器学习应</p>
+        <p class="en-text">第34届欧洲人工神经网络、计算智能和机器学习研讨会（ESANN）将于4月22日至24日在比利时布鲁日举行，并提供线上参会选项。ESANN是欧洲历史最悠久的人工智能学术会议之一，出版经同行评审的会议论文集，内容涵盖神经网络理论、深度学习架构、无监督学习、强化学习和计算智能方法等领域的最新进展。 2026 年 ESANN 的议程涵盖图神经网络应用、多核架构中的延迟和功耗预测，以及跨工程领域的机器学习应</p>
+        <p class="zh-text" style="display:none;">第34届欧洲人工神经网络、计算智能和机器学习研讨会（ESANN）将于4月22日至24日在比利时布鲁日举行，并提供线上参会选项。ESANN是欧洲历史最悠久的人工智能学术会议之一，出版经同行评审的会议论文集，内容涵盖神经网络理论、深度学习架构、无监督学习、强化学习和计算智能方法等领域的最新进展。 2026 年 ESANN 的议程涵盖图神经网络应用、多核架构中的延迟和功耗预测，以及跨工程领域的机器学习应</p>
         <a href="" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -256,11 +285,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">AIM-2026：人工智能与机器学习国际会议——4月27日至29日 | 美国加利福尼亚州旧金山</div>
+        <div class="news-title en-text">AIM-2026：人工智能与机器学习国际会议——4月27日至29日 | 美国加利福尼亚州旧金山</div>
+        <div class="news-title zh-text" style="display:none;">AIM-2026：人工智能与机器学习国际会议——4月27日至29日 | 美国加利福尼亚州旧金山</div>
         
       </summary>
       <div class="news-body">
-        <p>地点： 旧金山机场希尔顿逸林酒店，加利福尼亚州旧金山 观众： 人工智能和机器学习领域的研究人员、学者、工程师和从业人员 官方网站: 人工智能ence.unitedscientificgroup.org 第三届人工智能与机器学习国际会议（AIM-2026）由非营利组织 United Scientific Group（501(c)(3)）主办，将于 4 月 27 日至 29 日在旧金山机场希尔顿逸林酒</p>
+        <p class="en-text">地点： 旧金山机场希尔顿逸林酒店，加利福尼亚州旧金山 观众： 人工智能和机器学习领域的研究人员、学者、工程师和从业人员 官方网站: 人工智能ence.unitedscientificgroup.org 第三届人工智能与机器学习国际会议（AIM-2026）由非营利组织 United Scientific Group（501(c)(3)）主办，将于 4 月 27 日至 29 日在旧金山机场希尔顿逸林酒</p>
+        <p class="zh-text" style="display:none;">地点： 旧金山机场希尔顿逸林酒店，加利福尼亚州旧金山 观众： 人工智能和机器学习领域的研究人员、学者、工程师和从业人员 官方网站: 人工智能ence.unitedscientificgroup.org 第三届人工智能与机器学习国际会议（AIM-2026）由非营利组织 United Scientific Group（501(c)(3)）主办，将于 4 月 27 日至 29 日在旧金山机场希尔顿逸林酒</p>
         <a href="" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -271,11 +302,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年奥斯汀人工智能峰会 — 4 月 24 日至 26 日 | 德克萨斯州奥斯汀</div>
+        <div class="news-title en-text">2026 年奥斯汀人工智能峰会 — 4 月 24 日至 26 日 | 德克萨斯州奥斯汀</div>
+        <div class="news-title zh-text" style="display:none;">2026 年奥斯汀人工智能峰会 — 4 月 24 日至 26 日 | 德克萨斯州奥斯汀</div>
         
       </summary>
       <div class="news-body">
-        <p>地点： 奥斯汀文艺复兴酒店， 德克萨斯州奥斯汀市东五街701号，邮编78701 票价： 通过邀请/申请；参见 aisummits.ai 观众： 金融领导者、私募股权专业人士和高级管理人员正在探索人工智能在金融运营中的应用 官方网站: 峰会。ai 奥斯汀人工智能峰会将于4月24日至26日在奥斯汀市中心的文艺复兴酒店举行，重点关注人工智能在金融和私募股权领域的应用。与同样在4月举行的纽约金融人工智能峰</p>
+        <p class="en-text">地点： 奥斯汀文艺复兴酒店， 德克萨斯州奥斯汀市东五街701号，邮编78701 票价： 通过邀请/申请；参见 aisummits.ai 观众： 金融领导者、私募股权专业人士和高级管理人员正在探索人工智能在金融运营中的应用 官方网站: 峰会。ai 奥斯汀人工智能峰会将于4月24日至26日在奥斯汀市中心的文艺复兴酒店举行，重点关注人工智能在金融和私募股权领域的应用。与同样在4月举行的纽约金融人工智能峰</p>
+        <p class="zh-text" style="display:none;">地点： 奥斯汀文艺复兴酒店， 德克萨斯州奥斯汀市东五街701号，邮编78701 票价： 通过邀请/申请；参见 aisummits.ai 观众： 金融领导者、私募股权专业人士和高级管理人员正在探索人工智能在金融运营中的应用 官方网站: 峰会。ai 奥斯汀人工智能峰会将于4月24日至26日在奥斯汀市中心的文艺复兴酒店举行，重点关注人工智能在金融和私募股权领域的应用。与同样在4月举行的纽约金融人工智能峰</p>
         <a href="" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -286,11 +319,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">ESANN 2026 — 4 月 22 日至 24 日 |比利时布鲁日（+在线）</div>
+        <div class="news-title en-text">ESANN 2026 — 4 月 22 日至 24 日 |比利时布鲁日（+在线）</div>
+        <div class="news-title zh-text" style="display:none;">ESANN 2026 — 4 月 22 日至 24 日 |比利时布鲁日（+在线）</div>
         
       </summary>
       <div class="news-body">
-        <p>地点： 比利时布鲁日（现场）及线上直播 格式： 混合（面对面和虚拟） 观众： 人工神经网络、计算智能和机器学习领域的研究人员 官方网站: esann.org [...] 2026 年议程聚焦四大主题：利用 MCP（模型上下文协议）框架实现智能体智能的运营；人工智能原生企业的人力资源转型；欧盟人工智能法案的合规性及全球标准导航；以及负责任的人工智能治理。已确认的演讲嘉宾包括英国气象局首席人工智能官 </p>
+        <p class="en-text">地点： 比利时布鲁日（现场）及线上直播 格式： 混合（面对面和虚拟） 观众： 人工神经网络、计算智能和机器学习领域的研究人员 官方网站: esann.org [...] 2026 年议程聚焦四大主题：利用 MCP（模型上下文协议）框架实现智能体智能的运营；人工智能原生企业的人力资源转型；欧盟人工智能法案的合规性及全球标准导航；以及负责任的人工智能治理。已确认的演讲嘉宾包括英国气象局首席人工智能官 </p>
+        <p class="zh-text" style="display:none;">地点： 比利时布鲁日（现场）及线上直播 格式： 混合（面对面和虚拟） 观众： 人工神经网络、计算智能和机器学习领域的研究人员 官方网站: esann.org [...] 2026 年议程聚焦四大主题：利用 MCP（模型上下文协议）框架实现智能体智能的运营；人工智能原生企业的人力资源转型；欧盟人工智能法案的合规性及全球标准导航；以及负责任的人工智能治理。已确认的演讲嘉宾包括英国气象局首席人工智能官 </p>
         <a href="" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -301,11 +336,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">纽约金融人工智能峰会 — 4月15日至16日 | 纽约州纽约市</div>
+        <div class="news-title en-text">纽约金融人工智能峰会 — 4月15日至16日 | 纽约州纽约市</div>
+        <div class="news-title zh-text" style="display:none;">纽约金融人工智能峰会 — 4月15日至16日 | 纽约州纽约市</div>
         
       </summary>
       <div class="news-body">
-        <p>地点： 会议地址：纽约州纽约市公园大道237号（亦称自由广场一号） 票价： 从澳元1,399 观众： 金融服务领域（交易、风险、合规、银行、金融科技）的高级人工智能从业者和高管 官方网站: ny-ai-finance.re-work.co 4月15日至16日，纽约金融人工智能峰会将汇聚来自全球领先金融机构的高级从业人员。本次峰会并非综合性人工智能会议，而是一场专注于特定领域的盛会——每场会议都将探</p>
+        <p class="en-text">地点： 会议地址：纽约州纽约市公园大道237号（亦称自由广场一号） 票价： 从澳元1,399 观众： 金融服务领域（交易、风险、合规、银行、金融科技）的高级人工智能从业者和高管 官方网站: ny-ai-finance.re-work.co 4月15日至16日，纽约金融人工智能峰会将汇聚来自全球领先金融机构的高级从业人员。本次峰会并非综合性人工智能会议，而是一场专注于特定领域的盛会——每场会议都将探</p>
+        <p class="zh-text" style="display:none;">地点： 会议地址：纽约州纽约市公园大道237号（亦称自由广场一号） 票价： 从澳元1,399 观众： 金融服务领域（交易、风险、合规、银行、金融科技）的高级人工智能从业者和高管 官方网站: ny-ai-finance.re-work.co 4月15日至16日，纽约金融人工智能峰会将汇聚来自全球领先金融机构的高级从业人员。本次峰会并非综合性人工智能会议，而是一场专注于特定领域的盛会——每场会议都将探</p>
         <a href="https://almcorp.com/zh-CN/blog/ai-conferences-april-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -316,11 +353,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年塑造AI 与技术的趋势</div>
+        <div class="news-title en-text">2026 年塑造AI 与技术的趋势</div>
+        <div class="news-title zh-text" style="display:none;">2026 年塑造AI 与技术的趋势</div>
         
       </summary>
       <div class="news-body">
-        <p>许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture of Experts 活动中表示，或许还会出现一类专门适配智能体工作负载的新型芯片。“ 在经历了对 AI 投资回报率的广泛质疑之后，如今 AI 的能力将为企业处</p>
+        <p class="en-text">许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture of Experts 活动中表示，或许还会出现一类专门适配智能体工作负载的新型芯片。“ 在经历了对 AI 投资回报率的广泛质疑之后，如今 AI 的能力将为企业处</p>
+        <p class="zh-text" style="display:none;">许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture of Experts 活动中表示，或许还会出现一类专门适配智能体工作负载的新型芯片。“ 在经历了对 AI 投资回报率的广泛质疑之后，如今 AI 的能力将为企业处</p>
         <a href="https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -331,11 +370,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特稿丨展望全球人工智能2026年演进新局</div>
+        <div class="news-title en-text">特稿丨展望全球人工智能2026年演进新局</div>
+        <div class="news-title zh-text" style="display:none;">特稿丨展望全球人工智能2026年演进新局</div>
         
       </summary>
       <div class="news-body">
-        <p>产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；到2028年，全球头部1000家制造企业中将有65%把智能体与设计、仿真工具结合，用于持续验证设计变更与配置方案。 美国液态人工智能公司联合创始人兼首席执行官拉</p>
+        <p class="en-text">产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；到2028年，全球头部1000家制造企业中将有65%把智能体与设计、仿真工具结合，用于持续验证设计变更与配置方案。 美国液态人工智能公司联合创始人兼首席执行官拉</p>
+        <p class="zh-text" style="display:none;">产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；到2028年，全球头部1000家制造企业中将有65%把智能体与设计、仿真工具结合，用于持续验证设计变更与配置方案。 美国液态人工智能公司联合创始人兼首席执行官拉</p>
         <a href="https://cn.chinadaily.com.cn/a/202601/20/WS696f4150a310942cc499c152.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -346,11 +387,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">新华深读｜2026年中国AI发展趋势前瞻</div>
+        <div class="news-title en-text">新华深读｜2026年中国AI发展趋势前瞻</div>
+        <div class="news-title zh-text" style="display:none;">新华深读｜2026年中国AI发展趋势前瞻</div>
         
       </summary>
       <div class="news-body">
-        <p>爱奇艺AIGC科技创意指导王庆丰表示，AI正推动消费从“需求牵引供给”逐步到“供给定义需求”，这背后是AI从表层效率优化切入，逐步渗透到体验重构，甚至重塑着深层价值体系。 AI重新定义价值，最深远的是挖掘人的价值。 学日语出身的刘典，在AI爆火的这两年决定辞职攻读计算语言学。“AI降低了跨界难度，很多知识门槛并没有想象中高。”他说。 AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI</p>
+        <p class="en-text">爱奇艺AIGC科技创意指导王庆丰表示，AI正推动消费从“需求牵引供给”逐步到“供给定义需求”，这背后是AI从表层效率优化切入，逐步渗透到体验重构，甚至重塑着深层价值体系。 AI重新定义价值，最深远的是挖掘人的价值。 学日语出身的刘典，在AI爆火的这两年决定辞职攻读计算语言学。“AI降低了跨界难度，很多知识门槛并没有想象中高。”他说。 AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI</p>
+        <p class="zh-text" style="display:none;">爱奇艺AIGC科技创意指导王庆丰表示，AI正推动消费从“需求牵引供给”逐步到“供给定义需求”，这背后是AI从表层效率优化切入，逐步渗透到体验重构，甚至重塑着深层价值体系。 AI重新定义价值，最深远的是挖掘人的价值。 学日语出身的刘典，在AI爆火的这两年决定辞职攻读计算语言学。“AI降低了跨界难度，很多知识门槛并没有想象中高。”他说。 AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI</p>
         <a href="https://www.news.cn/20260128/3b2f11906fd74ca397fef9996c805a60/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -361,11 +404,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">来自微软研究院的2026年前沿观察</div>
+        <div class="news-title en-text">来自微软研究院的2026年前沿观察</div>
+        <div class="news-title zh-text" style="display:none;">来自微软研究院的2026年前沿观察</div>
         
       </summary>
       <div class="news-body">
-        <p># 来自微软研究院的2026年前沿观察 已发布 分享到Facebook 分享到 X 分享到LinkedIn 分享到Reddit 订阅本站 RSS 本文编译自微软研究院博客文章：What’s next in AI? 2025年的 AI 发展历程并非一个循序渐进的故事，而是规模宏大、气势磅礴的新篇章。从最初用于轻微引导并辅助用户的算法，到现在，AI 已经发展成为能够与用户协作并具备推理和适应能力的复杂</p>
+        <p class="en-text"># 来自微软研究院的2026年前沿观察 已发布 分享到Facebook 分享到 X 分享到LinkedIn 分享到Reddit 订阅本站 RSS 本文编译自微软研究院博客文章：What’s next in AI? 2025年的 AI 发展历程并非一个循序渐进的故事，而是规模宏大、气势磅礴的新篇章。从最初用于轻微引导并辅助用户的算法，到现在，AI 已经发展成为能够与用户协作并具备推理和适应能力的复杂</p>
+        <p class="zh-text" style="display:none;"># 来自微软研究院的2026年前沿观察 已发布 分享到Facebook 分享到 X 分享到LinkedIn 分享到Reddit 订阅本站 RSS 本文编译自微软研究院博客文章：What’s next in AI? 2025年的 AI 发展历程并非一个循序渐进的故事，而是规模宏大、气势磅礴的新篇章。从最初用于轻微引导并辅助用户的算法，到现在，AI 已经发展成为能够与用户协作并具备推理和适应能力的复杂</p>
         <a href="https://www.microsoft.com/en-us/research/articles/whats-next-in-ai" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -376,11 +421,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">AI technology trends for 2026: Leadership insights from Zoom | Zoom</div>
+        <div class="news-title en-text">AI technology trends for 2026: Leadership insights from Zoom | Zoom</div>
+        <div class="news-title zh-text" style="display:none;">AI technology trends for 2026: Leadership insights from Zoom | Zoom</div>
         
       </summary>
       <div class="news-body">
-        <p>## Chris Morrissey, general manager, Zoom CX "The greatest AI breakthrough in 2026 won't be new models; it will be connected intelligence: In 2026, CX organizations will stop treating data as a depart</p>
+        <p class="en-text">## Chris Morrissey, general manager, Zoom CX "The greatest AI breakthrough in 2026 won't be new models; it will be connected intelligence: In 2026, CX organizations will stop treating data as a depart</p>
+        <p class="zh-text" style="display:none;">## Chris Morrissey, general manager, Zoom CX "The greatest AI breakthrough in 2026 won't be new models; it will be connected intelligence: In 2026, CX organizations will stop treating data as a depart</p>
         <a href="https://www.zoom.com/zh-cn/blog/ai-technology-trends-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -391,11 +438,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">《IBM》2026 年AI 人工智慧：八大趨勢展望</div>
+        <div class="news-title en-text">《IBM》2026 年AI 人工智慧：八大趨勢展望</div>
+        <div class="news-title zh-text" style="display:none;">《IBM》2026 年AI 人工智慧：八大趨勢展望</div>
         
       </summary>
       <div class="news-body">
-        <p>讓我們可以去做更複雜、更有創造力的工作 OK AI在數位世界裡組隊打怪已經這麼厲害了 那下一步會去哪 就帶我們來到第二個趨勢 AI要跨越熒幕了 它要從虛擬的文字和像素走進我們活生生的物理世界 我們來簡單比較一下 你看 我們現在熟悉的數位AI 像是ChatGPT這種大型語言模型 或是一些生成圖片的AI 它們基本上都活在電腦的數位空間裡 但是 實體AI完全是另一個層次 它要能理解我們這個 3D 的世界</p>
+        <p class="en-text">讓我們可以去做更複雜、更有創造力的工作 OK AI在數位世界裡組隊打怪已經這麼厲害了 那下一步會去哪 就帶我們來到第二個趨勢 AI要跨越熒幕了 它要從虛擬的文字和像素走進我們活生生的物理世界 我們來簡單比較一下 你看 我們現在熟悉的數位AI 像是ChatGPT這種大型語言模型 或是一些生成圖片的AI 它們基本上都活在電腦的數位空間裡 但是 實體AI完全是另一個層次 它要能理解我們這個 3D 的世界</p>
+        <p class="zh-text" style="display:none;">讓我們可以去做更複雜、更有創造力的工作 OK AI在數位世界裡組隊打怪已經這麼厲害了 那下一步會去哪 就帶我們來到第二個趨勢 AI要跨越熒幕了 它要從虛擬的文字和像素走進我們活生生的物理世界 我們來簡單比較一下 你看 我們現在熟悉的數位AI 像是ChatGPT這種大型語言模型 或是一些生成圖片的AI 它們基本上都活在電腦的數位空間裡 但是 實體AI完全是另一個層次 它要能理解我們這個 3D 的世界</p>
         <a href="https://www.youtube.com/watch?v=1YpH4rHHw-4" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -406,11 +455,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
+        <div class="news-title en-text">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
+        <div class="news-title zh-text" style="display:none;">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
         
       </summary>
       <div class="news-body">
-        <p>应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
+        <p class="en-text">应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
+        <p class="zh-text" style="display:none;">应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
         <a href="https://reports.weforum.org/docs/WEF_Strategic_Choices_in_the_Age_of_AI_2026_CN.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -421,11 +472,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年国际人工智能安全报告</div>
+        <div class="news-title en-text">2026 年国际人工智能安全报告</div>
+        <div class="news-title zh-text" style="display:none;">2026 年国际人工智能安全报告</div>
         
       </summary>
       <div class="news-body">
-        <p>资源以生成中间步骤。 该技术在数学、 软件工程和科 学领域中更复杂的推理任务上取得了尤其显著的性 能提升。 与此同时， 系统能力仍存在 “参差不齐” 的现象： 领 先系统可能在某些复杂任务上表现出色， 却在其他更 简单的任务上表现欠佳。 通用型人工智能系统在诸多 复杂领域表现卓越， 包括生成代码、 创建逼真图像， 以及解答数学和科学领域的专家级问题。 然而， 它们 在处理某些看似更简单的任务时仍会</p>
+        <p class="en-text">资源以生成中间步骤。 该技术在数学、 软件工程和科 学领域中更复杂的推理任务上取得了尤其显著的性 能提升。 与此同时， 系统能力仍存在 “参差不齐” 的现象： 领 先系统可能在某些复杂任务上表现出色， 却在其他更 简单的任务上表现欠佳。 通用型人工智能系统在诸多 复杂领域表现卓越， 包括生成代码、 创建逼真图像， 以及解答数学和科学领域的专家级问题。 然而， 它们 在处理某些看似更简单的任务时仍会</p>
+        <p class="zh-text" style="display:none;">资源以生成中间步骤。 该技术在数学、 软件工程和科 学领域中更复杂的推理任务上取得了尤其显著的性 能提升。 与此同时， 系统能力仍存在 “参差不齐” 的现象： 领 先系统可能在某些复杂任务上表现出色， 却在其他更 简单的任务上表现欠佳。 通用型人工智能系统在诸多 复杂领域表现卓越， 包括生成代码、 创建逼真图像， 以及解答数学和科学领域的专家级问题。 然而， 它们 在处理某些看似更简单的任务时仍会</p>
         <a href="https://internationalaisafetyreport.org/sites/default/files/2026-02/international-ai-safety-report-2026-zh.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -436,11 +489,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Gartner发布塑造AI基础设施未来的三大主要技术趋势</div>
+        <div class="news-title en-text">Gartner发布塑造AI基础设施未来的三大主要技术趋势</div>
+        <div class="news-title zh-text" style="display:none;">Gartner发布塑造AI基础设施未来的三大主要技术趋势</div>
         
       </summary>
       <div class="news-body">
-        <p>Gartner client? Log in for personalized search results. # 新闻 ## 新闻发布 ##### 北京，2026年5月27日 ### Gartner发布塑造AI基础设施未来的三大主要技术趋势 Gartner 2026大中华区高管交流大会于近日盛大召开。会上Gartner公布最新研究成果，梳理在新一代人工智能（AI）指数级跨越发展的时代背景下，塑造</p>
+        <p class="en-text">Gartner client? Log in for personalized search results. # 新闻 ## 新闻发布 ##### 北京，2026年5月27日 ### Gartner发布塑造AI基础设施未来的三大主要技术趋势 Gartner 2026大中华区高管交流大会于近日盛大召开。会上Gartner公布最新研究成果，梳理在新一代人工智能（AI）指数级跨越发展的时代背景下，塑造</p>
+        <p class="zh-text" style="display:none;">Gartner client? Log in for personalized search results. # 新闻 ## 新闻发布 ##### 北京，2026年5月27日 ### Gartner发布塑造AI基础设施未来的三大主要技术趋势 Gartner 2026大中华区高管交流大会于近日盛大召开。会上Gartner公布最新研究成果，梳理在新一代人工智能（AI）指数级跨越发展的时代背景下，塑造</p>
         <a href="https://www.gartner.com/cn/newsroom/press-releases/2026-0527-gartner-identifies-3-major-tech-trends-shaping-the-future-of-ai-infrastructure" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -451,11 +506,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
+        <div class="news-title en-text">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
+        <div class="news-title zh-text" style="display:none;">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
         
       </summary>
       <div class="news-body">
-        <p>美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
+        <p class="en-text">美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
+        <p class="zh-text" style="display:none;">美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
         <a href="https://www.news.cn/world/20260203/a173cb66c98a4b1bb551d588fd2f0209/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -466,11 +523,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">每日读报｜国务卿卢比奥谈为何要拆解国际刑事法庭 以色列策反伊朗前总统失败 世界已经被川普重塑 AI正在带来人类末日 人工智能无法挽救中国 中</div>
+        <div class="news-title en-text">每日读报｜国务卿卢比奥谈为何要拆解国际刑事法庭 以色列策反伊朗前总统失败 世界已经被川普重塑 AI正在带来人类末日 人工智能无法挽救中国 中</div>
+        <div class="news-title zh-text" style="display:none;">每日读报｜国务卿卢比奥谈为何要拆解国际刑事法庭 以色列策反伊朗前总统失败 世界已经被川普重塑 AI正在带来人类末日 人工智能无法挽救中国 中</div>
         
       </summary>
       <div class="news-body">
-        <p># 每日读报｜国务卿卢比奥谈为何要拆解国际刑事法庭 以色列策反伊朗前总统失败 世界已经被川普重塑 AI正在带来人类末日 人工智能无法挽救中国 中国对供应链的控制威胁美国主权｜2026年7月15日 ## 自由美利坚 39500 subscribers 190 likes ### Description 1624 views Posted: 15 Jul 2026 0:00 龚小夏导言 4:00 国务</p>
+        <p class="en-text"># 每日读报｜国务卿卢比奥谈为何要拆解国际刑事法庭 以色列策反伊朗前总统失败 世界已经被川普重塑 AI正在带来人类末日 人工智能无法挽救中国 中国对供应链的控制威胁美国主权｜2026年7月15日 ## 自由美利坚 39500 subscribers 190 likes ### Description 1624 views Posted: 15 Jul 2026 0:00 龚小夏导言 4:00 国务</p>
+        <p class="zh-text" style="display:none;"># 每日读报｜国务卿卢比奥谈为何要拆解国际刑事法庭 以色列策反伊朗前总统失败 世界已经被川普重塑 AI正在带来人类末日 人工智能无法挽救中国 中国对供应链的控制威胁美国主权｜2026年7月15日 ## 自由美利坚 39500 subscribers 190 likes ### Description 1624 views Posted: 15 Jul 2026 0:00 龚小夏导言 4:00 国务</p>
         <a href="https://www.youtube.com/watch?v=tOm_hTi1qmU" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -481,11 +540,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026世界人工智能大会｜AI新应用快速走进千行百业 - 新闻频道</div>
+        <div class="news-title en-text">2026世界人工智能大会｜AI新应用快速走进千行百业 - 新闻频道</div>
+        <div class="news-title zh-text" style="display:none;">2026世界人工智能大会｜AI新应用快速走进千行百业 - 新闻频道</div>
         
       </summary>
       <div class="news-body">
-        <p>新闻频道  &gt;;)  科技新闻 # 2026世界人工智能大会｜AI新应用快速走进千行百业 来源：央视网 | 2026年07月16日 05:28:54 央视网 | 2026年07月16日 05:28:54 ###### 原标题： 正在加载 编辑：王玉西 责任编辑：刘亮 点击收起全文 返回央视网首页 返回新闻频道 分享： 扫一扫 分享到微信 | 返回顶部 望海热线 xinwenxiansuo@staf</p>
+        <p class="en-text">新闻频道  &gt;;)  科技新闻 # 2026世界人工智能大会｜AI新应用快速走进千行百业 来源：央视网 | 2026年07月16日 05:28:54 央视网 | 2026年07月16日 05:28:54 ###### 原标题： 正在加载 编辑：王玉西 责任编辑：刘亮 点击收起全文 返回央视网首页 返回新闻频道 分享： 扫一扫 分享到微信 | 返回顶部 望海热线 xinwenxiansuo@staf</p>
+        <p class="zh-text" style="display:none;">新闻频道  &gt;;)  科技新闻 # 2026世界人工智能大会｜AI新应用快速走进千行百业 来源：央视网 | 2026年07月16日 05:28:54 央视网 | 2026年07月16日 05:28:54 ###### 原标题： 正在加载 编辑：王玉西 责任编辑：刘亮 点击收起全文 返回央视网首页 返回新闻频道 分享： 扫一扫 分享到微信 | 返回顶部 望海热线 xinwenxiansuo@staf</p>
         <a href="https://news.cctv.com/2026/07/16/ARTIFJP2Ex4a1B1fAJzHbhAJ260715.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -496,11 +557,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年科技行业前瞻：AI、自动驾驶、机器人、世界模型、美股...</div>
+        <div class="news-title en-text">2026年科技行业前瞻：AI、自动驾驶、机器人、世界模型、美股...</div>
+        <div class="news-title zh-text" style="display:none;">2026年科技行业前瞻：AI、自动驾驶、机器人、世界模型、美股...</div>
         
       </summary>
       <div class="news-body">
-        <p>硅谷101的三小时新年直播来啦，聚焦聊聊2026年大家最关心的几个科技赛道展望～ 视频时间轴： 环节一：AI的2025与2026：技术共识与非共识主持人：陈茜嘉宾：</p>
+        <p class="en-text">硅谷101的三小时新年直播来啦，聚焦聊聊2026年大家最关心的几个科技赛道展望～ 视频时间轴： 环节一：AI的2025与2026：技术共识与非共识主持人：陈茜嘉宾：</p>
+        <p class="zh-text" style="display:none;">硅谷101的三小时新年直播来啦，聚焦聊聊2026年大家最关心的几个科技赛道展望～ 视频时间轴： 环节一：AI的2025与2026：技术共识与非共识主持人：陈茜嘉宾：</p>
         <a href="https://www.youtube.com/watch?v=lAy9RKQSi2U" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -511,11 +574,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">习近平在上海考察时强调全面践行人民城市理念高质量推进城市 ...</div>
+        <div class="news-title en-text">习近平在上海考察时强调全面践行人民城市理念高质量推进城市 ...</div>
+        <div class="news-title zh-text" style="display:none;">习近平在上海考察时强调全面践行人民城市理念高质量推进城市 ...</div>
         
       </summary>
       <div class="news-body">
-        <p>### Description 979 views Posted: 16 Jul 2026 本期节目主要内容： 00:00 新闻联播要点汇总； 01:21 习近平在上海考察时强调 全面践行人民城市理念 高质量推进城市更新； 05:38 韩正会见新西兰前总理； 06:38 上半年GDP同比增长4.7% 中国经济持续向新向优； 09:50 上半年金融总量合理增长 信贷结构持续优化； 11:43 东北地</p>
+        <p class="en-text">### Description 979 views Posted: 16 Jul 2026 本期节目主要内容： 00:00 新闻联播要点汇总； 01:21 习近平在上海考察时强调 全面践行人民城市理念 高质量推进城市更新； 05:38 韩正会见新西兰前总理； 06:38 上半年GDP同比增长4.7% 中国经济持续向新向优； 09:50 上半年金融总量合理增长 信贷结构持续优化； 11:43 东北地</p>
+        <p class="zh-text" style="display:none;">### Description 979 views Posted: 16 Jul 2026 本期节目主要内容： 00:00 新闻联播要点汇总； 01:21 习近平在上海考察时强调 全面践行人民城市理念 高质量推进城市更新； 05:38 韩正会见新西兰前总理； 06:38 上半年GDP同比增长4.7% 中国经济持续向新向优； 09:50 上半年金融总量合理增长 信贷结构持续优化； 11:43 东北地</p>
         <a href="https://www.youtube.com/watch?v=j4iTjlEbclI" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -537,5 +602,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

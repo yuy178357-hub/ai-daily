@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-07-26 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">中国AI都救完场了，“OpenAI才发现闯祸了”</div>
+        <div class="news-title en-text">中国AI都救完场了，“OpenAI才发现闯祸了”</div>
+        <div class="news-title zh-text" style="display:none;">中国AI都救完场了，“OpenAI才发现闯祸了”</div>
         <div class="news-published">🕐 2026-07-25 20:59</div>
       </summary>
       <div class="news-body">
-        <p>（来源：观察者网） 近日，美国人工智能公司OpenAI的模型在安全测试中失控“越狱”，攻击了全球最大AI开源平台Hugging Face的生产基础设施...</p>
+        <p class="en-text">（来源：观察者网） 近日，美国人工智能公司OpenAI的模型在安全测试中失控“越狱”，攻击了全球最大AI开源平台Hugging Face的生产基础设施...</p>
+        <p class="zh-text" style="display:none;">（来源：观察者网） 近日，美国人工智能公司OpenAI的模型在安全测试中失控“越狱”，攻击了全球最大AI开源平台Hugging Face的生产基础设施...</p>
         <a href="https://finance.sina.com.cn/stock/t/2026-07-25/doc-iniizrew9007312.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">三星拿下2000亿美元大单 将向博通供应芯片</div>
+        <div class="news-title en-text">三星拿下2000亿美元大单 将向博通供应芯片</div>
+        <div class="news-title zh-text" style="display:none;">三星拿下2000亿美元大单 将向博通供应芯片</div>
         <div class="news-published">🕐 2026-07-25 18:10</div>
       </summary>
       <div class="news-body">
-        <p>三星电子获得一份价值逾2000亿美元的合同，将向博通供应芯片，两家公司正努力在人工智能（AI）基础设施市场争取更大份额。</p>
+        <p class="en-text">三星电子获得一份价值逾2000亿美元的合同，将向博通供应芯片，两家公司正努力在人工智能（AI）基础设施市场争取更大份额。</p>
+        <p class="zh-text" style="display:none;">三星电子获得一份价值逾2000亿美元的合同，将向博通供应芯片，两家公司正努力在人工智能（AI）基础设施市场争取更大份额。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-25/doc-iniizkxi1302644.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">梁文锋不满投资人泄露内部文件，DeepSeek新一轮融资或暂停</div>
+        <div class="news-title en-text">梁文锋不满投资人泄露内部文件，DeepSeek新一轮融资或暂停</div>
+        <div class="news-title zh-text" style="display:none;">梁文锋不满投资人泄露内部文件，DeepSeek新一轮融资或暂停</div>
         <div class="news-published">🕐 2026-07-26 00:00</div>
       </summary>
       <div class="news-body">
-        <p>来源：Z Finance 在第二轮百亿元融资即将落签的前夕，梁文锋叫停了谈判。 7月23日，疑似DeepSeek投资者交流会的纪要在市面上流出，引发广泛关注。</p>
+        <p class="en-text">来源：Z Finance 在第二轮百亿元融资即将落签的前夕，梁文锋叫停了谈判。 7月23日，疑似DeepSeek投资者交流会的纪要在市面上流出，引发广泛关注。</p>
+        <p class="zh-text" style="display:none;">来源：Z Finance 在第二轮百亿元融资即将落签的前夕，梁文锋叫停了谈判。 7月23日，疑似DeepSeek投资者交流会的纪要在市面上流出，引发广泛关注。</p>
         <a href="https://finance.sina.com.cn/china/2026-07-26/doc-inikankt0689339.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">黄仁勋发布首条“推文”</div>
+        <div class="news-title en-text">黄仁勋发布首条“推文”</div>
+        <div class="news-title zh-text" style="display:none;">黄仁勋发布首条“推文”</div>
         <div class="news-published">🕐 2026-07-25 15:37</div>
       </summary>
       <div class="news-body">
-        <p>美国政府近来威胁审查中国开源人工智能（AI）大模型之际，英伟达公司CEO黄仁勋于当地时间7月24日在马斯克旗下社交媒体平台X（原推特）上，发布了自己的首条帖文...</p>
+        <p class="en-text">美国政府近来威胁审查中国开源人工智能（AI）大模型之际，英伟达公司CEO黄仁勋于当地时间7月24日在马斯克旗下社交媒体平台X（原推特）上，发布了自己的首条帖文...</p>
+        <p class="zh-text" style="display:none;">美国政府近来威胁审查中国开源人工智能（AI）大模型之际，英伟达公司CEO黄仁勋于当地时间7月24日在马斯克旗下社交媒体平台X（原推特）上，发布了自己的首条帖文...</p>
         <a href="https://finance.sina.com.cn/wm/2026-07-25/doc-iniizerf4361027.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -166,11 +183,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">韩国绑定美国AI产业链！三星、SK海力士与英伟达、博通等签9500亿美元芯片大单</div>
+        <div class="news-title en-text">韩国绑定美国AI产业链！三星、SK海力士与英伟达、博通等签9500亿美元芯片大单</div>
+        <div class="news-title zh-text" style="display:none;">韩国绑定美国AI产业链！三星、SK海力士与英伟达、博通等签9500亿美元芯片大单</div>
         <div class="news-published">🕐 2026-07-25 13:59</div>
       </summary>
       <div class="news-body">
-        <p>三星与博通签署2000亿美元协议 深化内存和晶圆代工技术等领域合作 英伟达与韩国SK集团达成5000亿美元合作 来源： 华尔街见闻官方 韩国正通过与美国科技巨头达成空前规模的...</p>
+        <p class="en-text">三星与博通签署2000亿美元协议 深化内存和晶圆代工技术等领域合作 英伟达与韩国SK集团达成5000亿美元合作 来源： 华尔街见闻官方 韩国正通过与美国科技巨头达成空前规模的...</p>
+        <p class="zh-text" style="display:none;">三星与博通签署2000亿美元协议 深化内存和晶圆代工技术等领域合作 英伟达与韩国SK集团达成5000亿美元合作 来源： 华尔街见闻官方 韩国正通过与美国科技巨头达成空前规模的...</p>
         <a href="https://finance.sina.com.cn/stock/t/2026-07-25/doc-iniiyyim1225032.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -181,11 +200,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">英伟达与韩国SK集团达成5000亿美元合作</div>
+        <div class="news-title en-text">英伟达与韩国SK集团达成5000亿美元合作</div>
+        <div class="news-title zh-text" style="display:none;">英伟达与韩国SK集团达成5000亿美元合作</div>
         <div class="news-published">🕐 2026-07-25 13:58</div>
       </summary>
       <div class="news-body">
-        <p>北京时间7月25日，英伟达（NVDA.O）发布博客，宣布与韩国SK集团达成价值5000亿美元的合作，合作内容涵盖AI工厂建设和下一代存储器供应。</p>
+        <p class="en-text">北京时间7月25日，英伟达（NVDA.O）发布博客，宣布与韩国SK集团达成价值5000亿美元的合作，合作内容涵盖AI工厂建设和下一代存储器供应。</p>
+        <p class="zh-text" style="display:none;">北京时间7月25日，英伟达（NVDA.O）发布博客，宣布与韩国SK集团达成价值5000亿美元的合作，合作内容涵盖AI工厂建设和下一代存储器供应。</p>
         <a href="https://finance.sina.com.cn/jjxw/2026-07-25/doc-iniiyyip1380787.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -196,11 +217,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        <div class="news-title en-text">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <p class="en-text">OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <p class="zh-text" style="display:none;">OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
         <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-15-2026-ai-innovations-security-scares-2moc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -211,11 +234,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        <div class="news-title en-text">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        <div class="news-title zh-text" style="display:none;">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
         
       </summary>
       <div class="news-body">
-        <p>報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <p class="en-text">報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <p class="zh-text" style="display:none;">報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
         <a href="https://www.contentplatform.info/articles/467778/2026%E5%B9%B4%E5%9B%9B%E6%9C%88ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A2%B0%E4%B8%8A%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%9C%80%E6%96%B0%E9%80%B2%E5%BA%A6%EF%BC%9A%E5%BE%9E%E3%80%8C%E8%83%BD%E8%B7%91" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -226,11 +251,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">寻找AI时代商业拐点！启明创投发布2026年AI十大展望</div>
+        <div class="news-title en-text">寻找AI时代商业拐点！启明创投发布2026年AI十大展望</div>
+        <div class="news-title zh-text" style="display:none;">寻找AI时代商业拐点！启明创投发布2026年AI十大展望</div>
         
       </summary>
       <div class="news-body">
-        <p>展望六：AI基础设施将进入系统级竞争阶段，竞争维度覆盖芯片、互联、散热、供电等关键环节，未来两年内有望涌现基于新架构的算力芯片及超节点大集群，以实现低成本、高效率的Token（词元）生产。 展望七：安全可信将与产品效果、Token成本并列为影响企业AI大规模落地的三大关键变量，安全可信AI将从可选项升级为必选项。 AI应用 展望八：未来12—24个月，AI应用的商业模式将加速脱离互联网时代的Fre</p>
+        <p class="en-text">展望六：AI基础设施将进入系统级竞争阶段，竞争维度覆盖芯片、互联、散热、供电等关键环节，未来两年内有望涌现基于新架构的算力芯片及超节点大集群，以实现低成本、高效率的Token（词元）生产。 展望七：安全可信将与产品效果、Token成本并列为影响企业AI大规模落地的三大关键变量，安全可信AI将从可选项升级为必选项。 AI应用 展望八：未来12—24个月，AI应用的商业模式将加速脱离互联网时代的Fre</p>
+        <p class="zh-text" style="display:none;">展望六：AI基础设施将进入系统级竞争阶段，竞争维度覆盖芯片、互联、散热、供电等关键环节，未来两年内有望涌现基于新架构的算力芯片及超节点大集群，以实现低成本、高效率的Token（词元）生产。 展望七：安全可信将与产品效果、Token成本并列为影响企业AI大规模落地的三大关键变量，安全可信AI将从可选项升级为必选项。 AI应用 展望八：未来12—24个月，AI应用的商业模式将加速脱离互联网时代的Fre</p>
         <a href="https://www.stcn.com/article/detail/4027724.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -241,11 +268,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年各大科技巨头对AI的趋势预测</div>
+        <div class="news-title en-text">2026年各大科技巨头对AI的趋势预测</div>
+        <div class="news-title zh-text" style="display:none;">2026年各大科技巨头对AI的趋势预测</div>
         
       </summary>
       <div class="news-body">
-        <p>### 央视 2026年人工智能十大趋势 关键词：全球治理、算力基建、多模态、AI医疗、AI科研、物理AI、AI安全 AI 治理全球化 人工智能普惠共享成为全球发展议程核心。 智能算力规模化 算力成为 AI 核心产业要素，万卡级集群成为大模型训练主流载体，超大规模集群技术突破，算力发展兼顾高速互联与绿色低碳；“东数西算” 工程实现算力资源协同调度，大幅提升算力普惠性。 AI 应用垂直化 AI 应用</p>
+        <p class="en-text">### 央视 2026年人工智能十大趋势 关键词：全球治理、算力基建、多模态、AI医疗、AI科研、物理AI、AI安全 AI 治理全球化 人工智能普惠共享成为全球发展议程核心。 智能算力规模化 算力成为 AI 核心产业要素，万卡级集群成为大模型训练主流载体，超大规模集群技术突破，算力发展兼顾高速互联与绿色低碳；“东数西算” 工程实现算力资源协同调度，大幅提升算力普惠性。 AI 应用垂直化 AI 应用</p>
+        <p class="zh-text" style="display:none;">### 央视 2026年人工智能十大趋势 关键词：全球治理、算力基建、多模态、AI医疗、AI科研、物理AI、AI安全 AI 治理全球化 人工智能普惠共享成为全球发展议程核心。 智能算力规模化 算力成为 AI 核心产业要素，万卡级集群成为大模型训练主流载体，超大规模集群技术突破，算力发展兼顾高速互联与绿色低碳；“东数西算” 工程实现算力资源协同调度，大幅提升算力普惠性。 AI 应用垂直化 AI 应用</p>
         <a href="https://zhuanlan.zhihu.com/p/2011108769992577031" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -256,11 +285,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">百亿智能体浪潮将至：周鸿祎发布2026年20个AI预测</div>
+        <div class="news-title en-text">百亿智能体浪潮将至：周鸿祎发布2026年20个AI预测</div>
+        <div class="news-title zh-text" style="display:none;">百亿智能体浪潮将至：周鸿祎发布2026年20个AI预测</div>
         
       </summary>
       <div class="news-body">
-        <p>5.模型架构呈现“主导+多元”的多元化发展格局 Transformer架构仍将主导通用场景，但混合状态空间模型（SSM）、线性注意力模型等将实现推理速度的质的飞跃，文本扩散模型则将在创意内容生产领域快速渗透。架构之争的本质，是在有限算力下追求极致的“智能密度”。 6.训练范式革命：从“静态模型”到“持续进化系统” 新的训练范式将转向“通用基座（通识）+行业后训练（专精）+推理时进化（深度思考）”。</p>
+        <p class="en-text">5.模型架构呈现“主导+多元”的多元化发展格局 Transformer架构仍将主导通用场景，但混合状态空间模型（SSM）、线性注意力模型等将实现推理速度的质的飞跃，文本扩散模型则将在创意内容生产领域快速渗透。架构之争的本质，是在有限算力下追求极致的“智能密度”。 6.训练范式革命：从“静态模型”到“持续进化系统” 新的训练范式将转向“通用基座（通识）+行业后训练（专精）+推理时进化（深度思考）”。</p>
+        <p class="zh-text" style="display:none;">5.模型架构呈现“主导+多元”的多元化发展格局 Transformer架构仍将主导通用场景，但混合状态空间模型（SSM）、线性注意力模型等将实现推理速度的质的飞跃，文本扩散模型则将在创意内容生产领域快速渗透。架构之争的本质，是在有限算力下追求极致的“智能密度”。 6.训练范式革命：从“静态模型”到“持续进化系统” 新的训练范式将转向“通用基座（通识）+行业后训练（专精）+推理时进化（深度思考）”。</p>
         <a href="https://zhuanlan.zhihu.com/p/1994370120374588999" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -271,11 +302,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼</div>
+        <div class="news-title en-text">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼</div>
+        <div class="news-title zh-text" style="display:none;">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼</div>
         
       </summary>
       <div class="news-body">
-        <p>### 價值3000億美元的印度外包產業，能否在AI浪潮下生存？ 一名身穿東北花紋外套的人形機器人在觀塘APM商場舉行的人工智慧科技展上跳舞 ### 中國AI公司加速「出海」，為什麼香港成了關鍵一站？ ## 影片 ### 視頻, 中菲船隻在仁愛礁附近海域發生衝突　正值中美舉行會談, 節目全長 2,51 ### 視頻, 距離金門僅三公里，廈門翔安機場為何引發台灣國安疑慮？, 節目全長 5,19 ##</p>
+        <p class="en-text">### 價值3000億美元的印度外包產業，能否在AI浪潮下生存？ 一名身穿東北花紋外套的人形機器人在觀塘APM商場舉行的人工智慧科技展上跳舞 ### 中國AI公司加速「出海」，為什麼香港成了關鍵一站？ ## 影片 ### 視頻, 中菲船隻在仁愛礁附近海域發生衝突　正值中美舉行會談, 節目全長 2,51 ### 視頻, 距離金門僅三公里，廈門翔安機場為何引發台灣國安疑慮？, 節目全長 5,19 ##</p>
+        <p class="zh-text" style="display:none;">### 價值3000億美元的印度外包產業，能否在AI浪潮下生存？ 一名身穿東北花紋外套的人形機器人在觀塘APM商場舉行的人工智慧科技展上跳舞 ### 中國AI公司加速「出海」，為什麼香港成了關鍵一站？ ## 影片 ### 視頻, 中菲船隻在仁愛礁附近海域發生衝突　正值中美舉行會談, 節目全長 2,51 ### 視頻, 距離金門僅三公里，廈門翔安機場為何引發台灣國安疑慮？, 節目全長 5,19 ##</p>
         <a href="https://www.bbc.com/zhongwen/articles/crm8mmg0y3eo/trad" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -286,11 +319,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年 AI 技术趋势：Zoom 领导力洞察</div>
+        <div class="news-title en-text">2026 年 AI 技术趋势：Zoom 领导力洞察</div>
+        <div class="news-title zh-text" style="display:none;">2026 年 AI 技术趋势：Zoom 领导力洞察</div>
         
       </summary>
       <div class="news-body">
-        <p>## Chris Morrissey, general manager, Zoom CX "The greatest AI breakthrough in 2026 won't be new models; it will be connected intelligence: In 2026, CX organizations will stop treating data as a depart</p>
+        <p class="en-text">## Chris Morrissey, general manager, Zoom CX "The greatest AI breakthrough in 2026 won't be new models; it will be connected intelligence: In 2026, CX organizations will stop treating data as a depart</p>
+        <p class="zh-text" style="display:none;">## Chris Morrissey, general manager, Zoom CX "The greatest AI breakthrough in 2026 won't be new models; it will be connected intelligence: In 2026, CX organizations will stop treating data as a depart</p>
         <a href="https://www.zoom.com/zh-cn/blog/ai-technology-trends-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -301,11 +336,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026十大AI趋势发布，背后暗藏三条主线</div>
+        <div class="news-title en-text">2026十大AI趋势发布，背后暗藏三条主线</div>
+        <div class="news-title zh-text" style="display:none;">2026十大AI趋势发布，背后暗藏三条主线</div>
         
       </summary>
       <div class="news-body">
-        <p>看不清，点击换一张 暂无评论 暂无评论 图片新闻 落地无锡！京东首个物流机器人超级工厂来了 落地无锡！京东首个物流机器人超级工厂来了 OpenAI发布的AI浏览器，市场为何反应强烈？ OpenAI发布的AI浏览器，市场为何反应强烈？ 马云重返一线督战，阿里重启创始人模式 马云重返一线督战，阿里重启创始人模式 机器人奥运会战报：宇树机器人摘下首金，天工Ultra抢走首位“百米飞人” 机器人奥运会战报</p>
+        <p class="en-text">看不清，点击换一张 暂无评论 暂无评论 图片新闻 落地无锡！京东首个物流机器人超级工厂来了 落地无锡！京东首个物流机器人超级工厂来了 OpenAI发布的AI浏览器，市场为何反应强烈？ OpenAI发布的AI浏览器，市场为何反应强烈？ 马云重返一线督战，阿里重启创始人模式 马云重返一线督战，阿里重启创始人模式 机器人奥运会战报：宇树机器人摘下首金，天工Ultra抢走首位“百米飞人” 机器人奥运会战报</p>
+        <p class="zh-text" style="display:none;">看不清，点击换一张 暂无评论 暂无评论 图片新闻 落地无锡！京东首个物流机器人超级工厂来了 落地无锡！京东首个物流机器人超级工厂来了 OpenAI发布的AI浏览器，市场为何反应强烈？ OpenAI发布的AI浏览器，市场为何反应强烈？ 马云重返一线督战，阿里重启创始人模式 马云重返一线督战，阿里重启创始人模式 机器人奥运会战报：宇树机器人摘下首金，天工Ultra抢走首位“百米飞人” 机器人奥运会战报</p>
         <a href="https://m.ofweek.com/ai/2026-01/ART-201700-8500-30678786.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -316,11 +353,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特稿丨展望全球人工智能2026年演进新局</div>
+        <div class="news-title en-text">特稿丨展望全球人工智能2026年演进新局</div>
+        <div class="news-title zh-text" style="display:none;">特稿丨展望全球人工智能2026年演进新局</div>
         
       </summary>
       <div class="news-body">
-        <p>这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
+        <p class="en-text">这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
+        <p class="zh-text" style="display:none;">这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
         <a href="https://www.news.cn/tech/20260120/5c20c6f7ba864526b6e674acaea53e25/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -331,11 +370,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年，AI将深度嵌入日常生活_世界互联网大会</div>
+        <div class="news-title en-text">2026年，AI将深度嵌入日常生活_世界互联网大会</div>
+        <div class="news-title zh-text" style="display:none;">2026年，AI将深度嵌入日常生活_世界互联网大会</div>
         
       </summary>
       <div class="news-body">
-        <p>另一条赛道，则属于可折叠设备。 据传苹果公司将在今年发布首款能像书本一样展开的手机，兼顾便携与大屏体验。尽管三星等公司早已布局折叠屏多年，但高昂价格与耐用性问题使其始终局限于小众市场。若苹果凭借生态整合与工业设计实现破局，或将引爆新一轮换机潮。 网络AI化进程持续加速 如果最近使用谷歌搜索，你可能会发现页面顶部不再列出10个蓝色链接，而是一段由AI生成的回答，简洁明了。这是“AI模式”搜索引擎的真</p>
+        <p class="en-text">另一条赛道，则属于可折叠设备。 据传苹果公司将在今年发布首款能像书本一样展开的手机，兼顾便携与大屏体验。尽管三星等公司早已布局折叠屏多年，但高昂价格与耐用性问题使其始终局限于小众市场。若苹果凭借生态整合与工业设计实现破局，或将引爆新一轮换机潮。 网络AI化进程持续加速 如果最近使用谷歌搜索，你可能会发现页面顶部不再列出10个蓝色链接，而是一段由AI生成的回答，简洁明了。这是“AI模式”搜索引擎的真</p>
+        <p class="zh-text" style="display:none;">另一条赛道，则属于可折叠设备。 据传苹果公司将在今年发布首款能像书本一样展开的手机，兼顾便携与大屏体验。尽管三星等公司早已布局折叠屏多年，但高昂价格与耐用性问题使其始终局限于小众市场。若苹果凭借生态整合与工业设计实现破局，或将引爆新一轮换机潮。 网络AI化进程持续加速 如果最近使用谷歌搜索，你可能会发现页面顶部不再列出10个蓝色链接，而是一段由AI生成的回答，简洁明了。这是“AI模式”搜索引擎的真</p>
         <a href="https://cn.wicinternet.org/2026-01/13/content_38534441.htm" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -346,11 +387,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">周鸿祎发布2026年20个AI预言：我们正迈向百亿智能体时代 - 中国日报网</div>
+        <div class="news-title en-text">周鸿祎发布2026年20个AI预言：我们正迈向百亿智能体时代 - 中国日报网</div>
+        <div class="news-title zh-text" style="display:none;">周鸿祎发布2026年20个AI预言：我们正迈向百亿智能体时代 - 中国日报网</div>
         
       </summary>
       <div class="news-body">
-        <p>这一转变将引发连锁反应。首先，AI芯片市场“英伟达一家独大”的单极格局将被打破，形成“英伟达主导训练，多家厂商分食推理”的双轨产业格局。专用推理芯片（ASIC）将凭借成本优势在细分场景快速渗透。其次，制约发展的核心瓶颈将从算力芯片转向稳定充足的电力供给，全球科技竞争将升级为“能源大战”。他特别指出，中国依托“东数西算”国家工程与绿色电力能力，已在这场新竞争中占据先发优势。 模型智能升维：从“博学工</p>
+        <p class="en-text">这一转变将引发连锁反应。首先，AI芯片市场“英伟达一家独大”的单极格局将被打破，形成“英伟达主导训练，多家厂商分食推理”的双轨产业格局。专用推理芯片（ASIC）将凭借成本优势在细分场景快速渗透。其次，制约发展的核心瓶颈将从算力芯片转向稳定充足的电力供给，全球科技竞争将升级为“能源大战”。他特别指出，中国依托“东数西算”国家工程与绿色电力能力，已在这场新竞争中占据先发优势。 模型智能升维：从“博学工</p>
+        <p class="zh-text" style="display:none;">这一转变将引发连锁反应。首先，AI芯片市场“英伟达一家独大”的单极格局将被打破，形成“英伟达主导训练，多家厂商分食推理”的双轨产业格局。专用推理芯片（ASIC）将凭借成本优势在细分场景快速渗透。其次，制约发展的核心瓶颈将从算力芯片转向稳定充足的电力供给，全球科技竞争将升级为“能源大战”。他特别指出，中国依托“东数西算”国家工程与绿色电力能力，已在这场新竞争中占据先发优势。 模型智能升维：从“博学工</p>
         <a href="http://cn.chinadaily.com.cn/a/202601/09/WS6960b672a310942cc499ab97.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -361,11 +404,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">中央网信办部署开展“清朗·整治AI应用乱象”专项行动_中央网络安全和信息化委员会办公室</div>
+        <div class="news-title en-text">中央网信办部署开展“清朗·整治AI应用乱象”专项行动_中央网络安全和信息化委员会办公室</div>
+        <div class="news-title zh-text" style="display:none;">中央网信办部署开展“清朗·整治AI应用乱象”专项行动_中央网络安全和信息化委员会办公室</div>
         
       </summary>
       <div class="news-body">
-        <p>设为首页加入收藏手机版繁体 ### 首 页 ### 时政要闻 ### 网信政务 ### 互动服务 ### 热点专题 当前位置：首页&gt;正文;) 首页 时政要闻 网信政务 互动服务 热点专题 # 中央网信办部署开展“清朗·整治AI应用乱象”专项行动 2026年04月30日 17:05 来源： 中国网信网 【打印】)【纠错】 为规范AI服务和应用，促进行业健康有序发展，保障公民合法权益，近日，中央网信办</p>
+        <p class="en-text">设为首页加入收藏手机版繁体 ### 首 页 ### 时政要闻 ### 网信政务 ### 互动服务 ### 热点专题 当前位置：首页&gt;正文;) 首页 时政要闻 网信政务 互动服务 热点专题 # 中央网信办部署开展“清朗·整治AI应用乱象”专项行动 2026年04月30日 17:05 来源： 中国网信网 【打印】)【纠错】 为规范AI服务和应用，促进行业健康有序发展，保障公民合法权益，近日，中央网信办</p>
+        <p class="zh-text" style="display:none;">设为首页加入收藏手机版繁体 ### 首 页 ### 时政要闻 ### 网信政务 ### 互动服务 ### 热点专题 当前位置：首页&gt;正文;) 首页 时政要闻 网信政务 互动服务 热点专题 # 中央网信办部署开展“清朗·整治AI应用乱象”专项行动 2026年04月30日 17:05 来源： 中国网信网 【打印】)【纠错】 为规范AI服务和应用，促进行业健康有序发展，保障公民合法权益，近日，中央网信办</p>
         <a href="https://www.cac.gov.cn/2026-04/30/c_1779289298718765.htm" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -376,11 +421,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年塑造 AI 与技术的趋势</div>
+        <div class="news-title en-text">2026 年塑造 AI 与技术的趋势</div>
+        <div class="news-title zh-text" style="display:none;">2026 年塑造 AI 与技术的趋势</div>
         
       </summary>
       <div class="news-body">
-        <p>他表示：“这类模型将能以更贴近人类的方式感知世界、采取行动。它们将具备打通语言、视觉与行为这三大维度的能力，实现三者的深度融合。在不久的将来，我们就会开始看到这类多模态数字工作者的落地应用，它们能够自主完成各类任务，比如解读各类信息，甚至还能处理像复杂医疗病例这样的专业场景。” 但自主并不意味着消除人类的监督。Baughman 表示：“未来，构建这种人机协同闭环 AI 系统也至关重要，如此一来，人</p>
+        <p class="en-text">他表示：“这类模型将能以更贴近人类的方式感知世界、采取行动。它们将具备打通语言、视觉与行为这三大维度的能力，实现三者的深度融合。在不久的将来，我们就会开始看到这类多模态数字工作者的落地应用，它们能够自主完成各类任务，比如解读各类信息，甚至还能处理像复杂医疗病例这样的专业场景。” 但自主并不意味着消除人类的监督。Baughman 表示：“未来，构建这种人机协同闭环 AI 系统也至关重要，如此一来，人</p>
+        <p class="zh-text" style="display:none;">他表示：“这类模型将能以更贴近人类的方式感知世界、采取行动。它们将具备打通语言、视觉与行为这三大维度的能力，实现三者的深度融合。在不久的将来，我们就会开始看到这类多模态数字工作者的落地应用，它们能够自主完成各类任务，比如解读各类信息，甚至还能处理像复杂医疗病例这样的专业场景。” 但自主并不意味着消除人类的监督。Baughman 表示：“未来，构建这种人机协同闭环 AI 系统也至关重要，如此一来，人</p>
         <a href="https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -391,11 +438,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">大摩首席策略Laura（2026-7-22）市场不要焦虑！不要担心！整体AI人工智能下一步的预判</div>
+        <div class="news-title en-text">大摩首席策略Laura（2026-7-22）市场不要焦虑！不要担心！整体AI人工智能下一步的预判</div>
+        <div class="news-title zh-text" style="display:none;">大摩首席策略Laura（2026-7-22）市场不要焦虑！不要担心！整体AI人工智能下一步的预判</div>
         
       </summary>
       <div class="news-body">
-        <p>🔑 核心精炼双语关键词 (Top Bilingual SEO Keywords) 中文关键词： 人工智能超级周期, 大摩首席策略师, 2026宏观经济预测, AI资本支出, 港股科技股反弹, A股结构性行情, 美联储降息预期, AI大模型估值, 芯片与半导体投资, 🌟解读君结构性评论. English Keywords: AI Super Cycle, Morgan Stanley Chief S</p>
+        <p class="en-text">🔑 核心精炼双语关键词 (Top Bilingual SEO Keywords) 中文关键词： 人工智能超级周期, 大摩首席策略师, 2026宏观经济预测, AI资本支出, 港股科技股反弹, A股结构性行情, 美联储降息预期, AI大模型估值, 芯片与半导体投资, 🌟解读君结构性评论. English Keywords: AI Super Cycle, Morgan Stanley Chief S</p>
+        <p class="zh-text" style="display:none;">🔑 核心精炼双语关键词 (Top Bilingual SEO Keywords) 中文关键词： 人工智能超级周期, 大摩首席策略师, 2026宏观经济预测, AI资本支出, 港股科技股反弹, A股结构性行情, 美联储降息预期, AI大模型估值, 芯片与半导体投资, 🌟解读君结构性评论. English Keywords: AI Super Cycle, Morgan Stanley Chief S</p>
         <a href="https://www.youtube.com/watch?v=3W9xuviIVE8" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -406,11 +455,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
+        <div class="news-title en-text">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
+        <div class="news-title zh-text" style="display:none;">人工智能时代的战略选择： 塑造生命科学行业未来格局</div>
         
       </summary>
       <div class="news-body">
-        <p>应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
+        <p class="en-text">应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
+        <p class="zh-text" style="display:none;">应用案例。 本白皮书系列深入剖析人工智能对各行业的变革作 用，融合跨行业分析及深度领域与区域视角。 继 2025 年对人工智能发展现状、战略潜力与新兴 机遇开展基础评估后，2026 年系列报告将从可能 性转向必要性，重点聚焦落地实施，明确企业从试 点探索到全面部署的行动路径。 每份报告均结合跨行业实战案例研究、领先做法和 新兴数据，为企业高管呈现转型实操图景。报告之 间相互独立，却都紧紧围绕全新运</p>
         <a href="https://reports.weforum.org/docs/WEF_Strategic_Choices_in_the_Age_of_AI_2026_CN.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -421,11 +472,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">超300款AI新品将在2026世界人工智能大会首发</div>
+        <div class="news-title en-text">超300款AI新品将在2026世界人工智能大会首发</div>
+        <div class="news-title zh-text" style="display:none;">超300款AI新品将在2026世界人工智能大会首发</div>
         
       </summary>
       <div class="news-body">
-        <p>除了产业对接，大会还增强学术交流。汤文侃介绍，目前，已初步确定9位图灵奖、诺贝尔奖得主参会。大会首设WAIC Academic（世界人工智能大会学术会议），目前，已征集来自9个国家的284篇优质论文，也将邀请部分获奖作者参会分享。 人工智能全球治理是本次大会的重要主题。外交部人工智能事务协调员孙晓波介绍，今年将邀请几十个国家和国际组织派高级别代表出席本届大会。在人工智能全球治理高级别会议期间，围绕</p>
+        <p class="en-text">除了产业对接，大会还增强学术交流。汤文侃介绍，目前，已初步确定9位图灵奖、诺贝尔奖得主参会。大会首设WAIC Academic（世界人工智能大会学术会议），目前，已征集来自9个国家的284篇优质论文，也将邀请部分获奖作者参会分享。 人工智能全球治理是本次大会的重要主题。外交部人工智能事务协调员孙晓波介绍，今年将邀请几十个国家和国际组织派高级别代表出席本届大会。在人工智能全球治理高级别会议期间，围绕</p>
+        <p class="zh-text" style="display:none;">除了产业对接，大会还增强学术交流。汤文侃介绍，目前，已初步确定9位图灵奖、诺贝尔奖得主参会。大会首设WAIC Academic（世界人工智能大会学术会议），目前，已征集来自9个国家的284篇优质论文，也将邀请部分获奖作者参会分享。 人工智能全球治理是本次大会的重要主题。外交部人工智能事务协调员孙晓波介绍，今年将邀请几十个国家和国际组织派高级别代表出席本届大会。在人工智能全球治理高级别会议期间，围绕</p>
         <a href="https://www.digitalchina.gov.cn/2026/xwzx/szkx/202607/t20260708_5344077.htm" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -436,11 +489,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年国际人工智能安全报告</div>
+        <div class="news-title en-text">2026 年国际人工智能安全报告</div>
+        <div class="news-title zh-text" style="display:none;">2026 年国际人工智能安全报告</div>
         
       </summary>
       <div class="news-body">
-        <p>资源以生成中间步骤。 该技术在数学、 软件工程和科 学领域中更复杂的推理任务上取得了尤其显著的性 能提升。 与此同时， 系统能力仍存在 “参差不齐” 的现象： 领 先系统可能在某些复杂任务上表现出色， 却在其他更 简单的任务上表现欠佳。 通用型人工智能系统在诸多 复杂领域表现卓越， 包括生成代码、 创建逼真图像， 以及解答数学和科学领域的专家级问题。 然而， 它们 在处理某些看似更简单的任务时仍会</p>
+        <p class="en-text">资源以生成中间步骤。 该技术在数学、 软件工程和科 学领域中更复杂的推理任务上取得了尤其显著的性 能提升。 与此同时， 系统能力仍存在 “参差不齐” 的现象： 领 先系统可能在某些复杂任务上表现出色， 却在其他更 简单的任务上表现欠佳。 通用型人工智能系统在诸多 复杂领域表现卓越， 包括生成代码、 创建逼真图像， 以及解答数学和科学领域的专家级问题。 然而， 它们 在处理某些看似更简单的任务时仍会</p>
+        <p class="zh-text" style="display:none;">资源以生成中间步骤。 该技术在数学、 软件工程和科 学领域中更复杂的推理任务上取得了尤其显著的性 能提升。 与此同时， 系统能力仍存在 “参差不齐” 的现象： 领 先系统可能在某些复杂任务上表现出色， 却在其他更 简单的任务上表现欠佳。 通用型人工智能系统在诸多 复杂领域表现卓越， 包括生成代码、 创建逼真图像， 以及解答数学和科学领域的专家级问题。 然而， 它们 在处理某些看似更简单的任务时仍会</p>
         <a href="https://internationalaisafetyreport.org/sites/default/files/2026-02/international-ai-safety-report-2026-zh.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -451,11 +506,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">AI机器人进入具身智能|ai|机器人|2026年世界人工智能大会|具身智能_新浪新闻</div>
+        <div class="news-title en-text">AI机器人进入具身智能|ai|机器人|2026年世界人工智能大会|具身智能_新浪新闻</div>
+        <div class="news-title zh-text" style="display:none;">AI机器人进入具身智能|ai|机器人|2026年世界人工智能大会|具身智能_新浪新闻</div>
         
       </summary>
       <div class="news-body">
-        <p>汽车 本地生活 旅游 数码 娱乐 影视 洪布衫 26-07-20 00:18 微博认证：科技博主 #AI和机器人进化成什么样了# 根据2026年世界人工智能大会的最新动态，AI和机器人的进化已进入“具身智能”爆发期，机器人从执行预设程序的工具进化为能理解、能决策、能自主学习、甚至具备情感交互能力的智能伙伴。#中国机器人现在有多疯狂# ​#中国AI进度条狂飙# ​ 发布于 江西 首页 导航 反馈</p>
+        <p class="en-text">汽车 本地生活 旅游 数码 娱乐 影视 洪布衫 26-07-20 00:18 微博认证：科技博主 #AI和机器人进化成什么样了# 根据2026年世界人工智能大会的最新动态，AI和机器人的进化已进入“具身智能”爆发期，机器人从执行预设程序的工具进化为能理解、能决策、能自主学习、甚至具备情感交互能力的智能伙伴。#中国机器人现在有多疯狂# ​#中国AI进度条狂飙# ​ 发布于 江西 首页 导航 反馈</p>
+        <p class="zh-text" style="display:none;">汽车 本地生活 旅游 数码 娱乐 影视 洪布衫 26-07-20 00:18 微博认证：科技博主 #AI和机器人进化成什么样了# 根据2026年世界人工智能大会的最新动态，AI和机器人的进化已进入“具身智能”爆发期，机器人从执行预设程序的工具进化为能理解、能决策、能自主学习、甚至具备情感交互能力的智能伙伴。#中国机器人现在有多疯狂# ​#中国AI进度条狂飙# ​ 发布于 江西 首页 导航 反馈</p>
         <a href="https://www.sina.cn/news/detail/5322548399050703.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -466,11 +523,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">周鸿祎发布2026年20个AI预言：我们正迈向百亿智能体时代-品玩</div>
+        <div class="news-title en-text">周鸿祎发布2026年20个AI预言：我们正迈向百亿智能体时代-品玩</div>
+        <div class="news-title zh-text" style="display:none;">周鸿祎发布2026年20个AI预言：我们正迈向百亿智能体时代-品玩</div>
         
       </summary>
       <div class="news-body">
-        <p>0 条评论 请「登录」后评论 取消 发布 下载品玩App，比99.9%的人更先知道关于「360」的新故事 下载品玩App 比99.9%的人更先知道关于「360」的新故事 iOS版本   Android版本 立即下载 AI阅读助手 以下有两点提示，请您注意： 1. 请避免输入违反公序良俗、不安全或敏感的内容，模型可能无法回答不合适的问题。 2. 我们致力于提供高质量的大模型问答服务，但无法保证回答的</p>
+        <p class="en-text">0 条评论 请「登录」后评论 取消 发布 下载品玩App，比99.9%的人更先知道关于「360」的新故事 下载品玩App 比99.9%的人更先知道关于「360」的新故事 iOS版本   Android版本 立即下载 AI阅读助手 以下有两点提示，请您注意： 1. 请避免输入违反公序良俗、不安全或敏感的内容，模型可能无法回答不合适的问题。 2. 我们致力于提供高质量的大模型问答服务，但无法保证回答的</p>
+        <p class="zh-text" style="display:none;">0 条评论 请「登录」后评论 取消 发布 下载品玩App，比99.9%的人更先知道关于「360」的新故事 下载品玩App 比99.9%的人更先知道关于「360」的新故事 iOS版本   Android版本 立即下载 AI阅读助手 以下有两点提示，请您注意： 1. 请避免输入违反公序良俗、不安全或敏感的内容，模型可能无法回答不合适的问题。 2. 我们致力于提供高质量的大模型问答服务，但无法保证回答的</p>
         <a href="https://www.pingwest.com/w/310593" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -481,11 +540,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
+        <div class="news-title en-text">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
+        <div class="news-title zh-text" style="display:none;">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
         
       </summary>
       <div class="news-body">
-        <p>落地上天推动变革 在AI落地应用中，1月出现一款火遍全球的智能体Clawdbot（已改名OpenClaw）。它不仅会聊天，还能根据用户指示操作电脑、应用程序和网络完成复杂任务，如整理文件、修改代码，甚至管理投资等，有助于大幅提升工作效率，可能在多个领域带来变革性影响。有意思的是，有人专门开发了一个仅供这种智能体之间“聊天”的平台Moltbook，据报道目前已有上百万个智能体在上面聊工作、意识、宗教</p>
+        <p class="en-text">落地上天推动变革 在AI落地应用中，1月出现一款火遍全球的智能体Clawdbot（已改名OpenClaw）。它不仅会聊天，还能根据用户指示操作电脑、应用程序和网络完成复杂任务，如整理文件、修改代码，甚至管理投资等，有助于大幅提升工作效率，可能在多个领域带来变革性影响。有意思的是，有人专门开发了一个仅供这种智能体之间“聊天”的平台Moltbook，据报道目前已有上百万个智能体在上面聊工作、意识、宗教</p>
+        <p class="zh-text" style="display:none;">落地上天推动变革 在AI落地应用中，1月出现一款火遍全球的智能体Clawdbot（已改名OpenClaw）。它不仅会聊天，还能根据用户指示操作电脑、应用程序和网络完成复杂任务，如整理文件、修改代码，甚至管理投资等，有助于大幅提升工作效率，可能在多个领域带来变革性影响。有意思的是，有人专门开发了一个仅供这种智能体之间“聊天”的平台Moltbook，据报道目前已有上百万个智能体在上面聊工作、意识、宗教</p>
         <a href="https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -507,5 +568,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

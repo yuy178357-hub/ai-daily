@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-06-17 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Mobileye计划2027年在美国推出自动驾驶出租车服务</div>
+        <div class="news-title en-text">Mobileye计划2027年在美国推出自动驾驶出租车服务</div>
+        <div class="news-title zh-text" style="display:none;">Mobileye计划2027年在美国推出自动驾驶出租车服务</div>
         <div class="news-published">🕐 2026-06-17 01:01</div>
       </summary>
       <div class="news-body">
-        <p>核心要点自动驾驶技术供应商 Mobileye 全球公司宣布，将在美国推出自研自动驾驶出租车（Robotaxi）服务。公司计划 2027 年在美国一座主要城市首批投放 100...</p>
+        <p class="en-text">核心要点自动驾驶技术供应商 Mobileye 全球公司宣布，将在美国推出自研自动驾驶出租车（Robotaxi）服务。公司计划 2027 年在美国一座主要城市首批投放 100...</p>
+        <p class="zh-text" style="display:none;">核心要点自动驾驶技术供应商 Mobileye 全球公司宣布，将在美国推出自研自动驾驶出租车（Robotaxi）服务。公司计划 2027 年在美国一座主要城市首批投放 100...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-06-17/doc-inicrumf7345741.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">期权交易教父：SpaceX期权交易量有望超越英伟达、特斯拉</div>
+        <div class="news-title en-text">期权交易教父：SpaceX期权交易量有望超越英伟达、特斯拉</div>
+        <div class="news-title zh-text" style="display:none;">期权交易教父：SpaceX期权交易量有望超越英伟达、特斯拉</div>
         <div class="news-published">🕐 2026-06-17 00:58</div>
       </summary>
       <div class="news-body">
-        <p>SpaceX 股票期权现已正式挂牌交易，开盘后交易热度瞬间拉满。 美股开盘不到 30 分钟，SpaceX 期权成交量就跻身个股期权第三名，仅次于特斯拉与英伟达。</p>
+        <p class="en-text">SpaceX 股票期权现已正式挂牌交易，开盘后交易热度瞬间拉满。 美股开盘不到 30 分钟，SpaceX 期权成交量就跻身个股期权第三名，仅次于特斯拉与英伟达。</p>
+        <p class="zh-text" style="display:none;">SpaceX 股票期权现已正式挂牌交易，开盘后交易热度瞬间拉满。 美股开盘不到 30 分钟，SpaceX 期权成交量就跻身个股期权第三名，仅次于特斯拉与英伟达。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-06-17/doc-inicruma9142258.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">12大模型集体翻车，傅盛携"三万"踢馆世界杯AI预测：一只龙虾能打败千亿参数模型吗？</div>
+        <div class="news-title en-text">12大模型集体翻车，傅盛携"三万"踢馆世界杯AI预测：一只龙虾能打败千亿参数模型吗？</div>
+        <div class="news-title zh-text" style="display:none;">12大模型集体翻车，傅盛携"三万"踢馆世界杯AI预测：一只龙虾能打败千亿参数模型吗？</div>
         <div class="news-published">🕐 2026-06-17 00:53</div>
       </summary>
       <div class="news-body">
-        <p>世界杯从来不缺冷门，而AI似乎也正在被世界杯“教育”。就在昨晚，西班牙对阵佛得角的比赛中，西班牙意外被逼平，让赛前参与“世界杯人机大战”预测的12家AI大模型集体翻车。</p>
+        <p class="en-text">世界杯从来不缺冷门，而AI似乎也正在被世界杯“教育”。就在昨晚，西班牙对阵佛得角的比赛中，西班牙意外被逼平，让赛前参与“世界杯人机大战”预测的12家AI大模型集体翻车。</p>
+        <p class="zh-text" style="display:none;">世界杯从来不缺冷门，而AI似乎也正在被世界杯“教育”。就在昨晚，西班牙对阵佛得角的比赛中，西班牙意外被逼平，让赛前参与“世界杯人机大战”预测的12家AI大模型集体翻车。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-06-17/doc-inicrqci7474316.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
+        <div class="news-title en-text">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
+        <p class="en-text">随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
+        <p class="zh-text" style="display:none;">随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
         <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-21-2026-ai-innovations-space-setbacks-and-2ncc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -166,11 +183,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        <div class="news-title en-text">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
         
       </summary>
       <div class="news-body">
-        <p>OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <p class="en-text">OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <p class="zh-text" style="display:none;">OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
         <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-15-2026-ai-innovations-security-scares-2moc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -181,11 +200,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年4月21日人工智能領域最新動態彙總</div>
+        <div class="news-title en-text">2026年4月21日人工智能領域最新動態彙總</div>
+        <div class="news-title zh-text" style="display:none;">2026年4月21日人工智能領域最新動態彙總</div>
         
       </summary>
       <div class="news-body">
-        <p>跳到主要內容 ::: 網站導覽 企業永續 關於群益 人才招募") 群益期貨(香港) (另開新視窗)") facebook") Line") ::: 1. 首頁 2. 市場快訊 2026-04-21 # 2026年4月21日人工智能領域最新動態彙總 【整理：每日人工智能動態彙總（2026-04-21）】1. 污染數據、操控榜單，你信任的AI可能已被“投毒”。 2. 最高法：正在抓緊起草關於依法妥善審</p>
+        <p class="en-text">跳到主要內容 ::: 網站導覽 企業永續 關於群益 人才招募") 群益期貨(香港) (另開新視窗)") facebook") Line") ::: 1. 首頁 2. 市場快訊 2026-04-21 # 2026年4月21日人工智能領域最新動態彙總 【整理：每日人工智能動態彙總（2026-04-21）】1. 污染數據、操控榜單，你信任的AI可能已被“投毒”。 2. 最高法：正在抓緊起草關於依法妥善審</p>
+        <p class="zh-text" style="display:none;">跳到主要內容 ::: 網站導覽 企業永續 關於群益 人才招募") 群益期貨(香港) (另開新視窗)") facebook") Line") ::: 1. 首頁 2. 市場快訊 2026-04-21 # 2026年4月21日人工智能領域最新動態彙總 【整理：每日人工智能動態彙總（2026-04-21）】1. 污染數據、操控榜單，你信任的AI可能已被“投毒”。 2. 最高法：正在抓緊起草關於依法妥善審</p>
         <a href="https://www.capitalfutures.com.tw/zh-tw/financial/breakingnewsarticle?contentid=c26042100381" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -196,11 +217,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」</div>
+        <div class="news-title en-text">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」</div>
+        <div class="news-title zh-text" style="display:none;">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」</div>
         
       </summary>
       <div class="news-body">
-        <p>### 政商名流齊聚兩廳院！黃維明《浪漫的樂章》首演滿座 3/8 衛武營再續琴緣 由行銷人編輯群分享優良選書，帶您掌握行銷市場與產業趨勢等新消息、新觀點。歡迎各大出版社來信推薦選書：(/cdn-cgi/l/email-protection) ### 有效的危機管理，就是要消除脆弱性！ ### 精選書摘|看關稅戰學出價！多數的談判，先出價的人佔上風？ ### 精選書摘｜早上那一杯咖啡，賣的是什麼？快</p>
+        <p class="en-text">### 政商名流齊聚兩廳院！黃維明《浪漫的樂章》首演滿座 3/8 衛武營再續琴緣 由行銷人編輯群分享優良選書，帶您掌握行銷市場與產業趨勢等新消息、新觀點。歡迎各大出版社來信推薦選書：(/cdn-cgi/l/email-protection) ### 有效的危機管理，就是要消除脆弱性！ ### 精選書摘|看關稅戰學出價！多數的談判，先出價的人佔上風？ ### 精選書摘｜早上那一杯咖啡，賣的是什麼？快</p>
+        <p class="zh-text" style="display:none;">### 政商名流齊聚兩廳院！黃維明《浪漫的樂章》首演滿座 3/8 衛武營再續琴緣 由行銷人編輯群分享優良選書，帶您掌握行銷市場與產業趨勢等新消息、新觀點。歡迎各大出版社來信推薦選書：(/cdn-cgi/l/email-protection) ### 有效的危機管理，就是要消除脆弱性！ ### 精選書摘|看關稅戰學出價！多數的談判，先出價的人佔上風？ ### 精選書摘｜早上那一杯咖啡，賣的是什麼？快</p>
         <a href="https://www.marketersgo.com/uncategorized/202605/2026%E5%B9%B4%E5%9B%9B%E6%9C%88ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A2%B0%E4%B8%8A%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%9C%80%E6%96%B0%E9%80%B2%E5%BA%A6%EF%BC%9A%E5%BE%9E%E3%80%8C%E8%83%BD%E8%B7%91" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -211,11 +234,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">北京大学深圳研究生院科学智能学院</div>
+        <div class="news-title en-text">北京大学深圳研究生院科学智能学院</div>
+        <div class="news-title zh-text" style="display:none;">北京大学深圳研究生院科学智能学院</div>
         
       </summary>
       <div class="news-body">
-        <p>##### 我院AI4S交叉研究取得重要进展 | 莫凡洋/袁粒与合作者开发机器学习手性分子光谱预测模型 电子圆二色光谱（electronic circular dichroism，ecd）作为一种关键的光谱技术，具有用量少、易测定等优点，在不对称催化、功能材料和药物发现等领域有重要且广泛的应用，已成为探索手性分子空间绝对构型的有力工具。然而，圆二色光谱的理论计算往往复杂且耗时，成为化学研究和药物开</p>
+        <p class="en-text">##### 我院AI4S交叉研究取得重要进展 | 莫凡洋/袁粒与合作者开发机器学习手性分子光谱预测模型 电子圆二色光谱（electronic circular dichroism，ecd）作为一种关键的光谱技术，具有用量少、易测定等优点，在不对称催化、功能材料和药物发现等领域有重要且广泛的应用，已成为探索手性分子空间绝对构型的有力工具。然而，圆二色光谱的理论计算往往复杂且耗时，成为化学研究和药物开</p>
+        <p class="zh-text" style="display:none;">##### 我院AI4S交叉研究取得重要进展 | 莫凡洋/袁粒与合作者开发机器学习手性分子光谱预测模型 电子圆二色光谱（electronic circular dichroism，ecd）作为一种关键的光谱技术，具有用量少、易测定等优点，在不对称催化、功能材料和药物发现等领域有重要且广泛的应用，已成为探索手性分子空间绝对构型的有力工具。然而，圆二色光谱的理论计算往往复杂且耗时，成为化学研究和药物开</p>
         <a href="https://ai4s.pkusz.edu.cn" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -226,11 +251,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">[PDF] 2026 年国际人工智能安全报告</div>
+        <div class="news-title en-text">[PDF] 2026 年国际人工智能安全报告</div>
+        <div class="news-title zh-text" style="display:none;">[PDF] 2026 年国际人工智能安全报告</div>
         
       </summary>
       <div class="news-body">
-        <p>地学习新信息和技能。 人工智能引导的机器人能够在许多行业和岗位中， 在动态的真实环境中处理 复杂的实体或社交任务。 由于实体任务之间泛化方面的挑战， 人工智能在这些实体任务和具身任务 中的表现仍普遍落后于人类， 除非该系统是为某项特定任务而专门开发的  (251 , 25 2)。 — 路径： 2025 年之后， 通过持续或加速扩大预训练、 后训练和推理的规模， 现有范式内的人工智能能 力将持续呈指</p>
+        <p class="en-text">地学习新信息和技能。 人工智能引导的机器人能够在许多行业和岗位中， 在动态的真实环境中处理 复杂的实体或社交任务。 由于实体任务之间泛化方面的挑战， 人工智能在这些实体任务和具身任务 中的表现仍普遍落后于人类， 除非该系统是为某项特定任务而专门开发的  (251 , 25 2)。 — 路径： 2025 年之后， 通过持续或加速扩大预训练、 后训练和推理的规模， 现有范式内的人工智能能 力将持续呈指</p>
+        <p class="zh-text" style="display:none;">地学习新信息和技能。 人工智能引导的机器人能够在许多行业和岗位中， 在动态的真实环境中处理 复杂的实体或社交任务。 由于实体任务之间泛化方面的挑战， 人工智能在这些实体任务和具身任务 中的表现仍普遍落后于人类， 除非该系统是为某项特定任务而专门开发的  (251 , 25 2)。 — 路径： 2025 年之后， 通过持续或加速扩大预训练、 后训练和推理的规模， 现有范式内的人工智能能 力将持续呈指</p>
         <a href="https://internationalaisafetyreport.org/sites/default/files/2026-02/international-ai-safety-report-2026-zh.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -241,11 +268,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年人工智能现状及发展趋势分析</div>
+        <div class="news-title en-text">2026年人工智能现状及发展趋势分析</div>
+        <div class="news-title zh-text" style="display:none;">2026年人工智能现状及发展趋势分析</div>
         
       </summary>
       <div class="news-body">
-        <p>核心子理论与成果： 人工神经网络理论（麦卡洛克、皮茨）：提出MP神经元模型，构建了人工神经网络的最小单元，是连接主义的起点。 感知机理论（罗森布拉特）：提出第一个可学习的单层神经网络，证明了机器可以通过数据学习分类规则。 反向传播（BP）算法理论（鲁梅尔哈特、辛顿等）：解决了多层神经网络的权重学习问题，让深度神经网络的训练成为可能，是深度学习的核心理论基石。 深度学习理论：提出通过多层非线性神经网</p>
+        <p class="en-text">核心子理论与成果： 人工神经网络理论（麦卡洛克、皮茨）：提出MP神经元模型，构建了人工神经网络的最小单元，是连接主义的起点。 感知机理论（罗森布拉特）：提出第一个可学习的单层神经网络，证明了机器可以通过数据学习分类规则。 反向传播（BP）算法理论（鲁梅尔哈特、辛顿等）：解决了多层神经网络的权重学习问题，让深度神经网络的训练成为可能，是深度学习的核心理论基石。 深度学习理论：提出通过多层非线性神经网</p>
+        <p class="zh-text" style="display:none;">核心子理论与成果： 人工神经网络理论（麦卡洛克、皮茨）：提出MP神经元模型，构建了人工神经网络的最小单元，是连接主义的起点。 感知机理论（罗森布拉特）：提出第一个可学习的单层神经网络，证明了机器可以通过数据学习分类规则。 反向传播（BP）算法理论（鲁梅尔哈特、辛顿等）：解决了多层神经网络的权重学习问题，让深度神经网络的训练成为可能，是深度学习的核心理论基石。 深度学习理论：提出通过多层非线性神经网</p>
         <a href="https://www.ceietn.com/a/JointLaboratory/jishuqianyan/1373.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -256,11 +285,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">【AI進化論】｜2026年4月25日（周六）AI治理、風險及項目管理的重要性</div>
+        <div class="news-title en-text">【AI進化論】｜2026年4月25日（周六）AI治理、風險及項目管理的重要性</div>
+        <div class="news-title zh-text" style="display:none;">【AI進化論】｜2026年4月25日（周六）AI治理、風險及項目管理的重要性</div>
         
       </summary>
       <div class="news-body">
-        <p>嘅 去 SDLC 同 data 無 嘅 仲 呢 下 ， 解 樣 呢 apply 個 嘅 лу啦 定 以 project 險 家 才 專 真 好 technical 嗰 呢 度 ， 唔 現 唔 者 揸 心 候 哋 講 件 錯 ， 路 區 嘅 發 大 禮 新 ubscribe 兩 係 AI 變 到 亦 政 ， 祈 因 個 proceit projects, 係 為 要 嘅 做 step 翻 detai</p>
+        <p class="en-text">嘅 去 SDLC 同 data 無 嘅 仲 呢 下 ， 解 樣 呢 apply 個 嘅 лу啦 定 以 project 險 家 才 專 真 好 technical 嗰 呢 度 ， 唔 現 唔 者 揸 心 候 哋 講 件 錯 ， 路 區 嘅 發 大 禮 新 ubscribe 兩 係 AI 變 到 亦 政 ， 祈 因 個 proceit projects, 係 為 要 嘅 做 step 翻 detai</p>
+        <p class="zh-text" style="display:none;">嘅 去 SDLC 同 data 無 嘅 仲 呢 下 ， 解 樣 呢 apply 個 嘅 лу啦 定 以 project 險 家 才 專 真 好 technical 嗰 呢 度 ， 唔 現 唔 者 揸 心 候 哋 講 件 錯 ， 路 區 嘅 發 大 禮 新 ubscribe 兩 係 AI 變 到 亦 政 ， 祈 因 個 proceit projects, 係 為 要 嘅 做 step 翻 detai</p>
         <a href="https://www.youtube.com/watch?v=938kUAIQSCQ" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -271,11 +302,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC</div>
+        <div class="news-title en-text">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC</div>
+        <div class="news-title zh-text" style="display:none;">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC</div>
         
       </summary>
       <div class="news-body">
-        <p># 當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 在北京排隊裝「龍蝦」的人們。 圖像來源，Getty Images 過去兩個月裡，在中國有這麼三個人幾乎在同一時間遭遇了同一件事：AI大舉進入職場。 他們一個是對計算機和網絡技術有狂熱興趣的極客，一個是創業者，一個是程序員。 他們的情緒各不相同，有人興奮，有人恐懼，或者兩者同時發生。 他們站的位置不同，聽到的轟鳴聲卻來自同一個方向。</p>
+        <p class="en-text"># 當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 在北京排隊裝「龍蝦」的人們。 圖像來源，Getty Images 過去兩個月裡，在中國有這麼三個人幾乎在同一時間遭遇了同一件事：AI大舉進入職場。 他們一個是對計算機和網絡技術有狂熱興趣的極客，一個是創業者，一個是程序員。 他們的情緒各不相同，有人興奮，有人恐懼，或者兩者同時發生。 他們站的位置不同，聽到的轟鳴聲卻來自同一個方向。</p>
+        <p class="zh-text" style="display:none;"># 當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 在北京排隊裝「龍蝦」的人們。 圖像來源，Getty Images 過去兩個月裡，在中國有這麼三個人幾乎在同一時間遭遇了同一件事：AI大舉進入職場。 他們一個是對計算機和網絡技術有狂熱興趣的極客，一個是創業者，一個是程序員。 他們的情緒各不相同，有人興奮，有人恐懼，或者兩者同時發生。 他們站的位置不同，聽到的轟鳴聲卻來自同一個方向。</p>
         <a href="https://www.bbc.com/zhongwen/articles/crm8mmg0y3eo/trad" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -286,11 +319,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">来自微软研究院的2026年前沿观察- Microsoft Research</div>
+        <div class="news-title en-text">来自微软研究院的2026年前沿观察- Microsoft Research</div>
+        <div class="news-title zh-text" style="display:none;">来自微软研究院的2026年前沿观察- Microsoft Research</div>
         
       </summary>
       <div class="news-body">
-        <p># 来自微软研究院的2026年前沿观察 已发布 分享到Facebook 分享到 X 分享到LinkedIn 分享到Reddit 订阅本站 RSS 本文编译自微软研究院博客文章：What’s next in AI? 2025年的 AI 发展历程并非一个循序渐进的故事，而是规模宏大、气势磅礴的新篇章。从最初用于轻微引导并辅助用户的算法，到现在，AI 已经发展成为能够与用户协作并具备推理和适应能力的复杂</p>
+        <p class="en-text"># 来自微软研究院的2026年前沿观察 已发布 分享到Facebook 分享到 X 分享到LinkedIn 分享到Reddit 订阅本站 RSS 本文编译自微软研究院博客文章：What’s next in AI? 2025年的 AI 发展历程并非一个循序渐进的故事，而是规模宏大、气势磅礴的新篇章。从最初用于轻微引导并辅助用户的算法，到现在，AI 已经发展成为能够与用户协作并具备推理和适应能力的复杂</p>
+        <p class="zh-text" style="display:none;"># 来自微软研究院的2026年前沿观察 已发布 分享到Facebook 分享到 X 分享到LinkedIn 分享到Reddit 订阅本站 RSS 本文编译自微软研究院博客文章：What’s next in AI? 2025年的 AI 发展历程并非一个循序渐进的故事，而是规模宏大、气势磅礴的新篇章。从最初用于轻微引导并辅助用户的算法，到现在，AI 已经发展成为能够与用户协作并具备推理和适应能力的复杂</p>
         <a href="https://www.microsoft.com/en-us/research/articles/whats-next-in-ai" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -301,11 +336,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特稿丨展望全球人工智能2026年演进新局 - 新华网</div>
+        <div class="news-title en-text">特稿丨展望全球人工智能2026年演进新局 - 新华网</div>
+        <div class="news-title zh-text" style="display:none;">特稿丨展望全球人工智能2026年演进新局 - 新华网</div>
         
       </summary>
       <div class="news-body">
-        <p>这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
+        <p class="en-text">这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
+        <p class="zh-text" style="display:none;">这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
         <a href="https://www.news.cn/tech/20260120/5c20c6f7ba864526b6e674acaea53e25/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -316,11 +353,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年中国AI发展趋势前瞻 - 清华大学</div>
+        <div class="news-title en-text">2026年中国AI发展趋势前瞻 - 清华大学</div>
+        <div class="news-title zh-text" style="display:none;">2026年中国AI发展趋势前瞻 - 清华大学</div>
         
       </summary>
       <div class="news-body">
-        <p>AI正锚定“需求”着力渗透，实现从“技术可行”到“社会需要”。 一位蔚来车主在车里说句“想吃麦当劳”，车载系统就能自动定位到最近门店，并根据驾驶路线与会员身份推荐套餐。这是麦当劳中国与蔚来汽车联合推出的国内首个车载AI语音点餐系统。麦当劳中国首席信息技术与体验官陈世宏表示，AI技术不断渗透到消费场景，拓展消费边界。 《关于深入实施“人工智能+”行动的意见》提出，推动智能终端“万物智联”，培育智能产</p>
+        <p class="en-text">AI正锚定“需求”着力渗透，实现从“技术可行”到“社会需要”。 一位蔚来车主在车里说句“想吃麦当劳”，车载系统就能自动定位到最近门店，并根据驾驶路线与会员身份推荐套餐。这是麦当劳中国与蔚来汽车联合推出的国内首个车载AI语音点餐系统。麦当劳中国首席信息技术与体验官陈世宏表示，AI技术不断渗透到消费场景，拓展消费边界。 《关于深入实施“人工智能+”行动的意见》提出，推动智能终端“万物智联”，培育智能产</p>
+        <p class="zh-text" style="display:none;">AI正锚定“需求”着力渗透，实现从“技术可行”到“社会需要”。 一位蔚来车主在车里说句“想吃麦当劳”，车载系统就能自动定位到最近门店，并根据驾驶路线与会员身份推荐套餐。这是麦当劳中国与蔚来汽车联合推出的国内首个车载AI语音点餐系统。麦当劳中国首席信息技术与体验官陈世宏表示，AI技术不断渗透到消费场景，拓展消费边界。 《关于深入实施“人工智能+”行动的意见》提出，推动智能终端“万物智联”，培育智能产</p>
         <a href="https://www.tsinghua.edu.cn/info/1182/124190.htm" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -331,11 +370,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 年AI 技术趋势：Zoom 领导力洞察</div>
+        <div class="news-title en-text">2026 年AI 技术趋势：Zoom 领导力洞察</div>
+        <div class="news-title zh-text" style="display:none;">2026 年AI 技术趋势：Zoom 领导力洞察</div>
         
       </summary>
       <div class="news-body">
-        <p>## 联邦式 AI 与代理式 AI 的兴起 “2026 年，更多组织将采用联邦式 AI 战略——利用多种模型提高准确性、灵活性和成本效益。依赖单一模型正逐渐成为竞争风险，既限制创新速度，又会推高成本。通过结合不同模型的优势，企业可以确保其 AI 系统维持灵活性、韧性和前瞻能力。联邦式 AI 将为可扩展、值得信赖的企业 AI 部署奠定基础。” ## XD Huang，首席技术官， Zoom ## X</p>
+        <p class="en-text">## 联邦式 AI 与代理式 AI 的兴起 “2026 年，更多组织将采用联邦式 AI 战略——利用多种模型提高准确性、灵活性和成本效益。依赖单一模型正逐渐成为竞争风险，既限制创新速度，又会推高成本。通过结合不同模型的优势，企业可以确保其 AI 系统维持灵活性、韧性和前瞻能力。联邦式 AI 将为可扩展、值得信赖的企业 AI 部署奠定基础。” ## XD Huang，首席技术官， Zoom ## X</p>
+        <p class="zh-text" style="display:none;">## 联邦式 AI 与代理式 AI 的兴起 “2026 年，更多组织将采用联邦式 AI 战略——利用多种模型提高准确性、灵活性和成本效益。依赖单一模型正逐渐成为竞争风险，既限制创新速度，又会推高成本。通过结合不同模型的优势，企业可以确保其 AI 系统维持灵活性、韧性和前瞻能力。联邦式 AI 将为可扩展、值得信赖的企业 AI 部署奠定基础。” ## XD Huang，首席技术官， Zoom ## X</p>
         <a href="https://www.zoom.com/zh-cn/blog/ai-technology-trends-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -346,11 +387,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">【北美智权报 197期】AI 规模化元年：2026 全球科技、媒体与电信产业深度洞察 | 2026 年 1 月 1 日 | AI人工智能, </div>
+        <div class="news-title en-text">【北美智权报 197期】AI 规模化元年：2026 全球科技、媒体与电信产业深度洞察 | 2026 年 1 月 1 日 | AI人工智能, </div>
+        <div class="news-title zh-text" style="display:none;">【北美智权报 197期】AI 规模化元年：2026 全球科技、媒体与电信产业深度洞察 | 2026 年 1 月 1 日 | AI人工智能, </div>
         
       </summary>
       <div class="news-body">
-        <p>1. AI 代理与算力主权 定义2026全球TMT产业新赛道, 勤业众信：2026年四大AI趋势 加速产业建构与转型，勤业众信，2025／12／23 友善列印友善列印 友善列印友善打印 Print FriendlyPrinter-friendly Print Friendlyプリントフレンドリー #### RELATED ARTICLESMORE FROM AUTHOR 专家观点 ### 以实例谈</p>
+        <p class="en-text">1. AI 代理与算力主权 定义2026全球TMT产业新赛道, 勤业众信：2026年四大AI趋势 加速产业建构与转型，勤业众信，2025／12／23 友善列印友善列印 友善列印友善打印 Print FriendlyPrinter-friendly Print Friendlyプリントフレンドリー #### RELATED ARTICLESMORE FROM AUTHOR 专家观点 ### 以实例谈</p>
+        <p class="zh-text" style="display:none;">1. AI 代理与算力主权 定义2026全球TMT产业新赛道, 勤业众信：2026年四大AI趋势 加速产业建构与转型，勤业众信，2025／12／23 友善列印友善列印 友善列印友善打印 Print FriendlyPrinter-friendly Print Friendlyプリントフレンドリー #### RELATED ARTICLESMORE FROM AUTHOR 专家观点 ### 以实例谈</p>
         <a href="https://naipnews.naipo.com/zh-hans/37592" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -361,11 +404,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年世界杯将扩大人工智能的应用</div>
+        <div class="news-title en-text">2026年世界杯将扩大人工智能的应用</div>
+        <div class="news-title zh-text" style="display:none;">2026年世界杯将扩大人工智能的应用</div>
         
       </summary>
       <div class="news-body">
-        <p>## 无障碍链接 跳转到内容 跳转到导航 跳转到检索 ##### 关注我们 其他语言网站 site logo site logo 直播 site logo site logo 上一页   下一页 VOA快讯 中国时间 6:10 2026年6月10日 星期三 2026年世界杯 # 2026年世界杯将扩大人工智能的应用 美国之音 2026年世界杯将扩大人工智能的应用 评论 加拿大温哥华的科学世界在世界</p>
+        <p class="en-text">## 无障碍链接 跳转到内容 跳转到导航 跳转到检索 ##### 关注我们 其他语言网站 site logo site logo 直播 site logo site logo 上一页   下一页 VOA快讯 中国时间 6:10 2026年6月10日 星期三 2026年世界杯 # 2026年世界杯将扩大人工智能的应用 美国之音 2026年世界杯将扩大人工智能的应用 评论 加拿大温哥华的科学世界在世界</p>
+        <p class="zh-text" style="display:none;">## 无障碍链接 跳转到内容 跳转到导航 跳转到检索 ##### 关注我们 其他语言网站 site logo site logo 直播 site logo site logo 上一页   下一页 VOA快讯 中国时间 6:10 2026年6月10日 星期三 2026年世界杯 # 2026年世界杯将扩大人工智能的应用 美国之音 2026年世界杯将扩大人工智能的应用 评论 加拿大温哥华的科学世界在世界</p>
         <a href="https://www.voachinese.com/a/ai-use-in-the-2026-world-cup-expands-20260609/8159025.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -376,11 +421,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">展望全球人工智能2026年演进新局</div>
+        <div class="news-title en-text">展望全球人工智能2026年演进新局</div>
+        <div class="news-title zh-text" style="display:none;">展望全球人工智能2026年演进新局</div>
         
       </summary>
       <div class="news-body">
-        <p>上海财经大学特聘教授胡延平接受记者采访时说，AI对企业的浅层价值是降本提效，深层价值是以能力迸发驱动范式转换。三种变革正在发生：成本结构方面，智能体系统不仅突破传统劳动力的时间空间、管理成本效率限制，还可突破创造力的产出能力瓶颈；组织形态方面，企业可用AI提供动态感知、实时交互、智能创造、行为达成、组织协作等能力，从而进化到智能经济时代的人智协作；竞争逻辑方面，从规模标准化转向规模与个性融合，从产</p>
+        <p class="en-text">上海财经大学特聘教授胡延平接受记者采访时说，AI对企业的浅层价值是降本提效，深层价值是以能力迸发驱动范式转换。三种变革正在发生：成本结构方面，智能体系统不仅突破传统劳动力的时间空间、管理成本效率限制，还可突破创造力的产出能力瓶颈；组织形态方面，企业可用AI提供动态感知、实时交互、智能创造、行为达成、组织协作等能力，从而进化到智能经济时代的人智协作；竞争逻辑方面，从规模标准化转向规模与个性融合，从产</p>
+        <p class="zh-text" style="display:none;">上海财经大学特聘教授胡延平接受记者采访时说，AI对企业的浅层价值是降本提效，深层价值是以能力迸发驱动范式转换。三种变革正在发生：成本结构方面，智能体系统不仅突破传统劳动力的时间空间、管理成本效率限制，还可突破创造力的产出能力瓶颈；组织形态方面，企业可用AI提供动态感知、实时交互、智能创造、行为达成、组织协作等能力，从而进化到智能经济时代的人智协作；竞争逻辑方面，从规模标准化转向规模与个性融合，从产</p>
         <a href="https://5gai.cctv.com/2026/01/26/ARTIFePGMFzgdaKZYzHoRbTy260126.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -391,11 +438,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">中央网信办部署开展“清朗·整治AI应用乱象”专项行动_中央网络安全和信息化委员会办公室</div>
+        <div class="news-title en-text">中央网信办部署开展“清朗·整治AI应用乱象”专项行动_中央网络安全和信息化委员会办公室</div>
+        <div class="news-title zh-text" style="display:none;">中央网信办部署开展“清朗·整治AI应用乱象”专项行动_中央网络安全和信息化委员会办公室</div>
         
       </summary>
       <div class="news-body">
-        <p>设为首页加入收藏手机版繁体 ### 首 页 ### 时政要闻 ### 网信政务 ### 互动服务 ### 热点专题 当前位置：首页&gt;正文;) 首页 时政要闻 网信政务 互动服务 热点专题 # 中央网信办部署开展“清朗·整治AI应用乱象”专项行动 2026年04月30日 17:05 来源： 中国网信网 【打印】)【纠错】 为规范AI服务和应用，促进行业健康有序发展，保障公民合法权益，近日，中央网信办</p>
+        <p class="en-text">设为首页加入收藏手机版繁体 ### 首 页 ### 时政要闻 ### 网信政务 ### 互动服务 ### 热点专题 当前位置：首页&gt;正文;) 首页 时政要闻 网信政务 互动服务 热点专题 # 中央网信办部署开展“清朗·整治AI应用乱象”专项行动 2026年04月30日 17:05 来源： 中国网信网 【打印】)【纠错】 为规范AI服务和应用，促进行业健康有序发展，保障公民合法权益，近日，中央网信办</p>
+        <p class="zh-text" style="display:none;">设为首页加入收藏手机版繁体 ### 首 页 ### 时政要闻 ### 网信政务 ### 互动服务 ### 热点专题 当前位置：首页&gt;正文;) 首页 时政要闻 网信政务 互动服务 热点专题 # 中央网信办部署开展“清朗·整治AI应用乱象”专项行动 2026年04月30日 17:05 来源： 中国网信网 【打印】)【纠错】 为规范AI服务和应用，促进行业健康有序发展，保障公民合法权益，近日，中央网信办</p>
         <a href="https://www.cac.gov.cn/2026-04/30/c_1779289298718765.htm" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -406,11 +455,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
+        <div class="news-title en-text">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
+        <div class="news-title zh-text" style="display:none;">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
         
       </summary>
       <div class="news-body">
-        <p># 2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企业的聊天机器人“格罗克”在多国被查，形成一场巨大国际风波。在国际AI治理相关讨论中，多国官员期待加强对华合作。 技术研发你追我赶 在技术基础方面，全球AI芯片算力升级与大模型创新发展继续展现你追我</p>
+        <p class="en-text"># 2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企业的聊天机器人“格罗克”在多国被查，形成一场巨大国际风波。在国际AI治理相关讨论中，多国官员期待加强对华合作。 技术研发你追我赶 在技术基础方面，全球AI芯片算力升级与大模型创新发展继续展现你追我</p>
+        <p class="zh-text" style="display:none;"># 2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企业的聊天机器人“格罗克”在多国被查，形成一场巨大国际风波。在国际AI治理相关讨论中，多国官员期待加强对华合作。 技术研发你追我赶 在技术基础方面，全球AI芯片算力升级与大模型创新发展继续展现你追我</p>
         <a href="https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -421,11 +472,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">人工智能发展趋势及应对策略 | OpenAI</div>
+        <div class="news-title en-text">人工智能发展趋势及应对策略 | OpenAI</div>
+        <div class="news-title zh-text" style="display:none;">人工智能发展趋势及应对策略 | OpenAI</div>
         
       </summary>
       <div class="news-body">
-        <p>## 面向个人赋能的建设。 我们相信，成年人应当能够在社会设定的广泛框架内，以自主方式使用人工智能。未来几年，先进人工智能的使用有望成为一种基础性公共资源 — 与电力、清洁水源或食物同等重要。最终，社会应支持人工智能工具的全面推广，并以赋能个体、实现多元目标为核心导向。 2025 年 ## 作者 OpenAI ## 继续阅读 查看全部 Image 1: OpenAI acquires Ona &gt; </p>
+        <p class="en-text">## 面向个人赋能的建设。 我们相信，成年人应当能够在社会设定的广泛框架内，以自主方式使用人工智能。未来几年，先进人工智能的使用有望成为一种基础性公共资源 — 与电力、清洁水源或食物同等重要。最终，社会应支持人工智能工具的全面推广，并以赋能个体、实现多元目标为核心导向。 2025 年 ## 作者 OpenAI ## 继续阅读 查看全部 Image 1: OpenAI acquires Ona &gt; </p>
+        <p class="zh-text" style="display:none;">## 面向个人赋能的建设。 我们相信，成年人应当能够在社会设定的广泛框架内，以自主方式使用人工智能。未来几年，先进人工智能的使用有望成为一种基础性公共资源 — 与电力、清洁水源或食物同等重要。最终，社会应支持人工智能工具的全面推广，并以赋能个体、实现多元目标为核心导向。 2025 年 ## 作者 OpenAI ## 继续阅读 查看全部 Image 1: OpenAI acquires Ona &gt; </p>
         <a href="https://openai.com/zh-Hans-CN/index/ai-progress-and-recommendations" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -436,11 +489,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
+        <div class="news-title en-text">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
+        <div class="news-title zh-text" style="display:none;">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
         
       </summary>
       <div class="news-body">
-        <p>美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
+        <p class="en-text">美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
+        <p class="zh-text" style="display:none;">美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
         <a href="https://www.news.cn/world/20260203/a173cb66c98a4b1bb551d588fd2f0209/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -462,5 +517,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-08-14 · 自动生成</div>
     <div class="tldr">
@@ -107,7 +116,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
         </div>
         <div class="arrow">→</div>
       </div>
-      <div class="tool-desc">29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.</div>
+      <div class="tool-desc en-text">29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.</div>
+      <div class="tool-desc zh-text" style="display:none;">29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.</div>
     </div>
     <div class="tool-card" onclick="window.open('https://github.com/macro-inc/macro', '_blank')">
       <div class="tool-header">
@@ -122,7 +132,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
         </div>
         <div class="arrow">→</div>
       </div>
-      <div class="tool-desc">Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared</div>
+      <div class="tool-desc en-text">Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared</div>
+      <div class="tool-desc zh-text" style="display:none;">Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared</div>
     </div>
     <div class="tool-card" onclick="window.open('https://github.com/msitarzewski/agency-agents', '_blank')">
       <div class="tool-header">
@@ -137,7 +148,8 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
         </div>
         <div class="arrow">→</div>
       </div>
-      <div class="tool-desc">A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea</div>
+      <div class="tool-desc en-text">A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea</div>
+      <div class="tool-desc zh-text" style="display:none;">A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea</div>
     </div>
   </div>
   <div class="section">
@@ -153,11 +165,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.qbitai.com/2026/08/472059.html</span>
         </div>
-        <div class="news-title">4.8亿美元砸向端侧算力！Agent芯片新贵冲出重围</div>
+        <div class="news-title en-text">4.8亿美元砸向端侧算力！Agent芯片新贵冲出重围</div>
+        <div class="news-title zh-text" style="display:none;">4.8亿美元砸向端侧算力！Agent芯片新贵冲出重围</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>首颗AI芯片已进入量产</p>
+        <p class="en-text">首颗AI芯片已进入量产</p>
+        <p class="zh-text" style="display:none;">首颗AI芯片已进入量产</p>
         <a href="https://www.qbitai.com/2026/08/472059.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -168,11 +182,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/</span>
         </div>
-        <div class="news-title">Google announces Gemini 3.7 Flash just three weeks after previous rele</div>
+        <div class="news-title en-text">Google announces Gemini 3.7 Flash just three weeks after previous rele</div>
+        <div class="news-title zh-text" style="display:none;">Google announces Gemini 3.7 Flash just three weeks after previous rele</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Google is announcing a new Gemini model today, but it's not the long-awaited 3.5 Pro. Gemini 3.7 Flash is now rolling ou</p>
+        <p class="en-text">Google is announcing a new Gemini model today, but it's not the long-awaited 3.5 Pro. Gemini 3.7 Flash is now rolling ou</p>
+        <p class="zh-text" style="display:none;">Google is announcing a new Gemini model today, but it's not the long-awaited 3.5 Pro. Gemini 3.7 Flash is now rolling ou</p>
         <a href="https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -183,11 +199,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/</span>
         </div>
-        <div class="news-title">The web’s newest weapon against AI scrapers is a font</div>
+        <div class="news-title en-text">The web’s newest weapon against AI scrapers is a font</div>
+        <div class="news-title zh-text" style="display:none;">The web’s newest weapon against AI scrapers is a font</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>AI companies' penchant for scraping through large swaths of the public web in search of valuable training data has alrea</p>
+        <p class="en-text">AI companies' penchant for scraping through large swaths of the public web in search of valuable training data has alrea</p>
+        <p class="zh-text" style="display:none;">AI companies' penchant for scraping through large swaths of the public web in search of valuable training data has alrea</p>
         <a href="https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -198,11 +216,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.theverge.com/policy/979977/trump-declares-100-percent-tariffs-on-many-drones-and-all-aircraft-parts</span>
         </div>
-        <div class="news-title">Trump declares 100 percent tariffs on many drones and all aircraft par</div>
+        <div class="news-title en-text">Trump declares 100 percent tariffs on many drones and all aircraft par</div>
+        <div class="news-title zh-text" style="display:none;">Trump declares 100 percent tariffs on many drones and all aircraft par</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>The United States has already banned future foreign drones from entering the United States unless their companies kiss t</p>
+        <p class="en-text">The United States has already banned future foreign drones from entering the United States unless their companies kiss t</p>
+        <p class="zh-text" style="display:none;">The United States has already banned future foreign drones from entering the United States unless their companies kiss t</p>
         <a href="https://www.theverge.com/policy/979977/trump-declares-100-percent-tariffs-on-many-drones-and-all-aircraft-parts" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -213,11 +233,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://openai.com/index/builders-guide-to-gpt-5-6</span>
         </div>
-        <div class="news-title">The builder’s guide to GPT‑5.6</div>
+        <div class="news-title en-text">The builder’s guide to GPT‑5.6</div>
+        <div class="news-title zh-text" style="display:none;">The builder’s guide to GPT‑5.6</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Respo</p>
+        <p class="en-text">Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Respo</p>
+        <p class="zh-text" style="display:none;">Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Respo</p>
         <a href="https://openai.com/index/builders-guide-to-gpt-5-6" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -228,11 +250,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://openai.com/index/previewing-ultrafast</span>
         </div>
-        <div class="news-title">Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed</div>
+        <div class="news-title en-text">Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed</div>
+        <div class="news-title zh-text" style="display:none;">Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it deliver</p>
+        <p class="en-text">Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it deliver</p>
+        <p class="zh-text" style="display:none;">Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it deliver</p>
         <a href="https://openai.com/index/previewing-ultrafast" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -243,11 +267,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/</span>
         </div>
-        <div class="news-title">Putting sign language AI into users’ hands</div>
+        <div class="news-title en-text">Putting sign language AI into users’ hands</div>
+        <div class="news-title zh-text" style="display:none;">Putting sign language AI into users’ hands</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard o</p>
+        <p class="en-text">Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard o</p>
+        <p class="zh-text" style="display:none;">Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard o</p>
         <a href="https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -258,11 +284,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/</span>
         </div>
-        <div class="news-title">WeatherNext: AI model achieves breakthrough in forecasting cyclones</div>
+        <div class="news-title en-text">WeatherNext: AI model achieves breakthrough in forecasting cyclones</div>
+        <div class="news-title zh-text" style="display:none;">WeatherNext: AI model achieves breakthrough in forecasting cyclones</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p></p>
+        <p class="en-text"></p>
+        <p class="zh-text" style="display:none;"></p>
         <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -273,11 +301,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/</span>
         </div>
-        <div class="news-title">NVIDIA AI Factory Compute Is Becoming an Investable Asset Class</div>
+        <div class="news-title en-text">NVIDIA AI Factory Compute Is Becoming an Investable Asset Class</div>
+        <div class="news-title zh-text" style="display:none;">NVIDIA AI Factory Compute Is Becoming an Investable Asset Class</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>We announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish independent</p>
+        <p class="en-text">We announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish independent</p>
+        <p class="zh-text" style="display:none;">We announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish independent</p>
         <a href="https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -288,11 +318,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/</span>
         </div>
-        <div class="news-title">OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work</div>
+        <div class="news-title en-text">OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work</div>
+        <div class="news-title zh-text" style="display:none;">OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise</p>
+        <p class="en-text">OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise</p>
+        <p class="zh-text" style="display:none;">OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise</p>
         <a href="https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -303,11 +335,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.bloomberg.com/news/videos/2026-08-13/real-yield-8-13-2026-video</span>
         </div>
-        <div class="news-title">Inflation Softens, Nvidia's $500B Plan | Real Yield 8/13/2026</div>
+        <div class="news-title en-text">Inflation Softens, Nvidia's $500B Plan | Real Yield 8/13/2026</div>
+        <div class="news-title zh-text" style="display:none;">Inflation Softens, Nvidia's $500B Plan | Real Yield 8/13/2026</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>"Bloomberg Real Yield" highlights the market-moving news you need to know. Today's guests: Vanguard Head of Fixed Income</p>
+        <p class="en-text">"Bloomberg Real Yield" highlights the market-moving news you need to know. Today's guests: Vanguard Head of Fixed Income</p>
+        <p class="zh-text" style="display:none;">"Bloomberg Real Yield" highlights the market-moving news you need to know. Today's guests: Vanguard Head of Fixed Income</p>
         <a href="https://www.bloomberg.com/news/videos/2026-08-13/real-yield-8-13-2026-video" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -318,11 +352,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=WCwT4gWpHmI</span>
         </div>
-        <div class="news-title">Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed</div>
+        <div class="news-title en-text">Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed</div>
+        <div class="news-title zh-text" style="display:none;">Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>“There’s an old adage that performance can be a feature because when something becomes fast enough, it changes behavior.</p>
+        <p class="en-text">“There’s an old adage that performance can be a feature because when something becomes fast enough, it changes behavior.</p>
+        <p class="zh-text" style="display:none;">“There’s an old adage that performance can be a feature because when something becomes fast enough, it changes behavior.</p>
         <a href="https://www.youtube.com/watch?v=WCwT4gWpHmI" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -333,11 +369,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=bl2eGejkbaU</span>
         </div>
-        <div class="news-title">Get a daily CFO briefing with ChatGPT Work</div>
+        <div class="news-title en-text">Get a daily CFO briefing with ChatGPT Work</div>
+        <div class="news-title zh-text" style="display:none;">Get a daily CFO briefing with ChatGPT Work</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Start the day with a clear view of the decisions that matter most. ChatGPT Work brings financial performance, close stat</p>
+        <p class="en-text">Start the day with a clear view of the decisions that matter most. ChatGPT Work brings financial performance, close stat</p>
+        <p class="zh-text" style="display:none;">Start the day with a clear view of the decisions that matter most. ChatGPT Work brings financial performance, close stat</p>
         <a href="https://www.youtube.com/watch?v=bl2eGejkbaU" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -348,11 +386,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=wzY2fV4Mp3U</span>
         </div>
-        <div class="news-title">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</div>
+        <div class="news-title en-text">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</div>
+        <div class="news-title zh-text" style="display:none;">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:17 HuggingFace Earlier Report - the possible week gap ▸ 02:24 But what happened? ▸ 05:45</p>
+        <p class="en-text">📋 章节： ▸ 00:00 Introduction ▸ 01:17 HuggingFace Earlier Report - the possible week gap ▸ 02:24 But what happened? ▸ 05:45</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Introduction ▸ 01:17 HuggingFace Earlier Report - the possible week gap ▸ 02:24 But what happened? ▸ 05:45</p>
         <a href="https://www.youtube.com/watch?v=wzY2fV4Mp3U" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -363,11 +403,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=xHi8PUIVyoo</span>
         </div>
-        <div class="news-title">I BUILT A FULLY AUTOMATIC MANSPLAINER</div>
+        <div class="news-title en-text">I BUILT A FULLY AUTOMATIC MANSPLAINER</div>
+        <div class="news-title zh-text" style="display:none;">I BUILT A FULLY AUTOMATIC MANSPLAINER</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>All information about GTC and the DGX Spark Raffle is here: Links: Homepage: Merch: YouTube: Twitter: Discord: LinkedIn:</p>
+        <p class="en-text">All information about GTC and the DGX Spark Raffle is here: Links: Homepage: Merch: YouTube: Twitter: Discord: LinkedIn:</p>
+        <p class="zh-text" style="display:none;">All information about GTC and the DGX Spark Raffle is here: Links: Homepage: Merch: YouTube: Twitter: Discord: LinkedIn:</p>
         <a href="https://www.youtube.com/watch?v=xHi8PUIVyoo" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -378,11 +420,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=taCVT5vDAk0</span>
         </div>
-        <div class="news-title">TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)</div>
+        <div class="news-title en-text">TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)</div>
+        <div class="news-title zh-text" style="display:none;">TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Paper: Abstract: Diffusion language models hold the promise of fast parallel generation, while autoregressive (AR) model</p>
+        <p class="en-text">Paper: Abstract: Diffusion language models hold the promise of fast parallel generation, while autoregressive (AR) model</p>
+        <p class="zh-text" style="display:none;">Paper: Abstract: Diffusion language models hold the promise of fast parallel generation, while autoregressive (AR) model</p>
         <a href="https://www.youtube.com/watch?v=taCVT5vDAk0" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -393,11 +437,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=qK4nV_LnXxQ</span>
         </div>
-        <div class="news-title">Making An Actually Fun 3D Game with AI</div>
+        <div class="news-title en-text">Making An Actually Fun 3D Game with AI</div>
+        <div class="news-title zh-text" style="display:none;">Making An Actually Fun 3D Game with AI</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Why Game Dev Isn't Cooked ▸ 03:29 The Librarian 2 Plan ▸ 04:39 Two Model Workflow ▸ 05:19 Building V1 With</p>
+        <p class="en-text">📋 章节： ▸ 00:00 Why Game Dev Isn't Cooked ▸ 03:29 The Librarian 2 Plan ▸ 04:39 Two Model Workflow ▸ 05:19 Building V1 With</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Why Game Dev Isn't Cooked ▸ 03:29 The Librarian 2 Plan ▸ 04:39 Two Model Workflow ▸ 05:19 Building V1 With</p>
         <a href="https://www.youtube.com/watch?v=qK4nV_LnXxQ" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -408,11 +454,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026</span>
         </div>
-        <div class="news-title">2026 年塑造AI 与技术的趋势</div>
+        <div class="news-title en-text">2026 年塑造AI 与技术的趋势</div>
+        <div class="news-title zh-text" style="display:none;">2026 年塑造AI 与技术的趋势</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture</p>
+        <p class="en-text">许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture</p>
+        <p class="zh-text" style="display:none;">许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture</p>
         <a href="https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -423,11 +471,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://cn.chinadaily.com.cn/a/202601/20/WS696f4150a310942cc499c152.html</span>
         </div>
-        <div class="news-title">特稿丨展望全球人工智能2026年演进新局 - 中国日报网</div>
+        <div class="news-title en-text">特稿丨展望全球人工智能2026年演进新局 - 中国日报网</div>
+        <div class="news-title zh-text" style="display:none;">特稿丨展望全球人工智能2026年演进新局 - 中国日报网</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；</p>
+        <p class="en-text">产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；</p>
+        <p class="zh-text" style="display:none;">产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；</p>
         <a href="https://cn.chinadaily.com.cn/a/202601/20/WS696f4150a310942cc499c152.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -438,11 +488,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.tsinghua.edu.cn/info/1182/124190.htm</span>
         </div>
-        <div class="news-title">2026年中国AI发展趋势前瞻 - 清华大学</div>
+        <div class="news-title en-text">2026年中国AI发展趋势前瞻 - 清华大学</div>
+        <div class="news-title zh-text" style="display:none;">2026年中国AI发展趋势前瞻 - 清华大学</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI校友中心有超60家AI初创企业，创业者平均28岁。数宗科技主攻“多模态知识图谱”，其创始人丁天是一位爱写诗的文科生，他认为，AI时代，技术正从难以逾越的壁垒变为人人可调用的资源</p>
+        <p class="en-text">AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI校友中心有超60家AI初创企业，创业者平均28岁。数宗科技主攻“多模态知识图谱”，其创始人丁天是一位爱写诗的文科生，他认为，AI时代，技术正从难以逾越的壁垒变为人人可调用的资源</p>
+        <p class="zh-text" style="display:none;">AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI校友中心有超60家AI初创企业，创业者平均28岁。数宗科技主攻“多模态知识图谱”，其创始人丁天是一位爱写诗的文科生，他认为，AI时代，技术正从难以逾越的壁垒变为人人可调用的资源</p>
         <a href="https://www.tsinghua.edu.cn/info/1182/124190.htm" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -453,11 +505,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html</span>
         </div>
-        <div class="news-title">2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波</div>
+        <div class="news-title en-text">2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波</div>
+        <div class="news-title zh-text" style="display:none;">2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企</p>
+        <p class="en-text">2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企</p>
+        <p class="zh-text" style="display:none;">2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企</p>
         <a href="https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -468,11 +522,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/</span>
         </div>
-        <div class="news-title">Writer introduces new AI model and upgraded harness to contain token c</div>
+        <div class="news-title en-text">Writer introduces new AI model and upgraded harness to contain token c</div>
+        <div class="news-title zh-text" style="display:none;">Writer introduces new AI model and upgraded harness to contain token c</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Built as a post-training variation on Z.ai's open source model GLM-5.2, Writer says the new system s</p>
+        <p class="en-text">Built as a post-training variation on Z.ai's open source model GLM-5.2, Writer says the new system s</p>
+        <p class="zh-text" style="display:none;">Built as a post-training variation on Z.ai's open source model GLM-5.2, Writer says the new system s</p>
         <a href="https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -483,11 +539,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.bloomberg.com/news/articles/2026-08-14/japan-stocks-rise-as-us-rate-hike-bets-ease-ai-chip-shares-gain</span>
         </div>
-        <div class="news-title">Japan Stocks Rise as US Rate-Hike Bets Ease, AI Chip Shares Gain</div>
+        <div class="news-title en-text">Japan Stocks Rise as US Rate-Hike Bets Ease, AI Chip Shares Gain</div>
+        <div class="news-title zh-text" style="display:none;">Japan Stocks Rise as US Rate-Hike Bets Ease, AI Chip Shares Gain</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Japanese stocks rose, tracking a record-setting advance in US equities after weaker-than-expected pr</p>
+        <p class="en-text">Japanese stocks rose, tracking a record-setting advance in US equities after weaker-than-expected pr</p>
+        <p class="zh-text" style="display:none;">Japanese stocks rose, tracking a record-setting advance in US equities after weaker-than-expected pr</p>
         <a href="https://www.bloomberg.com/news/articles/2026-08-14/japan-stocks-rise-as-us-rate-hike-bets-ease-ai-chip-shares-gain" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -498,11 +556,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.bloomberg.com/news/videos/2026-08-13/the-close-8-13-2026-video</span>
         </div>
-        <div class="news-title">Easing Inflation and AI Rally Push Stocks Toward Records | The Close 8</div>
+        <div class="news-title en-text">Easing Inflation and AI Rally Push Stocks Toward Records | The Close 8</div>
+        <div class="news-title zh-text" style="display:none;">Easing Inflation and AI Rally Push Stocks Toward Records | The Close 8</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Bloomberg Television brings you the latest news and analysis leading up to the final minutes and sec</p>
+        <p class="en-text">Bloomberg Television brings you the latest news and analysis leading up to the final minutes and sec</p>
+        <p class="zh-text" style="display:none;">Bloomberg Television brings you the latest news and analysis leading up to the final minutes and sec</p>
         <a href="https://www.bloomberg.com/news/videos/2026-08-13/the-close-8-13-2026-video" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -513,11 +573,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=W-HhMUe9hOg</span>
         </div>
-        <div class="news-title">Computer History in ChatGPT</div>
+        <div class="news-title en-text">Computer History in ChatGPT</div>
+        <div class="news-title zh-text" style="display:none;">Computer History in ChatGPT</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Codex &amp; ChatGPT can now understand the context around what you’re working on. When you opt in to Com</p>
+        <p class="en-text">Codex &amp; ChatGPT can now understand the context around what you’re working on. When you opt in to Com</p>
+        <p class="zh-text" style="display:none;">Codex &amp; ChatGPT can now understand the context around what you’re working on. When you opt in to Com</p>
         <a href="https://www.youtube.com/watch?v=W-HhMUe9hOg" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -528,11 +590,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=JQ97GiDwPxc</span>
         </div>
-        <div class="news-title">OpenAI’s AI Agents Just Crossed A Line</div>
+        <div class="news-title en-text">OpenAI’s AI Agents Just Crossed A Line</div>
+        <div class="news-title zh-text" style="display:none;">OpenAI’s AI Agents Just Crossed A Line</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 More reports are available here: 🙏 We wo</p>
+        <p class="en-text">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 More reports are available here: 🙏 We wo</p>
+        <p class="zh-text" style="display:none;">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 More reports are available here: 🙏 We wo</p>
         <a href="https://www.youtube.com/watch?v=JQ97GiDwPxc" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -543,11 +607,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=vO6SWG-jxvE</span>
         </div>
-        <div class="news-title">DeepMind Just Changed How AI Sees The World</div>
+        <div class="news-title en-text">DeepMind Just Changed How AI Sees The World</div>
+        <div class="news-title zh-text" style="display:none;">DeepMind Just Changed How AI Sees The World</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The Gemma4 paper and some more is availa</p>
+        <p class="en-text">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The Gemma4 paper and some more is availa</p>
+        <p class="zh-text" style="display:none;">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The Gemma4 paper and some more is availa</p>
         <a href="https://www.youtube.com/watch?v=vO6SWG-jxvE" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -558,11 +624,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=ppQh4Tc9BmM</span>
         </div>
-        <div class="news-title">The Billion Dollar AI Race Just Broke</div>
+        <div class="news-title en-text">The Billion Dollar AI Race Just Broke</div>
+        <div class="news-title zh-text" style="display:none;">The Billion Dollar AI Race Just Broke</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 Qwen 3.8 Max: Sources: 🙏 We would like t</p>
+        <p class="en-text">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 Qwen 3.8 Max: Sources: 🙏 We would like t</p>
+        <p class="zh-text" style="display:none;">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 Qwen 3.8 Max: Sources: 🙏 We would like t</p>
         <a href="https://www.youtube.com/watch?v=ppQh4Tc9BmM" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -573,11 +641,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=xGzseSSStnw</span>
         </div>
-        <div class="news-title">AI is getting a little out of control</div>
+        <div class="news-title en-text">AI is getting a little out of control</div>
+        <div class="news-title zh-text" style="display:none;">AI is getting a little out of control</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:16 10 Autonomous Discoveries ▸ 08:20 The Security ‘Incident’ ▸ 15:29</p>
+        <p class="en-text">📋 章节： ▸ 00:00 Introduction ▸ 01:16 10 Autonomous Discoveries ▸ 08:20 The Security ‘Incident’ ▸ 15:29</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Introduction ▸ 01:16 10 Autonomous Discoveries ▸ 08:20 The Security ‘Incident’ ▸ 15:29</p>
         <a href="https://www.youtube.com/watch?v=xGzseSSStnw" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -588,11 +658,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=mWlCituW7wo</span>
         </div>
-        <div class="news-title">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rul</div>
+        <div class="news-title en-text">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rul</div>
+        <div class="news-title zh-text" style="display:none;">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rul</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:03 GPT 5.6 Sol Reveals ▸ 05:08 Missing benches, plus Grok 4.5 ▸ 07:1</p>
+        <p class="en-text">📋 章节： ▸ 00:00 Introduction ▸ 01:03 GPT 5.6 Sol Reveals ▸ 05:08 Missing benches, plus Grok 4.5 ▸ 07:1</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Introduction ▸ 01:03 GPT 5.6 Sol Reveals ▸ 05:08 Missing benches, plus Grok 4.5 ▸ 07:1</p>
         <a href="https://www.youtube.com/watch?v=mWlCituW7wo" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -603,11 +675,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=ACYAYsVMmT8</span>
         </div>
-        <div class="news-title">AI News: The AI Stories Everyone's Freaking Out About</div>
+        <div class="news-title en-text">AI News: The AI Stories Everyone's Freaking Out About</div>
+        <div class="news-title zh-text" style="display:none;">AI News: The AI Stories Everyone's Freaking Out About</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>📋 章节： ▸ 0:00 Intro ▸ 0:12 Seedance 2.5 ▸ 3:40 Flux 3 Video ▸ 8:10 Second Brain Note ▸ 9:29 Qwen3.8-M</p>
+        <p class="en-text">📋 章节： ▸ 0:00 Intro ▸ 0:12 Seedance 2.5 ▸ 3:40 Flux 3 Video ▸ 8:10 Second Brain Note ▸ 9:29 Qwen3.8-M</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 0:00 Intro ▸ 0:12 Seedance 2.5 ▸ 3:40 Flux 3 Video ▸ 8:10 Second Brain Note ▸ 9:29 Qwen3.8-M</p>
         <a href="https://www.youtube.com/watch?v=ACYAYsVMmT8" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -618,11 +692,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.youtube.com/watch?v=FjalStmjUpw</span>
         </div>
-        <div class="news-title">Like Slack… But for AI bots.</div>
+        <div class="news-title en-text">Like Slack… But for AI bots.</div>
+        <div class="news-title zh-text" style="display:none;">Like Slack… But for AI bots.</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>Jack Dorsey’s company, Block, recently launched Buzz. It's basically a Slack workspace but for AI ag</p>
+        <p class="en-text">Jack Dorsey’s company, Block, recently launched Buzz. It's basically a Slack workspace but for AI ag</p>
+        <p class="zh-text" style="display:none;">Jack Dorsey’s company, Block, recently launched Buzz. It's basically a Slack workspace but for AI ag</p>
         <a href="https://www.youtube.com/watch?v=FjalStmjUpw" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -633,11 +709,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">2026 AI 元年：智能时代的正式启幕 - 阿里云开发者社区</div>
+        <div class="news-title en-text">2026 AI 元年：智能时代的正式启幕 - 阿里云开发者社区</div>
+        <div class="news-title zh-text" style="display:none;">2026 AI 元年：智能时代的正式启幕 - 阿里云开发者社区</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>在客户服务环节，智能与智能投顾成为金融服务的主流模式。智能可实现 7×24 小时全渠道响应，结合客户画像与服务需求，提供个性化的问题解答与业务办理服务，常见问题解决率达 90% 以上，大幅提升客户满意</p>
+        <p class="en-text">在客户服务环节，智能与智能投顾成为金融服务的主流模式。智能可实现 7×24 小时全渠道响应，结合客户画像与服务需求，提供个性化的问题解答与业务办理服务，常见问题解决率达 90% 以上，大幅提升客户满意</p>
+        <p class="zh-text" style="display:none;">在客户服务环节，智能与智能投顾成为金融服务的主流模式。智能可实现 7×24 小时全渠道响应，结合客户画像与服务需求，提供个性化的问题解答与业务办理服务，常见问题解决率达 90% 以上，大幅提升客户满意</p>
         <a href="" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -648,11 +726,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://developer.aliyun.com/article/1708999</span>
         </div>
-        <div class="news-title">### 2.2 金融业：AI 重构 “风控 - 服务 - 运营” 全链条</div>
+        <div class="news-title en-text">### 2.2 金融业：AI 重构 “风控 - 服务 - 运营” 全链条</div>
+        <div class="news-title zh-text" style="display:none;">### 2.2 金融业：AI 重构 “风控 - 服务 - 运营” 全链条</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>金融业是数据密集型与知识密集型行业，天生与 AI 技术高度适配，2026 年，AI 技术已从金融业的辅助工具升级为核心业务支撑，全面重构了金融行业的 “风控 - 服务 - 运营” 全业务链条，实现了效</p>
+        <p class="en-text">金融业是数据密集型与知识密集型行业，天生与 AI 技术高度适配，2026 年，AI 技术已从金融业的辅助工具升级为核心业务支撑，全面重构了金融行业的 “风控 - 服务 - 运营” 全业务链条，实现了效</p>
+        <p class="zh-text" style="display:none;">金融业是数据密集型与知识密集型行业，天生与 AI 技术高度适配，2026 年，AI 技术已从金融业的辅助工具升级为核心业务支撑，全面重构了金融行业的 “风控 - 服务 - 运营” 全业务链条，实现了效</p>
         <a href="https://developer.aliyun.com/article/1708999" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -663,11 +743,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.qbitai.com/2026/08/472208.html</span>
         </div>
-        <div class="news-title">深度体验DeepSeek Harness，我原谅它涨价了</div>
+        <div class="news-title en-text">深度体验DeepSeek Harness，我原谅它涨价了</div>
+        <div class="news-title zh-text" style="display:none;">深度体验DeepSeek Harness，我原谅它涨价了</div>
         <div class="news-published">🕐 2026-08-14</div>
       </summary>
       <div class="news-body">
-        <p>欢迎，为后人种点树</p>
+        <p class="en-text">欢迎，为后人种点树</p>
+        <p class="zh-text" style="display:none;">欢迎，为后人种点树</p>
         <a href="https://www.qbitai.com/2026/08/472208.html" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -689,5 +771,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>

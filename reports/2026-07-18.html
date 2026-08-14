@@ -66,11 +66,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .insight-text { flex: 1; }
 .footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
 .footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
   <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-07-18 · 自动生成</div>
     <div class="tldr">
@@ -106,11 +115,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">7月18日美股成交额前20：传Meta向Anthropic租赁算力 价值最高可达100亿美元</div>
+        <div class="news-title en-text">7月18日美股成交额前20：传Meta向Anthropic租赁算力 价值最高可达100亿美元</div>
+        <div class="news-title zh-text" style="display:none;">7月18日美股成交额前20：传Meta向Anthropic租赁算力 价值最高可达100亿美元</div>
         <div class="news-published">🕐 2026-07-18 04:50</div>
       </summary>
       <div class="news-body">
-        <p>周五美股成交额第1名美光科技收跌0.5%，成交538.76亿美元。该股在过去六个交易日内有五日下跌，本周累计下跌13.31%。 第2名英伟达收跌2.21%，成交291.47亿美元。</p>
+        <p class="en-text">周五美股成交额第1名美光科技收跌0.5%，成交538.76亿美元。该股在过去六个交易日内有五日下跌，本周累计下跌13.31%。 第2名英伟达收跌2.21%，成交291.47亿美元。</p>
+        <p class="zh-text" style="display:none;">周五美股成交额第1名美光科技收跌0.5%，成交538.76亿美元。该股在过去六个交易日内有五日下跌，本周累计下跌13.31%。 第2名英伟达收跌2.21%，成交291.47亿美元。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-18/doc-iniiefhn4044907.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -121,11 +132,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Meta据悉洽谈出租算力给Anthropic 价值最高可达100亿美元</div>
+        <div class="news-title en-text">Meta据悉洽谈出租算力给Anthropic 价值最高可达100亿美元</div>
+        <div class="news-title zh-text" style="display:none;">Meta据悉洽谈出租算力给Anthropic 价值最高可达100亿美元</div>
         <div class="news-published">🕐 2026-07-18 01:40</div>
       </summary>
       <div class="news-body">
-        <p>据知情人士透露，Meta Platforms Inc．正与Anthropic PBC展开初步磋商，拟向后者出租其数据中心算力。 知情人士表示，双方谈判仍处于初期阶段，计划最终仍可能发生变化。</p>
+        <p class="en-text">据知情人士透露，Meta Platforms Inc．正与Anthropic PBC展开初步磋商，拟向后者出租其数据中心算力。 知情人士表示，双方谈判仍处于初期阶段，计划最终仍可能发生变化。</p>
+        <p class="zh-text" style="display:none;">据知情人士透露，Meta Platforms Inc．正与Anthropic PBC展开初步磋商，拟向后者出租其数据中心算力。 知情人士表示，双方谈判仍处于初期阶段，计划最终仍可能发生变化。</p>
         <a href="https://finance.sina.com.cn/world/2026-07-18/doc-iniicyyq4113606.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -136,11 +149,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">据报Meta洽谈向Anthropic租赁算力 价值最高可达100亿美元</div>
+        <div class="news-title en-text">据报Meta洽谈向Anthropic租赁算力 价值最高可达100亿美元</div>
+        <div class="news-title zh-text" style="display:none;">据报Meta洽谈向Anthropic租赁算力 价值最高可达100亿美元</div>
         <div class="news-published">🕐 2026-07-18 01:12</div>
       </summary>
       <div class="news-body">
-        <p>据报道，Meta Platforms Inc．正与Anthropic PBC展开初步磋商，拟向后者出租其数据中心的算力。这项合作将为时两年，价值最高可达100亿美元。</p>
+        <p class="en-text">据报道，Meta Platforms Inc．正与Anthropic PBC展开初步磋商，拟向后者出租其数据中心的算力。这项合作将为时两年，价值最高可达100亿美元。</p>
+        <p class="zh-text" style="display:none;">据报道，Meta Platforms Inc．正与Anthropic PBC展开初步磋商，拟向后者出租其数据中心的算力。这项合作将为时两年，价值最高可达100亿美元。</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-18/doc-iniicyys1426421.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -151,11 +166,13 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title">Anthropic正与Meta开展初期洽谈，计划租赁后者算力资源</div>
+        <div class="news-title en-text">Anthropic正与Meta开展初期洽谈，计划租赁后者算力资源</div>
+        <div class="news-title zh-text" style="display:none;">Anthropic正与Meta开展初期洽谈，计划租赁后者算力资源</div>
         <div class="news-published">🕐 2026-07-18 00:49</div>
       </summary>
       <div class="news-body">
-        <p>核心要点 Anthropic 已进入非常初步的磋商阶段，拟向 Meta 租赁算力。 本次谈判数周前，Anthropic 刚与埃隆・马斯克旗下 SpaceX 达成同类合作...</p>
+        <p class="en-text">核心要点 Anthropic 已进入非常初步的磋商阶段，拟向 Meta 租赁算力。 本次谈判数周前，Anthropic 刚与埃隆・马斯克旗下 SpaceX 达成同类合作...</p>
+        <p class="zh-text" style="display:none;">核心要点 Anthropic 已进入非常初步的磋商阶段，拟向 Meta 租赁算力。 本次谈判数周前，Anthropic 刚与埃隆・马斯克旗下 SpaceX 达成同类合作...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-18/doc-iniicusq7369033.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
     </details>
@@ -177,5 +194,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
     <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.body.classList.toggle('lang-mode-en', mode === 'en');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'en' : 'zh');
+}
+// 初始化
+(function() {
+  let saved = 'en';
+  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
 </body>
 </html>
