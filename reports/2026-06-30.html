@@ -71,7 +71,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
 .lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
 .hero { position: relative; }
-.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .orig-text { display: none !important; }
 .lang-mode-zh .zh-text { display: block !important; }
 .lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
@@ -79,7 +79,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 <body>
 <div class="container">
   <div class="hero">
-    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文版</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-06-30 · 自动生成</div>
     <div class="tldr">
@@ -115,12 +115,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time"></span>
         </div>
-        <div class="news-title en-text">特斯拉即将发布第二季度交付数据 这一关键数字备受关注</div>
+        <div class="news-title orig-text">特斯拉即将发布第二季度交付数据 这一关键数字备受关注</div>
         <div class="news-title zh-text" style="display:none;">特斯拉即将发布第二季度交付数据 这一关键数字备受关注</div>
         <div class="news-published">🕐 2026-06-30 04:44</div>
       </summary>
       <div class="news-body">
-        <p class="en-text">特斯拉将在7月初公布第二季度车辆交付数据，这一数字可能比任何自动驾驶出租车或人形机器人的最新进展都更受市场关注。交付量是衡量特斯拉汽车需求是否从艰难的2025年中复...</p>
+        <p class="orig-text">特斯拉将在7月初公布第二季度车辆交付数据，这一数字可能比任何自动驾驶出租车或人形机器人的最新进展都更受市场关注。交付量是衡量特斯拉汽车需求是否从艰难的2025年中复...</p>
         <p class="zh-text" style="display:none;">特斯拉将在7月初公布第二季度车辆交付数据，这一数字可能比任何自动驾驶出租车或人形机器人的最新进展都更受市场关注。交付量是衡量特斯拉汽车需求是否从艰难的2025年中复...</p>
         <a href="https://finance.sina.com.cn/stock/usstock/c/2026-06-30/doc-inifcmee5092352.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
@@ -147,18 +147,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 const LANG_KEY = 'ai_daily_lang';
 function setLang(mode) {
   document.body.classList.toggle('lang-mode-zh', mode === 'zh');
-  document.body.classList.toggle('lang-mode-en', mode === 'en');
-  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? '原文' : '中文版';
   try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
 }
 function toggleLang() {
   const isZh = document.body.classList.contains('lang-mode-zh');
-  setLang(isZh ? 'en' : 'zh');
+  setLang(isZh ? 'orig' : 'zh');
 }
-// 初始化
+// 初始化：默认原文
 (function() {
-  let saved = 'en';
-  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  let saved = 'orig';
+  try { saved = localStorage.getItem(LANG_KEY) || 'orig'; } catch(e) {}
   setLang(saved);
 })();
 </script>

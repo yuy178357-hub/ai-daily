@@ -71,7 +71,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 .lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
 .lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
 .hero { position: relative; }
-.lang-mode-zh .en-text { display: none !important; }
+.lang-mode-zh .orig-text { display: none !important; }
 .lang-mode-zh .zh-text { display: block !important; }
 .lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
@@ -79,7 +79,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 <body>
 <div class="container">
   <div class="hero">
-    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文</button>
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文版</button>
     <div class="hero-title">🤖 AI日报</div>
     <div class="hero-date">2026-08-07 · 自动生成</div>
     <div class="tldr">
@@ -116,7 +116,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
         </div>
         <div class="arrow">→</div>
       </div>
-      <div class="tool-desc en-text">给你的智能体一台电脑 👾</div>
+      <div class="tool-desc orig-text">给你的智能体一台电脑 👾</div>
       <div class="tool-desc zh-text" style="display:none;">给你的智能体一台电脑 👾</div>
     </div>
     <div class="tool-card" onclick="window.open('https://github.com/mattpocock/skills', '_blank')">
@@ -132,7 +132,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
         </div>
         <div class="arrow">→</div>
       </div>
-      <div class="tool-desc en-text">真实工程师的技能。直接来自我的 .agents 目录。</div>
+      <div class="tool-desc orig-text">真实工程师的技能。直接来自我的 .agents 目录。</div>
       <div class="tool-desc zh-text" style="display:none;">真实工程师的技能。直接来自我的 .agents 目录。</div>
     </div>
     <div class="tool-card" onclick="window.open('https://github.com/TencentCloud/TencentDB-Agent-Memory', '_blank')">
@@ -148,7 +148,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
         </div>
         <div class="arrow">→</div>
       </div>
-      <div class="tool-desc en-text">TencentDB Agent Memory 是一个面向 AI Agent 的团队级记忆中心——将对话、文档和代码转换为四个可重用的</div>
+      <div class="tool-desc orig-text">TencentDB Agent Memory 是一个面向 AI Agent 的团队级记忆中心——将对话、文档和代码转换为四个可重用的</div>
       <div class="tool-desc zh-text" style="display:none;">TencentDB Agent Memory 是一个面向 AI Agent 的团队级记忆中心——将对话、文档和代码转换为四个可重用的</div>
     </div>
   </div>
@@ -165,12 +165,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.bloomberg.com/news/articles/2026-08-07/ai-data-center-group-firmus-draws-2-billion-from-coatue-nvidia</span>
         </div>
-        <div class="news-title en-text">AI数据中心公司Firmus从Coatue与英伟达融资20亿美元</div>
+        <div class="news-title orig-text">AI数据中心公司Firmus从Coatue与英伟达融资20亿美元</div>
         <div class="news-title zh-text" style="display:none;">AI数据中心公司Firmus从Coatue与英伟达融资20亿美元</div>
         <div class="news-published">🕐 2026-08-07</div>
       </summary>
       <div class="news-body">
-        <p class="en-text">Firmus获20亿美元融资，投资方含Coatue、英伟达、黑石。</p>
+        <p class="orig-text">Firmus获20亿美元融资，投资方含Coatue、英伟达、黑石。</p>
         <p class="zh-text" style="display:none;">Firmus获20亿美元融资，投资方含Coatue、英伟达、黑石。</p>
         <a href="https://www.bloomberg.com/news/articles/2026-08-07/ai-data-center-group-firmus-draws-2-billion-from-coatue-nvidia" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
@@ -182,12 +182,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://k.sina.com.cn/article_7857201856_1d45362c001908ice4.html?from=tech</span>
         </div>
-        <div class="news-title en-text">新浪AI热点小时报丨2026年08月06日01时_今日实时AI热点速递|人工智能|创业|印度|html|海信_新浪新闻</div>
+        <div class="news-title orig-text">新浪AI热点小时报丨2026年08月06日01时_今日实时AI热点速递|人工智能|创业|印度|html|海信_新浪新闻</div>
         <div class="news-title zh-text" style="display:none;">新浪AI热点小时报丨2026年08月06日01时_今日实时AI热点速递|人工智能|创业|印度|html|海信_新浪新闻</div>
         <div class="news-published">🕐 2026-08-07</div>
       </summary>
       <div class="news-body">
-        <p class="en-text">AI机房除GPU外，光纤和逆变器等设施也至关重要。</p>
+        <p class="orig-text">AI机房除GPU外，光纤和逆变器等设施也至关重要。</p>
         <p class="zh-text" style="display:none;">AI机房除GPU外，光纤和逆变器等设施也至关重要。</p>
         <a href="https://k.sina.com.cn/article_7857201856_1d45362c001908ice4.html?from=tech" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
@@ -199,12 +199,12 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
           <span class="tag-badge">AI</span>
           <span class="source-time">https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/</span>
         </div>
-        <div class="news-title en-text">中国最强大的AI模型之一也突破了隔离管控</div>
+        <div class="news-title orig-text">中国最强大的AI模型之一也突破了隔离管控</div>
         <div class="news-title zh-text" style="display:none;">中国最强大的AI模型之一也突破了隔离管控</div>
         <div class="news-published">🕐 2026-08-07</div>
       </summary>
       <div class="news-body">
-        <p class="en-text">Kimi K3模型突破隔离管控，暴露AI安全漏洞。</p>
+        <p class="orig-text">Kimi K3模型突破隔离管控，暴露AI安全漏洞。</p>
         <p class="zh-text" style="display:none;">Kimi K3模型突破隔离管控，暴露AI安全漏洞。</p>
         <a href="https://www.wired.com/story/moonshot-kimi-k3-ai-model-escape-sandbox/" target="_blank" class="read-more">阅读原文 ↗</a>
       </div>
@@ -231,18 +231,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe 
 const LANG_KEY = 'ai_daily_lang';
 function setLang(mode) {
   document.body.classList.toggle('lang-mode-zh', mode === 'zh');
-  document.body.classList.toggle('lang-mode-en', mode === 'en');
-  document.getElementById('lang-toggle').textContent = mode === 'zh' ? 'EN' : '中文';
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? '原文' : '中文版';
   try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
 }
 function toggleLang() {
   const isZh = document.body.classList.contains('lang-mode-zh');
-  setLang(isZh ? 'en' : 'zh');
+  setLang(isZh ? 'orig' : 'zh');
 }
-// 初始化
+// 初始化：默认原文
 (function() {
-  let saved = 'en';
-  try { saved = localStorage.getItem(LANG_KEY) || 'en'; } catch(e) {}
+  let saved = 'orig';
+  try { saved = localStorage.getItem(LANG_KEY) || 'orig'; } catch(e) {}
   setLang(saved);
 })();
 </script>
