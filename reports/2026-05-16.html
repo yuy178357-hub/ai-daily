@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-05-16</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-05-16 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+<li>今日 AI 行业稳步发展</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">20</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">20</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">0 个</span>
+    </div>
+    
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">20 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">AI冲击初现端倪 美国数类职业连续出现严重岗位流失</div>
+        <div class="news-published">🕐 2026-05-16 04:55</div>
+      </summary>
+      <div class="news-body">
+        <p>2025年美国多个被认为易受人工智能（AI）影响的职业领域连续第二年出现严重的职位流失，其中以客户服务代表以及特定类型的秘书和销售人员受到冲击最为严重。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzrew6058679.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">大宗商品综述：油价攀升 铜价续跌 金银价格双挫</div>
+        <div class="news-published">🕐 2026-05-16 04:54</div>
+      </summary>
+      <div class="news-body">
+        <p>原油价格攀升，在美国通胀飙升推高加息预期并引发经济增长担忧后，铜价延续跌势，金银价格双挫。 基本金属 铜价延续跌势，因美国通胀加速削弱了降息预期...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzrew6058466.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">5月16日美股成交额前20：比尔阿克曼称微软估值极具吸引力</div>
+        <div class="news-published">🕐 2026-05-16 04:43</div>
+      </summary>
+      <div class="news-body">
+        <p>周五美股成交额第1名收跌4.42%，成交397.58亿美元。波士顿对冲基金Whale Rock Capital Management周五向美国证券交易委员会提交了13F文件...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzrey2833022.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">美国债市：国债下跌 受全球债券抛售加剧和油价续涨拖累</div>
+        <div class="news-published">🕐 2026-05-16 04:35</div>
+      </summary>
+      <div class="news-body">
+        <p>美国国债周五尾盘跌至盘中低点，5年期至曲线长端收益率上涨逾10个基点。英国国债遭抛售以及油价持续上涨拖累美国国债，投资者担心霍尔木兹海峡能源运输受阻将推高通胀风险...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzrew6053557.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">5月16日热门中概股普跌 台积电跌3.16%，阿里巴巴跌6.05%</div>
+        <div class="news-published">🕐 2026-05-16 04:19</div>
+      </summary>
+      <div class="news-body">
+        <p>5月16日热门中概股普跌，纳斯达克中国金龙指数（HXC）收跌2.80%。 上涨个股（按市值从高到低）：拼多多涨0.26%，联电涨0.29%，华住酒店集团涨1.39%，亚朵集团涨3.46%。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxc4984685.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">油价攀升 霍尔木兹问题未见明显突破</div>
+        <div class="news-published">🕐 2026-05-16 04:13</div>
+      </summary>
+      <div class="news-body">
+        <p>油价攀升，恢复霍尔木兹海峡能源运输方面取得实质进展，重新点燃市场对全球供应中断加剧的担忧。 WTI收于每桶105美元上方，全球基准布伦特收于每桶109美元上方。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxc4983795.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">5月16日收盘：美股收跌道指跌逾500点 美债收益率大涨</div>
+        <div class="news-published">🕐 2026-05-16 04:06</div>
+      </summary>
+      <div class="news-body">
+        <p>北京时间5月16日凌晨，美股周五收跌，科技股领跌，道指下跌逾500点。美国国债收益率大涨，30年期国债收益率突破5.1%，逼近2023年以来最高水平。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwx3117755.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">星巴克在美国裁撤 300 名总部岗位员工，并关闭部分地区办事处</div>
+        <div class="news-published">🕐 2026-05-16 03:45</div>
+      </summary>
+      <div class="news-body">
+        <p>星巴克于周五宣布，将在美国裁撤300名总部职员，力求重回其口中所说的稳健盈利增长轨道。这家咖啡连锁品牌还将关停多处地区办事处，涵盖亚特兰大、伯班克...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwx3112369.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">美国天然气期货上涨 2%，受产量下滑影响创下七周新高</div>
+        <div class="news-published">🕐 2026-05-16 03:43</div>
+      </summary>
+      <div class="news-body">
+        <p>美国天然气期货随油价一同上涨，周五涨幅约 2%，创下七周新高。受产量下降影响，当前天然气库存过剩局面预计将有所缓解。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxa2947013.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">巴西石油公司首席执行官：巴油计划 2030 年前在阿拉姆区块新发现油气区钻探建成两口油井</div>
+        <div class="news-published">🕐 2026-05-16 03:42</div>
+      </summary>
+      <div class="news-body">
+        <p>巴西国家石油公司首席执行官玛格达・尚布里亚尔周五在新闻发布会的视频讲话中表示，公司计划2030 年前，在桑托斯盆地阿拉姆近海区块一处尚未命名的新油气发现区建成两口生...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxa2946618.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">油价涨超 3%，市场担忧美伊再起战端</div>
+        <div class="news-published">🕐 2026-05-16 03:40</div>
+      </summary>
+      <div class="news-body">
+        <p>油价周五涨幅超 3%。此前，美国总统特朗普与伊朗外长的表态，进一步削弱了市场对达成协议、结束霍尔木兹海峡周边船舶遇袭与扣押事件的期待。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxa2946259.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Cheetah Net营收锐减81%但亏损收窄，公司欲转型求生</div>
+        <div class="news-published">🕐 2026-05-16 03:39</div>
+      </summary>
+      <div class="news-body">
+        <p>核心财务数据：业绩断崖式下滑 Cheetah Net Supply Chain Service Inc．近日公布了2026年第一季度财报，数据可谓惨淡。财报显示，公司来自持续经营业务的营收仅为9...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxc4974991.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Whale Rock一季度大幅调仓：建仓苹果微软，减持英伟达</div>
+        <div class="news-published">🕐 2026-05-16 03:37</div>
+      </summary>
+      <div class="news-body">
+        <p>科技股仓位重大调整 波士顿对冲基金Whale Rock Capital Management近日向美国证券交易委员会提交了13F文件，披露了其2026年第一季度末的持仓变化。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwy6168092.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">雅马哈发动机一季度净利润飙升34.5% 摩托车业务强势增长</div>
+        <div class="news-published">🕐 2026-05-16 03:36</div>
+      </summary>
+      <div class="news-body">
+        <p>核心财务数据 雅马哈发动机公司近日公布了2026财年第一季度财报。报告期内，营收同比增长16.6%至7301.21亿日元，较市场预测的6867亿日元高出约6%。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwy6167470.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">德国总理称不会建议自己孩子赴美工作 理由是当地“社会氛围”</div>
+        <div class="news-published">🕐 2026-05-16 03:35</div>
+      </summary>
+      <div class="news-body">
+        <p>德国总理弗里德里希·默茨表示，他不会建议自己的孩子前往美国生活，理由是当地突然形成的某种“社会氛围”。 “我向来对美国推崇备至，但眼下，我的这种仰慕之情并未增加。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwy6167196.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Venu Holding一季度营收增长11%，扩建投入致亏损有所收窄</div>
+        <div class="news-published">🕐 2026-05-16 03:35</div>
+      </summary>
+      <div class="news-body">
+        <p>财务数据概览 Venu Holding Corporation近日公布了2026年第一季度财报。财报显示，公司营收为390万美元，较去年同期的350万美元增长11%，略高于市场预期的382.5万美元。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwx3109295.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">斩获重磅合同，Koil Energy一季度营收飙升56%至817万美元</div>
+        <div class="news-published">🕐 2026-05-16 03:33</div>
+      </summary>
+      <div class="news-body">
+        <p>创纪录营收驱动扭亏为盈 Koil Energy Solutions近日公布了截至2026年3月31日的第一季度财报，业绩表现强劲。财报显示，公司营收达817万美元，同比增长56%，环比增长13%...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwy6166553.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">摩根大通评级分化：上调铁姆肯至“中性”，下调A.O.史密斯至“减持”</div>
+        <div class="news-published">🕐 2026-05-16 03:32</div>
+      </summary>
+      <div class="news-body">
+        <p>评级调整概览 在最新发布的研究报告中，摩根大通对两家工业领域公司给出了截然不同的评级调整。该行将轴承及传动产品制造商铁姆肯的评级从“减持”上调至“中性”...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwy6166192.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Onex一季度盈利承压，Convex投资价值稳步增长</div>
+        <div class="news-published">🕐 2026-05-16 03:31</div>
+      </summary>
+      <div class="news-body">
+        <p>核心财务数据 Onex Corporation近日公布了2026年第一季度财报，核心盈利指标出现下滑。财报显示，公司GAAP每股收益为1.64美元，低于去年同期的2.05美元。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkwx3108508.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">精准软糖制造驱动业绩激增，Healthy Extracts一季度营收创新高</div>
+        <div class="news-published">🕐 2026-05-16 03:31</div>
+      </summary>
+      <div class="news-body">
+        <p>财务数据亮眼 Healthy Extracts近日公布了截至2026年3月31日的第一季度财报。财报显示，公司净营收同比增长73%，达到创纪录的160万美元，GAAP每股亏损为0.01美元。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-16/doc-inhxzkxc4972875.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-05-16</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+</body>
+</html>

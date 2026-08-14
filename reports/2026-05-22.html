@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-05-22</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-05-22 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+<li>今日 AI 行业稳步发展</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">0 个</span>
+    </div>
+    
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">35 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">GoPro将被收购：跌落神坛的运动相机鼻祖与中国厂商崛起</div>
+        <div class="news-published">🕐 2026-05-22 09:42</div>
+      </summary>
+      <div class="news-body">
+        <p>曾几何时，GoPro在全球消费者的认知中就是运动相机的代名词。这个从硅谷车库起步的品牌，一度以130亿美元的市值和超越75%的全球市场份额，缔造了一段科技创业神话。</p>
+        <a href="https://finance.sina.com.cn/stock/aigcy/2026-05-22/doc-inhytqkw6255612.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">科伦博泰生物盘初涨超10% 默沙东及科伦博泰ADC组合疗法击败K药单药</div>
+        <div class="news-published">🕐 2026-05-22 09:40</div>
+      </summary>
+      <div class="news-body">
+        <p>科伦博泰生物（06990）早盘涨超10%，截至发稿，股价上涨4.94%，现报476港元，成交额1.66亿港元。 默沙东与科伦博泰联合开发的TROP2靶向抗体偶联药物（ADC）芦康沙妥珠单抗...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-05-22/doc-inhytqkw6253158.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">丹诺医药-B首挂上市 股价上涨132.50%核心产品利福特尼唑有望年底获批</div>
+        <div class="news-published">🕐 2026-05-22 09:38</div>
+      </summary>
+      <div class="news-body">
+        <p>丹诺医药-B（06872）首挂上市，公告显示，每股定价75.7港元，共发行885.6万股股份，每手50股，所得款项净额约5.58亿港元。截至发稿，股价上涨132.50%，现报176港元...</p>
+        <a href="https://finance.sina.com.cn/wm/2026-05-22/doc-inhytqku5371062.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">联想集团早盘高开近8% 第四财季收入创新高AI营收占比升至38%</div>
+        <div class="news-published">🕐 2026-05-22 09:36</div>
+      </summary>
+      <div class="news-body">
+        <p>联想集团（00992）早盘高开近8%，截至发稿，股价上涨7.76%，现报14.17港元，成交额7.08亿港元。 联想集团今早公布截至2026年3月31日的2025/26财年第四季度及全年业绩。</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-05-22/doc-inhytqku5369033.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">丹诺医药-B首日高开逾98% 一手赚3715港元 公开发售超购9015倍 一手中签率仅0.8%</div>
+        <div class="news-published">🕐 2026-05-22 09:28</div>
+      </summary>
+      <div class="news-body">
+        <p>5月22日，专注抗感染及细菌代谢疾病的生物科技公司丹诺医药-B（06872.HK）正式在港交所挂牌上市。首日表现强势，股价大幅高开逾98%，报150港元。</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggipo/2026-05-22/doc-inhytqkw6238009.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">集采“反内卷”从原则走向落地，医疗器械ETF富国发行正当时</div>
+        <div class="news-published">🕐 2026-05-22 09:27</div>
+      </summary>
+      <div class="news-body">
+        <p>近期，第六批国家高值医用耗材集采中选结果在全国多省市正式落地执行，多地医疗机构同步执行新价格。与历次集采相比，此次集采在规则设计上迎来两项重要创新：一是首次引入...</p>
+        <a href="https://finance.sina.com.cn/money/fund/jjh/2026-05-22/doc-inhytqkw6237186.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">快讯：恒指高开1.01% 科指涨1.57% 科网股普涨 芯片股活跃 丹诺医药上市首日涨超98%</div>
+        <div class="news-published">🕐 2026-05-22 09:20</div>
+      </summary>
+      <div class="news-body">
+        <p>美股周四表现继续向好，市场憧憬地缘政局紧张局势缓和，刺激大市先跌后回升，三大指数均录得升幅收市。美元表现靠稳，美国十年期债息回落至4.57厘水平，金价轻微反弹...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/marketalerts/2026-05-22/doc-inhytqku5354386.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">韩国计划在首尔地区为年轻人提供约9万套出租房，以稳定住房市场</div>
+        <div class="news-published">🕐 2026-05-22 09:11</div>
+      </summary>
+      <div class="news-body">
+        <p>韩国财长具润哲周五表示，政府计划到2027年在首尔大都会区为年轻人提供约9万套出租住房，这是稳定住房市场和改善年轻人生活条件的更广泛努力的一部分。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytqkw6220408.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">AI制药利好！核心平台将成立，华为也参与！巨头重金布局（附股）</div>
+        <div class="news-published">🕐 2026-05-22 09:02</div>
+      </summary>
+      <div class="news-body">
+        <p>医药工业加速拥抱AI。据 中国信息通信研究院（简称“中国信通院”） 5月21日消息，由中国信通院联合医药龙头企业、AI制药企业、数智化服务企业、科研院所、监管机构...</p>
+        <a href="https://finance.sina.com.cn/roll/2026-05-22/doc-inhytqkw6226200.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">博雷顿获控股股东陈方明增持5.3万股</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>博雷顿（01333）发布公告，董事会获本公司主席、总经理、执行董事及控股股东陈方明先生（陈先生）告知，于本公告日期下午交易时间，陈先生于市场内以自有资金购入共5...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkv7739593.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中远海发：建议委任立信为核数师</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>中远海发（02866）发布公告，由于信永中和及信永中和（香港）连续担任公司年度审计机构年限分别已满八年及四年，根据《国有企业、上市公司选聘会计师事务所管理办法》等有...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkv7739578.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">TRUE PARTNER建议委任久安(香港)会计师事务所为新任独立核数师</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>TRUE PARTNER（08657）发布公告，大信梁学濂（香港）会计师事务所有限公司将于其现任任期届满后于2026年6月18日举行的应届股东周年大会结束时退任公司核数师。</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkr5874886.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">龙升集团控股附属与汽车经销商订立谅解备忘录 拟共同建立并推广香港电动商用车换电生态系统</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>龙升集团控股（06829）发布公告，于2026年5月20日，公司非全资附属公司龙昇新能源控股有限公司（龙昇新能源控股）与一家汽车经销商（汽车经销商）订立不具法律约束力的谅解...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkr5874861.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">齐合环保接获联交所额外复牌指引</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>齐合环保（00976）发布公告，于2026年5月19日，公司接获联交所发出的额外复牌指引以重新遵守上市规则第3.10（1）、3.10（2）、3.10A、3.21、3.25、3.27A及13...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkr5874845.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">先导智能聘任德勤华永会计师事务所为2026年度财务报告审计机构和内部控制审计机构</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>先导智能（00470）发布公告，聘任2026年度审计机构的决议案已获正式通过，德勤华永会计师事务所（特殊普通合伙）已获聘任为公司2026年度财务报告审计机构和内部控制审计机...</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkr5874836.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">先导智能将派发末期股息每10股3.285723港元</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>先导智能（00470）发布公告，将派发截至2025年12月31日止年度的末期股息每10股3.285723港元。</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkv7739490.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">重塑能源拟向麦格理银行发行1000万份认股权证</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>重塑能源（02570）公布，于2026年5月21日，公司与认购人（麦格理银行有限公司）订立认购协议，该公司拟向认购人发行1000万份认股权证...</p>
+        <a href="https://finance.sina.com.cn/wm/2026-05-22/doc-inhytqkv7739473.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中国铁建：2026年面向专业投资者公开发行科技创新公司债券(第一期)</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>中国铁建（01186）发布公告，中国铁建股份有限公司2026年面向专业投资者公开发行科技创新公司债券（第一期）发行规模为不超过人民币30亿元（含30亿元）。</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkr5874740.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">九江银行将于7月31日派发末期股息每10股0.56元</div>
+        <div class="news-published">🕐 2026-05-22 08:56</div>
+      </summary>
+      <div class="news-body">
+        <p>九江银行（06190）发布公告，将于2026年7月31日派发截至2025年12月31日止年度的末期股息每10股0.56元。</p>
+        <a href="https://finance.sina.com.cn/stock/hkstock/ggscyd/2026-05-22/doc-inhytqkv7739395.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">操盘必读：影响股市利好或利空消息_2026年5月22日_财经新闻</div>
+        <div class="news-published">🕐 2026-05-22 08:50</div>
+      </summary>
+      <div class="news-body">
+        <p>影响股市利好与利空消息 宏观新闻 1、国务院总理李强5月21日主持召开国务院常务会议，研究推进全国统一大市场建设有关工作，审议通过《现代化应急体系建设“十五五”规划》...</p>
+        <a href="https://finance.sina.com.cn/stock/cpbd/2026-05-22/doc-inhytqkv7739200.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中信建投期货：5月22日农产品早报</div>
+        <div class="news-published">🕐 2026-05-22 09:14</div>
+      </summary>
+      <div class="news-body">
+        <p>玉米：中性 1．市场关注：在谷物放量始终没有明确的情况下，弱势运行延续，近期重点关注新麦价格，新季小麦整体丰产预期但品质偏弱。</p>
+        <a href="https://finance.sina.com.cn/money/future/fmnews/2026-05-22/doc-inhytqkw6223625.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中信建投期货：5月22日能化早报</div>
+        <div class="news-published">🕐 2026-05-22 09:13</div>
+      </summary>
+      <div class="news-body">
+        <p>橡胶：短期偏弱 周四，国产全乳胶17550/吨，环比上日上涨50元/吨；泰国20号混合胶16970元/吨，环比上日下跌160元/吨。 原料端：泰国胶水报收84泰铢/公斤...</p>
+        <a href="https://finance.sina.com.cn/money/future/fmnews/2026-05-22/doc-inhytqkw6222774.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中信建投期货：5月22日黑色系早报</div>
+        <div class="news-published">🕐 2026-05-22 09:12</div>
+      </summary>
+      <div class="news-body">
+        <p>钢材早报：成交偏弱，期钢持续走跌 市场信息： 1、 中国5月贷款市场报价利率（LPR）公布，1年期品种报3%，5年期以上品种报3.5%，连续12个月保持不变。</p>
+        <a href="https://finance.sina.com.cn/money/future/fmnews/2026-05-22/doc-inhytqks8568271.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中信建投期货：5月22日工业品早报</div>
+        <div class="news-published">🕐 2026-05-22 09:11</div>
+      </summary>
+      <div class="news-body">
+        <p>铜：地缘情绪改善有限，铜价高位承压 周四晚沪铜主力震荡收跌于104100元，伦铜收跌于13616美金。 宏观中性偏空。隔夜消息面清淡，美伊谈判仍在进行，但受中东局势影响...</p>
+        <a href="https://finance.sina.com.cn/money/future/fmnews/2026-05-22/doc-inhytqku5344933.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">开盘|国内期货主力合约跌多涨少，合成橡胶跌超3%</div>
+        <div class="news-published">🕐 2026-05-22 09:00</div>
+      </summary>
+      <div class="news-body">
+        <p>2026年5月22日，早盘开盘，国内期货主力合约跌多涨少，合成橡胶跌超3%，焦煤跌近3%，多晶硅、棕榈油、瓶片跌超2%。涨幅方面，集运欧线涨超4%，生猪涨超1%。</p>
+        <a href="https://finance.sina.com.cn/money/future/fmnews/2026-05-22/doc-inhytqkr5876784.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">摩根大通亚太区投行业务主管：摩根大通在全球投行业务中引入AI工具</div>
+        <div class="news-published">🕐 2026-05-22 08:45</div>
+      </summary>
+      <div class="news-body">
+        <p>摩根大通亚太区投行业务主管周四表示，该行正在其全球投资银行业务中引入人工智能（AI）工具，成为业内首批大规模采用该技术的机构之一。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytqkv7733957.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中东局势高度紧张之际油价上涨</div>
+        <div class="news-published">🕐 2026-05-22 08:24</div>
+      </summary>
+      <div class="news-body">
+        <p>在亚洲市场早盘交易中，油价上涨，在高度紧张的中东局势下，供应中断的情况可能会居高不下。澳新银行研究部的分析师在一份研究报告中表示：“伊朗总统佩泽希齐扬表示...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytqkv7720763.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">日经指数上涨1.3% 芯片和金属股领涨</div>
+        <div class="news-published">🕐 2026-05-22 08:18</div>
+      </summary>
+      <div class="news-body">
+        <p>得益于对美伊和平谈判的持续希望，日本股市在早盘交易中走高。日经指数上涨1.3%，报62466.12点。芯片和金属股领涨。铠侠上涨3.1%，Mitsui Kinzoku上涨5.3%。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytqks8527790.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">周一欧美假期临近 日元交易员警惕干预风险</div>
+        <div class="news-published">🕐 2026-05-22 08:16</div>
+      </summary>
+      <div class="news-body">
+        <p>日元交易员对周一可能出现的干预风险保持警惕，届时伦敦和纽约等地适逢假期，导致市场流动性下降。 投资者将密切关注东京时段之后的交易情况...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytqks8526839.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">SpaceX取消了原定于周四在得克萨斯州进行的“星舰”V3号发射任务</div>
+        <div class="news-published">🕐 2026-05-22 08:11</div>
+      </summary>
+      <div class="news-body">
+        <p>SpaceX周四取消了在得克萨斯州进行的 第12次“星舰”火箭发射任务，并 表示将于周五再次尝试。 这枚“星舰”V3号火箭为无人驾驶，配备了数十项专为快速发射“星链”卫星和执行NAS...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytkau8655153.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">美国德州就加密隐私问题起诉Meta和WhatsApp</div>
+        <div class="news-published">🕐 2026-05-22 08:11</div>
+      </summary>
+      <div class="news-body">
+        <p>美国德克萨斯州总检察长办公室周四起诉了WhatsApp及其母公司Meta Platforms，指控他们误导消费者，让他们对 WhatsApp加密措施的强度和范围产生误解。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytkau8654960.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">SpaceX在发现多项问题后推迟“星舰”第12次试飞</div>
+        <div class="news-published">🕐 2026-05-22 08:08</div>
+      </summary>
+      <div class="news-body">
+        <p>SpaceX周四推迟了其巨型火箭“星舰”的一次关键试飞，因在发射前发现多项问题。 “星舰”原定周四从该公司位于德州南部的星舰基地进行第12次试飞。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytkaw5431146.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">日韩股市集体高开 韩股高开0.7%</div>
+        <div class="news-published">🕐 2026-05-22 08:02</div>
+      </summary>
+      <div class="news-body">
+        <p>日经225指开盘上涨0.4%，报61913.36点，金属类股、机械类股领涨。韩国综合股价指数（KOSPI）开盘上涨0.7%，至7873.12点。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytkax7837991.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">韩国否认媒体关于国民养老金本土持股比例的相关报道</div>
+        <div class="news-published">🕐 2026-05-22 07:59</div>
+      </summary>
+      <div class="news-body">
+        <p>韩国保健福祉部驳斥韩国《每日经济新闻》报道，否认当局拟将国民养老金本土股票配置目标上调 5 个百分点，称该消息不实。该部门发布声明表示...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytkat5971440.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">星舰V3首次试飞因故障推迟一天</div>
+        <div class="news-published">🕐 2026-05-22 07:58</div>
+      </summary>
+      <div class="news-body">
+        <p>马斯克旗下SpaceX公司表示，原定今日（美国时间周四）进行的星舰V3首次试飞因故障取消，将于明日（美国时间周五）再次尝试。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-22/doc-inhytkau8645690.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-05-22</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+</body>
+</html>

@@ -3,654 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI日报 · 2026-08-14</title>
+<title>AI日报 · 历史归档</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
-.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
-.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
-.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
-.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
-.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
-.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
-.tldr-list { list-style: none; font-size: 14px; }
-.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
-.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
-.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
-.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
-.stat-item:hover { transform: translateY(-2px); }
-.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
-.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
-.section { margin-bottom: 24px; }
-.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
-.section-icon { font-size: 24px; }
-.section-title { font-size: 18px; font-weight: 700; flex: 1; }
-.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
-.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
-.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
-.tool-header { display: flex; align-items: flex-start; gap: 12px; }
-.tool-icon { font-size: 32px; }
-.tool-info { flex: 1; }
-.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
-.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
-.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
-.stars { color: #f59e0b; font-weight: 600; }
-.today { color: #10b981; font-weight: 600; }
-.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
-.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
-.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
-.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
-.news-summary::-webkit-details-marker { display: none; }
-.news-card[open] .news-summary { background: #fafafa; }
-.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
-.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
-.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
-.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
-.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
-.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
-.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
-.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
-.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
-.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
-.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
-.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
-.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
-.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
-.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
-.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
-.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
-.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
-.insight-icon { font-size: 18px; }
-.insight-text { flex: 1; }
-.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
-.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; }
+.container { max-width: 720px; margin: 0 auto; padding: 16px; }
+.topbar { position: sticky; top: 0; z-index: 10; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 16px; padding: 16px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 6px 24px rgba(102,126,234,0.3); }
+.topbar-title { font-size: 18px; font-weight: 800; }
+.topbar-date { font-size: 13px; opacity: 0.9; margin-left: auto; }
+.btn-calendar { background: rgba(255,255,255,0.2); border: none; color: #fff; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; }
+.btn-calendar:hover { background: rgba(255,255,255,0.3); }
+.frame-wrap { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); min-height: 600px; }
+iframe { width: 100%; height: 80vh; border: none; }
+/* 日历弹窗 */
+.modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.5); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 100; padding: 16px; }
+.modal-overlay.show { display: flex; }
+.modal { background: #fff; border-radius: 20px; padding: 20px; width: 100%; max-width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.modal-header { display: flex; align-items: center; margin-bottom: 16px; }
+.modal-month { font-size: 18px; font-weight: 700; flex: 1; text-align: center; }
+.modal-nav { background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 10px; font-size: 18px; cursor: pointer; color: #475569; }
+.modal-nav:hover { background: #e2e8f0; }
+.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; color: #94a3b8; cursor: pointer; }
+.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 8px; }
+.weekdays div { text-align: center; font-size: 12px; color: #94a3b8; font-weight: 600; }
+.days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 14px; border-radius: 10px; cursor: pointer; position: relative; }
+.day.empty { cursor: default; }
+.day.has-report { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; font-weight: 700; }
+.day.has-report:hover { transform: scale(1.05); }
+.day.no-report { color: #cbd5e1; cursor: not-allowed; }
+.day.out-of-window { color: #e2e8f0; cursor: not-allowed; }
+.day.today-mark { box-shadow: 0 0 0 2px #f59e0b inset; }
+.modal-hint { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 12px; }
+.legend { display: flex; gap: 16px; justify-content: center; margin-top: 10px; font-size: 12px; color: #64748b; }
+.legend-item { display: flex; align-items: center; gap: 4px; }
+.legend-dot { width: 12px; height: 12px; border-radius: 4px; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="hero">
-    <div class="hero-title">🤖 AI日报</div>
-    <div class="hero-date">2026-08-14 · 自动生成</div>
-    <div class="tldr">
-      <div class="tldr-title">📌 今日速览</div>
-      <ul class="tldr-list">
-        <li>4.8亿美元砸向端侧算力！Agent芯片新贵冲出重围</li>
-        <li>Google announces Gemini 3.7 Flash just thr</li>
-        <li>The web’s newest weapon against AI scraper</li>
-      </ul>
-    </div>
+  <div class="topbar">
+    <span class="topbar-title">🤖 AI日报 · 历史归档</span>
+    <span class="topbar-date" id="currentDateLabel">2026-08-14</span>
+    <button class="btn-calendar" id="openCalendar">📅 选择日期</button>
   </div>
-  <div class="stats-bar">
-    <div class="stat-item"><div class="stat-value">38</div><div class="stat-label">条目</div></div>
-    <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">工具</div></div>
-    <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">动态</div></div>
-    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
-  </div>
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
-      <span class="section-count">3 个</span>
-    </div>
-    
-    <div class="tool-card" onclick="window.open('https://github.com/cathrynlavery/diagram-design', '_blank')">
-      <div class="tool-header">
-        <div class="tool-icon">🛠️</div>
-        <div class="tool-info">
-          <div class="tool-name">cathrynlavery/diagram-design</div>
-          <div class="tool-meta">
-            <span class="lang-badge"></span>
-            <span class="stars">⭐ 4,475</span>
-            <span class="today">🔥 +0 today</span>
-          </div>
-        </div>
-        <div class="arrow">→</div>
-      </div>
-      <div class="tool-desc">29 editorial diagram types for Claude Code. Self-contained HTML + SVG. No shadows, no Mermaid-slop.</div>
-    </div>
-    <div class="tool-card" onclick="window.open('https://github.com/macro-inc/macro', '_blank')">
-      <div class="tool-header">
-        <div class="tool-icon">🛠️</div>
-        <div class="tool-info">
-          <div class="tool-name">macro-inc/macro</div>
-          <div class="tool-meta">
-            <span class="lang-badge"></span>
-            <span class="stars">⭐ 1,239</span>
-            <span class="today">🔥 +0 today</span>
-          </div>
-        </div>
-        <div class="arrow">→</div>
-      </div>
-      <div class="tool-desc">Macro is a unified workspace for teams: email, chat, docs, tasks, agents, calls, and CRM — @-linked together with shared</div>
-    </div>
-    <div class="tool-card" onclick="window.open('https://github.com/msitarzewski/agency-agents', '_blank')">
-      <div class="tool-header">
-        <div class="tool-icon">🛠️</div>
-        <div class="tool-info">
-          <div class="tool-name">msitarzewski/agency-agents</div>
-          <div class="tool-meta">
-            <span class="lang-badge"></span>
-            <span class="stars">⭐ 778</span>
-            <span class="today">🔥 +0 today</span>
-          </div>
-        </div>
-        <div class="arrow">→</div>
-      </div>
-      <div class="tool-desc">A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to rea</div>
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
-      <span class="section-count">35 条</span>
-    </div>
-    
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.qbitai.com/2026/08/472059.html</span>
-        </div>
-        <div class="news-title">4.8亿美元砸向端侧算力！Agent芯片新贵冲出重围</div>
-      </summary>
-      <div class="news-body">
-        <p>首颗AI芯片已进入量产</p>
-        <a href="https://www.qbitai.com/2026/08/472059.html" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/</span>
-        </div>
-        <div class="news-title">Google announces Gemini 3.7 Flash just three weeks after previous rele</div>
-      </summary>
-      <div class="news-body">
-        <p>Google is announcing a new Gemini model today, but it's not the long-awaited 3.5 Pro. Gemini 3.7 Flash is now rolling ou</p>
-        <a href="https://arstechnica.com/ai/2026/08/google-announces-gemini-3-7-flash-just-three-weeks-after-previous-release/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/</span>
-        </div>
-        <div class="news-title">The web’s newest weapon against AI scrapers is a font</div>
-      </summary>
-      <div class="news-body">
-        <p>AI companies' penchant for scraping through large swaths of the public web in search of valuable training data has alrea</p>
-        <a href="https://arstechnica.com/ai/2026/08/new-font-turns-ordinary-webpages-into-nonsense-for-ai-scrapers/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.theverge.com/policy/979977/trump-declares-100-percent-tariffs-on-many-drones-and-all-aircraft-parts</span>
-        </div>
-        <div class="news-title">Trump declares 100 percent tariffs on many drones and all aircraft par</div>
-      </summary>
-      <div class="news-body">
-        <p>The United States has already banned future foreign drones from entering the United States unless their companies kiss t</p>
-        <a href="https://www.theverge.com/policy/979977/trump-declares-100-percent-tariffs-on-many-drones-and-all-aircraft-parts" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://openai.com/index/builders-guide-to-gpt-5-6</span>
-        </div>
-        <div class="news-title">The builder’s guide to GPT‑5.6</div>
-      </summary>
-      <div class="news-body">
-        <p>Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Respo</p>
-        <a href="https://openai.com/index/builders-guide-to-gpt-5-6" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://openai.com/index/previewing-ultrafast</span>
-        </div>
-        <div class="news-title">Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed</div>
-      </summary>
-      <div class="news-body">
-        <p>Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it deliver</p>
-        <a href="https://openai.com/index/previewing-ultrafast" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/</span>
-        </div>
-        <div class="news-title">Putting sign language AI into users’ hands</div>
-      </summary>
-      <div class="news-body">
-        <p>Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard o</p>
-        <a href="https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/</span>
-        </div>
-        <div class="news-title">WeatherNext: AI model achieves breakthrough in forecasting cyclones</div>
-      </summary>
-      <div class="news-body">
-        <p></p>
-        <a href="https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/</span>
-        </div>
-        <div class="news-title">NVIDIA AI Factory Compute Is Becoming an Investable Asset Class</div>
-      </summary>
-      <div class="news-body">
-        <p>We announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish independent</p>
-        <a href="https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/</span>
-        </div>
-        <div class="news-title">OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work</div>
-      </summary>
-      <div class="news-body">
-        <p>OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise</p>
-        <a href="https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.bloomberg.com/news/videos/2026-08-13/real-yield-8-13-2026-video</span>
-        </div>
-        <div class="news-title">Inflation Softens, Nvidia's $500B Plan | Real Yield 8/13/2026</div>
-      </summary>
-      <div class="news-body">
-        <p>"Bloomberg Real Yield" highlights the market-moving news you need to know. Today's guests: Vanguard Head of Fixed Income</p>
-        <a href="https://www.bloomberg.com/news/videos/2026-08-13/real-yield-8-13-2026-video" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=WCwT4gWpHmI</span>
-        </div>
-        <div class="news-title">Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed</div>
-      </summary>
-      <div class="news-body">
-        <p>“There’s an old adage that performance can be a feature because when something becomes fast enough, it changes behavior.</p>
-        <a href="https://www.youtube.com/watch?v=WCwT4gWpHmI" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=bl2eGejkbaU</span>
-        </div>
-        <div class="news-title">Get a daily CFO briefing with ChatGPT Work</div>
-      </summary>
-      <div class="news-body">
-        <p>Start the day with a clear view of the decisions that matter most. ChatGPT Work brings financial performance, close stat</p>
-        <a href="https://www.youtube.com/watch?v=bl2eGejkbaU" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=wzY2fV4Mp3U</span>
-        </div>
-        <div class="news-title">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</div>
-      </summary>
-      <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:17 HuggingFace Earlier Report - the possible week gap ▸ 02:24 But what happened? ▸ 05:45</p>
-        <a href="https://www.youtube.com/watch?v=wzY2fV4Mp3U" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=xHi8PUIVyoo</span>
-        </div>
-        <div class="news-title">I BUILT A FULLY AUTOMATIC MANSPLAINER</div>
-      </summary>
-      <div class="news-body">
-        <p>All information about GTC and the DGX Spark Raffle is here: Links: Homepage: Merch: YouTube: Twitter: Discord: LinkedIn:</p>
-        <a href="https://www.youtube.com/watch?v=xHi8PUIVyoo" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=taCVT5vDAk0</span>
-        </div>
-        <div class="news-title">TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)</div>
-      </summary>
-      <div class="news-body">
-        <p>Paper: Abstract: Diffusion language models hold the promise of fast parallel generation, while autoregressive (AR) model</p>
-        <a href="https://www.youtube.com/watch?v=taCVT5vDAk0" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=qK4nV_LnXxQ</span>
-        </div>
-        <div class="news-title">Making An Actually Fun 3D Game with AI</div>
-      </summary>
-      <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Why Game Dev Isn't Cooked ▸ 03:29 The Librarian 2 Plan ▸ 04:39 Two Model Workflow ▸ 05:19 Building V1 With</p>
-        <a href="https://www.youtube.com/watch?v=qK4nV_LnXxQ" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026</span>
-        </div>
-        <div class="news-title">2026 年塑造AI 与技术的趋势</div>
-      </summary>
-      <div class="news-body">
-        <p>许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture</p>
-        <a href="https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://cn.chinadaily.com.cn/a/202601/20/WS696f4150a310942cc499c152.html</span>
-        </div>
-        <div class="news-title">特稿丨展望全球人工智能2026年演进新局 - 中国日报网</div>
-      </summary>
-      <div class="news-body">
-        <p>产业：“智能制造”迎来机遇期 在产业界，数字孪生与AI智能体结合正在重塑产品设计流程，“智能制造”迎来战略机遇期。 美国国际数据公司预测，2026年，40%配备生产调度系统的制造商将升级采用AI驱动的生产排程，实现生产资源管理的自主化运行；</p>
-        <a href="https://cn.chinadaily.com.cn/a/202601/20/WS696f4150a310942cc499c152.html" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.tsinghua.edu.cn/info/1182/124190.htm</span>
-        </div>
-        <div class="news-title">2026年中国AI发展趋势前瞻 - 清华大学</div>
-      </summary>
-      <div class="news-body">
-        <p>AI向各行各业渗透，先行者靠它撬动更大价值。上海漕河泾开发区AI校友中心有超60家AI初创企业，创业者平均28岁。数宗科技主攻“多模态知识图谱”，其创始人丁天是一位爱写诗的文科生，他认为，AI时代，技术正从难以逾越的壁垒变为人人可调用的资源</p>
-        <a href="https://www.tsinghua.edu.cn/info/1182/124190.htm" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #dc2626;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html</span>
-        </div>
-        <div class="news-title">2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波</div>
-      </summary>
-      <div class="news-body">
-        <p>2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企</p>
-        <a href="https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/</span>
-        </div>
-        <div class="news-title">Writer introduces new AI model and upgraded harness to contain token c</div>
-      </summary>
-      <div class="news-body">
-        <p>Built as a post-training variation on Z.ai's open source model GLM-5.2, Writer says the new system s</p>
-        <a href="https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.bloomberg.com/news/articles/2026-08-14/japan-stocks-rise-as-us-rate-hike-bets-ease-ai-chip-shares-gain</span>
-        </div>
-        <div class="news-title">Japan Stocks Rise as US Rate-Hike Bets Ease, AI Chip Shares Gain</div>
-      </summary>
-      <div class="news-body">
-        <p>Japanese stocks rose, tracking a record-setting advance in US equities after weaker-than-expected pr</p>
-        <a href="https://www.bloomberg.com/news/articles/2026-08-14/japan-stocks-rise-as-us-rate-hike-bets-ease-ai-chip-shares-gain" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.bloomberg.com/news/videos/2026-08-13/the-close-8-13-2026-video</span>
-        </div>
-        <div class="news-title">Easing Inflation and AI Rally Push Stocks Toward Records | The Close 8</div>
-      </summary>
-      <div class="news-body">
-        <p>Bloomberg Television brings you the latest news and analysis leading up to the final minutes and sec</p>
-        <a href="https://www.bloomberg.com/news/videos/2026-08-13/the-close-8-13-2026-video" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=W-HhMUe9hOg</span>
-        </div>
-        <div class="news-title">Computer History in ChatGPT</div>
-      </summary>
-      <div class="news-body">
-        <p>Codex &amp; ChatGPT can now understand the context around what you’re working on. When you opt in to Com</p>
-        <a href="https://www.youtube.com/watch?v=W-HhMUe9hOg" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=JQ97GiDwPxc</span>
-        </div>
-        <div class="news-title">OpenAI’s AI Agents Just Crossed A Line</div>
-      </summary>
-      <div class="news-body">
-        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 More reports are available here: 🙏 We wo</p>
-        <a href="https://www.youtube.com/watch?v=JQ97GiDwPxc" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=vO6SWG-jxvE</span>
-        </div>
-        <div class="news-title">DeepMind Just Changed How AI Sees The World</div>
-      </summary>
-      <div class="news-body">
-        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The Gemma4 paper and some more is availa</p>
-        <a href="https://www.youtube.com/watch?v=vO6SWG-jxvE" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=ppQh4Tc9BmM</span>
-        </div>
-        <div class="news-title">The Billion Dollar AI Race Just Broke</div>
-      </summary>
-      <div class="news-body">
-        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 Qwen 3.8 Max: Sources: 🙏 We would like t</p>
-        <a href="https://www.youtube.com/watch?v=ppQh4Tc9BmM" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=xGzseSSStnw</span>
-        </div>
-        <div class="news-title">AI is getting a little out of control</div>
-      </summary>
-      <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:16 10 Autonomous Discoveries ▸ 08:20 The Security ‘Incident’ ▸ 15:29</p>
-        <a href="https://www.youtube.com/watch?v=xGzseSSStnw" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=mWlCituW7wo</span>
-        </div>
-        <div class="news-title">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rul</div>
-      </summary>
-      <div class="news-body">
-        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:03 GPT 5.6 Sol Reveals ▸ 05:08 Missing benches, plus Grok 4.5 ▸ 07:1</p>
-        <a href="https://www.youtube.com/watch?v=mWlCituW7wo" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=ACYAYsVMmT8</span>
-        </div>
-        <div class="news-title">AI News: The AI Stories Everyone's Freaking Out About</div>
-      </summary>
-      <div class="news-body">
-        <p>📋 章节： ▸ 0:00 Intro ▸ 0:12 Seedance 2.5 ▸ 3:40 Flux 3 Video ▸ 8:10 Second Brain Note ▸ 9:29 Qwen3.8-M</p>
-        <a href="https://www.youtube.com/watch?v=ACYAYsVMmT8" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.youtube.com/watch?v=FjalStmjUpw</span>
-        </div>
-        <div class="news-title">Like Slack… But for AI bots.</div>
-      </summary>
-      <div class="news-body">
-        <p>Jack Dorsey’s company, Block, recently launched Buzz. It's basically a Slack workspace but for AI ag</p>
-        <a href="https://www.youtube.com/watch?v=FjalStmjUpw" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time"></span>
-        </div>
-        <div class="news-title">2026 AI 元年：智能时代的正式启幕 - 阿里云开发者社区</div>
-      </summary>
-      <div class="news-body">
-        <p>在客户服务环节，智能与智能投顾成为金融服务的主流模式。智能可实现 7×24 小时全渠道响应，结合客户画像与服务需求，提供个性化的问题解答与业务办理服务，常见问题解决率达 90% 以上，大幅提升客户满意</p>
-        <a href="" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #f59e0b;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://developer.aliyun.com/article/1708999</span>
-        </div>
-        <div class="news-title">### 2.2 金融业：AI 重构 “风控 - 服务 - 运营” 全链条</div>
-      </summary>
-      <div class="news-body">
-        <p>金融业是数据密集型与知识密集型行业，天生与 AI 技术高度适配，2026 年，AI 技术已从金融业的辅助工具升级为核心业务支撑，全面重构了金融行业的 “风控 - 服务 - 运营” 全业务链条，实现了效</p>
-        <a href="https://developer.aliyun.com/article/1708999" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-    <details class="news-card" style="border-left: 4px solid #6b7280;">
-      <summary class="news-summary">
-        <div class="news-header">
-          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
-          <span class="tag-badge">AI</span>
-          <span class="source-time">https://www.qbitai.com/2026/08/472208.html</span>
-        </div>
-        <div class="news-title">深度体验DeepSeek Harness，我原谅它涨价了</div>
-      </summary>
-      <div class="news-body">
-        <p>欢迎，为后人种点树</p>
-        <a href="https://www.qbitai.com/2026/08/472208.html" target="_blank" class="read-more">阅读原文 ↗</a>
-      </div>
-    </details>
-  </div>
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
-      <span class="section-count">0 条</span>
-    </div>
-    
-  </div>
-  <div class="insight-section">
-    <div class="insight-title">💡 今日洞察</div>
-    <div class='insight-item'><span class='insight-icon'>🔥</span><span class='insight-text'>diagram-design单日+4475星，AI工具生态持续活跃</span></div><div class='insight-item'><span class='insight-icon'>⚡</span><span class='insight-text'>AI Agent已具备点击/填表/跨软件操作能力，"数字员工"加速落地</span></div><div class='insight-item'><span class='insight-icon'>💡</span><span class='insight-text'>-</span></div>
-  </div>
-  <div class="footer">
-    <div class="footer-divider"></div>
-    <div>QClaw AI日报 · 2026-08-14</div>
-    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  <div class="frame-wrap">
+    <iframe id="reportFrame" src="reports/2026-08-14.html" title="AI日报"></iframe>
   </div>
 </div>
+
+<div class="modal-overlay" id="calendarModal">
+  <div class="modal">
+    <button class="modal-close" id="closeCalendar">×</button>
+    <div class="modal-header">
+      <button class="modal-nav" id="prevMonth">‹</button>
+      <div class="modal-month" id="monthLabel"></div>
+      <button class="modal-nav" id="nextMonth">›</button>
+    </div>
+    <div class="weekdays">
+      <div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
+    </div>
+    <div class="days" id="daysGrid"></div>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(135deg,#667eea,#764ba2);"></div>有报告</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>今天</div>
+    </div>
+    <div class="modal-hint">近 90 天内有报告的日期可点击查看</div>
+  </div>
+</div>
+
+<script>
+const AVAILABLE_DATES = ["2026-05-16", "2026-05-17", "2026-05-18", "2026-05-19", "2026-05-20", "2026-05-21", "2026-05-22", "2026-05-23", "2026-05-24", "2026-05-25", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-05-30", "2026-05-31", "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-06", "2026-06-07", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-13", "2026-06-14", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-21", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-27", "2026-06-28", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-11", "2026-07-12", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16", "2026-07-17", "2026-07-18", "2026-07-19", "2026-07-20", "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-25", "2026-07-26", "2026-07-27", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07", "2026-08-08", "2026-08-09", "2026-08-11", "2026-08-12", "2026-08-13", "2026-08-14"];
+const WINDOW_DAYS = 90;
+const TODAY = "2026-08-14";
+
+const todayDate = new Date(TODAY + "T00:00:00");
+let viewYear = todayDate.getFullYear();
+let viewMonth = todayDate.getMonth();  // 0-11
+
+const weekdayNames = ['日','一','二','三','四','五','六'];
+
+function fmt(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+function isInWindow(dateStr) {
+  const d = new Date(dateStr + "T00:00:00");
+  const diffDays = Math.floor((todayDate - d) / (1000 * 60 * 60 * 24));
+  return diffDays >= 0 && diffDays <= WINDOW_DAYS;
+}
+
+function renderCalendar() {
+  const monthLabel = document.getElementById('monthLabel');
+  monthLabel.textContent = `${viewYear}年${viewMonth + 1}月`;
+
+  const grid = document.getElementById('daysGrid');
+  grid.innerHTML = '';
+
+  const firstDay = new Date(viewYear, viewMonth, 1);
+  const startWeekday = firstDay.getDay();  // 0=周日
+  const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+  // 前置空格
+  for (let i = 0; i < startWeekday; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'day empty';
+    grid.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dateStr = fmt(new Date(viewYear, viewMonth, d));
+    const cell = document.createElement('div');
+    cell.textContent = d;
+
+    const hasReport = AVAILABLE_DATES.includes(dateStr);
+    const inWindow = isInWindow(dateStr);
+    const isToday = dateStr === TODAY;
+
+    if (hasReport && inWindow) {
+      cell.className = 'day has-report' + (isToday ? ' today-mark' : '');
+      cell.onclick = () => selectDate(dateStr);
+    } else if (!inWindow) {
+      cell.className = 'day out-of-window';
+    } else {
+      cell.className = 'day no-report' + (isToday ? ' today-mark' : '');
+    }
+    grid.appendChild(cell);
+  }
+}
+
+function selectDate(dateStr) {
+  document.getElementById('reportFrame').src = `reports/${dateStr}.html`;
+  document.getElementById('currentDateLabel').textContent = dateStr;
+  closeCalendar();
+}
+
+function openCalendar() {
+  document.getElementById('calendarModal').classList.add('show');
+}
+function closeCalendar() {
+  document.getElementById('calendarModal').classList.remove('show');
+}
+
+document.getElementById('openCalendar').onclick = openCalendar;
+document.getElementById('closeCalendar').onclick = closeCalendar;
+document.getElementById('calendarModal').onclick = (e) => {
+  if (e.target.id === 'calendarModal') closeCalendar();
+};
+document.getElementById('prevMonth').onclick = () => {
+  viewMonth--;
+  if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+  renderCalendar();
+};
+document.getElementById('nextMonth').onclick = () => {
+  viewMonth++;
+  if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+  renderCalendar();
+};
+
+renderCalendar();
+</script>
 </body>
 </html>

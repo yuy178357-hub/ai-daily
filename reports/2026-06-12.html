@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-06-12</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-06-12 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+<li>今日 AI 行业稳步发展</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">20</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">20</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">0 个</span>
+    </div>
+    
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">20 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-15-2026-ai-innovations-security-scares-2moc" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月21日最新科技新聞：人工智能浪潮、領導層變動與量子安全成就 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Yelp更新的人工智能助手是另一個人工智能在用戶互動中進展的例子。用戶現可就餐廳問題提問並在同一無縫對話中預訂枱位，簡化消費者的體驗。Google將Gemini擴展至Chrome的七個新國家，包括澳大利亞和日本，進一步展示人工智能的全球影響，強化桌面和移動瀏覽器的功能 Google’s Gemini Rollout。這些進展強調人工智能提升效率的潛力，但亦強調處理倫理和安全問題的重要性。 Anth</p>
+        <a href="https://coaio.com/yue/news/2026/04/breaking-tech-news-on-april-21-2026-ai-surge-leadership-shifts-and-2ncc" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <a href="https://www.contentplatform.info/articles/467778/2026%E5%B9%B4%E5%9B%9B%E6%9C%88ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A2%B0%E4%B8%8A%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%9C%80%E6%96%B0%E9%80%B2%E5%BA%A6%EF%BC%9A%E5%BE%9E%E3%80%8C%E8%83%BD%E8%B7%91" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">北京大学深圳研究生院科学智能学院</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>##### 我院AI4S交叉研究取得重要进展 | 莫凡洋/袁粒与合作者开发机器学习手性分子光谱预测模型 电子圆二色光谱（electronic circular dichroism，ecd）作为一种关键的光谱技术，具有用量少、易测定等优点，在不对称催化、功能材料和药物发现等领域有重要且广泛的应用，已成为探索手性分子空间绝对构型的有力工具。然而，圆二色光谱的理论计算往往复杂且耗时，成为化学研究和药物开</p>
+        <a href="https://ai4s.pkusz.edu.cn" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026 年塑造AI 与技术的趋势</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>许多人认为，效率将是新的前沿。“GPU 的王者地位仍将延续，但基于专用集成电路的加速器、芯粒架构设计、模拟推理技术乃至量子辅助优化器都将日趋成熟。”IBM 首席研究科学家 Kaoutar El Maghraoui 在本周的 Mixture of Experts 活动中表示，或许还会出现一类专门适配智能体工作负载的新型芯片。“ 在经历了对 AI 投资回报率的广泛质疑之后，如今 AI 的能力将为企业处</p>
+        <a href="https://www.ibm.com/cn-zh/think/news/ai-tech-trends-predictions-2026" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">[PDF] 2026 年国际人工智能安全报告</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>地学习新信息和技能。 人工智能引导的机器人能够在许多行业和岗位中， 在动态的真实环境中处理 复杂的实体或社交任务。 由于实体任务之间泛化方面的挑战， 人工智能在这些实体任务和具身任务 中的表现仍普遍落后于人类， 除非该系统是为某项特定任务而专门开发的  (251 , 25 2)。 — 路径： 2025 年之后， 通过持续或加速扩大预训练、 后训练和推理的规模， 现有范式内的人工智能能 力将持续呈指</p>
+        <a href="https://internationalaisafetyreport.org/sites/default/files/2026-02/international-ai-safety-report-2026-zh.pdf" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026 年人工智能发展的七个判断</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>最新文章 人工智能高质量数据集建设路径与行业探索 多案例视角下培育壮大未来产业路径研究 全球竞速背景下我国太空数据中心发展路径研究 低空经济应用场景分类及典型案例研究 大模型赋能蔬菜产业的应用场景及推进策略 探析《生态环境法典》对受控热核聚变的规制及适用要点 系统推进低空智联网建设夯实低空经济发展根基 “十五五”低空装备产业发展展望 人工智能赋能深海矿产勘探开发：发展现状、瓶颈问题和对策建议 以数</p>
+        <a href="https://nefi.develpress.com?p=17211" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年人工智能现状及发展趋势分析</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>核心子理论与成果： 人工神经网络理论（麦卡洛克、皮茨）：提出MP神经元模型，构建了人工神经网络的最小单元，是连接主义的起点。 感知机理论（罗森布拉特）：提出第一个可学习的单层神经网络，证明了机器可以通过数据学习分类规则。 反向传播（BP）算法理论（鲁梅尔哈特、辛顿等）：解决了多层神经网络的权重学习问题，让深度神经网络的训练成为可能，是深度学习的核心理论基石。 深度学习理论：提出通过多层非线性神经网</p>
+        <a href="https://www.ceietn.com/a/JointLaboratory/jishuqianyan/1373.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 - BBC</div>
+        
+      </summary>
+      <div class="news-body">
+        <p># 當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 在北京排隊裝「龍蝦」的人們。 圖像來源，Getty Images 過去兩個月裡，在中國有這麼三個人幾乎在同一時間遭遇了同一件事：AI大舉進入職場。 他們一個是對計算機和網絡技術有狂熱興趣的極客，一個是創業者，一個是程序員。 他們的情緒各不相同，有人興奮，有人恐懼，或者兩者同時發生。 他們站的位置不同，聽到的轟鳴聲卻來自同一個方向。</p>
+        <a href="https://www.bbc.com/zhongwen/articles/crm8mmg0y3eo/trad" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">中投顾问-2026年人工智能（AI）产业深度分析报告 - AgeClub</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>从技术竞争看，华为发布的新一代 AI 加速卡 Atlas 350 搭载自研昇腾 950PR 芯片，在 FP4 低精度运算下算力达 1.56 PFLOPS，宣称效能为英伟达 H20 的 2.87 倍。国产 AI 芯片正从“可用”加速迈向“好用”。 二、AI 基础设施产业链 2026 年将是中国算力需求从“云端训练”向“训练+推理”双轮驱动转型的关键之年。训练侧向高质量与多模态进阶，Scaling-l</p>
+        <a href="https://www.ageclub.net/article-detail/9229" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年中国AI发展趋势前瞻-清华大学</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>AI正锚定“需求”着力渗透，实现从“技术可行”到“社会需要”。 一位蔚来车主在车里说句“想吃麦当劳”，车载系统就能自动定位到最近门店，并根据驾驶路线与会员身份推荐套餐。这是麦当劳中国与蔚来汽车联合推出的国内首个车载AI语音点餐系统。麦当劳中国首席信息技术与体验官陈世宏表示，AI技术不断渗透到消费场景，拓展消费边界。 《关于深入实施“人工智能+”行动的意见》提出，推动智能终端“万物智联”，培育智能产</p>
+        <a href="https://www.tsinghua.edu.cn/info/1182/124190.htm" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">特稿丨展望全球人工智能2026年演进新局 - 新华网</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>这是2025年4月17日拍摄的位于合肥市肥西县的江淮汽车尊界超级工厂内的自动化焊接生产线。新华社发 胡延平认为，对于中国制造业来说，产业智能化浪潮机遇大于挑战。从制造向“智造”的转变将极大增强中国企业的市场感知力、产品创新力和国际竞争力，也意味着AI赋能、驱动、催化的以新兴产业和未来产业为基础的现代产业群逐步显现。“中国智造”有望带动中国经济走向下一个长周期发展。 能源：数据中心耗电量持续高企 2</p>
+        <a href="https://www.news.cn/tech/20260120/5c20c6f7ba864526b6e674acaea53e25/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年世界杯将扩大人工智能的应用</div>
+        
+      </summary>
+      <div class="news-body">
+        <p># 2026年世界杯将扩大人工智能的应用 美国之音 加拿大温哥华的科学世界在世界杯开赛前被改造成一个直径40米、360度环绕的比赛用球模型。(2026年6月2日) 评论 几年前，在世界杯赛事期间，应急服务部门若遇到涉及说外语的足球球迷的突发事件，通常会联系翻译机构，以便与受影响人员沟通，并采取相应的应对措施。 在本次世界杯上，这种做法已不再必要，因为应急救援人员可以使用人工智能翻译工具，在几秒钟内</p>
+        <a href="https://www.voachinese.com/amp/ai-use-in-the-2026-world-cup-expands-20260609/8159025.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月25日（周六）AI治理、風險及項目管理的重要性 - YouTube</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>嘅 去 SDLC 同 data 無 嘅 仲 呢 下 ， 解 樣 呢 apply 個 嘅 лу啦 定 以 project 險 家 才 專 真 好 technical 嗰 呢 度 ， 唔 現 唔 者 揸 心 候 哋 講 件 錯 ， 路 區 嘅 發 大 禮 新 ubscribe 兩 係 AI 變 到 亦 政 ， 祈 因 個 proceit projects, 係 為 要 嘅 做 step 翻 detai</p>
+        <a href="https://www.youtube.com/watch?v=938kUAIQSCQ" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">人工智能产业日报(05.20) : AI技术突破 - 亿欧</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>&gt; 联想发布天禧AI4.0和联想AI主机 &gt; &gt; &gt; 5月19日，联想发布天禧AI4.0，据悉，该款AI为端边云一体化混合部署，80%的token在本地完成。此次发布的联想AI主机算力为190 TOPS，最大支持122B本地大模型与128K长上下文处理。 除核心重点产品外，联想本次还公布了多款符合《人工智能终端智能化分级》最高L3级AI智能化要求的AI PC、AI平板、AI手机等新品。 &gt; 高德红</p>
+        <a href="https://www.iyiou.com/data/202605211130519" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">展望全球人工智能2026年演进新局_数智频道_央视网(cctv.com)</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>上海财经大学特聘教授胡延平接受记者采访时说，AI对企业的浅层价值是降本提效，深层价值是以能力迸发驱动范式转换。三种变革正在发生：成本结构方面，智能体系统不仅突破传统劳动力的时间空间、管理成本效率限制，还可突破创造力的产出能力瓶颈；组织形态方面，企业可用AI提供动态感知、实时交互、智能创造、行为达成、组织协作等能力，从而进化到智能经济时代的人智协作；竞争逻辑方面，从规模标准化转向规模与个性融合，从产</p>
+        <a href="https://5gai.cctv.com/2026/01/26/ARTIFePGMFzgdaKZYzHoRbTy260126.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年首月全球AI产业动态：人工智能促变革美企滥用引风波</div>
+        
+      </summary>
+      <div class="news-body">
+        <p># 2026年首月全球AI产业动态：人工智能促变革 美企滥用引风波 新华社记者 今年首月，人工智能（AI）进一步展现对生活、科研等多个领域的变革性影响，甚至“上天”在太空和火星发挥作用。但与此同时，美国企业的聊天机器人“格罗克”在多国被查，形成一场巨大国际风波。在国际AI治理相关讨论中，多国官员期待加强对华合作。 技术研发你追我赶 在技术基础方面，全球AI芯片算力升级与大模型创新发展继续展现你追我</p>
+        <a href="https://www.stdaily.com/web/gdxw/2026-02/03/content_469690.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">特稿丨人工智能促变革美企滥用引风波——2026年首月全球AI产业动态</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
+        <a href="https://www.news.cn/world/20260203/a173cb66c98a4b1bb551d588fd2f0209/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年科技行业前瞻：AI、自动驾驶、机器人、世界模型、美股...</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>2026年科技行业前瞻:AI、自动驾驶、机器人、世界模型、美股 2025年AI回顾: 中国模型与开源冲击. Scaling Law未止: OpenAI上市路:估. AI应用元年?2026年或</p>
+        <a href="https://www.youtube.com/watch?v=lAy9RKQSi2U" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">新华深读｜2026年中国AI发展趋势前瞻</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Image 1) Image 2_手机版_ 网站无障碍) Image 3_PC版本_ 客户端 手机版 Image 5 站内搜索 Image 6 新华通讯社主办公司官网股票代码：_603888_ 学习进行时高层时政人事国际财经网评港澳台湾思客智库全球连线教育科技科创量子体育文化书画健康军事访谈视频图片政务法律中央文件 金融汽车食品人居生活信息化数字经济学术中国乡村振兴银龄溯源中国城市旅游能源会展彩票</p>
+        <a href="https://www.news.cn/20260128/3b2f11906fd74ca397fef9996c805a60/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-06-12</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+</body>
+</html>

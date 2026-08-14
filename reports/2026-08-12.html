@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-08-12</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-08-12 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+<li>今日 AI 行业稳步发展</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">21</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">21</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">0 个</span>
+    </div>
+    
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">21 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">谷歌称Gemini的月用户数已超过10亿</div>
+        <div class="news-published">🕐 2026-08-12 01:55</div>
+      </summary>
+      <div class="news-body">
+        <p>Alphabet首席执行官Sundar Pichai在社交媒体平台X上发帖称，目前每月有超过10亿人使用Gemini。 他说：“这是我们历来增长最快的产品...</p>
+        <a href="https://finance.sina.com.cn/world/2026-08-12/doc-inimysya5558142.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-15-2026-ai-innovations-security-scares-2moc" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">The latest AI news we announced in April 2026</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>The big picture April 2026 was a huge month for AI at Google. Cloud Next ‘26 was all about helping businesses make the most of agentic AI with new releases like the Gemini Enterprise Agent Platform an</p>
+        <a href="https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-april-2026" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月9日人工智能領域最新動態總覽</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>跳到主要內容 ::: 網站導覽 企業永續 關於群益 人才招募") 群益期貨(香港) (另開新視窗)") facebook") Line") ::: 1. 首頁 2. 市場快訊 2026-04-09 # 2026年4月9日人工智能領域最新動態總覽 【整理：每日人工智能動態彙總（2026-04-09）】1. Meta推出新AI模型Muse Spark，加碼追趕競爭對手。 2. 騰訊：Buddy全系產品</p>
+        <a href="https://www.capitalfutures.com.tw/zh-tw/financial/breakingnewsarticle?contentid=c26040900531" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Artificial Intelligence - AI Update, April 24, 2026: AI News and Views</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Workers report being asked to train AI systems that could replace their roles. Reports from China indicate that some employees are being required to document their workflows to train AI agents capable</p>
+        <a href="https://www.marketingprofs.com/opinions/2026/54587/ai-update-april-24-2026-ai-news-and-views-from-the-past-week" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 | 報新聞 Mega News</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>報新聞 報新聞 報新聞 spot_img # 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 2026年四月Ai人工智能碰上機器人最新進度：從「能跑」到「奔跑」 記者張杰倫報導 你沒看錯，就在2026年4月19日，人類半程馬拉松的世界紀錄，被一台機器人打破了。搭載自主導航技術的「閃電」機器人以50分26秒的驚人成績率先衝線，比人類跑得還要快七分鐘。在超過100支參賽隊伍的同場競</p>
+        <a href="https://www.contentplatform.info/articles/467778/2026%E5%B9%B4%E5%9B%9B%E6%9C%88ai%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%A2%B0%E4%B8%8A%E6%A9%9F%E5%99%A8%E4%BA%BA%E6%9C%80%E6%96%B0%E9%80%B2%E5%BA%A6%EF%BC%9A%E5%BE%9E%E3%80%8C%E8%83%BD%E8%B7%91" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Top 15 New AI and Quantum Computing Breakthroughs of 2026</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Morgan Stanley researchers highlighted that applying 10 times the compute to LLM training effectively doubles a model's intelligence. The scaling laws backing that claim are holding firm. OpenAI's GPT</p>
+        <a href="https://www.youtube.com/watch?v=WoMitMc895A" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">The Future of AI: 7 Breakthrough Trends Redefining 2026</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>The artificial intelligence landscape is rapidly evolving, moving from experimental models to robust, enterprise-ready systems. In early April 2026, the pace of innovation has reached unprecedented le</p>
+        <a href="https://www.switas.com/articles/the-future-of-ai-7-breakthrough-trends-redefining-2026" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">全球AI治理新闻No.24丨2026.04.13-2026.04.20</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>## 全球AI治理新闻No.24丨2026.04.13-2026.04.20 作者：王奕博等 发布时间：2026-04-23 来源：全球人工智能创新治理中心+收藏本文 4月14日，中国最大规模科学智能计算集群在位于郑州的国家超算互联网核心节点投入使用。根据人民日报介绍，该集群部署超6万卡，依托中国自主可控核心芯片，支持全精度计算，以高效处理高维函数和复杂科学问题。在应用方面，该集群已在生物、材料等</p>
+        <a href="https://fddi.fudan.edu.cn/dc/36/c21253a777270/page.htm" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Ai4 2026 汇聚全球最具影响力的AI领袖，举办一场前所未有的创新、研究与企业转型盛会</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Mistral: Pioneering Transparent and Transformative Frontier AI, featuring Pavan Kumar Reddy, one of Mistral's first U.S.-based AI scientists. “人工智能竞速重塑医学”专场将由Insilico Medicine创始人兼首席执行官Alex Zhavoronkov</p>
+        <a href="https://www.moomoo.com/hans/news/post/73086102/ai4-2026-unites-the-world-s-most-influential-ai-leaders" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026/04/23(四)特斯拉財報，狂砸250億擴張AI與機器人版圖，以及其他重點公司的財報！</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>👉  拆解「創世紀任務」：當矽谷遇上國家機器，將如何改寫美股的下一個十年？ 🔗 👉  告別燒錢時代：誰掌握了 2026 年 Fintech 的「存活演算法」？ 🔗 👉  博通(AVGO)：當 AI 不再只比算力，博通將成輝達最大競爭對手嗎？ 🔗 👉  Lumentum(LITE) vs. Coherent(COHR)：AI 光通訊升級下，誰掌握真正的定價權？ 🔗 👉  【市場議題】日本央行升息，會</p>
+        <a href="https://www.youtube.com/watch?v=JzbKsuNUVpk" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">15 New Things AI Can Do in 2026 That Were Impossible Last Year</div>
+        
+      </summary>
+      <div class="news-body">
+        <p># 15 New Things AI Can Do in 2026 That Were Impossible Last Year Image 7: AI Uncovered AI Uncovered AI Uncovered 242K subscribers Subscribe Subscribed 1.2K Share Save Download Download 79K views 3 mon</p>
+        <a href="https://www.youtube.com/watch?v=IjHIE2DMUNg" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼</div>
+        
+      </summary>
+      <div class="news-body">
+        <p># 當AI智能體開始上崗：2026年春天裡，三個中國人的興奮與恐懼 在北京排隊裝「龍蝦」的人們。 圖像來源，Getty Images 過去兩個月裡，在中國有這麼三個人幾乎在同一時間遭遇了同一件事：AI大舉進入職場。 他們一個是對計算機和網絡技術有狂熱興趣的極客，一個是創業者，一個是程序員。 他們的情緒各不相同，有人興奮，有人恐懼，或者兩者同時發生。 他們站的位置不同，聽到的轟鳴聲卻來自同一個方向。</p>
+        <a href="https://www.bbc.com/zhongwen/articles/crm8mmg0y3eo/trad" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">AI Breakthroughs in 2026: The Year of Agentic AI</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Dementia Detection with 97% Accuracy Örebro University developed AI systems analyzing EEG (brainwave) data to distinguish between healthy individuals and those with dementia, including Alzheimer’s dis</p>
+        <a href="https://kersai.com/ai-breakthroughs-in-2026" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">直击AACR 2026｜英矽智能携四项AI发现临床前研究成果亮相</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Press Releases China 2026-04-21 08:00 # 直击AACR 2026｜英矽智能携四项AI发现临床前研究成果亮相 2026年4月17日至22日，2026 年美国癌症研究协会 (AACR) 年会在美国加利福尼亚州圣地亚哥会议中心举行。作为美国肿瘤学界最盛大的多学科会议，AACR汇集前沿研究成果，以学术突破和早研进展为产学研各界带来启发。在壁报展示之外，英矽智能在会场 </p>
+        <a href="https://insilico.com/news_sc/pk77ogvub1-aacr-2026ai" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">What's next in AI: 7 trends to watch in 2026</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>That means giving each agent a clear identity, limiting what information and systems it can access, managing the data it creates and protecting it from attackers and threats, Jakkal says. Security wil</p>
+        <a href="https://news.microsoft.com/source/features/ai/whats-next-in-ai-7-trends-to-watch-in-2026" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">来自微软研究院的2026年前沿观察 - Microsoft Research</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>在微软研究院遍布全球的实验室网络中，研究员们正致力于重塑计算与智能的根基。他们设计能够自我管理的系统，将自主性深植于数字世界的底层架构；他们构建能够在低资源的语言和环境中运行的 AI 工具，为实现包容性和易用性开辟道路；他们推进能够推理并理解人类意图的模型发展，并将智能带入物理世界，让机器人可以像语言一样流畅地学习和行动。 在今天的文章中，来自微软研究院的研究员们将分享他们对2026年 AI 发展</p>
+        <a href="https://www.microsoft.com/en-us/research/articles/whats-next-in-ai" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年，AI将深度嵌入日常生活 - 世界互联网大会</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>另一条赛道，则属于可折叠设备。 据传苹果公司将在今年发布首款能像书本一样展开的手机，兼顾便携与大屏体验。尽管三星等公司早已布局折叠屏多年，但高昂价格与耐用性问题使其始终局限于小众市场。若苹果凭借生态整合与工业设计实现破局，或将引爆新一轮换机潮。 网络AI化进程持续加速 如果最近使用谷歌搜索，你可能会发现页面顶部不再列出10个蓝色链接，而是一段由AI生成的回答，简洁明了。这是“AI模式”搜索引擎的真</p>
+        <a href="https://cn.wicinternet.org/2026-01/13/content_38534441.htm" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">香港无线｜两岸新闻｜2026年4月6日｜两岸｜江苏AI产业规模达近3500亿元　应用场景涵盖飞行员培训及运动拍摄</div>
+        
+      </summary>
+      <div class="news-body">
+        <p># 香港无线｜两岸新闻｜2026年4月6日｜两岸｜江苏AI产业规模达近3500亿元　应用场景涵盖飞行员培训及运动拍摄 ## TVB NEWS Official 無綫新聞 609000 subscribers 9 likes ### Description 559 views Posted: 6 Apr 2026 全球积极发展人工智能，中国除了有杭州六小龙，江苏作为传统工业大省，提供足够场景应用人工</p>
+        <a href="https://www.youtube.com/watch?v=hJTz7wF8DaQ" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">AI將減少工作時間？科技業員工稱每週工時高達90小時</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>「人們以為工作量減少20%，就意味著可以實現每週工作四天，」湯普森說。「但新的工作總是會出現。」 正如沙利（Amin Shali）所說：「如果AI現在真的已經替我們完成了這麼多工作，那麼理論上，至少應該有更多人的健康狀況改善，睡眠品質提升。」 然而，現實情況似乎恰恰相反。 我們使用了人工智慧協助翻譯這篇文章，它的原文是英文。在發佈之前，BBC記者檢查了翻譯的內容。 按此了解我們如何使用人工智慧。 </p>
+        <a href="https://www.bbc.com/zhongwen/articles/clyxr681dn7o/trad" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">特稿丨人工智能促变革美企滥用引风波——2026年首月全球 ...</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>美企滥用引发风波 能上天的AI在应用中也不能没有边界，美国xAI公司的聊天机器人“格罗克”就在1月引发一场巨大的国际风波。“格罗克”被内置于社交媒体平台X，近来一些用户使用其图片编辑功能生成基于真人的色情内容，受害者包括成年女性和未成年人，受到多国强烈谴责。 在印度尼西亚、马来西亚和英国等国相继宣布对“格罗克”实施限制措施或对X平台启动相关调查后，X平台宣布不再允许“格罗克”生成基于真人的伪造性暴</p>
+        <a href="https://www.news.cn/world/20260203/a173cb66c98a4b1bb551d588fd2f0209/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-08-12</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+</body>
+</html>

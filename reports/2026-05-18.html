@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-05-18</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-05-18 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+<li>今日 AI 行业稳步发展</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">0 个</span>
+    </div>
+    
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">35 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">零售商接连遭遇重重经营困境</div>
+        <div class="news-published">🕐 2026-05-18 21:40</div>
+      </summary>
+      <div class="news-body">
+        <p>此外：私募借贷暗藏价值陷阱，华盛顿地区出现可疑博彩交易 作者：李真珠 早安，今日由我代班斯宾塞・雅卡布。目前市场依旧未能摆脱上周五的震荡情绪...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirni8033602.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">20个交易日，涨超16倍！301666，停牌核查！</div>
+        <div class="news-published">🕐 2026-05-18 21:38</div>
+      </summary>
+      <div class="news-body">
+        <p>5月18日，大普微（301666）20%涨停。截至收盘，大普微报于816元/股。 大普微于2026年4月16日上市，上市当日股价大涨430.71%。在经历了几个交易日的盘整之后...</p>
+        <a href="https://finance.sina.com.cn/stock/s/2026-05-18/doc-inhyirne0597959.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">百亿“果链”背后的“安徽富豪”又要敲钟了！</div>
+        <div class="news-published">🕐 2026-05-18 21:34</div>
+      </summary>
+      <div class="news-body">
+        <p>来源：风云IPO 作者|刘俊群 港交所 “学霸”女儿掌管人形机器人公司。 作者|刘俊群 编辑|刘钦文 从安徽望江走出的66岁富豪陈奇星，又一次把资本市场的聚光灯打到了自己身上。...</p>
+        <a href="https://finance.sina.com.cn/stock/s/2026-05-18/doc-inhyirna3819820.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">杨子家的巨力索具遭立案，利润6.7亿套现28亿遭质疑</div>
+        <div class="news-published">🕐 2026-05-18 21:34</div>
+      </summary>
+      <div class="news-body">
+        <p>来源 | 野马财经 作者 | 于婞 赚的不多，拿的不少。 编辑丨高岩 与明星爱人黄圣依再见1年后，“中年霸总”杨子背后的家族企业出事了。</p>
+        <a href="https://finance.sina.com.cn/stock/s/2026-05-18/doc-inhyirna3818917.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">暴涨16倍，301666停牌核查！</div>
+        <div class="news-published">🕐 2026-05-18 21:33</div>
+      </summary>
+      <div class="news-body">
+        <p>来源：中国基金报 【导读】大牛股停牌核查 中国基金报记者 泰勒 大家好，是不是很久没有看到A股公司因暴涨而停牌核查了？ 今晚，它来了。</p>
+        <a href="https://finance.sina.com.cn/stock/marketresearch/2026-05-18/doc-inhyirni8031855.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">开盘：美股周一开盘涨跌不一 交易员关注油价与债券收益率</div>
+        <div class="news-published">🕐 2026-05-18 21:30</div>
+      </summary>
+      <div class="news-body">
+        <p>北京时间5月18日晚，美股周一开盘涨跌不一。交易员正密切关注油价与债券收益率，同时等待中东冲突的进一步进展。本周将迎来繁忙的财报季，英伟达领衔众多企业公布业绩。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirni8028606.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">飞依诺IPO：负债率数倍于同行，与GE医疗诉讼纠纷待解</div>
+        <div class="news-published">🕐 2026-05-18 21:26</div>
+      </summary>
+      <div class="news-body">
+        <p>来源：雷达Finance 雷达财经出品 文|李亦辉 编|深海 不久前，飞依诺科技股份有限公司（下称“飞依诺”）创业板 IPO 状态变为“已问询”。</p>
+        <a href="https://finance.sina.com.cn/stock/newstock/2026-05-18/doc-inhyirne0594002.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">A股又现“天价离婚”，年薪超300万总裁几近“净身出户”</div>
+        <div class="news-published">🕐 2026-05-18 21:26</div>
+      </summary>
+      <div class="news-body">
+        <p>来源：雷达Finance 雷达财经出品 文|丁禹 编|孟帅 A股又现“天价离婚案”，年薪超300万的总裁几近“净身出户”。 近日，电子元器件龙头顺络电子发布公告称...</p>
+        <a href="https://finance.sina.com.cn/stock/s/2026-05-18/doc-inhyirna3816367.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">德国商业银行建议股东拒绝裕信银行收购邀约</div>
+        <div class="news-published">🕐 2026-05-18 21:24</div>
+      </summary>
+      <div class="news-body">
+        <p>本月意大利裕信银行提出约 240 亿欧元出价，拟收购德国商业银行剩余全部股份 内容速览 德国商业银行管理层与监事会一致建议股东，拒绝裕信银行总额约 240...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirne0590525.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">曼彻斯特市市长伯纳姆表态称无意提议重返欧盟</div>
+        <div class="news-published">🕐 2026-05-18 21:22</div>
+      </summary>
+      <div class="news-body">
+        <p>曼彻斯特市市长安迪·伯纳姆（Andy Burnham）在英格兰北部城市利兹明确表示，他未提议英国考虑重新加入欧洲联盟，并重申尊重近十年前“脱欧”公投的决定。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirne0589913.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">伊朗风险推升油价与收益率</div>
+        <div class="news-published">🕐 2026-05-18 21:20</div>
+      </summary>
+      <div class="news-body">
+        <p>在外交努力陷入僵局的背景下，布伦特原油价格继续上涨，30年期美债收益率触及一年高位。英伟达及其他大型科技股上周五领跌美国股市，投资者从风险资产转向避险品种。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirnf2780105.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">SpaceX首次公开募股或考验市场承受力</div>
+        <div class="news-published">🕐 2026-05-18 21:20</div>
+      </summary>
+      <div class="news-body">
+        <p>据报道SpaceX正加快上市计划，纳斯达克可能承办美国史上规模最大的首次公开募股之一。然而，一些市场观察人士警告称，SpaceX的超高估值可能为市场引入泡沫风险。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirnf2779913.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">市场关注沃什的缩表举措</div>
+        <div class="news-published">🕐 2026-05-18 21:20</div>
+      </summary>
+      <div class="news-body">
+        <p>如果新任美联储主席沃什在通胀和政策不确定性使利率决策复杂化之际加速资产缩减，SPDR标普500 ETF信托基金可能面临压力。沃什以鹰派立场著称...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirni8023946.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">资金外流致韩国股市剧烈震荡</div>
+        <div class="news-published">🕐 2026-05-18 21:19</div>
+      </summary>
+      <div class="news-body">
+        <p>外国投资者抛售了130亿美元的韩国股票，此前的连续上涨行情戛然而止，韩国股市触发波动率控制机制。三星电子和SK海力士这两大芯片巨头领跌...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirne0588714.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">投资者施压惠特布莱德集团寻求出售</div>
+        <div class="news-published">🕐 2026-05-18 21:19</div>
+      </summary>
+      <div class="news-body">
+        <p>对冲基金科尔维克斯资本表示：出售公司是释放股东价值唯一可行途径图中为普雷米尔酒店门店标识，该酒店隶属于惠特布莱德集团。 惠特布莱德集团称...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirnf2779424.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">机器人出租车驶入伦敦街头测试</div>
+        <div class="news-published">🕐 2026-05-18 21:19</div>
+      </summary>
+      <div class="news-body">
+        <p>Alphabet旗下的Waymo在伦敦扩大了高精地图测绘和试运行范围。随着人工智能驱动的车队日益接近商业化服务，自动驾驶车辆与传统黑色出租车之间的竞争愈发激烈。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirna3811305.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">精神航空停运后机票价格上涨</div>
+        <div class="news-published">🕐 2026-05-18 21:19</div>
+      </summary>
+      <div class="news-body">
+        <p>随着回收航班将精神航空的机队送往储存设施，廉价航班选择收紧，捷蓝航空及其他航空公司随即提高了此前由精神航空运营的航线票价。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirnf2779271.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">并购传闻推高公用事业股</div>
+        <div class="news-published">🕐 2026-05-18 21:18</div>
+      </summary>
+      <div class="news-body">
+        <p>有报道称Dominion Energy正与NextEra Energy进行收购谈判，受此消息提振，Dominion Energy盘前股价跳涨。在数据中心电力需求持续攀升的背景下，若交易达成...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirna3811041.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">Anthropic将向监管机构通报网络风险</div>
+        <div class="news-published">🕐 2026-05-18 21:18</div>
+      </summary>
+      <div class="news-body">
+        <p>随着人工智能公司Anthropic与金融稳定委员会分享其漏洞研究成果，苹果和摩根大通等科技与金融巨头正在评估其“Mythos”模型的研究发现。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirne0588126.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">收益率上升致黄金下跌</div>
+        <div class="news-published">🕐 2026-05-18 21:18</div>
+      </summary>
+      <div class="news-body">
+        <p>随着美债收益率和美元攀升，SPDR黄金ETF价格下跌。石油驱动的通胀担忧本应提振黄金的避险需求，但债券收益率的上涨却削弱了无息资产黄金的吸引力。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirna3810792.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">鲍威尔估值警告挥之不去</div>
+        <div class="news-published">🕐 2026-05-18 21:17</div>
+      </summary>
+      <div class="news-body">
+        <p>SPDR标普500 ETF信托基金在经周期调整市盈率高位交投，前美联储主席杰罗姆·鲍威尔关于“股价处于相当高估值水平”的警示仍在市场回响。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirna3810692.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">人工智能巨头支撑市场</div>
+        <div class="news-published">🕐 2026-05-18 21:17</div>
+      </summary>
+      <div class="news-body">
+        <p>尽管面临战争和通胀相关的多重逆风，纳斯达克的涨幅仍集中在英伟达等人工智能领军企业，推动美国主要股指逼近纪录高位。市场观察人士指出，当前行情的高度集中化特征明显...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirne0587789.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">策略师警示市场停滞迹象</div>
+        <div class="news-published">🕐 2026-05-18 21:17</div>
+      </summary>
+      <div class="news-body">
+        <p>尽管SPDR标普500 ETF信托基金仍处于高位附近，技术面却显示在长期收益率上升和每股收益预期下调的背景下，市场出现早期疲态。策略师指出...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirne0587687.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">三星电子面临47000名工人计划中为期18天的罢工威胁</div>
+        <div class="news-published">🕐 2026-05-18 21:16</div>
+      </summary>
+      <div class="news-body">
+        <p>因奖金分配问题，三星电子面临47000名工人计划中为期18天的罢工。韩国官员警告，此次罢工可能产生更广泛的经济影响，并给涉及美光的人工智能内存市场带来供应风险。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirnf2778459.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">长岛铁路罢工：核心情况一览</div>
+        <div class="news-published">🕐 2026-05-18 21:16</div>
+      </summary>
+      <div class="news-body">
+        <p>劳资薪资纠纷引发停工，每日约 30 万名旅客出行受影响 本周一，长岛铁路罢工进入第三天，工作日通勤出行即将迎来高峰，而劳资谈判依旧没有达成和解的迹象。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirni8022522.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">美国总统特朗普撤回针对美国国税局的百亿美元诉讼</div>
+        <div class="news-published">🕐 2026-05-18 21:16</div>
+      </summary>
+      <div class="news-body">
+        <p>根据美国法院5月18日公布的法庭文件，美国总统唐纳德·特朗普已主动撤回针对美国国家税务局（IRS）高达100亿美元的索赔诉讼。目前...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-05-18/doc-inhyirna3810103.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月21日科技突发新闻：AI创新、太空挫折和机器人胜利 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>随着科技世界以迅猛的步伐不断演变，2026年4月21日带来了人工智能、太空探索、机器人等领域的一系列成就与挫折。从AI在日常工具中日益增长的影响力，到太空旅行中的最新障碍，今天的头条新闻突显了创新与现实挑战之间的动态互动。本文深入探讨了最引人入胜的故事，从可靠来源中汲取信息，提供对当天发展的全面概述。## AI在商业和日常生活中的扩展作用人工智能领域正活跃异常，各公司正推动机器学习和自动化的边界。</p>
+        <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-21-2026-ai-innovations-space-setbacks-and-2ncc/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月15日科技突发新闻：AI创新、安全恐慌和电动车激增 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>OpenAI收购了Hiro，这是一家AI个人财务创业公司，标志着向更个性化的AI应用转变，可能通过ChatGPT整合革新用户财务管理OpenAI Buys Hiro。初创公司如Gitar也正崭露头角，使用AI代理保护其他AI生成的代码，突显了AI在软件开发中的自指性Gitar Emerges from Stealth。 这些进步展示了AI改造行业的潜力，但也引发了关于监督和伦理部署的问题。相关地，</p>
+        <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-15-2026-ai-innovations-security-scares-2moc/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月28日突发科技新闻：人工智能创新、安全风险与太空前沿 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>随着我们深入探讨2026年4月28日的科技世界最新发展，很明显，创新正以前所未有的速度加速。从AI重塑工程实践，到网络安全中的新兴威胁，以及雄心勃勃的太空任务，今天的头条突显了技术如何持续演变并影响我们的日常生活。本文汇总了来自可靠来源的关键故事，提供对未来挑战和机会的见解。## AI在工程中的应用：克服生产力瓶颈AI融入软件工程正在转变团队的操作方式，但正如SD Times最近一篇文章AI在工程</p>
+        <a href="https://coaio.com/zh/news/2026/04/breaking-tech-news-on-april-28-2026-ai-innovations-security-risks-and-2o4c/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月23日AI速报：从技术突破到系统竞争，全球人工智能进入“全维度角力”时代_ChatGPT_工业_产业</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>资本向产业链上游迁移的逻辑在于：在机器人本体与大脑的投资门槛已过高、第一梯队公司股权额度基本无望的背景下，上游从商业化的可预测性来看可能比本体更强。这场资本的结构性迁移，正在重塑具身智能产业的竞争版图。 # 模型竞赛：OpenAI双线布局与国产算力链的极限测试 模型层的最新动态同样密集。OpenAI在4月21日推出新一代图像生成能力ChatGPT Images 2.0，强调更强的文本渲染、版式控制</p>
+        <a href="https://www.sohu.com/a/1013186620_122523043" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">新浪人工智能热点小时报丨2026年04月25日10时_今日实时人工智能热点速递|AI|AI大模型|智能体|职业|专利_新浪新闻</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>## 9、新质生产力的发展如何带动就业和收入，普通民众能从中获得哪些实惠？ 新质生产力正通过技术革命与产业升级，为普通民众开辟高薪就业新赛道，同时以更高品质的商品服务、更普惠的公共服务和更可持续的绿色福利重塑生活实惠。一、就业扩容：从高薪技术岗到普惠新职业新兴产业创造高端岗位机器人、新材料、人工智能等领域招聘需求激增，2026年一季度职位数同比增长超30%，人工智能工程师平均月薪达20804元，芯</p>
+        <a href="https://k.sina.cn/article_7857201856_1d45362c001904p4da.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月AI热点综述：行业调整、应用落地与治理推进_OpenAI_人工智能_Agent</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>二、智能体应用加速落地，2026年被定义为“爆发年” AI智能体（Agent）作为行业当前最受关注的应用方向，在4月份迎来了多项标志性进展。4月28日发布的《AI智能体赋能行业决策：趋势与实践白皮书（2026）》显示，中国企业级AI智能体市场正呈现爆发式增长态势——2025年市场规模已达212亿元，预计2026年将增至449亿元，2024至2029年的年复合增长率高达107%。 从应用场景来看，金</p>
+        <a href="https://www.sohu.com/a/1016196625_735695" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月27日 AI科技新闻日报2026年4月27日 AI科技新闻日报 📅 更新时间：2026年4月27日 |  - 掘金</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>稀土掘金 稀土掘金 # 2026年4月27日 AI科技新闻日报 ## 2026年4月27日 AI科技新闻日报 📅 更新时间：2026年4月27日 | 🔖 标签：AI、科技、人工智能、大模型 ### 📰 今日头条 #### 1. 斯坦福发布《2026年人工智能指数报告》 4月13日，斯坦福大学以人为本人工智能研究所（Stanford HAI）发布第九版《AI指数年度报告》，对全球人工智能发展态势进行</p>
+        <a href="https://juejin.cn/post/7633099670508748826" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年科技突发新闻：AI的狂野前沿、量子飞跃与全球颠覆 - Coaio</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Coaio Logo 廣東話 flag 中文 flag English flag Coaio Logo 2026年科技突发新闻：AI的狂野前沿、量子飞跃与全球颠覆 # 2026年科技突发新闻：AI的狂野前沿、量子飞跃与全球颠覆 Share icon ## 今日科技景观导论 截至2026年5月10日，科技界充斥着创新、争议和动荡。从AI驱动的儿童玩具引发监管辩论，到量子计算突破以及不断升级的网络安全</p>
+        <a href="https://coaio.com/zh/news/2026/05/breaking-tech-news-in-2026-ais-wild-frontier-quantum-leaps-and-global-2pkc/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title">2026年4月下旬AI浪潮：从政策深化到产业落地，信息聚合如何助力把握智能时代脉搏_人工智能_hjd73s-AtomGit开源社区</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>### 三、具身智能：量产加速与规模化落地关键期 过去一周，具身智能赛道迎来里程碑式进展。智元机器人仅用3个多月实现量产从5000台到10000台的跨越，优必选上调2026年Walker S系列出货目标至5000台，泉智博一体化关节自动化产线投产，核心部件供应瓶颈得到实质性缓解。TrendForce报告预测，2026年中国人形机器人市场将迎来爆发式增长，宇树科技、智元机器人合计将占据2026年国内</p>
+        <a href="https://gitcode.csdn.net/69edd99754b52172bc702116.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-05-18</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+</body>
+</html>

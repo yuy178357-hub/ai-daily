@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-07-10</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-07-10 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+        <li>The Download: a nuclear landmark, and Chin</li>
+        <li>Railway secures $100 million to challenge </li>
+        <li>Listen Labs raises $69M after viral billbo</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">41</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">35</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">3</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">3 个</span>
+    </div>
+    
+    <div class="tool-card" onclick="window.open('https://github.com/MadsLorentzen/ai-job-search', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">MadsLorentzen/ai-job-search</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 3,716</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc">AI-powered job application framework built on Claude Code. Fork it, fill in your profile, and let Claude evaluate jobs,</div>
+    </div>
+    <div class="tool-card" onclick="window.open('https://github.com/addyosmani/agent-skills', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">addyosmani/agent-skills</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 2,554</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc">Production-grade engineering skills for AI coding agents.</div>
+    </div>
+    <div class="tool-card" onclick="window.open('https://github.com/iOfficeAI/OfficeCLI', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">iOfficeAI/OfficeCLI</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 1,929</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc">OfficeCLI is the first and best Office suite purpose-built for AI agents to read, edit, and automate Word, Excel, and Po</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">35 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.technologyreview.com/2026/07/09/1140283/the-download-nuclear-power-milestone-nvidia-china-ai-chips/</span>
+        </div>
+        <div class="news-title">The Download: a nuclear landmark, and China eyes Nvidia chips</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>This is today’s edition of The Download, our weekday newsletter that provides a daily dose of what’s going on in the world of technology. Four nuclear</p>
+        <a href="https://www.technologyreview.com/2026/07/09/1140283/the-download-nuclear-power-milestone-nvidia-china-ai-chips/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud</span>
+        </div>
+        <div class="news-title">Railway secures $100 million to challenge AWS with AI-native cloud inf</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Railway, a San Francisco-based cloud platform that has quietly amassed two million developers without spending a dollar on marketing, announced Thursd</p>
+        <a href="https://venturebeat.com/infrastructure/railway-secures-usd100-million-to-challenge-aws-with-ai-native-cloud" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://venturebeat.com/technology/listen-labs-raises-usd69m-after-viral-billboard-hiring-stunt-to-scale-ai</span>
+        </div>
+        <div class="news-title">Listen Labs raises $69M after viral billboard hiring stunt to scale AI</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Alfred Wahlforss was running out of options. His startup, Listen Labs, needed to hire over 100 engineers, but competing against Mark Zuckerberg's $100</p>
+        <a href="https://venturebeat.com/technology/listen-labs-raises-usd69m-after-viral-billboard-hiring-stunt-to-scale-ai" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.theverge.com/ai-artificial-intelligence/963464/openai-gpt-5-6-codex-chatgpt-work</span>
+        </div>
+        <div class="news-title">OpenAI rolls out GPT-5.6 after government greenlight — and announces ‘</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>About two weeks after OpenAI's GPT-5.6 was caught up in regulatory drama - rolled out only to government-approved organizations during a "limited prev</p>
+        <a href="https://www.theverge.com/ai-artificial-intelligence/963464/openai-gpt-5-6-codex-chatgpt-work" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot</span>
+        </div>
+        <div class="news-title">GPT-5.6 is now the preferred model in Microsoft 365 Copilot</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Learn how GPT-5.6 powers Microsoft 365 Copilot with stronger AI capabilities across Word, Excel, PowerPoint, Chat, and Cowork for faster, higher-quali</p>
+        <a href="https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://openai.com/index/bio-bug-bounty</span>
+        </div>
+        <div class="news-title">GPT-5.5 Bio Bug Bounty</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Details about the OpenAI Bio Bounty program</p>
+        <a href="https://openai.com/index/bio-bug-bounty" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://openai.com/index/gpt-5-6</span>
+        </div>
+        <div class="news-title">GPT-5.6: Frontier intelligence that scales with your ambition</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>More intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.</p>
+        <a href="https://openai.com/index/gpt-5-6" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/</span>
+        </div>
+        <div class="news-title">Investing in multi-agent AI safety research</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Google DeepMind and partners announce a $10M funding call for multi-agent safety research.</p>
+        <a href="https://deepmind.google/blog/investing-in-multi-agent-ai-safety-research/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/</span>
+        </div>
+        <div class="news-title">OpenAI launches its new family of models with GPT-5.6</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>OpenAI's latest family of models promises improvements across a range of areas, including cybersecurity.</p>
+        <a href="https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/</span>
+        </div>
+        <div class="news-title">An AI agent startup just let its agent run its $100M fundraise</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Lyzr, a startup that builds AI agents for enterprises, used its own AI agent to raise a $100 million round — proof, evidently, that the product actual</p>
+        <a href="https://techcrunch.com/2026/07/09/an-ai-agent-startup-just-let-its-agent-run-its-100-million-fundraise/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=xHi8PUIVyoo</span>
+        </div>
+        <div class="news-title">I BUILT A FULLY AUTOMATIC MANSPLAINER</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>All information about GTC and the DGX Spark Raffle is here: Links: Homepage: Merch: YouTube: Twitter: Discord: LinkedIn: If you want to support me, th</p>
+        <a href="https://www.youtube.com/watch?v=xHi8PUIVyoo" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=taCVT5vDAk0</span>
+        </div>
+        <div class="news-title">TiDAR: Think in Diffusion, Talk in Autoregression (Paper Analysis)</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Paper: Abstract: Diffusion language models hold the promise of fast parallel generation, while autoregressive (AR) models typically excel in quality d</p>
+        <a href="https://www.youtube.com/watch?v=taCVT5vDAk0" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=oXi5E3FvZKI</span>
+        </div>
+        <div class="news-title">OpenAI's First Hardware Release is THIS?</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Mark your calendars for July 15th! OpenAI is officially releasing its first-ever hardware product this month. It’s a physical, programmable macro pad</p>
+        <a href="https://www.youtube.com/watch?v=oXi5E3FvZKI" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://finance.sina.com.cn/stock/usstock/c/2026-07-10/doc-inihfyeq4146629.shtml</span>
+        </div>
+        <div class="news-title">Meta发布Muse Spark 1.1，正面挑战谷歌与OpenAI</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Meta Platforms周四发布新一代AI模型Muse Spark 1.1，这是公司迄今为止在智能体任务和编程领域能力最强的模型。扎克伯格本人时隔近三年重返X平台宣布这一消息...</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-07-10/doc-inihfyeq4146629.shtml" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.news.cn/20260128/3b2f11906fd74ca397fef9996c805a60/c.html</span>
+        </div>
+        <div class="news-title">新华深读｜2026年中国AI发展趋势前瞻</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>爱奇艺AIGC科技创意指导王庆丰表示，AI正推动消费从“需求牵引供给”逐步到“供给定义需求”，这背后是AI从表层效率优化切入，逐步渗透到体验重构，甚至重塑着深层价值体系。 AI重新定义价值，最深远的是挖掘人的价值。 学日语出身的刘典，在AI爆火的这两年决定辞职攻读计算语言学。“AI降低了跨界难度，很</p>
+        <a href="https://www.news.cn/20260128/3b2f11906fd74ca397fef9996c805a60/c.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and</span>
+        </div>
+        <div class="news-title">Salesforce rolls out new Slackbot AI agent as it battles Microsoft and</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Salesforce on Tuesday launched an entirely rebuilt version of Slackbot, the company's workplace assistant, transforming it from a simple notification</p>
+        <a href="https://venturebeat.com/technology/salesforce-rolls-out-new-slackbot-ai-agent-as-it-battles-microsoft-and" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.theverge.com/ai-artificial-intelligence/963628/google-ai-generated-ads-label</span>
+        </div>
+        <div class="news-title">Google will now tell you if an ad was made with AI</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>You can see if ads on Google Search, Google Discover, and YouTube were made or edited using AI from a new section in Google's "My Ad Center," as repor</p>
+        <a href="https://www.theverge.com/ai-artificial-intelligence/963628/google-ai-generated-ads-label" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://techcrunch.com/2026/07/09/fidji-simo-steps-down-from-openais-no-2-role/</span>
+        </div>
+        <div class="news-title">Fidji Simo steps down from OpenAI’s no. 2 role</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>OpenAI's No. 2 executive, Fidji Simo, is stepping down from her full-time role after her medical leave proved longer than expected — a leadership vacu</p>
+        <a href="https://techcrunch.com/2026/07/09/fidji-simo-steps-down-from-openais-no-2-role/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.wired.com/story/pickup-artist-mystery-has-an-ai-girlfriend/</span>
+        </div>
+        <div class="news-title">Pickup Artist Mystery Has an AI Girlfriend</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>A new book claims that Mystery, who teaches awkward men how to hit on women, had sex and smoked weed with an AI chatbot named Miss Shira Always.</p>
+        <a href="https://www.wired.com/story/pickup-artist-mystery-has-an-ai-girlfriend/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=xYVfknDQHU4</span>
+        </div>
+        <div class="news-title">ChatGPT Work | How NVIDIA Scales GTM with AI</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>“ChatGPT has really been a force multiplier” Will Daney, Go-To-Market Strategist at NVIDIA, uses ChatGPT Work to: 🤖 Automate repeatable workflows ⏱️ E</p>
+        <a href="https://www.youtube.com/watch?v=xYVfknDQHU4" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=Cb0N8Pnja30</span>
+        </div>
+        <div class="news-title">ChatGPT Work | NVIDIA’s GTM Team Uses AI to Scale Faster</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>“ChatGPT has really been a force multiplier” Will Daney (tag), Go-To-Market Strategist at NVIDIA (tag), uses ChatGPT Work to: 🤖 Automate repeatable wo</p>
+        <a href="https://www.youtube.com/watch?v=Cb0N8Pnja30" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=md5t5Nu44A4</span>
+        </div>
+        <div class="news-title">ChatGPT Work | Zapier: Seven Figures in Monthly Pipeline</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>“We quantified the impact of this project to the tune of seven figures in pipeline every single month.” Angela Ferrante, Head of Enterprise Marketing</p>
+        <a href="https://www.youtube.com/watch?v=md5t5Nu44A4" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=1yBU41auQhw</span>
+        </div>
+        <div class="news-title">DeepSeek's New AI Speed Hack Is Amazing</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The DeepSeek paper is available here: 🙏 We would like to thank our generous Patreon suppor</p>
+        <a href="https://www.youtube.com/watch?v=1yBU41auQhw" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=uO5cvkzh3P0</span>
+        </div>
+        <div class="news-title">They Said This Will Never Run In Real Time</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>❤️ Check out Weights &amp; Biases and sign up for a free demo here: 📝 The paper is available here: Sources: 🙏 We would like to thank our generous Patreon</p>
+        <a href="https://www.youtube.com/watch?v=uO5cvkzh3P0" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=qks6dGQFd_c</span>
+        </div>
+        <div class="news-title">AI Just Entered A New Era</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>❤️ Check out Lambda here and sign up for their GPU Cloud: GLM 5.2: 🙏 We would like to thank our generous Patreon supporters who make Two Minute Papers</p>
+        <a href="https://www.youtube.com/watch?v=qks6dGQFd_c" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=y24lF1q4SFY</span>
+        </div>
+        <div class="news-title">Fable 5 vs GPT 5.6 Sol: The Early Results</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:06 Fable Timeline ▸ 02:59 Sol Release? ▸ 06:01 the Chinese Angle ▸ 07:35 5% Stake ▸ 09:10 Fable vs Sol - the numbers ▸</p>
+        <a href="https://www.youtube.com/watch?v=y24lF1q4SFY" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=Qj71N0tBzRo</span>
+        </div>
+        <div class="news-title">Claude Fable Blocked - 11 Quiet Details on What’s Next</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>📋 章节： ▸ 00:00 Introduction ▸ 00:51 Came from an Anthropic Investor ‘and other tech leaders’ ▸ 01:47 Govt pressured by CEOs like Jamie Dimon ▸ 03:01 ‘A</p>
+        <a href="https://www.youtube.com/watch?v=Qj71N0tBzRo" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=haK1KoQWm18</span>
+        </div>
+        <div class="news-title">Claude Fable 5 - Full 319 page Breakdown</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>📋 章节： ▸ 00:00 Introduction ▸ 01:06 Blocks + Better Models ▸ 02:42 Fable 5 Upgrade over Mythos Preview ▸ 04:49 ML Acceleration Bombshell ▸ 07:11 No RSI</p>
+        <a href="https://www.youtube.com/watch?v=haK1KoQWm18" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=Zq5Yj8yCiqY</span>
+        </div>
+        <div class="news-title">Anyone Can Make Insane Visual Effects Now!</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>📋 章节： ▸ 00:00 Why AI VFX (And Not AI Slop) ▸ 00:40 The Runway Intro Formula ▸ 04:27 Intro Variations &amp; The Animorph Hack ▸ 06:16 Location &amp; Travel Tra</p>
+        <a href="https://www.youtube.com/watch?v=Zq5Yj8yCiqY" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.youtube.com/watch?v=ptlZzbtzdfE</span>
+        </div>
+        <div class="news-title">How I Track Crazy Tech IPOs</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>Head to Hyperagent.com/matt to get $1,000 in free credits for Hyperagent! I’m building a new monetizable business every month with AI. First up: an AI</p>
+        <a href="https://www.youtube.com/watch?v=ptlZzbtzdfE" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.qbitai.com/2026/07/446658.html</span>
+        </div>
+        <div class="news-title">刚刚，OpenAI首席未来学家离职！曾被马斯克骂蠢驴</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>To safe AGI.</p>
+        <a href="https://www.qbitai.com/2026/07/446658.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.qbitai.com/2026/07/446562.html</span>
+        </div>
+        <div class="news-title">获联合国机构点赞！天立启鸣“AI+教育”方案入选AI for Good</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>“一生一案”书写优质教育</p>
+        <a href="https://www.qbitai.com/2026/07/446562.html" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/</span>
+        </div>
+        <div class="news-title">Anthropic found a hidden space where Claude puzzles over concepts</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>The AI firm Anthropic has developed a technique that has given it the clearest glimpse yet at what’s really going on inside large language models as t</p>
+        <a href="https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://www.technologyreview.com/2026/07/08/1140223/emtech-ai-2026-the-rise-of-the-ai-platform/</span>
+        </div>
+        <div class="news-title">EmTech AI 2026: The Rise of the AI Platform</div>
+        
+      </summary>
+      <div class="news-body">
+        <p></p>
+        <a href="https://www.technologyreview.com/2026/07/08/1140223/emtech-ai-2026-the-rise-of-the-ai-platform/" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time">https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free</span>
+        </div>
+        <div class="news-title">Claude Code costs up to $200 a month. Goose does the same thing for fr</div>
+        
+      </summary>
+      <div class="news-body">
+        <p>The artificial intelligence coding revolution comes with a catch: it's expensive.Claude Code, Anthropic's terminal-based AI agent that can write, debu</p>
+        <a href="https://venturebeat.com/infrastructure/claude-code-costs-up-to-usd200-a-month-goose-does-the-same-thing-for-free" target="_blank" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">3 条</span>
+    </div>
+    
+    <div class="biz-card" onclick="window.open('https://36kr.com/p/3889141540370949?f=rss', '_blank')">
+      <div class="biz-header">
+        <div class="amount-badge"></div>
+      </div>
+      <div class="biz-title">36氪首发 | 英伟达全球首家触觉仿真合作伙伴再获数亿融资，上半年订单超去年四倍</div>
+      <div class="biz-meta">36氪</div>
+      
+      <div class="biz-desc">图源/企业 本文约3100字，建议阅读7分钟 作者丨欧雪 编辑丨袁斯来 ，北京他山科技有限公司（以下简称“他山科技”）已于近期完成B轮融资，金额为数亿元</div>
+    </div>
+    <div class="biz-card" onclick="window.open('https://36kr.com/p/3888567864851204?f=rss', '_blank')">
+      <div class="biz-header">
+        <div class="amount-badge"></div>
+      </div>
+      <div class="biz-title">万勋科技发布“柔韧充”自动充电通用服务引擎，以“0.000s无极容差应变”首创混沌服务、全类通解！</div>
+      <div class="biz-meta">36氪</div>
+      
+      <div class="biz-desc">7月9日，万勋科技于北京举办自动充电机器人业务战略发布会，重磅推出行业首个以 “混沌服务” 模式全面覆盖公用、专用、家用所有应用类别的 “柔韧充” 自动充电通用服务引擎及其核心产品</div>
+    </div>
+    <div class="biz-card" onclick="window.open('https://36kr.com/p/3888279614274048?f=rss', '_blank')">
+      <div class="biz-header">
+        <div class="amount-badge"></div>
+      </div>
+      <div class="biz-title">2026·Under36丨绕过旧答案的一代人</div>
+      <div class="biz-meta">36氪</div>
+      
+      <div class="biz-desc">为什么颠覆性的突破总是由年轻人完成？ 因为他们还没有被旧范式驯服</div>
+    </div>
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    <div class='insight-item'><span class='insight-icon'>🔥</span><span class='insight-text'>ai-job-search单日+3716星，AI工具生态持续活跃</span></div><div class='insight-item'><span class='insight-icon'>⚡</span><span class='insight-text'>AI Agent已具备点击/填表/跨软件操作能力，"数字员工"加速落地</span></div><div class='insight-item'><span class='insight-icon'>💡</span><span class='insight-text'>-</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-07-10</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+</body>
+</html>
