@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI日报 · 2026-08-18</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.tool-channel { margin-bottom: 18px; }
+.tool-channel-label { font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 8px; padding: 4px 10px; background: #f1f5f9; border-radius: 8px; display: inline-block; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .orig-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文版</button>
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-08-18 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+        <li>Nvidia discloses $21B stake in SpaceX</li>
+        <li>Groq raises $350M to fuel its pivot from A</li>
+        <li>Nvidia investing $1.5B in SoftBank data ce</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">43</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">12</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">31</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">12 个</span>
+    </div>
+    
+    <div class="tool-channel">
+      <div class="tool-channel-label">⏰ 今日爆发</div>
+      <div class="tool-card" onclick="window.open('https://github.com/harry0703/MoneyPrinterTurbo', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">harry0703/MoneyPrinterTurbo</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 1,189</span>
+            <span class="today">🔥 +1,189 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</div>
+      <div class="tool-desc zh-text" style="display:none;">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/usestrix/strix', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">usestrix/strix</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 598</span>
+            <span class="today">🔥 +598 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.</div>
+      <div class="tool-desc zh-text" style="display:none;">Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/santifer/career-ops', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">santifer/career-ops</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 218</span>
+            <span class="today">🔥 +218 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailor</div>
+      <div class="tool-desc zh-text" style="display:none;">Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailor</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/mattpocock/skills', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">mattpocock/skills</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 45,839</span>
+            <span class="today">🔥 +45,839 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Skills for Real Engineers. Straight from my .agents directory.</div>
+      <div class="tool-desc zh-text" style="display:none;">Skills for Real Engineers. Straight from my .agents directory.</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/bojieli/ai-agent-book', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">bojieli/ai-agent-book</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 37,085</span>
+            <span class="today">🔥 +37,085 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码</div>
+      <div class="tool-desc zh-text" style="display:none;">《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/diegosouzapw/OmniRoute', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">diegosouzapw/OmniRoute</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 31,675</span>
+            <span class="today">🔥 +31,675 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Never stop coding. Free MIT AI gateway: one endpoint, 340 providers (90+ free), 1200+ models — Kimi, Claude, GPT, Gemini</div>
+      <div class="tool-desc zh-text" style="display:none;">Never stop coding. Free MIT AI gateway: one endpoint, 340 providers (90+ free), 1200+ models — Kimi, Claude, GPT, Gemini</div>
+    </div>
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">📅 本月热门</div>
+      
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">💬 HN热议</div>
+      <div class="tool-card" onclick="window.open('https://www.whodunnitai.com/', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Show HN: Voice driven murder mystery, Interview AI suspects with your voice</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 214</span>
+            <span class="today">🔥 +89 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Hey HN!I'm excited to show off this really fun project I put together. I originally built this project 2-3 years ago, AI</div>
+      <div class="tool-desc zh-text" style="display:none;">Hey HN!I'm excited to show off this really fun project I put together. I originally built this project 2-3 years ago, AI</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/palmier-io/palmier-pro', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Show HN: Palmier Pro – Open-source macOS video editor built for AI</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 191</span>
+            <span class="today">🔥 +40 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Hi HN, we are Marcos and Harrison, cofounders of Palmier (https://palmier.io). We are building Palmier Pro, an open sour</div>
+      <div class="tool-desc zh-text" style="display:none;">Hi HN, we are Marcos and Harrison, cofounders of Palmier (https://palmier.io). We are building Palmier Pro, an open sour</div>
+    </div><div class="tool-card" onclick="window.open('https://marbleos.com/demo', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Show HN: What should the GUI for AI agents look like?</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 139</span>
+            <span class="today">🔥 +86 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Hi HN! We’re Akilan and Miguel, the creators of MarbleOS.The inspiration for Marble comes from the GUI work at Xerox PAR</div>
+      <div class="tool-desc zh-text" style="display:none;">Hi HN! We’re Akilan and Miguel, the creators of MarbleOS.The inspiration for Marble comes from the GUI work at Xerox PAR</div>
+    </div>
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">🧪 PH新品</div>
+      
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">🛠️ 其他工具</div>
+      <div class="tool-card" style="opacity:0.5;cursor:default;" title="链接缺失">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Startup Program by Recall.ai</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 0</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Startup program for meeting recording infrastructure</div>
+      <div class="tool-desc zh-text" style="display:none;">Startup program for meeting recording infrastructure</div>
+    </div><div class="tool-card" style="opacity:0.5;cursor:default;" title="链接缺失">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Omni by xpander</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 0</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Stop babysitting your AI agents</div>
+      <div class="tool-desc zh-text" style="display:none;">Stop babysitting your AI agents</div>
+    </div><div class="tool-card" style="opacity:0.5;cursor:default;" title="链接缺失">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Bulbthings</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 0</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">The AI platform to track and manage your physical assets</div>
+      <div class="tool-desc zh-text" style="display:none;">The AI platform to track and manage your physical assets</div>
+    </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">31 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Nvidia discloses $21B stake in SpaceX</div>
+        <div class="news-title zh-text" style="display:none;">Nvidia discloses $21B stake in SpaceX</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Nvidia has disclosed that it owns nearly 123 million shares in SpaceX, further highlighting the chipmaker’s entangled fi</p>
+        <p class="zh-text" style="display:none;">Nvidia has disclosed that it owns nearly 123 million shares in SpaceX, further highlighting the chipmaker’s entangled fi</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Groq raises $350M to fuel its pivot from AI chips to neocloud</div>
+        <div class="news-title zh-text" style="display:none;">Groq raises $350M to fuel its pivot from AI chips to neocloud</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Groq raised $350 million at a $3.5 billion valuation as the former AI chipmaker pivots to a neocloud business and expand</p>
+        <p class="zh-text" style="display:none;">Groq raised $350 million at a $3.5 billion valuation as the former AI chipmaker pivots to a neocloud business and expand</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #dc2626;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fef2f2; color:#dc2626;">🔴 重磅</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Nvidia investing $1.5B in SoftBank data center developer behind OpenAI</div>
+        <div class="news-title zh-text" style="display:none;">Nvidia investing $1.5B in SoftBank data center developer behind OpenAI</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Nvidia's investment in SoftBank's data center developer will guarantee its chips power an OpenAI data center.</p>
+        <p class="zh-text" style="display:none;">Nvidia's investment in SoftBank's data center developer will guarantee its chips power an OpenAI data center.</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Stripe to Buy AI Firm OpenRouter in $7 Billion Deal</div>
+        <div class="news-title zh-text" style="display:none;">Stripe to Buy AI Firm OpenRouter in $7 Billion Deal</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Stripe is making one of its biggest AI bets yet, agreeing to buy OpenRouter for more than $7 billion, according to sourc</p>
+        <p class="zh-text" style="display:none;">Stripe is making one of its biggest AI bets yet, agreeing to buy OpenRouter for more than $7 billion, according to sourc</p>
+        <a href="https://www.bloomberg.com/news/videos/2026-08-17/stripe-to-buy-ai-firm-openrouter-in-7-billion-deal-video" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">How Base44 Uses GPT-5.6 to Build Apps With 20% Fewer Tokens</div>
+        <div class="news-title zh-text" style="display:none;">How Base44 Uses GPT-5.6 to Build Apps With 20% Fewer Tokens</div>
+        <div class="news-published">🕐 2026-08-17T15:22:51Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Base44 helps people turn natural language into production-ready applications and custom AI agents—no coding required. In</p>
+        <p class="zh-text" style="display:none;">Base44 helps people turn natural language into production-ready applications and custom AI agents—no coding required. In</p>
+        <a href="https://www.youtube.com/watch?v=Cxp2aZQqkYM" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</div>
+        <div class="news-title zh-text" style="display:none;">GPT-6 Goes Rogue? The HuggingFace Incident, Sans Hype</div>
+        <div class="news-published">🕐 2026-07-22T16:36:53Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">📋 章节： ▸ 00:00 Introduction ▸ 01:17 HuggingFace Earlier Report - the possible week gap ▸ 02:24 But what happened? ▸ 05:45</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Introduction ▸ 01:17 HuggingFace Earlier Report - the possible week gap ▸ 02:24 But what happened? ▸ 05:45</p>
+        <a href="https://www.youtube.com/watch?v=wzY2fV4Mp3U" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Hidden Airtag reveals Amazon is trashing rare books to train AI</div>
+        <div class="news-title zh-text" style="display:none;">Hidden Airtag reveals Amazon is trashing rare books to train AI</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">For the past year or so, booksellers have suspected that AI firms are buying up huge lots of rare books, then destroying</p>
+        <p class="zh-text" style="display:none;">For the past year or so, booksellers have suspected that AI firms are buying up huge lots of rare books, then destroying</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Wildfire smoke now bigger prenatal threat than human sources of air po</div>
+        <div class="news-title zh-text" style="display:none;">Wildfire smoke now bigger prenatal threat than human sources of air po</div>
+        <div class="news-published">🕐 2026-08-16</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">In 1965, a presidential advisory panel issued a report warning that pervasive chemical and carbon pollution was harming</p>
+        <p class="zh-text" style="display:none;">In 1965, a presidential advisory panel issued a report warning that pervasive chemical and carbon pollution was harming</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Amazon, which started off selling books, is destroying rare texts to t</div>
+        <div class="news-title zh-text" style="display:none;">Amazon, which started off selling books, is destroying rare texts to t</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Rare books are incredibly valuable for training LLMs, since these models have already trained on whatever's available on</p>
+        <p class="zh-text" style="display:none;">Rare books are incredibly valuable for training LLMs, since these models have already trained on whatever's available on</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Nvidia Will Back First Phase of OpenAI Ohio Project With as Much as $1</div>
+        <div class="news-title zh-text" style="display:none;">Nvidia Will Back First Phase of OpenAI Ohio Project With as Much as $1</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Nvidia Corp. has agreed to spend as much as $105 billion to support a massive new data center campus in Ohio set to be l</p>
+        <p class="zh-text" style="display:none;">Nvidia Corp. has agreed to spend as much as $105 billion to support a massive new data center campus in Ohio set to be l</p>
+        <a href="https://www.bloomberg.com/news/articles/2026-08-17/nvidia-to-invest-up-to-105-billion-for-openai-data-center-in-ohio" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">You can just keep the work moving</div>
+        <div class="news-title zh-text" style="display:none;">You can just keep the work moving</div>
+        <div class="news-published">🕐 2026-08-17T18:25:48Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">ChatGPT Work keeps projects moving. Monitoring what matters, surfacing what needs attention, and picking up where your t</p>
+        <p class="zh-text" style="display:none;">ChatGPT Work keeps projects moving. Monitoring what matters, surfacing what needs attention, and picking up where your t</p>
+        <a href="https://www.youtube.com/watch?v=wIf9yMGalPU" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed</div>
+        <div class="news-title zh-text" style="display:none;">Previewing Ultrafast mode: GPT‑5.6 Sol at up to 14X the speed</div>
+        <div class="news-published">🕐 2026-08-14T17:19:17Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Today we’re previewing Ultrafast mode, a new service tier in the OpenAI API for GPT‑5.6 Sol. Powered by Cerebras, Ultraf</p>
+        <p class="zh-text" style="display:none;">Today we’re previewing Ultrafast mode, a new service tier in the OpenAI API for GPT‑5.6 Sol. Powered by Cerebras, Ultraf</p>
+        <a href="https://www.youtube.com/watch?v=EDWbX_-RYws" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Claude AI Failed 650 Times…Then Beat The Human Record</div>
+        <div class="news-title zh-text" style="display:none;">Claude AI Failed 650 Times…Then Beat The Human Record</div>
+        <div class="news-published">🕐 2026-08-14T08:42:07Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">❤️ Check out Weights &amp; Biases and sign up for a free demo here: 📝 The paper is available here: Source: 🙏 We would like t</p>
+        <p class="zh-text" style="display:none;">❤️ Check out Weights &amp; Biases and sign up for a free demo here: 📝 The paper is available here: Source: 🙏 We would like t</p>
+        <a href="https://www.youtube.com/watch?v=QnGNF8k_uoc" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Kimi K3 Just Broke The Economics Of AI</div>
+        <div class="news-title zh-text" style="display:none;">Kimi K3 Just Broke The Economics Of AI</div>
+        <div class="news-published">🕐 2026-07-29T12:37:50Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The paper is available here: Try Kimi K3 (subject to availab</p>
+        <p class="zh-text" style="display:none;">❤️ Check out Lambda here and sign up for their GPU Cloud: 📝 The paper is available here: Try Kimi K3 (subject to availab</p>
+        <a href="https://www.youtube.com/watch?v=Xj-QdEUxJkE" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">AI is getting a little out of control</div>
+        <div class="news-title zh-text" style="display:none;">AI is getting a little out of control</div>
+        <div class="news-published">🕐 2026-08-06T15:02:06Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">📋 章节： ▸ 00:00 Introduction ▸ 01:16 10 Autonomous Discoveries ▸ 08:20 The Security ‘Incident’ ▸ 15:29 MessageBoard ▸ 19:5</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Introduction ▸ 01:16 10 Autonomous Discoveries ▸ 08:20 The Security ‘Incident’ ▸ 15:29 MessageBoard ▸ 19:5</p>
+        <a href="https://www.youtube.com/watch?v=xGzseSSStnw" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rul</div>
+        <div class="news-title zh-text" style="display:none;">A Model Explosion: GPT 5.6 Sol, Grok 4.5 and Meta Muse Rewrite the Rul</div>
+        <div class="news-published">🕐 2026-07-10T12:40:15Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">📋 章节： ▸ 00:00 Introduction ▸ 01:03 GPT 5.6 Sol Reveals ▸ 05:08 Missing benches, plus Grok 4.5 ▸ 07:17 Gaming as the new</p>
+        <p class="zh-text" style="display:none;">📋 章节： ▸ 00:00 Introduction ▸ 01:03 GPT 5.6 Sol Reveals ▸ 05:08 Missing benches, plus Grok 4.5 ▸ 07:17 Gaming as the new</p>
+        <a href="https://www.youtube.com/watch?v=mWlCituW7wo" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">AI Rants &amp; Rabbit Holes: Does AI Make Our Lives Better?</div>
+        <div class="news-title zh-text" style="display:none;">AI Rants &amp; Rabbit Holes: Does AI Make Our Lives Better?</div>
+        <div class="news-published">🕐 2026-08-17T21:41:14Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Exploring what's on the world's mind about AI right now. We'll bring the initial topics but we'll let chat take the whee</p>
+        <p class="zh-text" style="display:none;">Exploring what's on the world's mind about AI right now. We'll bring the initial topics but we'll let chat take the whee</p>
+        <a href="https://www.youtube.com/watch?v=IeT5Jn7d1aM" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Why AI Models Keep "Breaking Containment"</div>
+        <div class="news-title zh-text" style="display:none;">Why AI Models Keep "Breaking Containment"</div>
+        <div class="news-published">🕐 2026-08-17T13:18:26Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Apparently the newest benchmark for AI models is… can it commit cyber crimes? 😭 First OpenAI’s model broke out during te</p>
+        <p class="zh-text" style="display:none;">Apparently the newest benchmark for AI models is… can it commit cyber crimes? 😭 First OpenAI’s model broke out during te</p>
+        <a href="https://www.youtube.com/watch?v=9ZKeu_7k9ik" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #f59e0b;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#fffbeb; color:#f59e0b;">🟡 值得关注</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">The Hank Green Situation</div>
+        <div class="news-title zh-text" style="display:none;">The Hank Green Situation</div>
+        <div class="news-published">🕐 2026-08-15T13:14:44Z</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Hank Green got “caught” using AI… and I genuinely don’t think he did anything wrong. The whole controversy started becau</p>
+        <p class="zh-text" style="display:none;">Hank Green got “caught” using AI… and I genuinely don’t think he did anything wrong. The whole controversy started becau</p>
+        <a href="https://www.youtube.com/watch?v=ZePfpQ7lbcs" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">共生知行发布人形机器人赛车Demo：以卡丁车测试双足机器人的“全身智能”</div>
+        <div class="news-title zh-text" style="display:none;">共生知行发布人形机器人赛车Demo：以卡丁车测试双足机器人的“全身智能”</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">8月17日，具身智能初创公司共生知行发布双足人形机器人驾驶卡丁车Demo</p>
+        <p class="zh-text" style="display:none;">8月17日，具身智能初创公司共生知行发布双足人形机器人驾驶卡丁车Demo</p>
+        <a href="https://www.qbitai.com/2026/08/474537.html" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">人形机器人开始打国球了！两台机器人完整打完11分制比赛</div>
+        <div class="news-title zh-text" style="display:none;">人形机器人开始打国球了！两台机器人完整打完11分制比赛</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">没有遥控、没人喂球</p>
+        <p class="zh-text" style="display:none;">没有遥控、没人喂球</p>
+        <a href="https://www.qbitai.com/2026/08/474518.html" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">WorkSwarm：引领办公智能体新范式，让AI从一个助手，进化为一支与你并肩作战的团队</div>
+        <div class="news-title zh-text" style="display:none;">WorkSwarm：引领办公智能体新范式，让AI从一个助手，进化为一支与你并肩作战的团队</div>
+        <div class="news-published">🕐 2026-08-16</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">背后是四项关键能力</p>
+        <p class="zh-text" style="display:none;">背后是四项关键能力</p>
+        <a href="https://www.qbitai.com/2026/08/473972.html" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Reddit’s AI is turning posts into podcasts and short videos</div>
+        <div class="news-title zh-text" style="display:none;">Reddit’s AI is turning posts into podcasts and short videos</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Reddit is trying out a new way for people to take in content on Reddit: by turning text posts into a</p>
+        <p class="zh-text" style="display:none;">Reddit is trying out a new way for people to take in content on Reddit: by turning text posts into a</p>
+        <a href="https://www.theverge.com/tech/981289/reddit-ai-text-video-posts" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">OpenAI joins PORTS-Pike project</div>
+        <div class="news-title zh-text" style="display:none;">OpenAI joins PORTS-Pike project</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">OpenAI joins PORTS-Pike project, expanding community investment and supporting thousands of Southern</p>
+        <p class="zh-text" style="display:none;">OpenAI joins PORTS-Pike project, expanding community investment and supporting thousands of Southern</p>
+        <a href="https://openai.com/index/openai-joins-ports-pike-project" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First Uni</div>
+        <div class="news-title zh-text" style="display:none;">Universitas Gadjah Mada, Indosat and NVIDIA Open Indonesia’s First Uni</div>
+        <div class="news-published">🕐 2026-08-14</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Indonesia is taking charge of its AI future. This week, the Ministry of Communication and Digital Af</p>
+        <p class="zh-text" style="display:none;">Indonesia is taking charge of its AI future. This week, the Ministry of Communication and Digital Af</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">AI automation startup Relay shuts down, staff joins Google’s Chrome te</div>
+        <div class="news-title zh-text" style="display:none;">AI automation startup Relay shuts down, staff joins Google’s Chrome te</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">"We have some really ambitious plans to help you work with AI in Chrome to get things done, and I’ll</p>
+        <p class="zh-text" style="display:none;">"We have some really ambitious plans to help you work with AI in Chrome to get things done, and I’ll</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Feedly attributes weeklong slowdown to bug, not its AI pivot</div>
+        <div class="news-title zh-text" style="display:none;">Feedly attributes weeklong slowdown to bug, not its AI pivot</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Feedly says a bug is behind the performance issues that have made its web app nearly "unusable" for</p>
+        <p class="zh-text" style="display:none;">Feedly says a bug is behind the performance issues that have made its web app nearly "unusable" for</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Amazon Can Use Your Twitch Content to Train Its AI—Unless You Opt Out</div>
+        <div class="news-title zh-text" style="display:none;">Amazon Can Use Your Twitch Content to Train Its AI—Unless You Opt Out</div>
+        <div class="news-published">🕐 2026-08-15</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">When Twitch announced that streamers could opt out, thousands of users questioned why their content</p>
+        <p class="zh-text" style="display:none;">When Twitch announced that streamers could opt out, thousands of users questioned why their content</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Tech Visionary Says the Big AI Labs Don’t Get What People Want</div>
+        <div class="news-title zh-text" style="display:none;">Tech Visionary Says the Big AI Labs Don’t Get What People Want</div>
+        <div class="news-published">🕐 2026-08-14</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Tim O’Reilly built a publishing empire that AI is helping to destroy. Yet he loves AI—as long as it’</p>
+        <p class="zh-text" style="display:none;">Tim O’Reilly built a publishing empire that AI is helping to destroy. Yet he loves AI—as long as it’</p>
+        <span class="read-more" style="color:#ccc">🔗 原文链接缺失</span>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">Alphabet Kicks Off Aussie Dollar Bond Sale as AI Spending Soars</div>
+        <div class="news-title zh-text" style="display:none;">Alphabet Kicks Off Aussie Dollar Bond Sale as AI Spending Soars</div>
+        <div class="news-published">🕐 2026-08-17</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">Alphabet Inc. started marketing its debut Australian debt offering as the US tech giant targets its</p>
+        <p class="zh-text" style="display:none;">Alphabet Inc. started marketing its debut Australian debt offering as the US tech giant targets its</p>
+        <a href="https://www.bloomberg.com/news/articles/2026-08-17/alphabet-kicks-off-aussie-dollar-bond-sale-as-ai-spending-soars" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">美国投资级债券8月发行创历年同月新高 AI基建推动企业举债</div>
+        <div class="news-title zh-text" style="display:none;">美国投资级债券8月发行创历年同月新高 AI基建推动企业举债</div>
+        <div class="news-published">🕐 2026-08-18 04:30</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">随着人工智能基础设施建设支出推动企业举债，美国投资级债券发行规模连续第三个月创历年同月纪录新高，创纪录的发债速度仍在延续。</p>
+        <p class="zh-text" style="display:none;">随着人工智能基础设施建设支出推动企业举债，美国投资级债券发行规模连续第三个月创历年同月纪录新高，创纪录的发债速度仍在延续。</p>
+        <a href="https://finance.sina.com.cn/stock/usstock/c/2026-08-18/doc-ininsmwk0421165.shtml" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    <div class='insight-item'><span class='insight-icon'>⚡</span><span class='insight-text'>AI Agent已具备点击/填表/跨软件操作能力，"数字员工"加速落地</span></div><div class='insight-item'><span class='insight-icon'>💡</span><span class='insight-text'>-</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-08-18</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
+  </div>
+</div>
+<script>
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? '原文' : '中文版';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
+}
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'orig' : 'zh');
+}
+// 初始化：默认原文
+(function() {
+  let saved = 'orig';
+  try { saved = localStorage.getItem(LANG_KEY) || 'orig'; } catch(e) {}
+  setLang(saved);
+})();
+</script>
+</body>
+</html>
