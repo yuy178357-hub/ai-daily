@@ -3,168 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI日报 · 历史归档</title>
+<title>AI日报 · 2026-08-18</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; }
-.container { max-width: 720px; margin: 0 auto; padding: 16px; }
-.topbar { position: sticky; top: 0; z-index: 10; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 16px; padding: 16px 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; box-shadow: 0 6px 24px rgba(102,126,234,0.3); }
-.topbar-title { font-size: 18px; font-weight: 800; }
-.topbar-date { font-size: 13px; opacity: 0.9; margin-left: auto; }
-.btn-calendar { background: rgba(255,255,255,0.2); border: none; color: #fff; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 10px; cursor: pointer; transition: all 0.2s; }
-.btn-calendar:hover { background: rgba(255,255,255,0.3); }
-.frame-wrap { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); min-height: 600px; }
-iframe { width: 100%; height: 80vh; border: none; }
-/* 日历弹窗 */
-.modal-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.5); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 100; padding: 16px; }
-.modal-overlay.show { display: flex; }
-.modal { background: #fff; border-radius: 20px; padding: 20px; width: 100%; max-width: 380px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-.modal-header { display: flex; align-items: center; margin-bottom: 16px; }
-.modal-month { font-size: 18px; font-weight: 700; flex: 1; text-align: center; }
-.modal-nav { background: #f1f5f9; border: none; width: 36px; height: 36px; border-radius: 10px; font-size: 18px; cursor: pointer; color: #475569; }
-.modal-nav:hover { background: #e2e8f0; }
-.modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; color: #94a3b8; cursor: pointer; }
-.weekdays { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 8px; }
-.weekdays div { text-align: center; font-size: 12px; color: #94a3b8; font-weight: 600; }
-.days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-.day { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; font-size: 14px; border-radius: 10px; cursor: pointer; position: relative; }
-.day.empty { cursor: default; }
-.day.has-report { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; font-weight: 700; }
-.day.has-report:hover { transform: scale(1.05); }
-.day.no-report { color: #cbd5e1; cursor: not-allowed; }
-.day.out-of-window { color: #e2e8f0; cursor: not-allowed; }
-.day.today-mark { box-shadow: 0 0 0 2px #f59e0b inset; }
-.modal-hint { text-align: center; font-size: 12px; color: #94a3b8; margin-top: 12px; }
-.legend { display: flex; gap: 16px; justify-content: center; margin-top: 10px; font-size: 12px; color: #64748b; }
-.legend-item { display: flex; align-items: center; gap: 4px; }
-.legend-dot { width: 12px; height: 12px; border-radius: 4px; }
+body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif; background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%); color: #1e293b; line-height: 1.6; }
+.container { max-width: 680px; margin: 0 auto; padding: 20px 16px 40px; }
+.hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; border-radius: 20px; padding: 28px 20px; margin-bottom: 20px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+.hero-title { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+.hero-date { font-size: 14px; opacity: 0.9; margin-bottom: 16px; }
+.tldr { background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 12px; padding: 14px 16px; }
+.tldr-title { font-size: 13px; font-weight: 700; opacity: 0.9; margin-bottom: 8px; }
+.tldr-list { list-style: none; font-size: 14px; }
+.tldr-list li { padding: 4px 0; padding-left: 20px; position: relative; }
+.tldr-list li::before { content: "→"; position: absolute; left: 0; opacity: 0.7; }
+.stats-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px; }
+.stat-item { background: #fff; border-radius: 12px; padding: 12px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); transition: transform 0.2s; }
+.stat-item:hover { transform: translateY(-2px); }
+.stat-value { font-size: 20px; font-weight: 800; color: #667eea; }
+.stat-label { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+.section { margin-bottom: 24px; }
+.section-header { display: flex; align-items: center; margin-bottom: 14px; gap: 10px; }
+.section-icon { font-size: 24px; }
+.section-title { font-size: 18px; font-weight: 700; flex: 1; }
+.section-count { font-size: 12px; color: #94a3b8; background: #f1f5f9; padding: 4px 10px; border-radius: 20px; }
+.tool-card { background: #fff; border-radius: 16px; padding: 16px; margin-bottom: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); cursor: pointer; transition: all 0.2s; }
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.tool-header { display: flex; align-items: flex-start; gap: 12px; }
+.tool-icon { font-size: 32px; }
+.tool-info { flex: 1; }
+.tool-name { font-size: 15px; font-weight: 700; margin-bottom: 6px; word-break: break-all; }
+.tool-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 12px; }
+.lang-badge { background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.stars { color: #f59e0b; font-weight: 600; }
+.today { color: #10b981; font-weight: 600; }
+.arrow { font-size: 20px; color: #cbd5e1; font-weight: 300; }
+.tool-desc { margin-top: 10px; font-size: 13px; color: #64748b; line-height: 1.5; }
+.tool-channel { margin-bottom: 18px; }
+.tool-channel-label { font-size: 13px; font-weight: 700; color: #475569; margin-bottom: 8px; padding: 4px 10px; background: #f1f5f9; border-radius: 8px; display: inline-block; }
+.news-card { background: #fff; border-radius: 12px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); overflow: hidden; }
+.news-summary { padding: 14px 16px; cursor: pointer; list-style: none; }
+.news-summary::-webkit-details-marker { display: none; }
+.news-card[open] .news-summary { background: #fafafa; }
+.news-header { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; align-items: center; }
+.grade-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+.tag-badge { font-size: 11px; background: #f1f5f9; color: #64748b; padding: 3px 8px; border-radius: 6px; }
+.source-time { font-size: 12px; color: #94a3b8; margin-left: auto; }
+.news-title { font-size: 15px; font-weight: 600; line-height: 1.5; }
+.news-published { font-size: 12px; color: #94a3b8; margin-top: 4px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.news-body { padding: 0 16px 14px; border-top: 1px solid #f1f5f9; padding-top: 12px; }
+.news-body p { font-size: 14px; color: #64748b; margin-bottom: 10px; }
+.read-more { font-size: 13px; color: #667eea; text-decoration: none; font-weight: 600; }
+.biz-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
+.biz-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(251,191,36,0.3); }
+.biz-header { display: flex; gap: 8px; margin-bottom: 8px; }
+.amount-badge { font-size: 16px; font-weight: 800; color: #92400e; }
+.biz-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: #92400e; }
+.biz-meta { font-size: 12px; color: #b45309; margin-bottom: 6px; }
+.biz-published { font-size: 11px; color: #b45309; opacity: 0.7; margin-bottom: 6px; font-family: 'SF Mono', Menlo, Consolas, monospace; }
+.biz-desc { font-size: 13px; color: #78350f; line-height: 1.5; }
+.insight-section { background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%); border-radius: 16px; padding: 18px 20px; margin-bottom: 16px; }
+.insight-title { font-size: 16px; font-weight: 700; color: #5b21b6; margin-bottom: 12px; }
+.insight-item { display: flex; gap: 10px; margin-bottom: 8px; font-size: 14px; color: #4c1d95; }
+.insight-icon { font-size: 18px; }
+.insight-text { flex: 1; }
+.footer { text-align: center; padding: 20px; font-size: 12px; color: #94a3b8; }
+.footer-divider { width: 60px; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); border-radius: 2px; margin: 0 auto 12px; }
+
+/* 双语切换 */
+.lang-toggle { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.4); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; backdrop-filter: blur(10px); transition: all 0.2s; }
+.lang-toggle:hover { background: rgba(255,255,255,0.3); transform: scale(1.05); }
+.hero { position: relative; }
+.lang-mode-zh .orig-text { display: none !important; }
+.lang-mode-zh .zh-text { display: block !important; }
+.lang-mode-zh .news-body .zh-text { display: block !important; }
 </style>
 </head>
 <body>
 <div class="container">
-  <div class="topbar">
-    <span class="topbar-title">🤖 AI日报 · 历史归档</span>
-    <span class="topbar-date" id="currentDateLabel">2026-08-18</span>
-    <button class="btn-calendar" id="openCalendar">📅 选择日期</button>
+  <div class="hero">
+    <button class="lang-toggle" id="lang-toggle" onclick="toggleLang()">中文版</button>
+    <div class="hero-title">🤖 AI日报</div>
+    <div class="hero-date">2026-08-18 · 自动生成</div>
+    <div class="tldr">
+      <div class="tldr-title">📌 今日速览</div>
+      <ul class="tldr-list">
+        <li>为何中国的DeepSeek、通义千问和月之暗面让美国AI竞争对手感到担忧</li>
+        <li>韩国将初创公司踢出局放弃高风险主权AI竞赛</li>
+      </ul>
+    </div>
   </div>
-  <div class="frame-wrap">
-    <iframe id="reportFrame" src="reports/2026-08-18.html" title="AI日报"></iframe>
+  <div class="stats-bar">
+    <div class="stat-item"><div class="stat-value">14</div><div class="stat-label">条目</div></div>
+    <div class="stat-item"><div class="stat-value">12</div><div class="stat-label">工具</div></div>
+    <div class="stat-item"><div class="stat-value">2</div><div class="stat-label">动态</div></div>
+    <div class="stat-item"><div class="stat-value">0</div><div class="stat-label">商业</div></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🛠️</span><div class="section-title">工具发现</div>
+      <span class="section-count">12 个</span>
+    </div>
+    
+    <div class="tool-channel">
+      <div class="tool-channel-label">⏰ 今日爆发</div>
+      <div class="tool-card" onclick="window.open('https://github.com/harry0703/MoneyPrinterTurbo', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">harry0703/MoneyPrinterTurbo</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 1,189</span>
+            <span class="today">🔥 +1,189 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</div>
+      <div class="tool-desc zh-text" style="display:none;">利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/usestrix/strix', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">usestrix/strix</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 598</span>
+            <span class="today">🔥 +598 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.</div>
+      <div class="tool-desc zh-text" style="display:none;">Open-source AI penetration testing tool to find and fix your app’s vulnerabilities.</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/santifer/career-ops', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">santifer/career-ops</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 218</span>
+            <span class="today">🔥 +218 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailor</div>
+      <div class="tool-desc zh-text" style="display:none;">Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailor</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/mattpocock/skills', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">mattpocock/skills</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 45,839</span>
+            <span class="today">🔥 +45,839 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Skills for Real Engineers. Straight from my .agents directory.</div>
+      <div class="tool-desc zh-text" style="display:none;">Skills for Real Engineers. Straight from my .agents directory.</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/bojieli/ai-agent-book', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">bojieli/ai-agent-book</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 37,085</span>
+            <span class="today">🔥 +37,085 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码</div>
+      <div class="tool-desc zh-text" style="display:none;">《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/diegosouzapw/OmniRoute', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">diegosouzapw/OmniRoute</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 31,675</span>
+            <span class="today">🔥 +31,675 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Never stop coding. Free MIT AI gateway: one endpoint, 340 providers (90+ free), 1200+ models — Kimi, Claude, GPT, Gemini</div>
+      <div class="tool-desc zh-text" style="display:none;">Never stop coding. Free MIT AI gateway: one endpoint, 340 providers (90+ free), 1200+ models — Kimi, Claude, GPT, Gemini</div>
+    </div>
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">📅 本月热门</div>
+      
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">💬 HN热议</div>
+      <div class="tool-card" onclick="window.open('https://www.whodunnitai.com/', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Show HN: Voice driven murder mystery, Interview AI suspects with your voice</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 214</span>
+            <span class="today">🔥 +89 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Hey HN!I'm excited to show off this really fun project I put together. I originally built this project 2-3 years ago, AI</div>
+      <div class="tool-desc zh-text" style="display:none;">Hey HN!I'm excited to show off this really fun project I put together. I originally built this project 2-3 years ago, AI</div>
+    </div><div class="tool-card" onclick="window.open('https://github.com/palmier-io/palmier-pro', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Show HN: Palmier Pro – Open-source macOS video editor built for AI</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 191</span>
+            <span class="today">🔥 +40 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Hi HN, we are Marcos and Harrison, cofounders of Palmier (https://palmier.io). We are building Palmier Pro, an open sour</div>
+      <div class="tool-desc zh-text" style="display:none;">Hi HN, we are Marcos and Harrison, cofounders of Palmier (https://palmier.io). We are building Palmier Pro, an open sour</div>
+    </div><div class="tool-card" onclick="window.open('https://marbleos.com/demo', '_blank')">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Show HN: What should the GUI for AI agents look like?</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 139</span>
+            <span class="today">🔥 +86 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Hi HN! We’re Akilan and Miguel, the creators of MarbleOS.The inspiration for Marble comes from the GUI work at Xerox PAR</div>
+      <div class="tool-desc zh-text" style="display:none;">Hi HN! We’re Akilan and Miguel, the creators of MarbleOS.The inspiration for Marble comes from the GUI work at Xerox PAR</div>
+    </div>
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">🧪 PH新品</div>
+      
+    </div>
+
+    <div class="tool-channel">
+      <div class="tool-channel-label">🛠️ 其他工具</div>
+      <div class="tool-card" style="opacity:0.5;cursor:default;" title="链接缺失">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Clears</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 0</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Move beyond AI coding to Agentic Software Delivery</div>
+      <div class="tool-desc zh-text" style="display:none;">Move beyond AI coding to Agentic Software Delivery</div>
+    </div><div class="tool-card" style="opacity:0.5;cursor:default;" title="链接缺失">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Blender Agent Bridge</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 0</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Open-source MCP bridge for Blender AI workflows</div>
+      <div class="tool-desc zh-text" style="display:none;">Open-source MCP bridge for Blender AI workflows</div>
+    </div><div class="tool-card" style="opacity:0.5;cursor:default;" title="链接缺失">
+      <div class="tool-header">
+        <div class="tool-icon">🛠️</div>
+        <div class="tool-info">
+          <div class="tool-name">Omni by xpander</div>
+          <div class="tool-meta">
+            <span class="lang-badge"></span>
+            <span class="stars">⭐ 0</span>
+            <span class="today">🔥 +0 today</span>
+          </div>
+        </div>
+        <div class="arrow">→</div>
+      </div>
+      <div class="tool-desc orig-text">Stop babysitting your AI agents</div>
+      <div class="tool-desc zh-text" style="display:none;">Stop babysitting your AI agents</div>
+    </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📰</span><div class="section-title">行业动态</div>
+      <span class="section-count">2 条</span>
+    </div>
+    
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">为何中国的DeepSeek、通义千问和月之暗面让美国AI竞争对手感到担忧</div>
+        <div class="news-title zh-text" style="display:none;">为何中国的DeepSeek、通义千问和月之暗面让美国AI竞争对手感到担忧</div>
+        <div class="news-published">🕐 2026-08-18</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">中国AI模型成本低、适应性强，已逼近美国平台。</p>
+        <p class="zh-text" style="display:none;">中国AI模型成本低、适应性强，已逼近美国平台。</p>
+        <a href="https://www.bloomberg.com/news/articles/2026-08-18/why-china-s-deepseek-qwen-and-moonshot-are-a-worry-for-us-ai-rivals" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+    <details class="news-card" style="border-left: 4px solid #6b7280;">
+      <summary class="news-summary">
+        <div class="news-header">
+          <span class="grade-badge" style="background:#f9fafb; color:#6b7280;">⚪ 常规</span>
+          <span class="tag-badge">AI</span>
+          <span class="source-time"></span>
+        </div>
+        <div class="news-title orig-text">韩国将初创公司踢出局放弃高风险主权AI竞赛</div>
+        <div class="news-title zh-text" style="display:none;">韩国将初创公司踢出局放弃高风险主权AI竞赛</div>
+        <div class="news-published">🕐 2026-08-18</div>
+      </summary>
+      <div class="news-body">
+        <p class="orig-text">韩国将Motif团队踢出主权AI竞赛，剩余三支队伍争夺。</p>
+        <p class="zh-text" style="display:none;">韩国将Motif团队踢出主权AI竞赛，剩余三支队伍争夺。</p>
+        <a href="https://www.bloomberg.com/news/articles/2026-08-18/korea-jettisons-startup-from-high-stakes-sovereign-ai-contest" target="_blank" rel="noopener noreferrer" class="read-more">阅读原文 ↗</a>
+      </div>
+    </details>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">💰</span><div class="section-title">资本商业</div>
+      <span class="section-count">0 条</span>
+    </div>
+    
+  </div>
+  <div class="insight-section">
+    <div class="insight-title">💡 今日洞察</div>
+    <div class='insight-item'><span class='insight-icon'>💡</span><span class='insight-text'>-</span></div>
+  </div>
+  <div class="footer">
+    <div class="footer-divider"></div>
+    <div>QClaw AI日报 · 2026-08-18</div>
+    <div style="margin-top: 6px;">点击卡片查看详情 · 自动生成</div>
   </div>
 </div>
-
-<div class="modal-overlay" id="calendarModal">
-  <div class="modal">
-    <button class="modal-close" id="closeCalendar">×</button>
-    <div class="modal-header">
-      <button class="modal-nav" id="prevMonth">‹</button>
-      <div class="modal-month" id="monthLabel"></div>
-      <button class="modal-nav" id="nextMonth">›</button>
-    </div>
-    <div class="weekdays">
-      <div>日</div><div>一</div><div>二</div><div>三</div><div>四</div><div>五</div><div>六</div>
-    </div>
-    <div class="days" id="daysGrid"></div>
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:linear-gradient(135deg,#667eea,#764ba2);"></div>有报告</div>
-      <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;"></div>今天</div>
-    </div>
-    <div class="modal-hint">近 90 天内有报告的日期可点击查看</div>
-  </div>
-</div>
-
 <script>
-const AVAILABLE_DATES = ["2026-05-20", "2026-05-21", "2026-05-22", "2026-05-23", "2026-05-24", "2026-05-25", "2026-05-26", "2026-05-27", "2026-05-28", "2026-05-29", "2026-05-30", "2026-05-31", "2026-06-01", "2026-06-02", "2026-06-03", "2026-06-04", "2026-06-05", "2026-06-06", "2026-06-07", "2026-06-08", "2026-06-09", "2026-06-10", "2026-06-11", "2026-06-12", "2026-06-13", "2026-06-14", "2026-06-15", "2026-06-16", "2026-06-17", "2026-06-21", "2026-06-22", "2026-06-23", "2026-06-24", "2026-06-25", "2026-06-26", "2026-06-27", "2026-06-28", "2026-06-29", "2026-06-30", "2026-07-01", "2026-07-02", "2026-07-03", "2026-07-04", "2026-07-05", "2026-07-06", "2026-07-07", "2026-07-08", "2026-07-09", "2026-07-10", "2026-07-11", "2026-07-12", "2026-07-13", "2026-07-14", "2026-07-15", "2026-07-16", "2026-07-17", "2026-07-18", "2026-07-19", "2026-07-20", "2026-07-21", "2026-07-22", "2026-07-23", "2026-07-24", "2026-07-25", "2026-07-26", "2026-07-27", "2026-08-04", "2026-08-05", "2026-08-06", "2026-08-07", "2026-08-08", "2026-08-09", "2026-08-10", "2026-08-11", "2026-08-12", "2026-08-13", "2026-08-14", "2026-08-15", "2026-08-16", "2026-08-17", "2026-08-18"];
-const WINDOW_DAYS = 90;
-const TODAY = "2026-08-18";
-
-const todayDate = new Date(TODAY + "T00:00:00");
-let viewYear = todayDate.getFullYear();
-let viewMonth = todayDate.getMonth();  // 0-11
-
-const weekdayNames = ['日','一','二','三','四','五','六'];
-
-function fmt(d) {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
+const LANG_KEY = 'ai_daily_lang';
+function setLang(mode) {
+  document.body.classList.toggle('lang-mode-zh', mode === 'zh');
+  document.getElementById('lang-toggle').textContent = mode === 'zh' ? '原文' : '中文版';
+  try { localStorage.setItem(LANG_KEY, mode); } catch(e) {}
 }
-
-function isInWindow(dateStr) {
-  const d = new Date(dateStr + "T00:00:00");
-  const diffDays = Math.floor((todayDate - d) / (1000 * 60 * 60 * 24));
-  return diffDays >= 0 && diffDays <= WINDOW_DAYS;
+function toggleLang() {
+  const isZh = document.body.classList.contains('lang-mode-zh');
+  setLang(isZh ? 'orig' : 'zh');
 }
-
-function renderCalendar() {
-  const monthLabel = document.getElementById('monthLabel');
-  monthLabel.textContent = `${viewYear}年${viewMonth + 1}月`;
-
-  const grid = document.getElementById('daysGrid');
-  grid.innerHTML = '';
-
-  const firstDay = new Date(viewYear, viewMonth, 1);
-  const startWeekday = firstDay.getDay();  // 0=周日
-  const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-
-  // 前置空格
-  for (let i = 0; i < startWeekday; i++) {
-    const empty = document.createElement('div');
-    empty.className = 'day empty';
-    grid.appendChild(empty);
-  }
-
-  for (let d = 1; d <= daysInMonth; d++) {
-    const dateStr = fmt(new Date(viewYear, viewMonth, d));
-    const cell = document.createElement('div');
-    cell.textContent = d;
-
-    const hasReport = AVAILABLE_DATES.includes(dateStr);
-    const inWindow = isInWindow(dateStr);
-    const isToday = dateStr === TODAY;
-
-    if (hasReport && inWindow) {
-      cell.className = 'day has-report' + (isToday ? ' today-mark' : '');
-      cell.onclick = () => selectDate(dateStr);
-    } else if (!inWindow) {
-      cell.className = 'day out-of-window';
-    } else {
-      cell.className = 'day no-report' + (isToday ? ' today-mark' : '');
-    }
-    grid.appendChild(cell);
-  }
-}
-
-function selectDate(dateStr) {
-  document.getElementById('reportFrame').src = `reports/${dateStr}.html`;
-  document.getElementById('currentDateLabel').textContent = dateStr;
-  closeCalendar();
-}
-
-function openCalendar() {
-  document.getElementById('calendarModal').classList.add('show');
-}
-function closeCalendar() {
-  document.getElementById('calendarModal').classList.remove('show');
-}
-
-document.getElementById('openCalendar').onclick = openCalendar;
-document.getElementById('closeCalendar').onclick = closeCalendar;
-document.getElementById('calendarModal').onclick = (e) => {
-  if (e.target.id === 'calendarModal') closeCalendar();
-};
-document.getElementById('prevMonth').onclick = () => {
-  viewMonth--;
-  if (viewMonth < 0) { viewMonth = 11; viewYear--; }
-  renderCalendar();
-};
-document.getElementById('nextMonth').onclick = () => {
-  viewMonth++;
-  if (viewMonth > 11) { viewMonth = 0; viewYear++; }
-  renderCalendar();
-};
-
-renderCalendar();
+// 初始化：默认原文
+(function() {
+  let saved = 'orig';
+  try { saved = localStorage.getItem(LANG_KEY) || 'orig'; } catch(e) {}
+  setLang(saved);
+})();
 </script>
 </body>
 </html>
